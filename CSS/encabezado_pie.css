@@ -5,7 +5,18 @@
 
 body{
     margin: 0px;
-    font-family:  'Monserrat';
+    font-family: 'Monserrat';
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 15vh 1fr 50vh;
+    grid-template-areas: 
+    "header"
+    "section"
+    "footer"
+    ;
 }
 
 header{
@@ -17,8 +28,9 @@ header{
     "promociones"
     "contenidoHeader"
     ;
+    
 }
-
+ 
 .logo, .menu ul, .navegacion{
     display: flex;
 }
@@ -41,6 +53,7 @@ header{
     color: #ffffff;
     text-align: center;
     font-weight: bold;
+    font-size: 0.85rem;
 }
 
 .header_content{
@@ -54,6 +67,9 @@ header{
     background-color: #ffffff;
     border-bottom: 1px solid;
     border-color: rgb(220, 220, 220);
+    /*position: fixed;
+    z-index: 2300;
+    width: 100%;*/
 }
 
 .logo{
@@ -62,13 +78,9 @@ header{
     grid-area: logo;
 }
 
-#logoAmefil{
-    width: 12em;
-}
-
 #amefil{
     padding-left: 10px;
-    width: 100px;
+    width: 150px;
 }
 
 .menu{
@@ -79,37 +91,29 @@ header{
 .menu ul{
     list-style: none;
     justify-content: center;
+    padding-left: 0;
+    height: 100%;
+    margin: 0px;
+    align-items: center;
 }
 
 .menu li{
     margin-left: 70px;
 }
 
+.menu li:hover{
+    border-bottom: 2px solid;
+}
+
 .menu a{
     text-decoration: none;
     color: black;
-    font-size: 0.8rem;
-    font-weight: bold;
-}
-
-.menu a:hover{
-    border-bottom: 2px solid;
+    font-size: 0.7rem;
+    font-weight: 600;
 }
 
 .navegacion{
     grid-area: navegacion;
-}
-
-.navegacion div{
-    margin-left: 5%;
-    width: 40px;
-    height: 40px;
-    align-content: center;
-    border-radius: 30px;
-}
-
-.navegacion div:hover{
-    background-color: #d7d7d7;
 }
 
 .navegacion img{
@@ -117,14 +121,102 @@ header{
     height: 25px;
 }
 
-/*pie*/
+.nav_buscar, .nav_carritoCompras, .nav_usuario{
+    margin-left: 5%;
+    align-content: center;
+}
 
+.navegacion .boton{
+    border: none;
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.navegacion .boton:hover{
+    background-color: #d7d7d7;
+}
+
+/*boton carrito de compras*/
+#contenidoCarrito {
+    position: absolute;
+    right: 0px;
+    top: 0;
+    width: 400px; 
+    height: 100vh; 
+    background-color: white;
+    z-index: 1000;
+}
+
+/*boton usuario*/
+.oculto {
+    display: none;
+}
+
+#contenidoUsuario{
+    position: absolute;
+    right: 80px;
+    top: 15.5%;
+    width: 17em;
+    background-color: #F5F5DC;
+    padding: 20px;
+    border: 1px solid #d7d7d7;
+    border-radius: 10px;    
+}
+
+.botonesUsuario button{
+    background-color: #fff;
+    font-family: 'Monserrat';
+    font-size: 0.785rem;
+    font-weight: 500;
+    color: #000;
+    padding: 3%;
+    margin-bottom: 5%;
+    width: 90%;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.botonesUsuario button:hover{
+    background-color: #7f6d67;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*pie*/
 
 footer{
     grid-area: footer;
     background-color: #6b4e44;
     display: grid;
-    grid-template-columns: 1fr 30%;
+    grid-template-columns: 1fr 35%;
     grid-template-rows: 1fr 40%;
     grid-template-areas: 
     "info unete"
@@ -138,6 +230,7 @@ footer{
 
 .unete{
     grid-area: unete;
+    display: flex;
 }
 
 .unete input{
@@ -157,6 +250,18 @@ footer{
 
 .unete input::placeholder{
     color: #ffffff;
+}
+
+.unete img{
+    width: 4.5em;
+    height: 4.5em;
+    margin-top: 30%;
+    padding: 20%;
+}
+
+.ingresaemail{
+    width: 100%;
+    margin-left: 10%;
 }
 
 footer h3{
@@ -180,7 +285,7 @@ footer h3{
 }
 
 .informacion li, .informacion li a{
-    font-size: 0.75rem;
+    font-size: 0.7rem;
 }
 
 .informacion li a{
@@ -215,6 +320,7 @@ footer h3{
 
 .redes{
     display: flex;
+    margin-left: 20%;
 }
 
 .ig, .fb, .wsp, .tiktok{
