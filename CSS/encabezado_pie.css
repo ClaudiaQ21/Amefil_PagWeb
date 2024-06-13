@@ -11,7 +11,7 @@ body{
 .grid{
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 15vh 1fr 50vh;
+    grid-template-rows: 4% 1fr 13%;
     grid-template-areas: 
     "header"
     "section"
