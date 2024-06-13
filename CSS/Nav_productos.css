@@ -1,18 +1,7 @@
 
-.grid{
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 8em 80% 1fr;
-    grid-template-areas: 
-    "header"
-    "nav_productos"
-    "footer"
-    ;
-}
-
 .nav_productos{
     display: grid;
-    grid-area: nav_productos;
+    grid-area: section;
     grid-template-columns: 100%;
     grid-template-rows: 20em 3em;
     grid-template-areas: 
