@@ -1,0 +1,523 @@
+@font-face {
+    font-family: Monserrat;
+    src: url('recursos/Montserrat-VariableFont_wght.ttf');
+}
+
+body{
+    margin: 0px;
+    font-family:  'Monserrat';
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 8em 80% 1fr;
+    grid-template-areas: 
+    "header"
+    "producto"
+    "footer"
+    ;
+}
+
+header{
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 35% 1fr;
+    grid-template-areas: 
+    "promociones"
+    "contenidoHeader"
+    ;
+}
+
+.logo, .menu ul, .navegacion{
+    display: flex;
+}
+
+.logo, .menu, .navegacion{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.promos{
+    grid-area: promociones;
+    background-color: #6b4e44;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.promos p{
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.header_content{
+    grid-area: contenidoHeader;
+    display: grid;
+    grid-template-columns: 20% 1fr 20%;
+    grid-template-rows: 100%;
+    grid-template-areas: 
+    "logo menu navegacion"
+    ;
+    background-color: #ffffff;
+    border-bottom: 1px solid;
+    border-color: rgb(220, 220, 220);
+}
+
+.logo{
+    justify-content: center;
+    align-items: center;
+    grid-area: logo;
+}
+
+#logoAmefil{
+    width: 12em;
+}
+
+#amefil{
+    padding-left: 10px;
+    width: 100px;
+}
+
+.menu{
+    grid-area: menu;
+    align-content: center;
+}
+
+.menu ul{
+    list-style: none;
+    justify-content: center;
+}
+
+.menu li{
+    margin-left: 70px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: black;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.menu a:hover{
+    border-bottom: 2px solid;
+}
+
+.navegacion{
+    grid-area: navegacion;
+}
+
+.navegacion div{
+    margin-left: 5%;
+    width: 40px;
+    height: 40px;
+    align-content: center;
+    border-radius: 30px;
+}
+
+.navegacion div:hover{
+    background-color: #d7d7d7;
+}
+
+.navegacion img{
+    width: 25px;
+    height: 25px;
+}
+
+.producto{
+    display: grid;
+    margin-top: 2em;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 30em 13em 5em 15em 3em 30em 5em;
+    grid-template-areas: 
+    "img_prin detalles"
+    "img_sec detalles"
+    "ban_reseña ban_reseña"
+    "reseña reseña"
+    "crea_reseña crea_reseña"
+    "produc_sim produc_sim"
+    "siguenos siguenos"
+    ;
+    grid-area:producto;
+}
+
+.img_prin img{
+    width: 30em;
+}
+
+.img_prin{
+    grid-area: img_prin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detalles{
+    grid-area: detalles;
+    display: grid;
+    grid-template-columns: 40% 60% ;
+    grid-template-rows: 28% 5em 1fr;
+    grid-template-areas: 
+    "descrip descrip"
+    "monto cantidad"
+    "botones botones"
+    ;
+}
+
+.descrip{
+    grid-area: descrip;
+}
+
+#favoritos{
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.monto{
+    margin-top: 1em;
+    grid-area: monto;
+}
+
+.cantidad{
+    margin-top: 1em;
+    grid-area: cantidad;
+}
+
+.img_sec{
+    grid-area: img_sec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3em;
+}
+
+.img_sec img{
+    width: 7em;
+    height: 7em;
+    margin-right: 3em;
+}
+
+.img_sec img[data-main="true"] {
+    width: 10em;
+    height: 10em;
+}
+
+.counter-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.counter-btn {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+#counter-value {
+    padding: 10px;
+    text-align: center;
+    width: 50px;
+}
+
+.botones{
+    grid-area: botones;
+}
+
+.botones button{
+    width: 31.5em;
+    margin-bottom: 15px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #6b4e44;
+    cursor: pointer;
+    color: #ffffff;
+    border-style: none;
+}
+
+/* 
+.botones button:hover{
+    background-color: #d7d7d7;
+} */
+
+.contenedor_reseña {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50em;
+    margin: auto;
+    grid-area: reseña;
+}
+
+.carrusel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    padding: 2em;
+    width: 45em;
+    text-align: center;
+}
+
+.reseña {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.btn_res {
+    background-color: #6b4e44;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn_res:disabled {
+    background-color: #aaa;
+    cursor: default;
+}
+
+.estrellas {
+    margin-left: 10px;
+}
+
+.estrellas i {
+    margin: 0 2px;
+    font-size: 20px;
+}
+
+.reseña p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.total_reseñas{
+    display: grid;
+    grid-area: ban_reseña;
+    background-color:#6b4e44;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 100%;
+    font-size: 1.2em;
+    grid-template-areas: 
+    "titulo calificacion"
+    ;
+    color:#ffffff
+}
+
+.total_reseñas p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#titulo{
+    grid-area: titulo;
+    justify-content: left;
+    margin-left: 2em;
+}
+
+#calificacion{
+    grid-area: calificacion;
+}
+
+.estrellas_total {
+    margin-left: 10px;
+}
+
+.estrellas_total i {
+    margin: 0 2px;
+}
+
+.crea_reseña{
+    grid-area: crea_reseña;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cre_res{
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 20em;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #6b4e44;
+}
+
+#cre_res:hover{
+    background-color: #8b665a;
+}
+
+.produc_sim{
+    display: grid;
+    margin-top: 1em;
+    grid-area: produc_sim;
+    grid-template-columns: 100% ;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: 
+    "titulo_produc_sim"
+    "img_produ_sim"
+    ;
+}
+
+.titulo_produc_sim{
+    font-size: 1.2em;
+    display: flex;
+    justify-content: left;
+    margin-left:2em;
+    grid-area: titulo_produc_sim;
+}
+
+.img_produ_sim{
+    grid-area: img_produ_sim;
+    display: flex;
+    margin-left: 2em;
+}
+
+.img_produ_sim a{
+    height: 15em;
+    width: 15em;
+    margin-inline-end: 1.5em;
+}
+
+.img_produ_sim img{
+    width: 15em;
+    height: 15em;
+}
+
+.siguenos{
+    display: flex;
+    grid-area: siguenos;
+    font-size: 1.2em;
+    justify-content: center;    
+    align-items: center;
+    background-color: #6b4e44;
+    color: #ffffff;
+}
+
+.siguenos p{
+    margin-right: 2em;
+}
+
+.siguenos a img{
+    width: 2em;
+    height: auto;
+}
+
+footer{
+    grid-area: footer;
+    background-color: #6b4e44;
+    display: grid;
+    grid-template-columns: 1fr 30%;
+    grid-template-rows: 1fr 40%;
+    grid-template-areas: 
+    "info unete"
+    "info redes"
+    ;
+    padding: 1%;
+    padding-top: 30px;
+    /*border-top: 1px solid;
+    border-color: rgb(220, 220, 220);*/
+}
+
+.unete{
+    grid-area: unete;
+}
+
+.unete input{
+    width: 70%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    font-family: 'Monserrat';
+    padding-left: 2%;
+    font-size: 0.75rem;
+    border: none;
+    border-bottom: 1px solid;
+    background-color: #6b4e44;
+    border-color: #ffffff;
+    color: white;
+    outline: none;
+}
+
+.unete input::placeholder{
+    color: #ffffff;
+}
+
+footer h3{
+    font-size: 0.8rem;
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.informacion{
+    grid-area: info;
+    display: flex;
+}
+
+.informacion li{
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 300;
+}
+
+.informacion li, .informacion li a{
+    font-size: 0.75rem;
+}
+
+.informacion li a{
+    text-decoration: none;
+    color: white;
+}
+
+.enlaces{
+    list-style: none;
+    padding-left: 0%;
+}
+
+.conocenos, .contactanos, .soporte{
+    margin-left: 140px;
+}
+
+.logoFooter{
+    grid-area: logoFooter;
+    padding-left: 30px;
+}
+
+.logoFooter img{
+    width: 80px;
+    height: 80px;
+}
+
+.redesSociales{
+    grid-area: redes;
+    display: block;
+    align-content: center;
+}
+
+.redes{
+    display: flex;
+}
+
+.ig, .fb, .wsp, .tiktok{
+    margin-left: 20px;
+}
+
+.redes img{
+    width: 40px;
+}

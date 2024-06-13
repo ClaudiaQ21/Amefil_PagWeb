@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/Producto.css">
+    <link rel="icon" href="img/img_logo/logoAmefil.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Amefil</title>
+    <script src="JS/Producto.js"></script>
+</head>
+<body>
+    <div class="grid">
+        <header>
+            <div class="promos">
+                <p>50% DE DESCUENTO EN TU PRIMERA COMPRA</p>
+            </div>
+
+            <div class="header_content">
+                <div class="logo">
+                    <img src="img/img_logo/logoAmefil (2).svg" id="logoAmefil">
+                </div>
+                <div class="menu">
+                    <ul class="menuLista">
+                        <li><a href="">NOVEDADES</a></li>
+                        <li><a href="">COLECCIONES</a></li>
+                        <li><a href="">MÁS VENDIDOS</a></li>
+                        <li><a href="">DESCUENTOS</a></li>
+                    </ul>
+                </div>
+                <div class="navegacion">
+                    <div class="buscar">
+                        <a href="">
+                            <img src="img/img_iconos/buscar.png">
+                        </a>
+                    </div>
+                    <div class="carritoCompras">
+                        <a href="">
+                            <img src="img/img_iconos/bolsa-de-la-compra.png">
+                        </a>
+                    </div>
+                    <div class="usuario">
+                        <a href="">
+                            <img src="img/img_iconos/usuario.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+        <div class="producto">
+            <div class="img_prin">
+                <img id="main-image" src="img/pulseras/descarga (5).png" alt="Producto Principal">
+            </div>
+            <div class="detalles">
+                <div class="descrip">
+                    <h2>Brisa de primavera <button type="button" class="far fa-heart" id="favoritos"></button></h2>
+                    <p>Talla: 3</p>
+                    <p>Color: Lavanda</p>
+                    <p>Material: Hilo chino</p>
+                    <p>Descripción: Materiales duraderos y cierre ajustable</p>
+                </div>
+                <div class="monto">
+                    <p>S/25.00</p>
+                </div>
+                <div class="cantidad">     
+                    Cantidad        
+                    <button id="menos" class="counter-btn">-</button>
+                    <input type="text" id="counter-value" value="1" readonly>
+                    <button id="mas" class="counter-btn">+</button>
+                </div>
+                <div class="botones">
+                    <button type="button" id="mas_carr">Añadir al carrito</button>
+                    <button type="button">Comprar ahora</button>
+                </div>
+            </div>
+            <div class="img_sec">
+                <img class="thumbnail" src="img/pulseras/descarga (4).png" alt="Producto Lateral 1">
+                <img class="thumbnail" src="img/pulseras/descarga (5).png" alt="Producto Principal" data-main="true">
+                <img class="thumbnail" src="img/pulseras/descarga (7).png" alt="Producto Lateral 2">
+            </div>
+            <div class="total_reseñas">
+                <p id="titulo">
+                    RESEÑAS DEL PRODUCTO
+                </p>
+                <p id="calificacion">
+                    4.0 / 5.0
+                    <span class="estrellas_total">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </span>
+                </p>
+            </div>
+            <div class="contenedor_reseña">
+                <button id="prev" class="btn_res">&lt;</button>
+                <div class="carrusel">
+                    <div class="reseña" data-index="0">
+                        <p>- Cliente 1
+                        </p>
+                        <div class="estrellas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>"Reseña 1: Excelente producto, muy recomendado!"</p>
+                        
+                    </div>
+                    <div class="reseña" data-index="1" style="display: none;">
+                        <p>- Cliente 2
+                        </p>
+                        <div class="estrellas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p>"Reseña 2: Buen servicio y calidad."</p>
+                    </div>
+                    <div class="reseña" data-index="2" style="display: none;">
+                        <p>- Cliente 3
+                        </p>
+                        <div class="estrellas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p>"Quedé encantada con esta pulsera. Los colores lavanda y rosa son simplemente preciosos y los detalles de las cuentas florales le dan un toque femenino muy lindo. El envío fue rápido y llegó muy bien empaquetado. ¡Una excelente compra para renovar mis accesorios esta temporada!"</p>
+                    </div>
+                </div>
+                <button id="next" class="btn_res">&gt;</button>
+            </div>
+            <div class="crea_reseña">
+                <button id="cre_res">Escribe una reseña</button>
+            </div>
+            <div class="produc_sim">
+                <div class="titulo_produc_sim">
+                    <p>PRODUCTOS SIMILARES</p>
+                </div>
+                <div class="img_produ_sim">
+                    <a href=""><img src="img/pulseras/descarga (8).png" alt=""></a>
+                    <a href=""><img src="img/pulseras/descarga (3).png" alt=""></a>
+                    <a href=""><img src="img/pulseras/descarga (6).png" alt=""></a>
+                    <a href=""><img src="img/pulseras/descarga (2).png" alt=""></a>
+                    <a href=""><img src="img/pulseras/descarga (9).png" alt=""></a>
+                </div>
+            </div>
+            <div class="siguenos">            
+                <p>
+                    NO OLVIDES SEGUIRNOS EN NUESTRAS REDES
+                </p>
+                <div>
+                    <a href=""><img src="img/img_redes/instagram.png" alt=""></a>
+                    <a href=""><img src="img/img_redes/facebook.png" alt=""></a>
+                    <a href=""><img src="img/img_redes/whatsapp.png" alt=""></a>
+                    <a href=""><img src="img/img_redes/tiktok.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="informacion">
+                <div class="conocenos">
+                    <h3>SOBRE NOSOTROS</h3>
+                    <ul class="enlaces">
+                        <li>
+                            <a href="">Amefil</a>
+                        </li>
+                        <li>
+                            <a href="">Contactos</a>
+                        </li>
+                        <li>
+                            <a href="">Únete</a>
+                        </li>
+                        <li>
+                            <a href="">Terminos y Condiciones</a>
+                        </li>
+                        <li>
+                            <a href="">Políticas de privacidad</a>
+                        </li>
+                        <li>
+                            <a href="">Política de cookies</a>
+                        </li>
+                        <li>
+                            <a href="">Política de envíos</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="contactanos">
+                    <h3>CONTÁCTANOS</h3>
+                    <ul class="enlaces">
+                        <li>amefilonline@gmail.com</li>
+                        <li>+51 987 963 214</li>                      
+                    </ul>
+                </div>
+
+                <div class="soporte">
+                    <h3>SOPORTE</h3>
+                    <ul class="enlaces">
+                        <li>
+                            <a href="">Libro de Reclamaciones</a>
+                        </li>
+                        <li>
+                            <a href="">Formas de pago</a>
+                        </li>
+                        <li>
+                            <a href="">Guía de tallas de collar</a>
+                        </li>
+                        <li>
+                            <a href="">Guía de tallas de pulsera</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="unete">
+                <h3>ÚNETE</h3>
+                <input type="text" placeholder="Ingresa tu email aquí">
+            </div>
+
+            <div class="redesSociales">
+                <div class="redes">
+                    <div class="ig">
+                        <a href=""><img src="img/img_redes/instagram.png" alt="ig"></a>
+                    </div>
+                    <div class="fb">
+                        <a href="">
+                            <img src="img/img_redes/facebook.png" alt="fb">
+                        </a>
+                    </div>
+                    <div class="wsp">
+                        <a href="">
+                            <img src="img/img_redes/whatsapp.png" alt="wsp">
+                        </a>
+                    </div>
+                    <div class="tiktok">
+                        <a href="">
+                            <img src="img/img_redes/tiktok.png" alt="tiktok">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="logoFooter">
+            </div>
+        </footer>
+    </div>
+    <script src="JS/jquery-3.7.1.slim.min.js"></script>
+    <script src="JS/Producto.js"></script>
+</body>
+</html>
