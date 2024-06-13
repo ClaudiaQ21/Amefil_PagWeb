@@ -33,20 +33,20 @@
 
                 <div class="navegacion">
                     <div class="nav_buscar">
-                        <button class="boton buscar"><img src="img/buscar.png" alt=""></button>
+                        <button class="boton buscar"><img src="img/img_iconos/buscar.png" alt=""></button>
                         <div id="contenidoBuscar">
                             
                         </div>
                     </div>
                     <div class="nav_carritoCompras">
-                        <button class="boton carritoCompras"><img src="img/bolsa-de-la-compra.png"></button>
+                        <button class="boton carritoCompras"><img src="img/img_iconos/bolsa-de-la-compra.png"></button>
                         <div id="contenidoCarrito" class="oculto">
                             <p>carrito de compras</p>
                         </div>
                     </div>
                     <div class="nav_usuario">
                         <button class="boton usuario">
-                            <img src="img/usuario.png">
+                            <img src="img/img_iconos/usuario.png">
                         </button>
                         <div id="contenidoUsuario" class="oculto">
                             <div class="botonesUsuario">
@@ -62,8 +62,7 @@
 
         </header>
 
-        <section>
-            <div class="nav_productos">
+        <div class="nav_productos">
                 <div class="cab_nav">
                     <div class="cab_nav_text">
                         <h2>NUESTROS PRODUCTOS</h2>
@@ -78,19 +77,39 @@
                 <div class="prom">
                     <p>Envío gratis por todo el mes de Junio</p>
                 </div>
-    
-                <div class="filtros">
-                    <div>
-                        
+
+                <div class="fil_nav">
+                    <div class="filtros">
+                        <div class="fil">
+                            <legend>Colecciones</legend>
+                            <input type="checkbox" name="colecc" id="colecc" value="col_pul">Pulseras
+                            <input type="checkbox" name="colecc" id="colecc" value="col_bol">Bolsos
+                            <input type="checkbox" name="colecc" id="colecc" value="col_coll">Collares
+                            <input type="checkbox" name="colecc" id="colecc" value="col_are">Aretes
+                        </div>
+                        <div class="fil">
+                            <legend>Temporada</legend>
+                            <input type="checkbox" name="temp" id="temp" value="tem_pr">Primavera
+                            <input type="checkbox" name="temp" id="temp" value="tem_ve">Verano
+                            <input type="checkbox" name="temp" id="temp" value="tem_oto">Otoño
+                            <input type="checkbox" name="temp" id="temp" value="tem_in">Invierno
+                        </div>
+                        <div class="fil">
+                            <legend>Puntuación</legend>
+                            <input type="checkbox" name="punt" id="punt" value="pun_5">5 estrellas
+                            <input type="checkbox" name="punt" id="punt" value="pun_4">4 a más estrellas
+                            <input type="checkbox" name="punt" id="punt" value="pun_3">3 a más estrellas
+                        </div>
+                    </div>
+                    <div class="productos">
+                        <div class="produc">
+        
+                        </div>
                     </div>
                 </div>
-                <div class="productos">
-                    <div class="produc">
     
-                    </div>
-                </div>
-            </div>
-        </section>
+                
+        </div>
         
 
         <footer>
@@ -152,7 +171,7 @@
 
             <div class="unete">
                 <div class="logofooter">
-                    <img src="img/img_logo/logoAmefil-blanco.png">
+                    <img src="img/img_logo/logo_blanco.svg" id="logofooter">
                 </div>
 
                 <div class="ingresaemail">
