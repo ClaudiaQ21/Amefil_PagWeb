@@ -1,0 +1,226 @@
+@font-face {
+    font-family: Monserrat;
+    src: url('recursos/Montserrat-VariableFont_wght.ttf');
+}
+
+body{
+    margin: 0px;
+    font-family:  'Monserrat';
+}
+
+header{
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 35% 1fr;
+    grid-template-areas: 
+    "promociones"
+    "contenidoHeader"
+    ;
+}
+
+.logo, .menu ul, .navegacion{
+    display: flex;
+}
+
+.logo, .menu, .navegacion{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.promos{
+    grid-area: promociones;
+    background-color: #6b4e44;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.promos p{
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.header_content{
+    grid-area: contenidoHeader;
+    display: grid;
+    grid-template-columns: 20% 1fr 20%;
+    grid-template-rows: 100%;
+    grid-template-areas: 
+    "logo menu navegacion"
+    ;
+    background-color: #ffffff;
+    border-bottom: 1px solid;
+    border-color: rgb(220, 220, 220);
+}
+
+.logo{
+    justify-content: center;
+    align-items: center;
+    grid-area: logo;
+}
+
+#logoAmefil{
+    width: 12em;
+}
+
+#amefil{
+    padding-left: 10px;
+    width: 100px;
+}
+
+.menu{
+    grid-area: menu;
+    align-content: center;
+}
+
+.menu ul{
+    list-style: none;
+    justify-content: center;
+}
+
+.menu li{
+    margin-left: 70px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: black;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.menu a:hover{
+    border-bottom: 2px solid;
+}
+
+.navegacion{
+    grid-area: navegacion;
+}
+
+.navegacion div{
+    margin-left: 5%;
+    width: 40px;
+    height: 40px;
+    align-content: center;
+    border-radius: 30px;
+}
+
+.navegacion div:hover{
+    background-color: #d7d7d7;
+}
+
+.navegacion img{
+    width: 25px;
+    height: 25px;
+}
+
+/*pie*/
+
+
+footer{
+    grid-area: footer;
+    background-color: #6b4e44;
+    display: grid;
+    grid-template-columns: 1fr 30%;
+    grid-template-rows: 1fr 40%;
+    grid-template-areas: 
+    "info unete"
+    "info redes"
+    ;
+    padding: 1%;
+    padding-top: 30px;
+    /*border-top: 1px solid;
+    border-color: rgb(220, 220, 220);*/
+}
+
+.unete{
+    grid-area: unete;
+}
+
+.unete input{
+    width: 70%;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    font-family: 'Monserrat';
+    padding-left: 2%;
+    font-size: 0.75rem;
+    border: none;
+    border-bottom: 1px solid;
+    background-color: #6b4e44;
+    border-color: #ffffff;
+    color: white;
+    outline: none;
+}
+
+.unete input::placeholder{
+    color: #ffffff;
+}
+
+footer h3{
+    font-size: 0.8rem;
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.informacion{
+    grid-area: info;
+    display: flex;
+}
+
+.informacion li{
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 300;
+}
+
+.informacion li, .informacion li a{
+    font-size: 0.75rem;
+}
+
+.informacion li a{
+    text-decoration: none;
+    color: white;
+}
+
+.enlaces{
+    list-style: none;
+    padding-left: 0%;
+}
+
+.conocenos, .contactanos, .soporte{
+    margin-left: 140px;
+}
+
+.logoFooter{
+    grid-area: logoFooter;
+    padding-left: 30px;
+}
+
+.logoFooter img{
+    width: 80px;
+    height: 80px;
+}
+
+.redesSociales{
+    grid-area: redes;
+    display: block;
+    align-content: center;
+}
+
+.redes{
+    display: flex;
+}
+
+.ig, .fb, .wsp, .tiktok{
+    margin-left: 20px;
+}
+
+.redes img{
+    width: 40px;
+}
