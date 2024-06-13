@@ -1,13 +1,6 @@
 
-.nav_productos{
-    display: grid;
+section{
     grid-area: section;
-    grid-template-columns: 100%;
-    grid-template-rows: 20em 3em;
-    grid-template-areas: 
-    "cab_nav"
-    "prom"
-    ;
 }
 
 .cab_nav{
