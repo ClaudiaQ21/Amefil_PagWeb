@@ -1,6 +1,16 @@
-
 section{
     grid-area: section;
+}
+
+.nav_productos{
+    display: grid;
+    grid-area: section;
+    grid-template-columns: 100%;
+    grid-template-rows: 20em 3em;
+    grid-template-areas: 
+    "cab_nav"
+    "prom"
+    ;
 }
 
 .cab_nav{
