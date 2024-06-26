@@ -1,497 +1,80 @@
-@font-face {
+@font-face{
     font-family: Monserrat;
-    src: url('recursos/Montserrat-VariableFont_wght.ttf');
+    src: url(recursos/Montserrat-VariableFont_wght.ttf);
 }
 
 body{
-    margin: 0px;
     font-family: 'Monserrat';
 }
 
-.grid{
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 3.8% 1fr 13%;
-    grid-template-areas: 
-    "header"
-    "section"
-    "footer"
-    ;
-}
-
-header{
-    grid-area: header;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 33% 1fr;
-    grid-template-areas: 
-    "promociones"
-    "contenidoHeader"
-    ;
-    
-}
- 
-.logo, .menu ul, .navegacion{
-    display: flex;
-}
-
-.logo, .menu, .navegacion{
-    justify-content: center;
-    align-items: center;
-}
-
-.promos{
-    grid-area: promociones;
+.descuentos{
     background-color: #6b4e44;
-    display: flex;
-    align-items: center;
+    color: #fff;
     justify-content: center;
-}
-
-.promos p{
-    color: #ffffff;
-    font-weight: 625;
-    font-size: 0.85rem;
-}
-
-.header_content{
-    grid-area: contenidoHeader;
-    display: grid;
-    grid-template-columns: 20% 1fr 20%;
-    grid-template-rows: 100%;
-    grid-template-areas: 
-    "logo menu navegacion"
-    ;
-    border-bottom: 1px solid;
-    border-color: rgb(220, 220, 220);
+    font-weight: 550;
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
 }
 
 #amefil{
-    width: 140px;
+    width: 150px;
 }
 
 .menu{
-    grid-area: menu;
     display: flex;
-    justify-content: space-around;
-}
-
-.menu ul{
-    list-style: none;
-    justify-content: space-evenly;
-    padding-left: 0;
-    height: 100%;
-    width: 80%;
-    margin: 0px;
     align-items: center;
+    padding: 15px 0;
 }
 
-.menu a:hover{
-    border-bottom: 2px solid;
-}
-
-.menu a{
-    text-decoration: none;
+.menu .nav-item>.nav-link{
     color: black;
-    font-size: 0.7rem;
-    font-weight: 600;
-    padding-bottom: 5px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-inline: 1rem;
 }
 
-.navegacion{
-    grid-area: navegacion;
+.menu .nav-item{
+    height: 2.3rem;
 }
 
-.navegacion img{
-    width: 22px;
-    height: 22px;
+.menu .nav-item>.nav-link:hover{
+    border-bottom: 1px solid;
 }
 
-.nav_buscar, .nav_carritoCompras, .nav_usuario{
-    margin-left: 3%;
-    align-content: center;
+.menu-iconos{
+    display: flex;
+    justify-content: end;
+    padding-right: 5rem;
 }
 
-.navegacion .boton{
+.menu-iconos i{
+    color: black;
+    font-size: 1.2rem;
+}
+
+.boton-icono{
     border: none;
     background-color: white;
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    margin-right: 0.7rem;
 }
 
-.navegacion .boton:hover{
+.boton-icono:hover{
     background-color: #d7d7d7;
 }
 
-/*boton carrito de compras*/
-#contenidoCarrito {
-    position: absolute;
-    right: 0px;
-    top: 0;
-    width: 400px; 
-    height: 100vh; 
-    background-color: white;
-    z-index: 1000;
+header{
+    border-bottom: 1px solid rgb(220, 220, 220);
 }
 
-/*boton usuario*/
-.oculto {
-    display: none;
+/*iconos de navegacion*/
+.buscar li>a{
+    font-size: 0.9rem;
 }
 
-#contenidoUsuario{
-    position: absolute;
-    right: 80px;
-    top: 15.5%;
-    width: 17em;
-    background-color: #F5F5DC;
-    padding: 20px;
-    border: 1px solid #d7d7d7;
-    border-radius: 10px;    
-}
-
-.botonesUsuario button{
-    background-color: #fff;
-    font-family: 'Monserrat';
-    font-size: 0.785rem;
-    font-weight: 500;
-    color: #000;
-    padding: 3%;
-    margin-bottom: 5%;
-    width: 90%;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.botonesUsuario button:hover{
-    background-color: #7f6d67;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*pie*/
-
-footer{
-    grid-area: footer;
+.buscar li>a:hover{
     background-color: #6b4e44;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 1fr 40%;
-    grid-template-areas: 
-    "info" 
-    "unete"
-    "redes"
-    ;
-    padding: 1%;
-}
-
-footer h3{
-    font-size: 0.7rem;
-    color: white;
-    margin: 1.45rem 0;
-    font-weight: bold;
-}
-
-.informacion{
-    grid-area: info;
-    display: grid;
-    grid-template-columns: 33% 1fr 33%;
-    grid-template-rows: 100%;
-    grid-template-areas: 
-    "conocenos contactanos soporte"
-    ;
-}
-
-.conocenos{
-    grid-area: conocenos;
-}
-
-.contactanos{
-    grid-area: contactanos;
-}
-
-.soporte{
-    grid-area: soporte;
-}
-
-.informacion li{
-    color: white;
-    padding: 0.4rem 0;
-    font-weight: 300;
-}
-
-.informacion li, .informacion li a{
-    font-size: 0.65rem;
-}
-
-.informacion li a{
-    text-decoration: none;
-    color: white;
-}
-
-.enlaces{
-    list-style: none;
-    padding-left: 0;
-}
-
-.conocenos, .contactanos, .soporte{
-    margin-left: 6.5rem;
-}
-
-.unete{
-    grid-area: unete;
-    display: flex;
-}
-
-.unete input{
-    width: 70%;
-    padding-top: 1.5%;
-    padding-bottom: 1.5%;
-    font-family: 'Monserrat';
-    padding-left: 2%;
-    font-size: 0.75rem;
-    border: 1px solid;
-    border-radius: 5px;
-    background-color: #6b4e44;
-    border-color: #ffffff;
-    color: white;
-    outline: none;
-}
-
-.unete input::placeholder{
-    color: #ffffff;
-}
-
-.logofooter img{
-    width: 4em;
-    height: 4em;
-    margin-top: 30%;
-}
-
-.ingresaemail{
-    width: 100%;
-    margin-left: 10%;
-}
-
-.redesSociales{
-    grid-area: redes;
-    align-content: center;
-}
-
-.redes{
-    display: flex;
-    margin-left: 20%;
-}
-
-.ig, .fb, .wsp, .tiktok{
-    margin-left: 20px;
-}
-
-.redes img{
-    width: 40px;
-}
-
-@media only screen and (max-width:599px){
-    .menu{
-        display: none;
-    }
-}
-
-@media (min-width:600px) and (max-width:1000px){
-    .grid{
-        grid-template-columns: 100%;
-        grid-template-rows: 3.8% 1fr 15%;
-        grid-template-areas: 
-        "header"
-        "section"
-        "footer"
-    ;
-    }
-
-    /*footer*/
-
-    footer{
-        grid-area: footer;
-        grid-template-columns: 60% 40%;
-        grid-template-rows: 1fr 30%;
-        grid-template-areas: 
-        "info info" 
-        "unete redes"
-        ;
-        padding: 1%;
-    }
-
-    footer h3{
-        font-size: 0.75rem;
-        margin: 1.45rem 0;
-    }
-
-    .informacion{
-        grid-area: info;
-        display: grid;
-        grid-template-columns: 33% 1fr 33%;
-        grid-template-rows: 100%;
-        grid-template-areas: 
-        "conocenos contactanos soporte"
-        ;
-    }
-
-    .informacion li{
-        padding: 0.4rem 0;
-    }
-    
-    .informacion li, .informacion li a{
-        font-size: 0.65rem;
-    }
-
-    .conocenos, .contactanos, .soporte{
-        margin-left: 2rem;
-    }
-
-    .unete{
-        align-items: center;
-    }
-
-    .unete h3{
-        margin-top: 0;
-    }
-
-    .unete input{
-        width: 90%;
-        padding: 1.5% 2%;
-        font-size: 0.75rem;
-    }
-    
-    #logofooter{
-        margin-left: 2rem;
-        width: 5em;
-        height: 5em;
-        margin-top: 0%;
-    }
-    
-    .ingresaemail{
-        width: 100%;
-        margin-left: 5%;
-    }
-
-    .redes{
-        display: flex;
-        margin-left: 1.3rem;
-    }
-    
-    .redes img{
-        width: 30px;
-    }
-}
-
-@media (min-width:1001px){
-    .grid{
-        grid-template-columns: 100%;
-        grid-template-rows: 8em 90% 1fr;
-        grid-template-areas: 
-        "header"
-        "section"
-        "footer"
-        ;
-    }
-
-    footer{
-        grid-area: footer;
-        background-color: #6b4e44;
-        display: grid;
-        grid-template-columns: 60% 40%;
-        grid-template-rows: 1fr 40%;
-        grid-template-areas: 
-        "info unete"
-        "info redes"
-        ;
-        padding: 1%;
-    }
-
-    footer h3{
-        font-size: 0.7rem;
-        margin: 1.45rem 0;
-    }
-
-    .informacion{
-        grid-area: info;
-        display: grid;
-        grid-template-columns: 33% 1fr 33%;
-        grid-template-rows: 100%;
-        grid-template-areas: 
-        "conocenos contactanos soporte"
-        ;
-    }
-
-    .informacion li{
-        padding: 0.4rem 0;
-    }
-    
-    .informacion li, .informacion li a{
-        font-size: 0.65rem;
-    }
-
-    .conocenos, .contactanos, .soporte{
-        margin-left: 4.5rem;
-    }
-
-    .unete input{
-        width: 70%;
-        padding-top: 1.5%;
-        padding-bottom: 1.5%;
-        padding-left: 2%;
-        font-size: 0.75rem;
-    }
-    
-    .logofooter img{
-        width: 4em;
-        height: 4em;
-        margin-top: 30%;
-        padding: 20%;
-    }
-    
-    .ingresaemail{
-        width: 100%;
-        margin-left: 10%;
-    }
-
-    .redes{
-        display: flex;
-        margin-left: 20%;
-    }
-    
-    .ig, .fb, .wsp, .tiktok{
-        margin-left: 20px;
-    }
-    
-    .redes img{
-        width: 40px;
-    }
+    color: #fff;
 }
