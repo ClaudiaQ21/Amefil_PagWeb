@@ -4,242 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amefil</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
     <link rel="stylesheet" href="css/encabezado_pie.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
 </head>
 <body>
-    <div class="grid">
-        <header>
-            <div class="promos">
-                <p>50% DE DESCUENTO EN TU PRIMERA COMPRA</p>
+    <header class="container-fluid">
+        <div class="row descuentos">
+            50% DE DESCUENTO EN TU PRIMERA COMPRA
+        </div>
+
+        <div class="row menu">
+            <div class="col-lg-3 text-center">
+                <img src="img/img_logo/logo_amefil.svg" id="amefil">
             </div>
- 
-            <div class="header_content">
 
-                <div class="logo">
-                    <img src="img/img_logo/logo_amefil.svg" id="amefil">
-                </div>
+            <div class="col-lg-6">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item"><a href="#" class="nav-link">NOVEDADES</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">COLECCIONES</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">MÁS VENDIDOS</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">DESCUENTOS</a></li>
+                </ul>
+            </div>
 
-                <div class="menu">
-                    <ul class="menuLista">
-                        <li><a href="">NOVEDADES</a></li>
-                        <li><a href="">COLECCIONES</a></li>
-                        <li><a href="">MÁS VENDIDOS</a></li>
-                        <li><a href="">DESCUENTOS</a></li>
-                    </ul>
-                </div>
-
-                <div class="navegacion">
-                    <div class="nav_buscar">
-                        <button class="boton buscar"><img src="img/img_iconos/buscar.png" alt=""></button>
-                        <div id="contenidoBuscar">
+            <div class="col-lg-3 menu-iconos">
+                <div class="buscar">
+                    <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <div class="dropdown-menu">
+                        <div class="row">
                             
                         </div>
-                    </div>
-                    <div class="nav_carritoCompras">
-                        <button class="boton carritoCompras"><img src="img/img_iconos/bolsa-de-la-compra.png"></button>
-                        <div id="contenidoCarrito" class="oculto">
-                            <p>carrito de compras</p>
-                        </div>
-                    </div>
-                    <div class="nav_usuario">
-                        <button class="boton usuario">
-                            <img src="img/img_iconos/usuario.png">
-                        </button>
-                        <div id="contenidoUsuario" class="oculto">
-                            <div class="botonesUsuario">
-                                <button>Iniciar sesión</button><br>
-                                <button>Registrarse</button>
-                                <button>Registrarse con Google</button>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
 
-        </header>
-    
-        <section>
-            <div class="presenta">
-                <div class="cuadroPromocion">
-                </div>
+                        <div class="row">
 
-                <div class="imagen1">
-                    <img src="img/pruebaVPP.png" id="bolso1">
-                </div>
-
-                <div class="imagen2">
-                    <img src="img/pruebaVPP2.png" id="pulsera2">
-                </div>
-            </div>
-
-            <div class="productos">
-                <div class="productos_gris">
-                    <h2>NUESTROS PRODUCTOS</h2>
-
-                    <div class="carruselproductos">
-                        <div class="muestraProductos">
-                            <div class="productoM">
-                                <img src="img/pulseras/pulseraPrueba2.png">
-                            </div>
-        
-                            <div class="productoM">
-                                <img src="img/pulseras/pulseraPrueba5.png">
-                            </div>
-        
-                            <div class="productoM">
-                                <img src="img/pulseras/pulseraPrueba10.png">
-                            </div>
-                            
-                            <div class="productoM">
-                                <img src="img/pulseras/pulseraPrueba7.png">
-                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="colecciones">
-                <div class="collares">
-                    <img src="img/img_pulseras/pulseraPruebaColeccion.png" alt="">
-                    <div id="collares">Collares</div>
-                </div>
-                <div class="pulseras">
-                    <img src="img/img_pulseras/pulseraPruebaColeccion.png" alt="">
-                    <div id="pulseras">Pulseras</div>
-                </div>
-                <div class="aretes">
-                    <img src="img/img_pulseras/pulsera_3.png" alt="">
-                    <div id="aretes">Aretes</div>
-                </div>
-                <div class="bolsos">
-                    <img src="img/img_pulseras/pulsera_3.png" alt="">
-                    <div id="bolsos">Bolsos</div>
+                <button class="boton-icono"><i class="fa-solid fa-cart-shopping"></i></button>
+                <div class="buscar">
+                    <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-regular fa-user"></i></button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
+                        <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                        <li><a class="dropdown-item" href="#">Registrarse con Google</a></li>
+                      </ul>
                 </div>
             </div>
+        </div>
+    </header>
 
-            <div class="frase">
-                <h1></h1>
-            </div>
+    <main class="container-fluid">
 
-            <div class="datos_empresa">
-                <div>
-                    <img src="img/img_iconos/tarjeta-de-credito.png" alt="">
-                    <div class="info_datos">Diferentes y seguras formas de pago</div>
-                </div>
-                <div>
-                    <img src="img/img_iconos/envio.png" alt="">
-                    <div class="info_datos">Envíos rápidos y seguros</div>
-                </div>
-                <div>
-                    <img src="img/img_iconos/signo-de-dolar.png" alt="">
-                    <div class="info_datos">La mejor relación precio-calidad</div>
-                </div>
-            </div>
+    </main>
 
-        </section>
-    
-        <footer>
-            <div class="informacion">
-                <div class="conocenos">
-                    <h3>SOBRE NOSOTROS</h3>
-                    <ul class="enlaces">
-                        <li>
-                            <a href="">Amefil</a>
-                        </li>
-                        <li>
-                            <a href="">Contactos</a>
-                        </li>
-                        <li>
-                            <a href="">Únete</a>
-                        </li>
-                        <li>
-                            <a href="">Terminos y Condiciones</a>
-                        </li>
-                        <li>
-                            <a href="">Políticas de privacidad</a>
-                        </li>
-                        <li>
-                            <a href="">Política de cookies</a>
-                        </li>
-                        <li>
-                            <a href="">Política de envíos</a>
-                        </li>
-                    </ul>
-                </div>
+    <footer class="container-fluid">
+        <div class="col-lg-3">
 
-                <div class="contactanos">
-                    <h3>CONTÁCTANOS</h3>
-                    <ul class="enlaces">
-                        <li>amefilonline@gmail.com</li>
-                        <li>+51 987 963 214</li>                      
-                    </ul>
-                </div>
+        </div>
 
-                <div class="soporte">
-                    <h3>SOPORTE</h3>
-                    <ul class="enlaces">
-                        <li>
-                            <a href="">Libro de Reclamaciones</a>
-                        </li>
-                        <li>
-                            <a href="">Formas de pago</a>
-                        </li>
-                        <li>
-                            <a href="">Guía de tallas de collar</a>
-                        </li>
-                        <li>
-                            <a href="">Guía de tallas de pulsera</a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="col-lg-3">
+
+        </div>
+
+        <div class="col-lg-3">
+
+        </div>
+
+        <div class="col-lg-3">
+            <div class="row">
 
             </div>
 
-            <div class="unete">
-                <div class="logofooter">
-                    <img src="img/img_logo/logo_blanco.svg" id="logofooter">
-                </div>
+            <div class="row">
 
-                <div class="ingresaemail">
-                    <h3>ÚNETE</h3>
-                    <input type="text" placeholder="Ingresa tu email aquí">
-                </div>
             </div>
-
-            <div class="redesSociales">
-                <div class="redes">
-                    <div class="ig">
-                        <a href=""><img src="img/img_redes/instagram.png" alt="ig"></a>
-                    </div>
-
-                    <div class="fb">
-                        <a href="">
-                            <img src="img/img_redes/facebook.png" alt="fb">
-                        </a>
-                    </div>
-
-                    <div class="wsp">
-                        <a href="">
-                            <img src="img/img_redes/whatsapp.png" alt="wsp">
-                        </a>
-                    </div>
-                    
-                    <div class="tiktok">
-                        <a href="">
-                            <img src="img/img_redes/tiktok.png" alt="tiktok">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </footer>
-
-    </div>
+        </div>
+    </footer>
 
     <script src="js/index.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
     
 </body>
 </html>
