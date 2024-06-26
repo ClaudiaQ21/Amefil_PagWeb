@@ -1,13 +1,12 @@
-
-
 .nav_productos{
     display: grid;
     grid-area: section;
     grid-template-columns: 100%;
-    grid-template-rows: 20em 3em;
+    grid-template-rows: 20em 3em 1fr;
     grid-template-areas: 
     "cab_nav"
     "prom"
+    "fil_nav"
     ;
 }
 
@@ -52,6 +51,40 @@
     text-align: center;
     color: #ffffff;
     background-color: #6b4e44;
+}
+
+
+.fil_nav{
+    grid-area: fil_nav;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 100%;
+    grid-template-areas: 
+    "filtros productos"
+    ;
+}
+
+.filtros{
+    grid-area: filtros;
+    align-items: center;
+    margin: 3em;
+}
+
+.filtros .fil{
+    margin-bottom: 1em;
+}
+
+.fil input{
+    margin-top: 1em;
+}
+
+.product-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5em;
+    justify-content: center;
+    grid-area: productos;
+    margin-top: 3em;
 }
 
 

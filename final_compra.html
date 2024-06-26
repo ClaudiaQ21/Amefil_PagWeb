@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="css/final_compra.css">
+    <title>Finalizar Compra</title>
+</head>
+
+<body>
+    <div class="container">
+        <h4>FINALIZAR COMPRA</h4><br>
+        <div id="con" class="row g-4">
+            <nav id="central" class="col-lg-8 col-md-6 col-sm-12">
+                <h6><b>INGRESA TUS DATOS</b></h6>
+                <br>
+
+                <div class="container text-stardr">
+                    <div class="row g-3">
+                        <div class="col-lg-6 col-sm-3">
+                            <label class="form-label">Nombre:</label>
+                            <input type="nombre" class="form-control">
+                        </div>
+                        <div class="col-lg-6 col-sm-3">
+                            <label class="form-label">Apellidos:</label>
+                            <input type="apellido" class="form-control ">
+                        </div>
+
+                        <div class="col-lg-6 col-sm-3">
+                            <label class="form-label">Documento de identidad:</label>
+                            <input type="documento" class="form-control">
+                        </div>
+                        <div class="col-lg-6 col-sm-3">
+                            <label class="form-label">Teléfono/móvil:</label>
+                            <input type="telefono" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <h6><b>SELECCIONA TU MÉTODO DE ENTREGA</b></h6>
+                <br>
+                <div class="container text-center">
+                    <div class="row g-3">
+                        <div class="col-lg-6 col-sm-3">
+                            <button id="boton" class="btn btn-primary" type="submit">Envio a domicilio</button>
+                        </div>
+                        <div class="col-lg-6 col-sm-3">
+                            <button id="boton1" class="btn btn-primary" type="submit">Recojo en tienda</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <h6><b>COMPLETA TU DIRECCIÓN DE ENVÍO</b></h6>
+                <br>
+                <div class="container text-stardr">
+                    <div class="row g-3">
+                        <div class="col-lg-6 col-sm-3">
+                            <button id="combo" class="btn btn-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Departamento
+                            </button> <br>
+                            <button id="combo" class="btn btn-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Provincia
+                            </button><br>
+                            <button id="combo" class="btn btn-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Distrito
+                            </button>
+                        </div>
+                        <div class="col-lg-6 col-sm-3">
+                            <label class="form-label">Dirección:</label>
+                            <input type="direccion" class="form-control ">
+                            <label class="form-label">Referencia(opcional):</label>
+                            <input type="referencia" class="form-control ">
+                        </div>
+
+                    </div>
+                </div>
+                <h6><b>INGRESE LOS DATOS DE SU TARJETA</b></h6>
+                <br>
+                <div class="container text-stardr">
+                    <div class="row g-3">
+                        <div class="col-lg-6 col-sm-3">
+                            <label class="form-label">Tarjeta de crédito:</label>
+                            <input type="tarjeta" class="form-control">
+                        </div>
+                        <div class="col-lg-6 col-sm-3" style="justify-content: center;">
+                            <label class="form-label">Fecha de vencimiento:</label><br>
+                            <button id="com" class="btn btn-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                MM
+                            </button>
+                            <button id="com" class="btn btn-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                AA
+                            </button>
+                        </div>
+
+                        <div class="col-lg-6 col-sm-3">
+                            <label class="form-label">Titular de la tarjeta:</label>
+                            <input type="documento" class="form-control">
+                        </div>
+                        <div class="col-lg-6 col-sm-3">
+                            <label class="form-label">Código de seguridad:</label>
+                            <input type="telefono" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <section class="col-lg-4 col-md-3 col-sm-8">
+                <div class="container text-stardr ">
+                    <div class="row g-4  justify-content-center">
+                        <button id="otra" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Resumen de pedido N°
+                        </button>
+                        <div class="col-lg-10 col-sm-3">
+                            <label class="form-label">Precio envío:</label>
+                            <input type="precio" class="form-control">
+                        </div>
+                        <div class="col-lg-10 col-sm-3">
+                            <label class="form-label">Total a pagar:</label>
+                            <input type="total" class="form-control">
+                        </div><br>
+                        <div class="col-lg-7 col-sm-3">
+                            <button id="boton" class="btn btn-primary" type="submit">Envio a domicilio</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

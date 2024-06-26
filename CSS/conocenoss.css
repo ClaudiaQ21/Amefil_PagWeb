@@ -1,0 +1,127 @@
+@font-face {
+    font-family: Monserrat;
+    src: url(recursos/Montserrat-VariableFont_wght.ttf);
+}
+
+body {
+    
+    font-family: 'Monserrat';
+}
+
+#carouselExampleSlidesOnly{
+    background-color: #F2F0F3;
+    width: 100%; 
+    overflow: hidden;
+    height: 340px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(5, 1, 1, 0.2); /*sombra*/
+}
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%; 
+} 
+#logs {
+    width:500px;
+    margin-right: 20px; 
+}
+.carousel-item p {
+    text-align: center;
+    line-height: 1.6;
+    width: 40%; 
+}
+.carousel-item {
+    min-width: 100%; /* Asegura que cada item tome el 100% del contenedor del carrusel */
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.carousel-item .cen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 17px;
+}
+.carousel-item .cen p{
+    text-align: center;
+    line-height: 1.6;
+    width: 40%;
+}
+#imag {
+    width: 250px;
+    margin-left: 4px;
+    margin-bottom: 5px;
+}
+.carousel-item .disi{
+    display: flex;
+}
+.img_contener {
+    display: flex;
+    justify-content: space-between; 
+    margin: 5px 0; /
+
+}
+.imagen {
+    width: 280px; 
+}
+
+.card{
+    width: 350px; 
+    height: 450px; 
+    background-color: #ffffff; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin-top: 80px;
+}
+.card-body{
+    display: flex;
+    margin-top: 5px;
+    text-align: center;
+    line-height: 1.6;
+    width: 90%;  
+}
+.car p{
+    display: flex;
+    margin-top: 5px;
+    text-align: center;
+    line-height: 1.6;
+    width: 90%; 
+}
+.cars p{
+    display: flex;
+    margin-top: 55px;
+    text-align: center;
+    line-height: 1.6;
+    width: 80%; 
+}
+.card h5{
+    margin-top: 40px;
+    margin-bottom: 23px;
+}
+
+.card img{
+    width: 180px;
+    margin: 0 auto;
+}
+#visi{
+    width: 200px;
+    margin: 0 auto;
+}
+
+.fras{
+    display: flex;
+    background-color: #6b4e44;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    color: #ffffff;
+    margin-top: 60px;
+    margin-bottom: 34px;
+}
+
+
+
