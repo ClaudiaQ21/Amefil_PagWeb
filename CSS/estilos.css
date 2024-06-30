@@ -1,0 +1,14 @@
+header, main, footer{
+    font-family: Montserrat;
+}
+
+.botones{
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 100%;
+    background-color: #6b4e44;
+    cursor: pointer;
+    color: #ffffff;
+    border-style: none;
+}
