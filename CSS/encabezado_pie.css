@@ -166,9 +166,7 @@ footer .info{
     color: black;
 }
 
-.conocenos, .soporte{
-    padding-left: 5rem;
-}
+
 
 footer h5{
     color: #fff;
@@ -212,7 +210,9 @@ footer .redes-sociales{
         max-width: 40%;
     }
 
-
+    #logofooter{
+        width: 100px;
+    }
 }
 
 @media (min-width:992px){
