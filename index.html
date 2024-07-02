@@ -12,71 +12,190 @@
     <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
 </head>
 <body>
-    <header class="container-fluid">
-        <div class="row descuentos">
+    <header class="row m-0 p-0">
+        <div class="row descuentos m-0">
             50% DE DESCUENTO EN TU PRIMERA COMPRA
         </div>
 
-        <div class="row menu">
-            <div class="col-lg-3 text-center">
-                <img src="img/img_logo/logo_amefil.svg" id="amefil">
+        <div class="row menu m-0 p-0">
+            <div class="col-lg-3 d-flex justify-content-center align-items-center col-md-6 col-sm-4 col-4 order-2 order-lg-1 order-md-1 order-sm-2">
+                <img src="img/img_logo/logo_amefil.svg" class="img-fluid" id="amefil">
             </div>
+            
 
-            <div class="col-lg-6">
-                <ul class="nav justify-content-center">
-                    <li class="nav-item"><a href="#" class="nav-link">NOVEDADES</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">COLECCIONES</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">MÁS VENDIDOS</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">DESCUENTOS</a></li>
-                </ul>
-            </div>
-
-            <div class="col-lg-3 menu-iconos">
-                <div class="buscar">
-                    <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <div class="dropdown-menu">
-                        <div class="row">
-                            
+            <div class="navegacion col-lg-6 col-md-12 col-sm-4 col-4 order-1 order-lg-2 order-md-3 order-sm-1 py-2">
+                <nav class="navbar navbar-expand-md">
+                    <div class="d-flex align-items-center">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon menu-sm"></span>
+                        </button>
+                        <div class="buscar-sm d-sm-block d-md-none ms-2">
+                            <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-buscar">
+                                <input class="form-control" id="busqueda" placeholder="Buscar...">
+                            </div>
                         </div>
-
-                        <div class="row">
-
+                    </div>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" href="#">NOVEDADES</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" href="#">COLECCIONES</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" href="#">MÁS VENDIDOS</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" href="">DESCUENTOS</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        
+            <div class="menu-iconos col-lg-3 col-md-6 col-sm-4 col-4 order-3 d-flex justify-content-lg-end justify-content-md-center justify-content-sm-end justify-content-end order-md-2 py-md-3">
+                <div class="d-none d-md-flex">
+                    <div class="buscar me-2">
+                        <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-magnifying-glass menu-sm"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-buscar">
+                            <input class="form-control" id="busqueda" placeholder="Buscar...">
                         </div>
                     </div>
                 </div>
-                <button class="boton-icono"><i class="fa-solid fa-cart-shopping"></i></button>
+                <button class="boton-icono me-2"><i class="fa-solid fa-cart-shopping"></i></button>
                 <div class="buscar">
-                    <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-regular fa-user"></i></button>
+                    <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-regular fa-user"></i>
+                    </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
                         <li><a class="dropdown-item" href="#">Registrarse</a></li>
                         <li><a class="dropdown-item" href="#">Registrarse con Google</a></li>
-                      </ul>
+                    </ul>
                 </div>
             </div>
         </div>
+        
     </header>
 
-    <main class="container-fluid">
+    <main class="row container-fluid">
+        <!-- CARRUSEL -->
+        <div class="row">
+            <div id="carouselExample" class="carousel slide p-0">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="img/" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="..." class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="..." class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
 
+        <!-- TARJETA DE PRODUCTOS -->
+        <div class="row">
+            <div class="row">
+                <h3>Nuestros Productos</h3>
+            </div>
+
+            <div class="row">
+                
+            </div>
+        </div>
+
+        <!-- COLECCIONES -->
+        <div class="row">
+            <div class="row">
+                <div class="col-6 text-center">
+                    <img src="" alt="coleccionGuantes" class="img-fluid">
+                </div>
+                <div class="col-6 text-center">
+                    <img src="" alt="coleccionCollares" class="img-fluid">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 text-center">
+                    <img src="" alt="coleccionpulseras" class="img-fluid">
+                </div>
+                <div class="col-6 text-center">
+                    <img src="" alt="coleccionBolsos" class="img-fluid">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <img src="" alt="frase" class="img-fluid">
+        </div>
+
+        <div class="info-rapida row py-4">
+            <div class="col-4 text-center">
+                <i class="fa-regular fa-credit-card"></i>
+                <p>Diferentes y seguras formas de pago</p>
+            </div>
+            <div class="col-4 text-center">
+                <i class="fa-solid fa-truck"></i>
+                <p>Envíos rápidos y seguros</p>
+            </div>
+            <div class="col-4 text-center">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <p>La mejor relación precio-calidad</p>
+            </div>
+        </div>
     </main>
 
-    <footer class="container-fluid">
-        <div class="col-lg-3">
-
+    <footer class="row m-0">
+        <div class="col-lg-3 info conocenos">
+            <h5 class="mb-4">Conócenos</h5>
+            <ul>
+                <li class="my-2"><a href="#">Amefil</a></li>
+                <li class="my-2"><a href="#">Contactos</a></li>
+                <li class="my-2"><a href="#">Únete</a></li>
+                <li class="my-2"><a href="#">Términos y condiciones</a></li>
+                <li class="my-2"><a href="#">Política de privacidad</a></li>
+                <li class="my-2"><a href="#">Política de cookies</a></li>
+            </ul>
         </div>
 
-        <div class="col-lg-3">
-
+        <div class="col-lg-2 info contactos">
+            <h5 class="mb-4">Contáctanos</h5>
+            <ul>
+                <li class="my-2">amefilonline@gmail.com</li>
+                <li class="my-2">+51 987 963 214</li>
+            </ul>   
         </div>
 
-        <div class="col-lg-3">
-
+        <div class="col-lg-3 info soporte">
+            <h5 class="mb-4">Soporte</h5>
+            <ul>
+                <li class="my-2"><a href="#">Libro de Reclamaciones</a></li>
+                <li class="my-2"><a href="#">Formas de pago</a></li>
+                <li class="my-2"><a href="#">Guía de tallas de collar</a></li>
+                <li class="my-2"><a href="#">Guía de tallas de pulseras</a></li>
+            </ul>
         </div>
 
-        <div class="col-lg-3">
+        <div class="col-lg-3 info">
             <div class="row">
-
+                <h3 class="mb-4">prueba</h3>
             </div>
 
             <div class="row">

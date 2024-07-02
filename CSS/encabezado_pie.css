@@ -16,21 +16,19 @@ body{
     font-size: 0.8rem;
 }
 
-#amefil{
-    width: 150px;
-}
+/*LOGO AMEFIL*/
+
+
 
 .menu{
     display: flex;
     align-items: center;
-    padding: 15px 0;
 }
 
 .menu .nav-item>.nav-link{
     color: black;
     font-size: 0.8rem;
     font-weight: 500;
-    margin-inline: 1rem;
 }
 
 .menu .nav-item{
@@ -43,13 +41,15 @@ body{
 
 .menu-iconos{
     display: flex;
-    justify-content: end;
-    padding-right: 5rem;
 }
 
 .menu-iconos i{
     color: black;
     font-size: 1.2rem;
+}
+
+.menu-sm{
+    width: 1rem;
 }
 
 .boton-icono{
@@ -69,6 +69,11 @@ header{
     border-bottom: 1px solid rgb(220, 220, 220);
 }
 
+/*Navegacion*/
+.navegacion .nav-item>.nav-link{
+    white-space: nowrap;
+}
+
 /*iconos de navegacion*/
 .buscar li>a{
     font-size: 0.9rem;
@@ -78,3 +83,84 @@ header{
     background-color: #6b4e44;
     color: #fff;
 }
+
+.dropdown-buscar{
+    width: 37%;
+}
+
+#busqueda{
+    width: 95%;
+    margin: 0 auto;
+    font-size: 0.9rem;
+}
+
+#busqueda:focus{
+    border: #6b4e44; 
+    box-shadow: 0 0 0 3px #6b4e44; 
+}
+
+
+
+
+/*MAIN*/ 
+
+
+
+/*Información rápida*/
+.info-rapida{
+    border-top: 1px solid #d7d7d7;
+}
+
+.info-rapida i{
+    font-size: 2.5rem;
+    margin: 1.5rem 0;
+}
+
+
+
+
+
+/*FOOTER*/
+footer{
+    background-color: #6b4e44;
+    color: white;
+}
+
+footer .info{
+    margin-top: 3.3rem;
+    margin-bottom: 3.3rem;
+}
+
+.info ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+.info ul li{
+    font-size: 0.8rem;
+}
+
+.info ul a{
+    text-decoration: none;
+    color: white;
+}
+
+.conocenos, .soporte{
+    padding-left: 5rem;
+}
+
+footer h3{
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+
+
+
+
+
+
+
+
+
+
