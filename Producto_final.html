@@ -5,21 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amefil</title>
     <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
-    <link rel="stylesheet" href="CSS/encabezado_pie.css">
-    <link rel="stylesheet" href="CSS/Producto_final.css">
-    <link rel="stylesheet" href="CSS/estilos.css">
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/Producto_final.css">
+    <link rel="stylesheet" href="CSS/encabezado_pie.css">
+    <link rel="stylesheet" href="CSS/estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header class="row m-0 p-0">
         <div class="row descuentos m-0">
-            50% DE DESCUENTO EN TU PRIMERA COMPRA
+            <div id="carrusel-des-prom" class="carousel slide p-0">
+                <div class="carousel-inner">
+                    <div class="carousel-item active text-center">
+                        50% DE DESCUENTO EN TU PRIMERA COMPRA
+                    </div>
+                    <div class="carousel-item text-center">
+                        ENCUENTRA ACCESORIOS DE TODO TIPO PARA ADORNAR TU VIDA
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carrusel-des-prom" data-bs-slide="prev">
+                    <span class="flecha-prom" aria-hidden="true">&lt;</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carrusel-des-prom" data-bs-slide="next">
+                    <span class="flecha-prom" aria-hidden="true">&gt;</span>
+                </button>
+            </div>
+        
         </div>
 
         <div class="row menu m-0 p-0">
             <div class="col-lg-3 d-flex justify-content-center align-items-center col-md-6 col-sm-4 col-4 order-2 order-lg-1 order-md-1 order-sm-2">
-                <img src="img/img_logo/logo_amefil.svg" class="img-fluid" id="amefil">
+                <img src="img/img_logo/logo_amefil.svg" class="" id="amefil">
             </div>
             
 
@@ -27,11 +43,11 @@
                 <nav class="navbar navbar-expand-md">
                     <div class="d-flex align-items-center">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon menu-sm"></span>
+                            <span class="navbar-toggler-icon icono"></span>
                         </button>
                         <div class="buscar-sm d-sm-block d-md-none ms-2">
                             <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <i class="fa-solid fa-magnifying-glass icono"></i>
                             </button>
                             <div class="dropdown-menu dropdown-buscar">
                                 <input class="form-control" id="busqueda" placeholder="Buscar...">
@@ -59,19 +75,19 @@
         
             <div class="menu-iconos col-lg-3 col-md-6 col-sm-4 col-4 order-3 d-flex justify-content-lg-end justify-content-md-center justify-content-sm-end justify-content-end order-md-2 py-md-3">
                 <div class="d-none d-md-flex">
-                    <div class="buscar me-2">
+                    <div class="buscar">
                         <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-magnifying-glass menu-sm"></i>
+                            <i class="fa-solid fa-magnifying-glass icono"></i>
                         </button>
                         <div class="dropdown-menu dropdown-buscar">
                             <input class="form-control" id="busqueda" placeholder="Buscar...">
                         </div>
                     </div>
                 </div>
-                <button class="boton-icono me-2"><i class="fa-solid fa-cart-shopping"></i></button>
+                <button class="boton-icono me-2"><i class="fa-solid fa-cart-shopping icono"></i></button>
                 <div class="buscar">
                     <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-regular fa-user"></i>
+                        <i class="fa-regular fa-user icono"></i>
                     </button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
@@ -89,7 +105,7 @@
             <div class="col col-lg-6">
                 <div class="row m-0">
                     <div class="img_prin">
-                        <img id="main-image" src="img/pulseras/descarga (5).png" alt="Producto Principal">
+                        <img id="main-image" src="img/pulseras/pulsera-lila-flores.webp" alt="Producto Principal">
                     </div>
                 </div>
                 <div class="row p-3 m-0">
@@ -241,6 +257,7 @@
 
     <script src="JS/jquery-3.7.1.slim.min.js"></script>
     <script src="JS/Producto_final.js"></script>
+    <script src="js/index.js"></script>
     <script src="JS/bootstrap.bundle.min.js"></script>
 </body>
 </html>
