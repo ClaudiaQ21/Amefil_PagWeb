@@ -52,8 +52,8 @@ $(document).ready(function() {
 
             // Ajustar las miniaturas
             thumbnails.forEach(thumb => {
-                thumb.style.width = '7em';
-                thumb.style.height = '7em';
+                thumb.style.width = '6.6em';
+                thumb.style.height = '6.6em';
                 thumb.removeAttribute('data-main');
             });
 

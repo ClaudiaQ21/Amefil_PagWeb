@@ -1,0 +1,63 @@
+
+.nues_produc{
+    background-color: #F2F0F3;
+    font-weight: bold;
+}
+
+.prom{
+    color: #ffffff;
+    background-color: #6b4e44;
+    justify-content: center;
+    align-items: center;
+}
+
+.filtros{
+    justify-content: left;
+    padding: 0%;
+    margin: 3em;
+    font-size: 100%;
+}
+
+.filtros .fil{
+    margin-bottom: 1em;
+    font-size: 100%;
+}
+
+.fil input, .fil legend{
+    margin-top: 1em;
+    font-size: 100%;
+}
+
+
+.cont_pro{
+    margin-bottom: 20%;
+}
+
+.botones{
+    width: 100%;
+    height: 100%;
+}
+
+.pag_btn, .pag_btn a button{
+    border-radius: 50%;
+}
+
+.pag_btn a button{
+    width: 150%;
+    height: 100%;
+    padding: 10px;
+    text-align: center;
+    font-size: 100%;
+    background-color: #6b4e44;
+    cursor: pointer;
+    color: #ffffff;
+    border-style: none;    
+}
+
+.pag_btn{
+    margin-inline: 2rem;
+}
+
+.flechita{
+    width: 1rem;
+}

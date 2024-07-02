@@ -6,35 +6,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
     <link rel="stylesheet" href="css/final_compra.css">
+    <link rel="stylesheet" href="CSS/encabezado_pie.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
     <title>Finalizar Compra</title>
 </head>
 
 <body>
-    <div class="container">
-        <h4>FINALIZAR COMPRA</h4><br>
-        <div id="con" class="row g-4">
-            <nav id="central" class="col-lg-8 col-md-6 col-sm-12">
+    <header class="container-fluid">
+        <div class="row descuentos">
+            50% DE DESCUENTO EN TU PRIMERA COMPRA
+        </div>
+        <div class="row menu">
+            <div class="col-lg-3 text-center">
+                <img src="img/img_logo/logo_amefil.svg" id="amefil">
+            </div>
+
+            <div class="col-lg-6">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item"><a href="#" class="nav-link">NOVEDADES</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">COLECCIONES</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">MÁS VENDIDOS</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">DESCUENTOS</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 menu-iconos">
+                <div class="buscar">
+                    <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i
+                            class="fa-solid fa-magnifying-glass"></i></button>
+                    <div class="dropdown-menu">
+                        <div class="row">
+
+                        </div>
+
+                        <div class="row">
+
+                        </div>
+                    </div>
+                </div>
+                <button class="boton-icono"><i class="fa-solid fa-cart-shopping"></i></button>
+                <div class="buscar">
+                    <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i
+                            class="fa-regular fa-user"></i></button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
+                        <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                        <li><a class="dropdown-item" href="#">Registrarse con Google</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <br>
+        <h3>FINALIZAR COMPRA</h3>
+        <br>
+        <div id="con" class="row g-10">
+            <nav id="central" class="col-lg-8 col-md-12 col-sm-12">
                 <h6><b>INGRESA TUS DATOS</b></h6>
                 <br>
-
-                <div class="container text-stardr">
+                <div class="container text-start">
                     <div class="row g-3">
-                        <div class="col-lg-6 col-sm-3">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                             <label class="form-label">Nombre:</label>
-                            <input type="nombre" class="form-control">
+                            <input type="text" class="form-control">
                         </div>
-                        <div class="col-lg-6 col-sm-3">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                             <label class="form-label">Apellidos:</label>
-                            <input type="apellido" class="form-control ">
+                            <input type="text" class="form-control">
                         </div>
-
-                        <div class="col-lg-6 col-sm-3">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                             <label class="form-label">Documento de identidad:</label>
-                            <input type="documento" class="form-control">
+                            <input type="text" class="form-control">
                         </div>
-                        <div class="col-lg-6 col-sm-3">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                             <label class="form-label">Teléfono/móvil:</label>
-                            <input type="telefono" class="form-control">
+                            <input type="text" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -43,10 +94,10 @@
                 <br>
                 <div class="container text-center">
                     <div class="row g-3">
-                        <div class="col-lg-6 col-sm-3">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                             <button id="boton" class="btn btn-primary" type="submit">Envio a domicilio</button>
                         </div>
-                        <div class="col-lg-6 col-sm-3">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                             <button id="boton1" class="btn btn-primary" type="submit">Recojo en tienda</button>
                         </div>
                     </div>
@@ -54,41 +105,44 @@
                 <br>
                 <h6><b>COMPLETA TU DIRECCIÓN DE ENVÍO</b></h6>
                 <br>
-                <div class="container text-stardr">
+                <div class="container text-start">
                     <div class="row g-3">
-                        <div class="col-lg-6 col-sm-3">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                             <button id="combo" class="btn btn-secondary dropdown-toggle" type="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Departamento
-                            </button> <br>
+                            </button>
+                            <br>
                             <button id="combo" class="btn btn-secondary dropdown-toggle" type="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Provincia
-                            </button><br>
+                            </button>
+                            <br>
                             <button id="combo" class="btn btn-secondary dropdown-toggle" type="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Distrito
                             </button>
                         </div>
-                        <div class="col-lg-6 col-sm-3">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                             <label class="form-label">Dirección:</label>
-                            <input type="direccion" class="form-control ">
-                            <label class="form-label">Referencia(opcional):</label>
-                            <input type="referencia" class="form-control ">
+                            <input type="text" class="form-control">
+                            <label class="form-label">Referencia (opcional):</label>
+                            <input type="text" class="form-control">
                         </div>
-
                     </div>
                 </div>
+                <br>
                 <h6><b>INGRESE LOS DATOS DE SU TARJETA</b></h6>
                 <br>
-                <div class="container text-stardr">
+                <div class="container text-start">
                     <div class="row g-3">
-                        <div class="col-lg-6 col-sm-3">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                             <label class="form-label">Tarjeta de crédito:</label>
-                            <input type="tarjeta" class="form-control">
+                            <input type="text" class="form-control">
                         </div>
-                        <div class="col-lg-6 col-sm-3" style="justify-content: center;">
-                            <label class="form-label">Fecha de vencimiento:</label><br>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label class="form-label">Fecha de vencimiento:</label>
+                            <br>
                             <button id="com" class="btn btn-secondary dropdown-toggle" type="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 MM
@@ -98,40 +152,41 @@
                                 AA
                             </button>
                         </div>
-
-                        <div class="col-lg-6 col-sm-3">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                             <label class="form-label">Titular de la tarjeta:</label>
-                            <input type="documento" class="form-control">
+                            <input type="text" class="form-control">
                         </div>
-                        <div class="col-lg-6 col-sm-3">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
                             <label class="form-label">Código de seguridad:</label>
-                            <input type="telefono" class="form-control">
+                            <input type="text" class="form-control">
                         </div>
                     </div>
                 </div>
             </nav>
-            <section class="col-lg-4 col-md-3 col-sm-8">
-                <div class="container text-stardr ">
-                    <div class="row g-4  justify-content-center">
-                        <button id="otra" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+            <section class="col-lg-4 col-md-12 col-sm-12 mt-5">
+                <div class="container text-start">
+                    <div class="row g-4 justify-content-center">
+                        <button id="otra" class="btn btn-secondary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             Resumen de pedido N°
                         </button>
-                        <div class="col-lg-10 col-sm-3">
+                        <div class="col-lg-10 col-md-10 col-sm-12">
                             <label class="form-label">Precio envío:</label>
-                            <input type="precio" class="form-control">
+                            <input type="text" class="form-control">
                         </div>
-                        <div class="col-lg-10 col-sm-3">
+                        <div class="col-lg-10 col-md-10 col-sm-12">
                             <label class="form-label">Total a pagar:</label>
-                            <input type="total" class="form-control">
-                        </div><br>
-                        <div class="col-lg-7 col-sm-3">
+                            <input type="text" class="form-control">
+                        </div>
+                        <br>
+                        <div class="col-lg-7 col-md-7 col-sm-12">
                             <button id="boton" class="btn btn-primary" type="submit">Envio a domicilio</button>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
-    </div>
+    </main>
 </body>
+
 </html>

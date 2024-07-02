@@ -122,6 +122,39 @@ body {
     margin-top: 60px;
     margin-bottom: 34px;
 }
-
+#logs, .imagen, #imag {
+    width: 100%;
+    height: auto;
+}
+.card-title {
+    text-align: center;
+    margin-top: 1rem;
+}
+.card-body {
+    text-align: justify;
+}
+@media (max-width: 768px) {
+    .carousel-item .col-lg-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .carousel-item .col-lg-3 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media (max-width: 576px) {
+    .carousel-item .col-lg-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .carousel-item .col-lg-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .carousel-item .col-lg-6.d-flex {
+        justify-content: center !important;
+    }
+}
 
 
