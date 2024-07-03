@@ -145,3 +145,6 @@ function actualizarTotal() {
     const total = articulosCarrito.reduce((acc, curso) => acc + (curso.precio * curso.cantidad), 0);
     document.getElementById('total').textContent = total.toFixed(2);
 }
+
+
+
