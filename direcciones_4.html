@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Direcciones</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/direcciones_4.css">
+    <link rel="stylesheet" href="css/direccion_2.css">
     <link rel="stylesheet" href="css/encabezado_pie.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="boton-icono me-2"><i class="fa-solid fa-cart-shopping icono"></i></button>
+                <button class="boton-icono me-2" onclick="location.href='carrito.html'"><i class="fa-solid fa-cart-shopping icono"></i></button>
                 <div class="buscar">
                     <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-regular fa-user icono"></i>
@@ -112,7 +112,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
                         <li><a class="dropdown-item" href="#">Registrarse</a></li>
-                        <li><a class="dropdown-item" href="Perfil.html">Perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Registrarse con Google</a></li>
                     </ul>
                 </div>
             </div>
@@ -120,103 +120,114 @@
         
     </header>
 
-    <section class="container-fluid my-5">
-        <div class="row px-5">
-            <div class="col-lg-4 col-md-12" id="div_usuario">
-                <img src="img/img_iconos/usuario.png" class="" id="usu">
-                <h4>¡Bienvenido!</h4>
-            </div>
-            <div class="col-lg-8 col-md-12 justify-content-center" id="barrita_container">
-                <div class="d-flex align-items-center justify-content-between" id="barrita">
-                    <a href="#" class="link">Perfil</a>
-                    <a href="#" class="link"><u><strong>Direcciones</strong></u></a>
-                    <a href="#" class="link">Pedidos</a>
-                    <a href="#" class="link" id="mf">Mis favoritos</a>
+    <main class="row m-0 p-0">
+        <div class="contenedor_info">
+            <div class="row">
+                <div class="col-lg-1 d-flex align-items-center justify-content-end col-md-6 col-sm-5">
+                    <i class="fa-regular fa-user icono-nav-perfil"></i>
+                </div>
+
+                <div class="col-lg-3 d-flex align-items-center col-md-6 col-sm-5 text-center icono-nav-perfil p-md-y-3">
+                    ¡Bienvenido!
+                </div>
+
+                <div class="col-lg-8 nav-perfil col-md-12">
+                    <ul class="nav  justify-content-evenly">
+                        <li class="nav-item">
+                            <a href="Perfil.html" class="nav-link text-light">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="direccion_3.html" class="nav-link text-light">Direcciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pedidos.html" class="nav-link text-light">Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-light">Mis favoritos</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <br>
-        <br>
-        <div class="row d-flex align-items-center" id="bloque_flecha">
-            <div class="col-2 d-flex justify-content-end">
-                <img src="img/atras_24.png" class="img-fluid" id="flecha">
 
+            <div class="row d-flex py-4 volver-inicio">
+                <a href="index.html" class="d-flex align-items-center ">
+                    <i class="fa-solid fa-arrow-left pe-3 text-dark"></i>
+                    <p class="m-0 text-dark">Volver al inicio</p>
+                </a>
             </div>
-            <div class="col-10">
-                <a href="#" class="link" id="atras">Ver direcciones</a>
-            </div>
-        </div>
-        <br>
-        <br>
-        <div id="con" class="row d-flex justify-content-center">
-            <nav id="central" class="col-lg-8 col-md-12 col-sm-12">
-
-                <div class="container text-start p-5" id="bloc">
-                    <div class="row g-5">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label" >País</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>--Seleccione su país--</option>
-                                <option value="1">Perú</option>
-                                <option value="2">Argentina</option>
-                                <option value="3">E.E.U.U</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label">Distritos</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>--Seleccione su distrito--</option>
-                                <option value="1">Perú</option>
-                                <option value="2">Argentina</option>
-                                <option value="3">E.E.U.U</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label">Departamento</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>--Seleccione su departamento--</option>
-                                <option value="1">Perú</option>
-                                <option value="2">Argentina</option>
-                                <option value="3">E.E.U.U</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label">Calle</label>
-                            <input type="text" class="form-control" id="lab">
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label">Provincia</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>--Seleccione su provincia--</option>
-                                <option value="1">Perú</option>
-                                <option value="2">Argentina</option>
-                                <option value="3">E.E.U.U</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label" >N° de calle</label>
-                            <input type="text" id="lab" class="form-control">
-                            <br>
-                            
-                            <label class="form-check-label" for="flexRadioDefault1"><input type="radio">
-                                No tengo calle
-                            </label>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <label class="form-label" >Información adicional</label>
-                            <input type="text" id="lab" class="form-control">
-                        </div>
-                        <div class="col-lg-12">
-                            <button class="btn btn-primary" id="but_bloque" type="submit">Guardar cambios</button>
-                        </div>
-                    </div>
-                </div>
-    
-            </nav>
-        </div>
+            <div class="container-fluid">
+                <div id="con" class="row">
+                    <nav id="central" class="col-lg-8 col-md-12 col-sm-12 ">
         
-    </section>
+                        <div class="container-fluid p-5" id="bloc">
+                            <div class="row g-5">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <label class="form-label">País</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>--Seleccione su país--</option>
+                                        <option value="1">Perú</option>
+                                        <option value="2">Argentina</option>
+                                        <option value="3">E.E.U.U</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <label class="form-label">Distritos</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>--Seleccione su distrito--</option>
+                                        <option value="1">Perú</option>
+                                        <option value="2">Argentina</option>
+                                        <option value="3">E.E.U.U</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <label class="form-label">Departamento</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>--Seleccione su departamento--</option>
+                                        <option value="1">Perú</option>
+                                        <option value="2">Argentina</option>
+                                        <option value="3">E.E.U.U</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <label class="form-label">Calle</label>
+                                    <input type="text" class="form-control" id="lab">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <label class="form-label">Provincia</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>--Seleccione su provincia--</option>
+                                        <option value="1">Perú</option>
+                                        <option value="2">Argentina</option>
+                                        <option value="3">E.E.U.U</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <label class="form-label">N° de calle</label>
+                                    <input type="text" id="lab" class="form-control">
+                                    <br>
+        
+                                    <label class="form-check-label" for="flexRadioDefault1"><input type="radio">
+                                        No tengo calle
+                                    </label>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <label class="form-label">Información adicional</label>
+                                    <input type="text" id="lab" class="form-control">
+                                </div>
+                                <div class="col-lg-12">
+                                    <button class="btn btn-primary" id="but_bloque" type="submit">Guardar cambios</button>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </nav>
+                </div>
+            </div>
+            
     
+        </div>
+    </main>
+    <br>
     <footer class="row m-0">
         <div class="row d-none d-md-flex p-0">
             <div class="col-lg-3 col-md-4 info conocenos ps-10">

@@ -1,22 +1,20 @@
+<!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/direccion_2.css">
+    <title>Direcciones</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/direccion_2.css">
+    <link rel="stylesheet" href="css/encabezado_pie.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
     <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
-    <link rel="stylesheet" href="css/encabezado_pie.css">
-    <title>Direcciones</title>
 </head>
-
 <body>
-    <header class="row m-0 p-0">
+    <header class="row m-0 p-0 sticky-top">
         <div class="row descuentos m-0">
             <div id="carrusel-des-prom" class="carousel slide p-0">
                 <div class="carousel-inner">
@@ -27,33 +25,28 @@
                         ENCUENTRA ACCESORIOS DE TODO TIPO PARA ADORNAR TU VIDA
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carrusel-des-prom"
-                    data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carrusel-des-prom" data-bs-slide="prev">
                     <span class="flecha-prom" aria-hidden="true">&lt;</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carrusel-des-prom"
-                    data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carrusel-des-prom" data-bs-slide="next">
                     <span class="flecha-prom" aria-hidden="true">&gt;</span>
                 </button>
             </div>
-
+        
         </div>
 
         <div class="row menu m-0 p-0">
-            <div
-                class="col-lg-3 d-flex justify-content-center align-items-center col-md-6 col-sm-4 col-4 order-2 order-lg-1 order-md-1 order-sm-2">
-                <img src="img/img_logo/logo_amefil.svg" class="" id="amefil">
+            <div class="col-lg-3 d-flex text-center justify-content-center align-items-center col-md-6 col-sm-4 col-4 order-2 order-lg-1 order-md-1 order-sm-2">
+                <a href="index.html"><img src="img/img_logo/logo_amefil.svg" class="" id="amefil"></a>
             </div>
-
+            
 
             <div class="navegacion col-lg-6 col-md-12 col-sm-4 col-4 order-1 order-lg-2 order-md-3 order-sm-1 py-2">
                 <nav class="navbar navbar-expand-md">
                     <div class="d-flex align-items-center">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon icono"></span>
-                        </button>
+
+                        <button class="btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><span class="navbar-toggler-icon icono text-light"></span></button>
+                        
                         <div class="buscar-sm d-sm-block d-md-none ms-2">
                             <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-magnifying-glass icono"></i>
@@ -63,27 +56,44 @@
                             </div>
                         </div>
                     </div>
-                    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item mx-3">
-                                <a class="nav-link" href="#">NOVEDADES</a>
-                            </li>
-                            <li class="nav-item mx-3">
-                                <a class="nav-link" href="#">COLECCIONES</a>
-                            </li>
-                            <li class="nav-item mx-3">
-                                <a class="nav-link" href="#">MÁS VENDIDOS</a>
-                            </li>
-                            <li class="nav-item mx-3">
-                                <a class="nav-link" href="">DESCUENTOS</a>
-                            </li> 
-                        </ul>
+
+                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                        <div class="offcanvas-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body justify-content-center">
+                            <ul class="navbar-nav">
+                                <li class="nav-item mx-3">
+                                    <a class="nav-link" href="#">NOVEDADES</a>
+                                    <div class="dropdown-contenido">
+                                        <a href="#">Opción 1</a>
+                                        <a href="#">Opción 2</a>
+                                        <a href="#">Opción 3</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item mx-3">
+                                    <a class="nav-link" href="#">COLECCIONES</a>
+                                    <div class="dropdown-contenido">
+                                        <a href="#">Opción A</a>
+                                        <a href="#">Opción B</a>
+                                        <a href="#">Opción C</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item mx-3">
+                                    <a class="nav-link" href="#">MÁS VENDIDOS</a>
+                                </li>
+                                <li class="nav-item mx-3">
+                                    <a class="nav-link" href="">DESCUENTOS</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+
+                    
                 </nav>
             </div>
-
-            <div
-                class="menu-iconos col-lg-3 col-md-6 col-sm-4 col-4 order-3 d-flex justify-content-lg-end justify-content-md-center justify-content-sm-end justify-content-end order-md-2 py-md-3">
+        
+            <div class="menu-iconos col-lg-3 col-md-6 col-sm-4 col-4 order-3 d-flex justify-content-lg-end justify-content-md-center justify-content-sm-end justify-content-end order-md-2 py-md-3">
                 <div class="d-none d-md-flex">
                     <div class="buscar">
                         <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -94,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="boton-icono me-2"><i class="fa-solid fa-cart-shopping icono"></i></button>
+                <button class="boton-icono me-2" onclick="location.href='carrito.html'"><i class="fa-solid fa-cart-shopping icono"></i></button>
                 <div class="buscar">
                     <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-regular fa-user icono"></i>
@@ -107,107 +117,120 @@
                 </div>
             </div>
         </div>
-
-    </header>
-    <section class="container-fluid my-5">
-        <div class="row px-5">
-            <div class="col-lg-4 col-md-12" id="div_usuario">
-                <img src="img/img_iconos/usuario.png" class="" id="usu">
-                <h4>¡Bienvenido!</h4>
-            </div>
-            <div class="col-lg-8 col-md-12 justify-content-center" id="barrita_container">
-                <div class="d-flex align-items-center justify-content-between" id="barrita">
-                    <a href="#" class="link">Perfil</a>
-                    <a href="#" class="link"><u><strong>Direcciones</strong></u></a>
-                    <a href="#" class="link">Pedidos</a>
-                    <a href="#" class="link" id="mf">Mis favoritos</a>
-                </div>
-            </div>
-        </div>
-        <br>
-        <br>
-        <div class="row d-flex align-items-center" id="bloque_flecha">
-            <div class="col-2 d-flex justify-content-end">
-                <img src="img/atras_24.png" class="img-fluid" id="flecha">
-
-            </div>
-            <div class="col-10">
-                <a href="#" class="link" id="atras">Ver direcciones</a>
-            </div>
-        </div>
-        <br>
-        <br>
-        <div id="con" class="row d-flex justify-content-center">
-            <nav id="central" class="col-lg-8 col-md-12 col-sm-12">
-
-                <div class="container text-start p-5" id="bloc">
-                    <div class="row g-5">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label" >País</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>--Seleccione su país--</option>
-                                <option value="1">Perú</option>
-                                <option value="2">Argentina</option>
-                                <option value="3">E.E.U.U</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label">Distritos</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>--Seleccione su distrito--</option>
-                                <option value="1">Perú</option>
-                                <option value="2">Argentina</option>
-                                <option value="3">E.E.U.U</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label">Departamento</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>--Seleccione su departamento--</option>
-                                <option value="1">Perú</option>
-                                <option value="2">Argentina</option>
-                                <option value="3">E.E.U.U</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label">Calle</label>
-                            <input type="text" class="form-control" id="lab">
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label">Provincia</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>--Seleccione su provincia--</option>
-                                <option value="1">Perú</option>
-                                <option value="2">Argentina</option>
-                                <option value="3">E.E.U.U</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label" >N° de calle</label>
-                            <input type="text" id="lab" class="form-control">
-                            <br>
-                            
-                            <label class="form-check-label" for="flexRadioDefault1"><input type="radio">
-                                No tengo calle
-                            </label>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <label class="form-label" >Información adicional</label>
-                            <input type="text" id="lab" class="form-control">
-                        </div>
-                        <div class="col-lg-12">
-                            <button class="btn btn-primary" id="but_bloque" type="submit">Añadir dirección</button>
-                        </div>
-                    </div>
-                </div>
-    
-            </nav>
-        </div>
         
-    </section>
+    </header>
+
+    <main class="row m-0 p-0">
+        <div class="contenedor_info">
+            <div class="row">
+                <div class="col-lg-1 d-flex align-items-center justify-content-end col-md-6 col-sm-5">
+                    <i class="fa-regular fa-user icono-nav-perfil"></i>
+                </div>
+
+                <div class="col-lg-3 d-flex align-items-center col-md-6 col-sm-5 text-center icono-nav-perfil p-md-y-3">
+                    ¡Bienvenido!
+                </div>
+
+                <div class="col-lg-8 nav-perfil col-md-12">
+                    <ul class="nav  justify-content-evenly">
+                        <li class="nav-item">
+                            <a href="Perfil.html" class="nav-link text-light">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="direccion_3.html" class="nav-link text-light">Direcciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pedidos.html" class="nav-link text-light">Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-light">Mis favoritos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row d-flex py-4 volver-inicio">
+                <a href="index.html" class="d-flex align-items-center ">
+                    <i class="fa-solid fa-arrow-left pe-3 text-dark"></i>
+                    <p class="m-0 text-dark">Volver al inicio</p>
+                </a>
+            </div>
+            <div class="container-fluid">
+                <div id="con" class="row">
+                    <nav id="central" class="col-lg-8 col-md-12 col-sm-12 ">
+        
+                        <div class="container-fluid p-5" id="bloc">
+                            <div class="row g-5">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <label class="form-label">País</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>--Seleccione su país--</option>
+                                        <option value="1">Perú</option>
+                                        <option value="2">Argentina</option>
+                                        <option value="3">E.E.U.U</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <label class="form-label">Distritos</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>--Seleccione su distrito--</option>
+                                        <option value="1">Perú</option>
+                                        <option value="2">Argentina</option>
+                                        <option value="3">E.E.U.U</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <label class="form-label">Departamento</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>--Seleccione su departamento--</option>
+                                        <option value="1">Perú</option>
+                                        <option value="2">Argentina</option>
+                                        <option value="3">E.E.U.U</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <label class="form-label">Calle</label>
+                                    <input type="text" class="form-control" id="lab">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <label class="form-label">Provincia</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>--Seleccione su provincia--</option>
+                                        <option value="1">Perú</option>
+                                        <option value="2">Argentina</option>
+                                        <option value="3">E.E.U.U</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <label class="form-label">N° de calle</label>
+                                    <input type="text" id="lab" class="form-control">
+                                    <br>
+        
+                                    <label class="form-check-label" for="flexRadioDefault1"><input type="radio">
+                                        No tengo calle
+                                    </label>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <label class="form-label">Información adicional</label>
+                                    <input type="text" id="lab" class="form-control">
+                                </div>
+                                <div class="col-lg-12">
+                                    <button class="btn btn-primary" id="but_bloque" type="submit">Añadir dirección</button>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </nav>
+                </div>
+            </div>
+            
+    
+        </div>
+    </main>
+    <br>
     <footer class="row m-0">
         <div class="row d-none d-md-flex p-0">
-            <div class="col-lg-3 col-md-4 info conocenos ps-md-5">
+            <div class="col-lg-3 col-md-4 info conocenos ps-10">
                 <h5 class="mb-4">Conócenos</h5>
                 <ul>
                     <li class="my-2"><a href="#" class="info-light">Amefil</a></li>
@@ -218,16 +241,16 @@
                     <li class="my-2"><a href="#" class="info-light">Política de cookies</a></li>
                 </ul>
             </div>
-
-            <div class="col-lg-2 col-md-4 info info-light contactos">
+    
+            <div class="col-lg-2 col-md-4 info info-light ps-lg-5 ps-md-5">
                 <h5 class="mb-4">Contáctanos</h5>
                 <ul>
                     <li class="my-2">amefilonline@gmail.com</li>
                     <li class="my-2">+51 987 963 214</li>
-                </ul>
+                </ul>   
             </div>
-
-            <div class="col-lg-3 col-md-4 info soporte">
+    
+            <div class="col-lg-3 col-md-4 info soporte ps-10">
                 <h5 class="mb-4">Soporte</h5>
                 <ul>
                     <li class="my-2"><a href="#" class="info-light">Libro de Reclamaciones</a></li>
@@ -236,40 +259,39 @@
                     <li class="my-2"><a href="#" class="info-light">Guía de tallas de pulseras</a></li>
                 </ul>
             </div>
-
-            <div class="col-lg-4 col-md-12 info">
+    
+            <div class="col-lg-4 col-md-12 info mb-md-5">
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 col-md-3 text-md-center">
                         <img src="img/img_logo/logo_blanco.svg" id="logofooter">
                     </div>
-
-                    <div class="col-lg-9">
+    
+                    <div class="col-lg-9 col-md-9 ps-4">
                         <h5 class="mb-3">Únetenos</h5>
-                        <input type="text" class="form-control" style="width: 70%; font-size: 0.8rem;"
-                            placeholder="Ingresa tu email aquí">
+                        <input type="text" class="form-control" style="width: 70%; font-size: 0.8rem;" placeholder="Ingresa tu email aquí">
                     </div>
                 </div>
-
+    
                 <div class="row redes-sociales mt-lg-5 pt-lg-5 ms-lg-5">
-                    <div class="d-flex justify-content-start">
+                    <div class="d-flex justify-content-start justify-content-md-center">
                         <div class="mx-3">
                             <a href="#">
                                 <i class="fa-brands fa-facebook text-light"></i>
                             </a>
                         </div>
-
+        
                         <div class="mx-3">
                             <a href="#">
                                 <i class="fa-brands fa-instagram text-light"></i>
                             </a>
                         </div>
-
+        
                         <div class="mx-3">
                             <a href="#">
                                 <i class="fa-brands fa-tiktok text-light"></i>
                             </a>
                         </div>
-
+        
                         <div class="mx-3">
                             <a href="#">
                                 <i class="fa-brands fa-whatsapp text-light"></i>
@@ -283,8 +305,7 @@
         <div class="accordion d-md-none col-sm-12 col-12 mt-4 p-0">
             <div class="accordion-item">
                 <h5 class="accordion-header" id="headingOne">
-                    <button class="accordion-footer botones collapsed py-3 d-flex" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne">
+                    <button class="accordion-footer botones collapsed py-3 d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne">
                         <div class="col">
                             Conócenos
                         </div>
@@ -293,56 +314,50 @@
                         </div>
                     </button>
                 </h5>
-                <div id="collapseOne" class="collapse show" data-bs-parent="#footerAccordion">
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#footerAccordion">
                     <div class="accordion-body p-0">
                         <div class="col-sm-12 info m-0">
                             <ul class="list-group">
                                 <li class="list-group-item text-center"><a href="#" class="info-dark">Amefil</a></li>
                                 <li class="list-group-item text-center"><a href="#" class="info-dark">Contactos</a></li>
                                 <li class="list-group-item text-center"><a href="#" class="info-dark">Únete</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Términos y
-                                        condiciones</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Política de
-                                        privacidad</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Política de
-                                        cookies</a></li>
+                                <li class="list-group-item text-center"><a href="#" class="info-dark">Términos y condiciones</a></li>
+                                <li class="list-group-item text-center"><a href="#" class="info-dark">Política de privacidad</a></li>
+                                <li class="list-group-item text-center"><a href="#" class="info-dark">Política de cookies</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-
+    
             <div class="accordion-item">
                 <h5 class="accordion-header" id="headingTwo">
-                    <button class="accordion-footer botones collapsed py-3 d-flex" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo">
+                    <button class="accordion-footer botones collapsed py-3 d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo">
                         <div class="col">
                             Contáctanos
                         </div>
-
+                        
                         <div>
                             <i class="fa-solid fa-caret-down"></i>
                         </div>
                     </button>
                 </h5>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                    data-bs-parent="#footerAccordion">
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#footerAccordion">
                     <div class="accordion-body">
                         <div class="col-lg-2 info contactos m-0">
                             <ul class="ms-5">
                                 <li class="my-2"><i class="fa-solid fa-envelope me-3"></i>amefilonline@gmail.com</li>
                                 <li class="my-2"><i class="fa-solid fa-phone me-3"></i>+51 987 963 214</li>
-                            </ul>
-                        </div>
+                            </ul>   
+                        </div>    
                     </div>
                 </div>
             </div>
-
+    
             <div class="accordion-item">
                 <h5 class="accordion-header" id="headingThree">
-                    <button class="accordion-footer botones collapsed py-3 d-flex" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-controls="collapseThree">
-                        <div class="col">
+                    <button class="accordion-footer botones collapsed py-3 d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-controls="collapseThree">
+                        <div class="col"> 
                             Soporte
                         </div>
 
@@ -351,41 +366,82 @@
                         </div>
                     </button>
                 </h5>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                    data-bs-parent="#footerAccordion">
-                    <div class="accordion-body">
-
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#footerAccordion">
+                    <div class="accordion-body p-0">
+                        <div class="col-sm-12 info m-0">
+                            <ul class="list-group">
+                                <li class="list-group-item text-center"><a href="#" class="info-dark">Libro de Reclamaciones</a></li>
+                                <li class="list-group-item text-center"><a href="#" class="info-dark">Formas de pago</a></li>
+                                <li class="list-group-item text-center"><a href="#" class="info-dark">Guía de tallas de collar</a></li>
+                                <li class="list-group-item text-center"><a href="#" class="info-dark">Guía de talla de pulseras</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item">
-                <h5 class="accordion-header" id="headingThree">
-                    <button class="accordion-footer botones collapsed py-3 d-flex" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-controls="collapseThree">
+                <h5 class="accordion-header" id="headingFour">
+                    <button class="accordion-footer botones collapsed py-3 d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-controls="collapseFour">
                         <div class="col">
                             Únetenos
                         </div>
-
+                        
                         <div>
                             <i class="fa-solid fa-caret-down"></i>
                         </div>
                     </button>
                 </h5>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                    data-bs-parent="#footerAccordion">
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#footerAccordion">
                     <div class="accordion-body">
-
+                        <div class="row">
+                            <div class="col-sm-3 text-md-center">
+                                <img src="img/img_logo/logoAmefil - solo logo.svg" id="logofooter">
+                            </div>
+            
+                            <div class="col-sm-9">
+                                <h5 class="mb-3 text-dark">Únetenos</h5>
+                                <input type="text" class="form-control" style="width: 70%; font-size: 0.8rem;" placeholder="Ingresa tu email aquí">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-                      
-        </div>
+
+            <div>
+                <div class="row redes-sociales py-3">
+                    <div class="d-flex justify-content-sm-center justify-content-center">
+                        <div class="mx-3">
+                            <a href="#">
+                                <i class="fa-brands fa-facebook text-light"></i>
+                            </a>
+                        </div>
+        
+                        <div class="mx-3">
+                            <a href="#">
+                                <i class="fa-brands fa-instagram text-light"></i>
+                            </a>
+                        </div>
+        
+                        <div class="mx-3">
+                            <a href="#">
+                                <i class="fa-brands fa-tiktok text-light"></i>
+                            </a>
+                        </div>
+        
+                        <div class="mx-3">
+                            <a href="#">
+                                <i class="fa-brands fa-whatsapp text-light"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
+
+    <script src="js/index.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
 </body>
+</html>

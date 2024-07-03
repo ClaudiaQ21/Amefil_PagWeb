@@ -1,65 +1,49 @@
-body {
-    font-family: "Montserrat";
-  }
-@font-face {
-    font-family: Montserrat;
+.contenedor_info{
+    padding: 50px 150px;
+}
 
-    src: url('recursos/Montserrat-VariableFont_wght.ttf');
+.nav-perfil{
+    background-color: #6b4e44;
+    border-radius: 9px;
+    padding: 10px 0;
+}
 
+.icono-nav-perfil{
+    font-size: 1.2rem;
 }
 
 
 
-/*----------------------------------------------------------------*/
-h4{
-    display: inline;
-    margin-left: 5%;
-    font-family: Montserrat;
+.datos-perfil span{
+    font-weight: 600;
 }
-.link{
-    text-decoration-line: none;
-    color: #ffffff;
-}
+
 .link:hover{
     font-weight: 600;
 }
 
-#barrita{
-    background-color: #6b4e44;
-    height: 90%;
-    padding-left: 10%;
-    padding-right: 10%;
-    border-radius: 0.5rem;
-    font-family: Montserrat;
-    display: flex;
-    flex-wrap: wrap;
-}
-#mf .link{
-    margin-right: 0;
-    
-}
-#flecha{
-    margin-left: 12%;
-}
-#flecha:hover{
-    background-color: #d7d7d7;
-    border-radius: 50%;
+#bloc_direcciones{
+    background-color: #F2F0F3;
+    border-radius: 1px;
+    box-shadow: 0 0 20px rgba(2, 1, 1, 0.2);
+    padding: 40px 100px;
+    height: 70%;
+    margin-bottom: 20%;
 }
 
-a{
-    padding: 0;
-    margin: 0;
-    font-family: "Montserrat";
-    position: relative;
-    top: 2px;
-    
+.volver-inicio a{
+    text-decoration: none;
 }
-#atras{
-    color: #000;
+
+.volver-inicio p:hover{
+    font-weight: bold;
 }
 #bloc{
     background-color: #F2F0F3;
-    
+    width: 150%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
     border-radius: 3px;
     box-shadow: 0 0 20px rgba(2, 1, 1, 0.2); 
 }
@@ -90,43 +74,37 @@ a{
 #but_bloque:hover{
     background-color: #816b63;
 }
-@media (max-width: 576px) {
-    #barrita .link {
 
-        flex: 1 1 100%;
-        text-align: center;
+
+@media (max-width:767px){
+    #bloc_direcciones{
+        padding: 10px 15px;
+        height: 40%;
+        margin-bottom: 40%;
     }
-    #barrita{
-        margin-top: 10%;
+
+    .contenedor_info{
+        padding: 10px 30px;
     }
-    #bloque_flecha{
-        margin-top: 15%;
-        padding-left: 30px;
-    }
-    #direcc{
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-    #div_usuario{
+    #bloc{
         width: 100%;
-        margin-bottom: 5%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 }
-@media (min-width: 577px) and (max-width:950px){
-    #div_usuario{
+
+@media (min-width:768px) and (max-width:991px){
+    #bloc_direcciones{
+        padding: 40px 100px;
+        margin-bottom: 20%;
+        
+    }
+    #bloc{
         width: 100%;
-        margin-bottom: 5%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
-    #barrita{
-        height: 200%;
+}
+
+@media (min-width:992px){
+    #bloc_direcciones{
+        padding: 40px 100px;
     }
-    #bloque_flecha{
-        margin-top: 2%;
-    }
+    
 }
