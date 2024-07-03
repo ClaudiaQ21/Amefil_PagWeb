@@ -29,12 +29,15 @@ body {
     width: 100%;
     height: 45px;
 }
-#boton:hover {
-    background-color: #816b63;
+#btnPagar{
+    background-color: #6b4e44;
+    color: hsl(0, 0%, 100%);
+    font-size: 0.9em;
+    border-color: #6b4e44;
+    width: 100%;
+    height: 45px;
 }
-#boton1:hover {
-    background-color: #dad8db;
-}
+
 #boton1{
     background-color: #ffffff;
     color: #000000;
