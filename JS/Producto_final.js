@@ -99,4 +99,6 @@ $(document).ready(function() {
             $(this).text('Añadir al carrito');
         }
     });
+
+    
 });
