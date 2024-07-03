@@ -7,6 +7,11 @@
     height: 45px;
 }
 
+#boton a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
 #peque{
     width: 80px;
     height: 100%;
