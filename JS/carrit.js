@@ -1,50 +1,150 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    const carritoBody = document.querySelector('#carrito tbody');
+$(document).ready(function(){
+    $(".btn-dark").click(function(){
+        if($(this).text() === "Pagar"){
+            if(articulosCarrito.length === 0){
+                alert("El carrito está vacío. Por favor agregue productos.");
+                return;
+            }
 
-    carrito.forEach(producto => {
-        const filaCarrito = document.createElement('tr');
-        filaCarrito.innerHTML = `
-            <td><img src="${producto.imagen}" style="width: 50px; height: 50px;"></td>
-            <td>${producto.nombre}</td>
-            <td>S/${producto.precio.toFixed(2)}</td>
-            <td>1</td>
-            <td>S/${producto.total.toFixed(2)}</td>
-            <td><button class="btn btn-danger btn-sm eliminar-item">Eliminar</button></td>
-        `;
-        carritoBody.appendChild(filaCarrito);
-    });
+            let total = parseFloat($("#total").text());
+            let descuento = 0;
 
-    actualizarTotales();
-
-    // Agregar funcionalidad a los botones de eliminar
-    const eliminarButtons = document.querySelectorAll('.eliminar-item');
-    eliminarButtons.forEach(button => {
-        button.addEventListener('click', eliminarItem);
+            $("#descuento").text("Descuento: $" + descuento.toFixed(2));
+            $("#total").text("Total a Pagar: $" + total.toFixed(2));
+        } 
     });
 });
 
-function actualizarTotales() {
-    const precios = document.querySelectorAll('#carrito tbody tr td:nth-child(5)');
-    let subtotal = 0;
+const carrito = document.getElementById("carrito"),
+      listaCursos = document.getElementById("lista-cursos"),
+      contenedorCarrito = document.querySelector('#carrito');
 
-    precios.forEach(precio => {
-        subtotal += parseFloat(precio.innerText.replace('S/', ''));
+let articulosCarrito = [];
+
+registrarEventsListeners();
+
+function registrarEventsListeners() {
+    listaCursos.addEventListener('click', agregarCurso);
+    carrito.addEventListener('click', eliminarCurso);
+
+    // Asegúrate de definir el elemento vaciarCarritoBtn antes de usarlo
+    const vaciarCarritoBtn = document.getElementById('vaciar-carrito-btn');
+    if (vaciarCarritoBtn) {
+        vaciarCarritoBtn.addEventListener('click', () => {
+            articulosCarrito = [];
+            limpiarHTML();
+            actualizarTotal();
+        });
+    }
+}
+
+function agregarCurso(e) {
+    if (e.target.classList.contains("agregar-carrito")) {
+        const cursoSeleccionado = e.target.parentElement.parentElement;
+        leerInfo(cursoSeleccionado);
+    }
+}
+
+function eliminarCurso(e) {
+    if (e.target.classList.contains("borrar-curso")) {
+        const cursoId = e.target.getAttribute('data-id');
+        articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
+        carritoHTML();
+        actualizarTotal();
+    }
+}
+
+function leerInfo(curso) {
+    const infoCurso = {
+        imagen: curso.querySelector('img').src,
+        titulo: curso.querySelector('h6').textContent,
+        precio: parseFloat(curso.querySelector('.precio p').textContent.replace('S/', '')),
+        id: curso.querySelector('button').getAttribute('data-id'),
+        cantidad: 1
+    };
+
+    const existe = articulosCarrito.some(curso => curso.id === infoCurso.id);
+    if (existe) {
+        articulosCarrito = articulosCarrito.map(curso => {
+            if (curso.id === infoCurso.id) {
+                curso.cantidad++;
+                return curso;
+            } else {
+                return curso;
+            }
+        });
+    } else {
+        articulosCarrito = [...articulosCarrito, infoCurso];
+    }
+    carritoHTML();
+    actualizarTotal();
+}
+
+function registrarEventosCantidad() {
+    const decrementarBotones = document.querySelectorAll('.decrementar-cantidad');
+    const incrementarBotones = document.querySelectorAll('.incrementar-cantidad');
+
+    decrementarBotones.forEach(btn => {
+        btn.addEventListener('click', decrementarCantidad);
     });
 
-    document.getElementById('subtotal').value = S/${subtotal.toFixed(2)};
-    document.getElementById('total').value = S/${subtotal.toFixed(2)};
+    incrementarBotones.forEach(btn => {
+        btn.addEventListener('click', incrementarCantidad);
+    });
 }
 
-function eliminarItem(event) {
-    const button = event.target;
-    const fila = button.parentElement.parentElement;
-    const nombreProducto = fila.querySelector('td:nth-child(2)').innerText;
+function decrementarCantidad(e) {
+    const cursoId = e.target.getAttribute('data-id');
+    const cursoEnCarrito = articulosCarrito.find(curso => curso.id === cursoId);
 
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    carrito = carrito.filter(producto => producto.nombre !== nombreProducto);
-
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-    fila.remove();
-    actualizarTotales();
+    if (cursoEnCarrito.cantidad > 1) {
+        cursoEnCarrito.cantidad--;
+        carritoHTML();
+        actualizarTotal();
+    }
 }
+
+function incrementarCantidad(e) {
+    const cursoId = e.target.getAttribute('data-id');
+    const cursoEnCarrito = articulosCarrito.find(curso => curso.id === cursoId);
+
+    cursoEnCarrito.cantidad++;
+    carritoHTML();
+    actualizarTotal();
+}
+
+function carritoHTML() {
+    limpiarHTML();
+    articulosCarrito.forEach(curso => {
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+            <td><img id="peque" src="${curso.imagen}"></td>
+            <td>${curso.titulo}</td>
+            <td>S/${curso.precio.toFixed(2)}</td>
+            <td>
+                <button class="btn btn-sm btn-secondary decrementar-cantidad" data-id="${curso.id}">-</button>
+                <span class="cantidad">${curso.cantidad}</span>
+                <button class="btn btn-sm btn-primary incrementar-cantidad" data-id="${curso.id}">+</button>
+            </td>
+            <td>S/${(curso.precio * curso.cantidad).toFixed(2)}</td>
+            <td><button type="button" class="btn-close borrar-curso" data-id="${curso.id}" aria-label="Close"></button></td>
+        `;
+        contenedorCarrito.appendChild(fila);
+    });
+
+    registrarEventosCantidad();
+}
+
+function limpiarHTML() {
+    while (contenedorCarrito.firstChild) {
+        contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+    }
+}
+
+function actualizarTotal() {
+    const total = articulosCarrito.reduce((acc, curso) => acc + (curso.precio * curso.cantidad), 0);
+    document.getElementById('total').textContent = total.toFixed(2);
+}
+
+
+
