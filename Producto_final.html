@@ -123,7 +123,7 @@
         <div class="row container-fluid m-0 pt-4">
             <div class="col col-lg-6">
                 <div class="row m-0">
-                    <div class="img_prin">
+                    <div class="img_prin cont_pro">
                         <img id="main-image" src="img/pulseras/pulsera-lila-flores.webp" alt="Producto Principal">
                     </div>
                 </div>
@@ -138,7 +138,7 @@
         
             <div class="col col-lg-6">
                 <div class="detalles">
-                    <div class="descrip cont_pro">
+                    <div class="descrip">
                         <h4>Brisa de primavera <button type="button" class="far fa-heart" id="favoritos"></button></h4>
                         <p>Talla: 3</p>
                         <p>Collares: Lavanda</p>
@@ -157,8 +157,9 @@
                             <button id="mas" class="botones counter-btn pt-0 pb-0">+</button>
                         </div>
                     </div>
-                    <div class="row m-0 mt-5 p-0 justify-content-center">
-                        <button class="botones" type="button" id="mas_carr">Añadir al carrito</button>
+                    <div class="row m-0 mt-5 p-0 justify-content-center cont_pro" id="lista-cursos" data-id="11" data-name="Brisa de primavera" data-price="25.00">
+                        <img id="main-image" class="d-none" src="img/pulseras/pulsera-lila-flores.webp" alt="Producto Principal">
+                        <button class="botones agregar-carrito" type="button" id="mas_carr">Añadir al carrito</button>
                         <button class="botones" type="button" id="mas_carr">Comprar ahora</button>
                     </div>
                 </div>
@@ -270,13 +271,32 @@
 
         <div class="row container-fluid cont_sig mx-0 p-0">            
             <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex m-0 siguenos">
-                <p class="mt-0 mb-0 p-0">
+                <p class="mt-0 mb-0 p-0 d-md-block d-none">
                     NO OLVIDES SEGUIRNOS EN NUESTRAS REDES
-                </p>
-                <a href=""><i></i></a>
-                <a href=""><img src="img/img_redes/facebook.png" alt="" class="img-fluid"></a>
-                <a href=""><img src="img/img_redes/whatsapp.png" alt="" class="img-fluid"></a>
-                <a href=""><img src="img/img_redes/tiktok.png" alt="" class="img-fluid"></a>
+                </p> 
+                <div class="mx-3">
+                    <a href="#">
+                        <i class="fa-brands fa-facebook text-light"></i>
+                    </a>
+                </div>
+
+                <div class="mx-3">
+                    <a href="#">
+                        <i class="fa-brands fa-instagram text-light"></i>
+                    </a>
+                </div>
+
+                <div class="mx-3">
+                    <a href="#">
+                        <i class="fa-brands fa-tiktok text-light"></i>
+                    </a>
+                </div>
+
+                <div class="mx-3">
+                    <a href="#">
+                        <i class="fa-brands fa-whatsapp text-light"></i>
+                    </a>
+                </div>
             </div>
         </div>
         
@@ -495,9 +515,9 @@
     </footer>
 
     <script src="JS/jquery-3.7.1.slim.min.js"></script>
+    <script src="JS/carrito.js"></script>
     <script src="JS/Producto_final.js"></script>
     <script src="JS/index.js"></script>
-    <script src="JS/carrito.js"></script>
     <script src="JS/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -262,3 +262,7 @@
     height: auto;
     margin-inline-end: 1rem;
 }
+
+.siguenos i{
+    font-size: 130%;
+}
