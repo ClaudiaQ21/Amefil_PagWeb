@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amefil</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/perfil.css">
     <link rel="stylesheet" href="css/encabezado_pie.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -65,24 +65,25 @@
                             <ul class="navbar-nav">
                                 <li class="nav-item mx-3">
                                     <a class="nav-link" href="#">NOVEDADES</a>
+                                    <div class="dropdown-contenido">
+                                        <a href="#">Opción 1</a>
+                                        <a href="#">Opción 2</a>
+                                        <a href="#">Opción 3</a>
+                                    </div>
                                 </li>
                                 <li class="nav-item mx-3">
-                                    <a class="nav-link" data-bs-toggle="dropdown" aria-expanded="false" href="#">COLECCIONES</a>
-                                    <div class="buscar">
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="Collares.html">Collares</a></li>
-                                            <li><a class="dropdown-item" href="Nav_Productos_final.html">Pulseras</a></li>
-                                            <li><a class="dropdown-item" href="Nav_Productos_final.html">Aretes</a></li>
-                                            <li><a class="dropdown-item" href="Nav_Productos_final.html">Bolsos</a></li>
-                                        </ul>
+                                    <a class="nav-link" href="#">COLECCIONES</a>
+                                    <div class="dropdown-contenido">
+                                        <a href="#">Opción A</a>
+                                        <a href="#">Opción B</a>
+                                        <a href="#">Opción C</a>
                                     </div>
-
                                 </li>
                                 <li class="nav-item mx-3">
                                     <a class="nav-link" href="#">MÁS VENDIDOS</a>
                                 </li>
                                 <li class="nav-item mx-3">
-                                    <a class="nav-link" href="Descuentos.html">DESCUENTOS</a>
+                                    <a class="nav-link" href="">DESCUENTOS</a>
                                 </li>
                             </ul>
                         </div>
@@ -109,9 +110,9 @@
                         <i class="fa-regular fa-user icono"></i>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="inicio_sesion.html">Iniciar sesión</a></li>
-                        <li><a class="dropdown-item" href="registrarse.html">Registrarse</a></li>
-                        <li><a class="dropdown-item" href="Perfil.html">Perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
+                        <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                        <li><a class="dropdown-item" href="#">Registrarse con Google</a></li>
                     </ul>
                 </div>
             </div>
@@ -120,142 +121,111 @@
     </header>
 
     <main class="row m-0 p-0">
-        <!-- CARRUSEL -->
-        <div class="row m-0 p-0">
-            <div id="carouselExampleIndicators" class="carousel slide m-0 p-0">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item">
-                        <img src="img/carrusel1.webp" class="d-block w-100" alt="promocion">
-                    </div>
-                    
-                    <div class="carousel-item active">
-                        <img src="img/promocion-2x1-compartidos.jpg" class="d-block w-100" alt="imagen de 3">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </button>
-              </div>
-        </div>
-
-        <!-- TARJETA DE PRODUCTOS -->
-        <div class="row productos pt-3 ps-5 pb-5 my-5 mx-0"> 
-            <div class="row my-4">
-                <h3 class="m-0 text-lg-start text-center"><a href="Nav_Productos_final.html">NUESTROS PRODUCTOS</a></h3>
-            </div>
-
-            <div class="contenedor_producto d-flex">
-
-                <div class="producto">
-                    <div class="card p-0" style="width: 18rem;">
-                        <img src="img/collares/descarga (5).webp" class="rounded" alt="...">
-                        <button class="botones btn-oculto" onclick="location.href='Nav_Productos_final.html'">Ver producto</button>
-                    </div>
-    
-                    <div class="card p-0" style="width: 18rem;">
-                        <img src="img/pulseras/pulsera-corazon-lleno-negra.webp" class="rounded" alt="...">
-                        <button class="botones btn-oculto" onclick="location.href='Nav_Productos_final.html'">Ver producto</button>
-                    </div>
-    
-                    <div class="card p-0" style="width: 18rem;">
-                        <img src="img/bolsos/bolso-tonos-marrones-pompon.webp" class="rounded" alt="...">
-                        <button class="botones btn-oculto" onclick="location.href='Nav_Productos_final.html'">Ver producto</button>
-                    </div>
-    
-                    <div class="card p-0" style="width: 18rem;">
-                        <img src="img/pulseras/pulsera-lila-bolitas.webp" class="rounded" alt="...">
-                        <button class="botones btn-oculto" onclick="location.href='Nav_Productos_final.html'">Ver producto</button>
-                    </div>
-    
-                    <div class="card p-0" style="width: 18rem;">
-                        <img src="img/collares/descarga (2).webp" class="rounded" alt="...">
-                        <button class="botones btn-oculto" onclick="location.href='Nav_Productos_final.html'">Ver producto</button>
-                    </div>
-    
-                    <div class="card p-0" style="width: 18rem;">
-                        <img src="img/pulseras/pulsera-dije-arena.webp" class="rounded" alt="...">
-                        <button class="botones btn-oculto" onclick="location.href='Nav_Productos_final.html'">Ver producto</button>
-                    </div>
-    
-                    <div class="card p-0" style="width: 18rem;">
-                        <img src="img/collares/descarga (6).webp" class="rounded" alt="...">
-                        <button class="botones btn-oculto" onclick="location.href='Nav_Productos_final.html'">Ver producto</button>
-                    </div>
-    
-                    <div class="card p-0" style="width: 18rem;">
-                        <img src="img/pulseras/pulsera-roja-dije-arena.webp" class="rounded" alt="...">
-                        <button class="botones btn-oculto" onclick="location.href='Nav_Productos_final.html'">Ver producto</button>
-                    </div>
+        <div class="contenedor_info">
+            <div class="row">
+                <div class="col-lg-1 d-flex align-items-center justify-content-end col-md-6 col-sm-5">
+                    <i class="fa-regular fa-user icono-nav-perfil"></i>
                 </div>
 
-            </div>
-        </div>
-
-        <!-- COLECCIONES -->
-        <div class="row m-0 p-0">
-            <div class="row m-0 p-0">
-                <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                    <a href="Collares.html">
-                        <div class="coleccion-texto">
-                            <img src="img/collares/descarga.png" alt="coleccionCollares" class="img-fluid imagen-sombreada">
-                            <div class="texto-colecciones">COLLARES</div>
-                        </div>
-                    </a>
+                <div class="col-lg-3 d-flex align-items-center col-md-6 col-sm-5 text-center icono-nav-perfil p-md-y-3">
+                    ¡Bienvenido!
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                    <a href="#">
-                        <div class="coleccion-texto">
-                            <img src="img/pulseras/pulsera2-copia.webp" alt="coleccionpulseras" class="img-fluid imagen-sombreada">
-                            <div class="texto-colecciones">PULSERAS</div>
-                        </div>
-                    </a>
+
+                <div class="col-lg-8 nav-perfil col-md-12">
+                    <ul class="nav  justify-content-evenly">
+                        <li class="nav-item">
+                            <a href="Perfil.html" class="nav-link text-light">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="direccion_3.html" class="nav-link text-light">Direcciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-light">Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-light">Mis favoritos</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="row m-0 p-0">
-                <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                    <a href="#">
-                        <div class="coleccion-texto">
-                            <img src="img/bolsos/descarga (5) - copia.png" alt="coleccionBolsos" class="img-fluid imagen-sombreada">
-                            <div class="texto-colecciones">BOLSOS</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                    <a href="#">
-                        <div class="coleccion-texto">
-                            <img src="img/aretes/aretes-forma-bolita-pag-principal.png" alt="coleccionesAretes" class="img-fluid imagen-sombreada">
-                            <div class="texto-colecciones">ARETES</div>
-                        </div>
-                    </a>
-                </div>
+            <div class="row d-flex py-4 volver-inicio">
+                <a href="index.html" class="d-flex align-items-center ">
+                    <i class="fa-solid fa-arrow-left pe-3 text-dark"></i>
+                    <p class="m-0 text-dark">Volver al inicio</p>
+                </a>
             </div>
-        </div>
 
-        <div class="frase-chevere row d-flex justify-content-center text-center py-4">
-            <h4>MÁS QUE ACCESORIOS,</h4>
-            <h4>ARTE TEJIDO PARA TI</h4>
-        </div>
+            <div class="row datos-perfil" style="border: 1px solid;">
+                <div class="row py-3">
+                    <div class="col-lg-1 align-items-center">
+                        <p>1</p>
+                    </div>
 
-        <div class="info-rapida row py-4">
-            <div class="col-4 text-center">
-                <i class="fa-regular fa-credit-card"></i>
-                <p>Diferentes y seguras formas de pago</p>
-            </div>
-            <div class="col-4 text-center">
-                <i class="fa-solid fa-truck"></i>
-                <p>Envíos rápidos y seguros</p>
-            </div>
-            <div class="col-4 text-center">
-                <i class="fa-solid fa-dollar-sign"></i>
-                <p>La mejor relación precio-calidad</p>
+                    <div class="col-lg-2">
+                        <img src="img/collares/descarga (5).webp" alt="pedido uno" style="width: 10rem;">
+                    </div>
+
+                    <div class="col-lg-8">
+                        <p>Claudia Libertad Quispe Terrones</p>
+                        <p>000 001</p>
+                        <br>
+                        <p>Total</p>
+                    </div>
+
+                    <div class="col-lg-1 d-flex justify-content-end align-items-center">
+                        <p class="m-0 pe-3">Entregado</p>
+                        <i class="fa-solid fa-caret-right justify-content-end"></i>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row py-3">
+                    <div class="col-lg-1 align-items-center">
+                        <p class="my-auto">2</p>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <img src="img/pulseras/pulsera-corazones-compartidos-negra.png" alt="pedido uno" style="width: 10rem;">
+                    </div>
+
+                    <div class="col-lg-8">
+                        <p>Claudia Libertad Quispe Terrones</p>
+                        <p>000 002</p>
+                        <br>
+                        <p>Total</p>
+                    </div>
+
+                    <div class="col-lg-1 d-flex justify-content-end align-items-center">
+                        <p class="m-0 pe-3">Entregado</p>
+                        <i class="fa-solid fa-caret-right justify-content-end"></i>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row py-3">
+                    <div class="col-lg-1 align-items-center">
+                        <p class="my-auto">3</p>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <img src="img/pulseras/pulsera-corazones-compartidos-negra.png" alt="pedido uno" style="width: 10rem;">
+                    </div>
+
+                    <div class="col-lg-8">
+                        <p>Claudia Libertad Quispe Terrones</p>
+                        <p>000 002</p>
+                        <br>
+                        <p>Total</p>
+                    </div>
+
+                    <div class="col-lg-1 d-flex justify-content-end align-items-center">
+                        <p class="m-0 pe-3">Entregado</p>
+                        <i class="fa-solid fa-caret-right justify-content-end"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -265,9 +235,9 @@
             <div class="col-lg-3 col-md-4 info conocenos ps-10">
                 <h5 class="mb-4">Conócenos</h5>
                 <ul>
-                    <li class="my-2"><a href="conocenoss.html" class="info-light">Amefil</a></li>
-                    <li class="my-2"><a href="contactos.html" class="info-light">Contactos</a></li>
-                    <li class="my-2"><a href="inicio_sesion.html" class="info-light">Únete</a></li>
+                    <li class="my-2"><a href="#" class="info-light">Amefil</a></li>
+                    <li class="my-2"><a href="#" class="info-light">Contactos</a></li>
+                    <li class="my-2"><a href="#" class="info-light">Únete</a></li>
                     <li class="my-2"><a href="#" class="info-light">Términos y condiciones</a></li>
                     <li class="my-2"><a href="#" class="info-light">Política de privacidad</a></li>
                     <li class="my-2"><a href="#" class="info-light">Política de cookies</a></li>
@@ -330,16 +300,6 @@
                             </a>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-6">
-                    <p class="text-light ms-4">Fecha de creación: 09/04/2024 - Fecha de última actualización: 03/07/2024</p>
-                </div>
-
-                <div class="col-lg-6 text-end">
-                    <p class="text-light">&copyAutor: Grupo 02</p>
                 </div>
             </div>
         </div>
