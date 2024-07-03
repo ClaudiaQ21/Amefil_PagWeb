@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amefil</title>
-    <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
-    <link rel="stylesheet" href="CSS/bootstrap.min.css">
-    <link rel="stylesheet" href="CSS/Exclusiva.css">
-    <link rel="stylesheet" href="CSS/encabezado_pie.css">
-    <link rel="stylesheet" href="CSS/estilos.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/encabezado_pie.css">
+    <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+    <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
 </head>
 <body>
     <header class="row m-0 p-0 sticky-top">
@@ -62,7 +64,7 @@
                         <div class="offcanvas-body justify-content-center">
                             <ul class="navbar-nav">
                                 <li class="nav-item mx-3">
-                                    <a class="nav-link" href="#">NOVEDADES</a>
+                                    <a class="nav-link" href="Novedades.html">NOVEDADES</a>
                                 </li>
                                 <li class="nav-item mx-3">
                                     <a class="nav-link" data-bs-toggle="dropdown" aria-expanded="false" href="#">COLECCIONES</a>
@@ -74,7 +76,9 @@
                                             <li><a class="dropdown-item" href="Nav_Productos_final.html">Bolsos</a></li>
                                         </ul>
                                     </div>
-
+                                </li>
+                                <li class="nav-item mx-3">
+                                    <a class="nav-link" href="Exclusiva.html">¡CREA!</a>
                                 </li>
                                 <li class="nav-item mx-3">
                                     <a class="nav-link" href="#">MÁS VENDIDOS</a>
@@ -117,240 +121,120 @@
         
     </header>
 
-    <main>
-        <div class="row container-fluid m-0 p-0">
-            <div class="col-lg-12 col-md-12 col-12  ">
-                <h3 class="person m-1 p-4">PERSONALIZA TU PULSERA</h3>
+    <main class="row m-0 p-0">
+        <div class="contenedor_info">
+            <div class="row">
+                <div class="col-lg-1 d-flex align-items-center justify-content-end col-md-6 col-sm-5">
+                    <i class="fa-regular fa-user icono-nav-perfil"></i>
+                </div>
+
+                <div class="col-lg-3 d-flex align-items-center col-md-6 col-sm-5 text-center icono-nav-perfil p-md-y-3">
+                    ¡Bienvenido!
+                </div>
+
+                <div class="col-lg-8 nav-perfil">
+                    <ul class="nav  justify-content-evenly">
+                        <li class="nav-item">
+                            <a href="Perfil.html" class="nav-link text-light">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="direccion_3.html" class="nav-link text-light">Direcciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pedidos.html" class="nav-link text-light">Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="favoritos_2.html" class="nav-link text-light">Mis favoritos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row d-flex py-4 volver-inicio">
+                <a href="index.html" class="d-flex align-items-center ">
+                    <i class="fa-solid fa-arrow-left pe-3 text-dark"></i>
+                    <p class="m-0 text-dark">Volver al inicio</p>
+                </a>
+            </div>
+
+            <div class="row datos-perfil" style="border: 1px solid;">
+                <div class="row py-3">
+                    <div class="col-lg-1 align-items-center">
+                        <p>1</p>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <img src="img/collares/descarga (5).webp" alt="pedido uno" style="width: 10rem;">
+                    </div>
+
+                    <div class="col-lg-8">
+                        <p>Claudia Libertad Quispe Terrones</p>
+                        <p>000 001</p>
+                        <br>
+                        <p>Total</p>
+                    </div>
+
+                    <div class="col-lg-1 d-flex justify-content-end align-items-center">
+                        <a href="detalle-pedido.html" style="color: black; text-decoration: none;">
+                            <p class="m-0 pe-3">Entregado</p>
+                            <i class="fa-solid fa-caret-right justify-content-end"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row py-3">
+                    <div class="col-lg-1 align-items-center">
+                        <p class="my-auto">2</p>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <img src="img/pulseras/pulsera-corazones-compartidos-negra.png" alt="pedido uno" style="width: 10rem;">
+                    </div>
+
+                    <div class="col-lg-8">
+                        <p>Claudia Libertad Quispe Terrones</p>
+                        <p>000 002</p>
+                        <br>
+                        <p>Total</p>
+                    </div>
+
+                    <div class="col-lg-1 d-flex justify-content-end align-items-center">
+                        <a href="detalle-pedido.html" style="color: black; text-decoration: none;">
+                            <p class="m-0 pe-3">Entregado</p>
+                            <i class="fa-solid fa-caret-right justify-content-end"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row py-3">
+                    <div class="col-lg-1 align-items-center">
+                        <p class="my-auto">3</p>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <img src="img/pulseras/pulsera-corazones-compartidos-negra.png" alt="pedido uno" style="width: 10rem;">
+                    </div>
+
+                    <div class="col-lg-8">
+                        <p>Claudia Libertad Quispe Terrones</p>
+                        <p>000 002</p>
+                        <br>
+                        <p>Total</p>
+                    </div>
+
+                    <div class="col-lg-1 d-flex justify-content-end align-items-center">
+                        <a href="detalle-pedido.html" style="color: black; text-decoration: none;">
+                            <p class="m-0 pe-3">Entregado</p>
+                            <i class="fa-solid fa-caret-right justify-content-end"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="row container-fluid mx-0 p-0 my-5">
-            <div class="row container-fluid justify-content-center text-center d-sm-none d-flex m-0 p-0">
-                <div class="perlas_1 d-flex p-0 justify-content-center">
-                    <div class="perla_xs">
-                        <img src="img/perlas/perla_azul_noche.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla_xs">
-                        <img src="img/perlas/negro.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla_xs">
-                        <img src="img/perlas/verde.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla_xs">
-                        <img src="img/perlas/azul.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla_xs">
-                        <img src="img/perlas/amarillo.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla_xs">
-                        <img src="img/perlas/rosa.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla_xs">
-                        <img src="img/perlas/naranja.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla_xs">
-                        <img src="img/perlas/celeste.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- ------------------ --------------------------------->
-
-            <div class="row container-fluid justify-content-center text-center d-md-none d-sm-flex d-none m-0 p-0">
-                <div class="perlas_1 d-flex p-0">
-                    <div class="perla_min">
-                        <img src="img/perlas/perla_azul_noche.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla_min">
-                        <img src="img/perlas/negro.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla_min">
-                        <img src="img/perlas/verde.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla_min">
-                        <img src="img/perlas/azul.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla_min">
-                        <img src="img/perlas/amarillo.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla_min">
-                        <img src="img/perlas/rosa.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla_min">
-                        <img src="img/perlas/naranja.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla_min">
-                        <img src="img/perlas/celeste.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-                </div>
-            </div>
-            <!-- ------------------ --------------------------------->
-            <div class="col-lg-3 col-md-3 d-flex justify-content-center d-md-flex d-sm-none d-none">
-                <div class="perlas_1">
-                    <div class="perla">
-                        <img src="img/perlas/perla_azul_noche.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla">
-                        <img src="img/perlas/negro.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla">
-                        <img src="img/perlas/verde.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla">
-                        <img src="img/perlas/azul.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6 col-sm-12 col-12 cont_hilos m-0 p-0">
-                <div class="row container-fluid hilos mx-0 p-0">
-                    <div class="text-center" id="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
-                        <img src="img/hilos/rojo.webp" alt="" id="hilo" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-                </div>
-
-                <div class="d-flex justify-content-center">
-                    <div class="color_1">
-                        <button class="color" onclick="changeImage('img/hilos/rojo.webp')" >
-
-                        </button>
-                    </div>
-
-                    <div class="color_2">
-                        <button class="color" onclick="changeImage('img/hilos/amarillo.webp')">
-
-                        </button>
-                    </div>
-
-                    <div class="color_3">
-                        <button class="color" onclick="changeImage('img/hilos/verde.webp')">
-
-                        </button>
-                    </div>
-
-                    <div class="color_4">
-                        <button class="color" onclick="changeImage('img/hilos/morado.webp')">
-
-                        </button>
-                    </div>
-
-                    <div class="color_5">
-                        <button class="color" onclick="changeImage('img/hilos/rosa.webp')">
-
-                        </button>
-                    </div>
-
-                    <div class="color_6">
-                        <button class="color" onclick="changeImage('img/hilos/marron.webp')">
-
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-lg-3 col-md-3 justify-content-center d-md-flex d-sm-none d-none">
-                <div class="perlas_1 jus">
-                    <div class="perla">
-                        <img src="img/perlas/amarillo.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla">
-                        <img src="img/perlas/rosa.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla">
-                        <img src="img/perlas/naranja.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-
-                    <div class="perla">
-                        <img src="img/perlas/celeste.webp" alt="" class="img-fluid" draggable="true" ondragstart="drag(event)">
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="row container-fluid m-0 p-0">
-            <div class="col-lg-12 col-sm-12 titulo_produc_sim m-0 p-0">
-                <p>TAMBIÉN PODRÍA GUSTARTE</p>
-            </div>
-        </div>
-
-        <div class="img_produ_sim row container-fluid d-flex g-3 mx-0 p-0">
-            <div class="col-lg-2 col-md-4 col-sm-4 col-6">
-                <a href=""><img src="img/pulseras/pulsera-gruesa-marron-trenzada.png" alt="" class="img-fluid"></a>
-            </div>
-
-            <div class="col-lg-2 col-md-4 col-sm-4 col-6">
-                <a href=""><img src="img/pulseras/pulsera-negra-pelota-futbol.webp" alt="" class="img-fluid"></a>
-            </div>
-
-            <div class="col-lg-2 col-md-4 col-sm-4 col-6">
-                <a href=""><img src="img/pulseras/pulsera-corazon-lleno-negra.webp" alt="" class="img-fluid"></a>
-            </div>
-
-            <div class="col-lg-2 col-md-4 col-sm-4 col-6">
-                <a href=""><img src="img/pulseras/pulsera-roja-pompon-fina.webp" alt="" class="img-fluid"></a>
-            </div>
-
-            <div class="col-lg-2 col-md-4 col-sm-4 col-6">
-                <a href=""><img src="img/pulseras/pulsera-tonos-marrones-estrella-mar.webp" alt="" class="img-fluid"></a>
-            </div>
-
-            <div class="col-lg-2 col-md-4 col-sm-4 col-6">
-                <a href=""><img src="img/pulseras/pulsera-tres-dijes-marron.webp" alt="" class="img-fluid"></a>
-            </div>
-        </div>
-        
-
-
-        <script src="JS/Exclusiva.js"></script>
-        <script>
-            function changeImage(image) {
-                console.log("Changing image to:", image); // Depuración: Imprime la ruta de la imagen
-                document.getElementById('hilo').src = image;
-            }
-
-            function drag(ev) {
-                ev.dataTransfer.setData("text", ev.target.id);
-            }
-
-            function allowDrop(ev) {
-                ev.preventDefault();
-            }
-
-            function drop(ev) {
-                ev.preventDefault();
-                var data = ev.dataTransfer.getData("text");
-                var draggedElement = document.getElementById(data);
-
-                // Solo permitir soltar sobre la imagen del hilo
-                if (ev.target.id === 'hilo') {
-                    ev.target.appendChild(draggedElement.cloneNode(true));
-                }
-            }
-
-
-        </script>
     </main>
 
     <footer class="row m-0">
@@ -358,9 +242,9 @@
             <div class="col-lg-3 col-md-4 info conocenos ps-10">
                 <h5 class="mb-4">Conócenos</h5>
                 <ul>
-                    <li class="my-2"><a href="conocenoss.html" class="info-light">Amefil</a></li>
-                    <li class="my-2"><a href="contactos.html" class="info-light">Contactos</a></li>
-                    <li class="my-2"><a href="inicio_sesion.html" class="info-light">Únete</a></li>
+                    <li class="my-2"><a href="#" class="info-light">Amefil</a></li>
+                    <li class="my-2"><a href="#" class="info-light">Contactos</a></li>
+                    <li class="my-2"><a href="#" class="info-light">Únete</a></li>
                     <li class="my-2"><a href="#" class="info-light">Términos y condiciones</a></li>
                     <li class="my-2"><a href="#" class="info-light">Política de privacidad</a></li>
                     <li class="my-2"><a href="#" class="info-light">Política de cookies</a></li>
@@ -423,16 +307,6 @@
                             </a>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-6">
-                    <p class="text-light ms-4">Fecha de creación: 09/04/2024 - Fecha de última actualización: 03/07/2024</p>
-                </div>
-
-                <div class="col-lg-6 text-end">
-                    <p class="text-light">&copyAutor: Grupo 02</p>
                 </div>
             </div>
         </div>
@@ -574,5 +448,9 @@
             </div>
         </div>
     </footer>
+
+    <script src="js/index.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>
