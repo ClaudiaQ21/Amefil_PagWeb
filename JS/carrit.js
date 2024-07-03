@@ -95,7 +95,7 @@ function registrarEventosCantidad() {
 
 function decrementarCantidad(e) {
     const cursoId = e.target.getAttribute('data-id');
-    const cursoEnCarrito = articulosCarrito.find(curso => curso.id === cursoId);
+    const cursoEnCarrito = cart.find(curso => curso.id === cursoId);
 
     if (cursoEnCarrito.cantidad > 1) {
         cursoEnCarrito.cantidad--;
