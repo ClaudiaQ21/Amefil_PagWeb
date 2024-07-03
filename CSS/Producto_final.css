@@ -218,9 +218,6 @@
     background-color: #6b4e44;
 }
 
-#cre_res:hover{
-    background-color: #8b665a;
-}
 
 
 .titulo_produc_sim{
@@ -245,6 +242,7 @@
 
 .cont_sig{
     margin-top: 7%;
+    margin-bottom: 7%;
 }
 
 .siguenos{
