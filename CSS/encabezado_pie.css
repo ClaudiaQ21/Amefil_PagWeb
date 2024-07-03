@@ -141,7 +141,11 @@ header .nav-item:hover .dropdown-contenido{
     box-shadow: 0 0 0 3px #6b4e44; 
 }
 
-
+.frase-chevere h4{
+    color: #6b4e44;
+    font-weight: 800;
+    font-size: 2rem;
+}
 
 
 

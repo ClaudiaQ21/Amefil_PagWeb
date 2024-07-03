@@ -12,11 +12,49 @@
     font-size: 1.2rem;
 }
 
-.datos-perfil{
-    background-color: #F2F0F3;
-    padding: 40px 100px;
-}
+
 
 .datos-perfil span{
     font-weight: 600;
+}
+
+.link:hover{
+    font-weight: 600;
+}
+
+#bloc_direcciones{
+    background-color: #F2F0F3;
+    border-radius: 1px;
+    box-shadow: 0 0 20px rgba(2, 1, 1, 0.2);
+    padding: 40px 100px;
+}
+
+.volver-inicio a{
+    text-decoration: none;
+}
+
+.volver-inicio p:hover{
+    font-weight: bold;
+}
+
+@media (max-width:767px){
+    #bloc_direcciones{
+        padding: 10px 15px;
+    }
+
+    .contenedor_info{
+        padding: 10px 30px;
+    }
+}
+
+@media (min-width:768px) and (max-width:991px){
+    #bloc_direcciones{
+        padding: 40px 100px;
+    }
+}
+
+@media (min-width:992px){
+    #bloc_direcciones{
+        padding: 40px 100px;
+    }
 }

@@ -52,13 +52,13 @@ $(document).ready(function() {
 
             // Ajustar las miniaturas
             thumbnails.forEach(thumb => {
-                thumb.style.width = '6.6em';
-                thumb.style.height = '6.6em';
+                thumb.style.width = '15%';
+                thumb.style.height = '65%';
                 thumb.removeAttribute('data-main');
             });
 
-            this.style.width = '10em';
-            this.style.height = '10em';
+            this.style.width = '25%';
+            this.style.height = '85%';
             this.setAttribute('data-main', 'true');
 
             // Reordenar las miniaturas para mantener la nueva miniatura principal en el centro

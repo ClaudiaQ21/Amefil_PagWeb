@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amefil</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/perfil.css">
     <link rel="stylesheet" href="css/encabezado_pie.css">
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="CSS/contactos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
     <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
-    <title>Contáctanos</title>
 </head>
-
 <body>
     <header class="row m-0 p-0 sticky-top">
         <div class="row descuentos m-0">
@@ -77,10 +74,9 @@
                                 <li class="nav-item mx-3">
                                     <a class="nav-link" href="#">COLECCIONES</a>
                                     <div class="dropdown-contenido">
-                                        <a href="#">Collares</a>
-                                        <a href="#">Pulseras</a>
-                                        <a href="#">Aretes</a>
-                                        <a href="#">Bolsos</a>
+                                        <a href="#">Opción A</a>
+                                        <a href="#">Opción B</a>
+                                        <a href="#">Opción C</a>
                                     </div>
                                 </li>
                                 <li class="nav-item mx-3">
@@ -108,15 +104,15 @@
                         </div>
                     </div>
                 </div>
-                <button class="boton-icono me-2" onclick="location.href='carrito.html'"><i class="fa-solid fa-cart-shopping icono"></i></button>
+                <button class="boton-icono me-2"><i class="fa-solid fa-cart-shopping icono"></i></button>
                 <div class="buscar">
                     <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-regular fa-user icono"></i>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="inicio_sesion.html">Iniciar sesión</a></li>
-                        <li><a class="dropdown-item" href="registrarse.html">Registrarse</a></li>
-                        <li><a class="dropdown-item" href="Perfil.html">Perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
+                        <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                        <li><a class="dropdown-item" href="#">Registrarse con Google</a></li>
                     </ul>
                 </div>
             </div>
@@ -124,93 +120,134 @@
         
     </header>
 
-    <main class="container">
-        <br>
-        <h3><b>CONTÁCTANOS</b></h3>
-        <div id="centr" class="row g-3">
-            <div id="ce" class="row d-flex justify-content-center">
-                <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                    <img id="ofici" src="img/ofinica.jpg" class="img-fluid rounded-start" alt="...">
+    <main class="row m-0 p-0">
+        <div class="contenedor_info">
+            <div class="row">
+                <div class="col-lg-1 d-flex align-items-center justify-content-end">
+                    <i class="fa-regular fa-user icono-nav-perfil"></i>
                 </div>
-                <div id="tes" class="col-lg-8 col-md-6 col-sm-12 d-flex justify-content-center">
-                    <div class="card-body">
-                        <h5 class="card-title">Nuestra oficina</h5>
-                        <br>
-                        <p class="card-text">Te invitamos a visitar nuestro acogedor taller ubicado en Calle
-                            Tejeduría, 123, Ciudad Chiclayo, Estado de Artesanía, Perú. Aquí es donde nacen cada
-                            uno de nuestros accesorios tejidos con amor y cuidado. ¡Estamos emocionados de
-                            recibirte y compartir nuestra pasión por la artesanía contigo!"</p>
-                    </div>
+
+                <div class="col-lg-3 d-flex align-items-center text-center icono-nav-perfil">
+                    ¡Bienvenido!
                 </div>
-            </div>
-            <div id="med" class="row">
-                <div id="ali" class="col-lg-6 col-md-6 col-sm-12 g-5">
-                    <div id="corre" class="card" style="width: 16rem;">
-                        <img id="co" src="img/correo.png" alt="...">
-                        <div class="card-body">
-                            <p class="card-text d-flex justify-content-center">email</p>
-                        </div>
-                        <p>amefilonline@gmail.com</p>
-                        <p>AmefilVentas@hotmail.com</p>
-                    </div>
-                </div>
-                <div id="red" class="col-lg-6 col-md-6 col-sm-12 g-5">
-                    <br>
-                    <h5>Redes sociales</h5>
-                    <div class="row g-4 mt-2">
-                        <div class="col-4 d-flex justify-content-end">
-                            <img id="redes" src="img/facebook_color.png" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body">
-                                <p class="card-text">@AmefilHiloDelAlma</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row g-4 mt-2">
-                        <div class="col-4 d-flex justify-content-end">
-                            <img id="redes" src="img/instagram_color.png" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body">
-                                <p class="card-text">@Amefil_HiloDelAlma</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row g-4 mt-2">
-                        <div class="col-4 d-flex justify-content-end">
-                            <img id="redes" src="img/wasap_color.png" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body">
-                                <p class="card-text">+51 987 963 214</p>
-                            </div>
-                        </div>
-                    </div>
+
+                <div class="col-lg-8 nav-perfil">
+                    <ul class="nav  justify-content-evenly">
+                        <li class="nav-item">
+                            <a href="Perfil.html" class="nav-link text-light">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="direccion_3.html" class="nav-link text-light">Direcciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-light">Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-light">Mis favoritos</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div id="tesa" class="row mt-5">
-                <p>"Amefil es tu destino para obtener accesorios de calidad y diseños especiales."
-                    Acompáñanos a descubrir la belleza duradera de nuestras creaciones hechas a mano.</p>
+
+            <div class="row d-flex py-4 volver-inicio">
+                <a href="index.html" class="d-flex align-items-center ">
+                    <i class="fa-solid fa-arrow-left pe-3 text-dark"></i>
+                    <p class="m-0 text-dark">Volver al inicio</p>
+                </a>
+            </div>
+
+            <div class="row " id="bloc_direcciones">
+                <div class="row mt-0 pt-0 g-4 justify-content-center">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label class="form-label">Nombre*</label>
+                        <input type="text" class="form-control" id="lab">
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label class="form-label">Apellidos*</label>
+                        <input type="text" class="form-control" id="lab">
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label class="form-label">Departamento</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>--Seleccione su departamento--</option>
+                            <option value="1">Cajamarca</option>
+                            <option value="2">Lambayeque</option>
+                            <option value="3">Tumbres</option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label class="form-label">Distrito</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>--Seleccione su distrito--</option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label class="form-label">DNI</label>
+                        <input type="text" class="form-control" id="lab">
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-between">
+                        <div class="d-block">
+                            <label class="form-label">Día</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option value="1">21</option>
+                            </select>
+                        </div>
+                        <div class="d-block">
+                            <label class="form-label">Mes</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option value="1">05</option>
+                            </select>
+                        </div>
+                        <div class="d-block">
+                            <label class="form-label">Año</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option value="1">2005</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label class="form-label">Género</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>--Seleccione su género--</option>
+                            <option value="1">Femenino</option>
+                            <option value="2">Masculino</option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label class="form-label">Celular</label>
+                        <input type="text" class="form-control" id="lab">
+                    </div>
+
+                </div>
+        
+                <div class="col-lg-12 my-3">
+                    <button class="botones" onclick="location.href='Perfil.html'">Guardar datos</button>
+                </div>
             </div>
         </div>
     </main>
-    <br>
-    <br>
+
     <footer class="row m-0">
         <div class="row d-none d-md-flex p-0">
             <div class="col-lg-3 col-md-4 info conocenos ps-10">
                 <h5 class="mb-4">Conócenos</h5>
                 <ul>
-                    <li class="my-2"><a href="conocenoss.html" class="info-light">Amefil</a></li>
-                    <li class="my-2"><a href="contactos.html" class="info-light">Contactos</a></li>
-                    <li class="my-2"><a href="inicio_sesion.html" class="info-light">Únete</a></li>
+                    <li class="my-2"><a href="#" class="info-light">Amefil</a></li>
+                    <li class="my-2"><a href="#" class="info-light">Contactos</a></li>
+                    <li class="my-2"><a href="#" class="info-light">Únete</a></li>
                     <li class="my-2"><a href="#" class="info-light">Términos y condiciones</a></li>
                     <li class="my-2"><a href="#" class="info-light">Política de privacidad</a></li>
                     <li class="my-2"><a href="#" class="info-light">Política de cookies</a></li>
                 </ul>
             </div>
-    
+
             <div class="col-lg-2 col-md-4 info info-light ps-lg-5 ps-md-5">
                 <h5 class="mb-4">Contáctanos</h5>
                 <ul>
@@ -218,7 +255,7 @@
                     <li class="my-2">+51 987 963 214</li>
                 </ul>   
             </div>
-    
+
             <div class="col-lg-3 col-md-4 info soporte ps-10">
                 <h5 class="mb-4">Soporte</h5>
                 <ul>
@@ -228,19 +265,19 @@
                     <li class="my-2"><a href="#" class="info-light">Guía de tallas de pulseras</a></li>
                 </ul>
             </div>
-    
+
             <div class="col-lg-4 col-md-12 info mb-md-5">
                 <div class="row">
                     <div class="col-lg-3 col-md-3 text-md-center">
                         <img src="img/img_logo/logo_blanco.svg" id="logofooter">
                     </div>
-    
+
                     <div class="col-lg-9 col-md-9 ps-4">
                         <h5 class="mb-3">Únetenos</h5>
                         <input type="text" class="form-control" style="width: 70%; font-size: 0.8rem;" placeholder="Ingresa tu email aquí">
                     </div>
                 </div>
-    
+
                 <div class="row redes-sociales mt-lg-5 pt-lg-5 ms-lg-5">
                     <div class="d-flex justify-content-start justify-content-md-center">
                         <div class="mx-3">
@@ -298,7 +335,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="accordion-item">
                 <h5 class="accordion-header" id="headingTwo">
                     <button class="accordion-footer botones collapsed py-3 d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo">
@@ -322,7 +359,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="accordion-item">
                 <h5 class="accordion-header" id="headingThree">
                     <button class="accordion-footer botones collapsed py-3 d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-controls="collapseThree">
@@ -406,9 +443,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
     </footer>
 
-</body>
+<script src="js/index.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 
+</body>
 </html>

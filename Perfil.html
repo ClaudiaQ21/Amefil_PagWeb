@@ -104,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="boton-icono me-2"><i class="fa-solid fa-cart-shopping icono"></i></button>
+                <button class="boton-icono me-2" onclick="location.href='carrito.html'"><i class="fa-solid fa-cart-shopping icono"></i></button>
                 <div class="buscar">
                     <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-regular fa-user icono"></i>
@@ -120,27 +120,27 @@
         
     </header>
 
-    <main class="row m-0 p-0" style="border: 1px solid;">
+    <main class="row m-0 p-0">
         <div class="contenedor_info">
             <div class="row">
-                <div class="col-lg-1 d-flex align-items-center text-center">
+                <div class="col-lg-1 d-flex align-items-center justify-content-end col-md-6 col-sm-5">
                     <i class="fa-regular fa-user icono-nav-perfil"></i>
                 </div>
 
-                <div class="col-lg-3 d-flex align-items-center text-center icono-nav-perfil">
+                <div class="col-lg-3 d-flex align-items-center col-md-6 col-sm-5 text-center icono-nav-perfil p-md-y-3">
                     ¡Bienvenido!
                 </div>
 
-                <div class="col-lg-8 nav-perfil">
+                <div class="col-lg-8 nav-perfil col-md-12">
                     <ul class="nav  justify-content-evenly">
                         <li class="nav-item">
-                            <a href="" class="nav-link text-light">Perfil</a>
+                            <a href="Perfil.html" class="nav-link text-light">Perfil</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link text-light">Direcciones</a>
+                            <a href="direccion_3.html" class="nav-link text-light">Direcciones</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link text-light">Pedidos</a>
+                            <a href="pedidos.html" class="nav-link text-light">Pedidos</a>
                         </li>
                         <li class="nav-item">
                             <a href="" class="nav-link text-light">Mis favoritos</a>
@@ -149,40 +149,55 @@
                 </div>
             </div>
 
-            <div class="row d-flex py-3">
-                <a href="index.html" class="d-flex align-items-center">
-                    <i class="fa-solid fa-arrow-left pe-3"></i>
-                    <p class="m-0">Volver al inicio</p>
+            <div class="row d-flex py-4 volver-inicio">
+                <a href="index.html" class="d-flex align-items-center ">
+                    <i class="fa-solid fa-arrow-left pe-3 text-dark"></i>
+                    <p class="m-0 text-dark">Volver al inicio</p>
                 </a>
             </div>
 
-            <div class="row datos-perfil">
+            <div class="row datos-perfil" id="bloc_direcciones">
                 <div class="col-lg-6">
-                    <span>NOMBRES</span>
-                    <p>Claudia Libertad</p>
+                    <div class="row my-1">
+                        <span class="my-1">NOMBRES</span>
+                        <p>Claudia Libertad</p>
+                    </div>
 
-                    <span>CORREO ELECTRÓNICO</span>
-                    <p>claudialibertad05@gmail.com</p>
+                    <div class="row my-1">
+                        <span class="my-1">CORREO ELECTRÓNICO</span>
+                        <p>claudialibertad05@gmail.com</p>
+                    </div>
 
-                    <span>DNI</span>
-                    <p>71256365</p>
+                    <div class="row my-1">
+                        <span class="my-1">DNI</span>
+                        <p>71256365</p>
+                    </div>
 
-                    <span>GÉNERO</span>
-                    <p>Femenino</p>
+                    <div class="row my-1">
+                        <span class="my-1">GÉNERO</span>
+                        <p>Femenino</p>    
+                    </div>
                 </div>
                 
                 <div class="col-lg-6">
-                    <span>APELLIDOS</span>
-                    <p>Pérez Alvela</p>
+                    <div class="row my-1">
+                        <span class="my-1">APELLIDOS</span>
+                        <p>Pérez Alvela</p>
+                    </div>
 
-                    <span>.</span>
-                    <p>.</p>
+                    <div class="row my-1">
+                        <span class="my-1">FECHA DE NACIMIENTO</span>
+                        <p>21/05/2005</p>
+                    </div>
 
-                    <span>FECHA DE NACIMIENTO</span>
-                    <p>21/05/2005</p>
+                    <div class="row my-1">
+                        <span class="my-1">CELULAR</span>
+                        <p>987 654 321</p>    
+                    </div>
+                </div>
 
-                    <span>CELULAR</span>
-                    <p>987 654 321</p>
+                <div class="col-lg-12">
+                    <button class="botones" onclick="location.href='editarPerfil.html'">Editar</button>
                 </div>
             </div>
         </div>

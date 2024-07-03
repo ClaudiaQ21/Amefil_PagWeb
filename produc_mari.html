@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <header class="row m-0 p-0 sticky-top">
+    <header class="row m-0 p-0">
         <div class="row descuentos m-0">
             <div id="carrusel-des-prom" class="carousel slide p-0">
                 <div class="carousel-inner">
@@ -36,17 +36,17 @@
         </div>
 
         <div class="row menu m-0 p-0">
-            <div class="col-lg-3 d-flex text-center justify-content-center align-items-center col-md-6 col-sm-4 col-4 order-2 order-lg-1 order-md-1 order-sm-2">
-                <a href="index.html"><img src="img/img_logo/logo_amefil.svg" class="" id="amefil"></a>
+            <div class="col-lg-3 d-flex justify-content-center align-items-center col-md-6 col-sm-4 col-4 order-2 order-lg-1 order-md-1 order-sm-2">
+                <img src="img/img_logo/logo_amefil.svg" class="" id="amefil">
             </div>
             
 
             <div class="navegacion col-lg-6 col-md-12 col-sm-4 col-4 order-1 order-lg-2 order-md-3 order-sm-1 py-2">
                 <nav class="navbar navbar-expand-md">
                     <div class="d-flex align-items-center">
-
-                        <button class="btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><span class="navbar-toggler-icon icono text-light"></span></button>
-                        
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon icono"></span>
+                        </button>
                         <div class="buscar-sm d-sm-block d-md-none ms-2">
                             <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-magnifying-glass icono"></i>
@@ -56,41 +56,22 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-                        <div class="offcanvas-header">
-                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body justify-content-center">
-                            <ul class="navbar-nav">
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link" href="#">NOVEDADES</a>
-                                    <div class="dropdown-contenido">
-                                        <a href="#">Opción 1</a>
-                                        <a href="#">Opción 2</a>
-                                        <a href="#">Opción 3</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link" href="#">COLECCIONES</a>
-                                    <div class="dropdown-contenido">
-                                        <a href="#">Collares</a>
-                                        <a href="#">Pulseras</a>
-                                        <a href="#">Aretes</a>
-                                        <a href="#">Bolsos</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link" href="#">MÁS VENDIDOS</a>
-                                </li>
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link" href="">DESCUENTOS</a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" href="#">NOVEDADES</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" href="#">COLECCIONES</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" href="#">MÁS VENDIDOS</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" href="">DESCUENTOS</a>
+                            </li>
+                        </ul>
                     </div>
-
-                    
                 </nav>
             </div>
         
@@ -105,15 +86,15 @@
                         </div>
                     </div>
                 </div>
-                <button class="boton-icono me-2" onclick="location.href='carrito.html'"><i class="fa-solid fa-cart-shopping icono"></i></button>
+                <button class="boton-icono me-2"><i class="fa-solid fa-cart-shopping icono"></i></button>
                 <div class="buscar">
                     <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-regular fa-user icono"></i>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="inicio_sesion.html">Iniciar sesión</a></li>
-                        <li><a class="dropdown-item" href="registrarse.html">Registrarse</a></li>
-                        <li><a class="dropdown-item" href="Perfil.html">Perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
+                        <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                        <li><a class="dropdown-item" href="#">Registrarse con Google</a></li>
                     </ul>
                 </div>
             </div>
@@ -216,8 +197,8 @@
             <div class="col-lg-9 col-md-9 col-sm-12 col-12 p-0 m-0">
                 <div id="lista-cursos" class="row container-fluid m-0 p-0 mt-5">
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="1" data-name="Atardecer dorado" data-price="28.00">
-                            <img src="img/collares/descarga (1).webp" class="card-img-top" alt="Atardecer dorado">
+                        <div class="cont_pro" data-id="1" data-name="Producto 1" data-price="10.00">
+                            <img src="img/collares/descarga (1).png" class="card-img-top" alt="Atardecer dorado">
                             <div class="g-2">
                                 <h6>Atardecer dorado</h6>
                                 <div class="precio">
@@ -229,19 +210,21 @@
                     </div>
                 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="2" data-name="Duna dorada" data-price="23.00">
-                            <img src="img/collares/descarga (2).webp" class="card-img-top" alt="...">
+                        <div class="cont_pro" data-id="2" data-name="Producto 2" data-price="24.00">
+                            <img src="img/collares/descarga (2).png" class="card-img-top" alt="...">
                             <div class="g-2">
                                 <h6>Duna dorada</h6>
-                                <p>S/23.00</p>
-                                <button class="botones agregar-carrito" data-id="2">Añadir al carrito</button>
+                                <div class="precio">
+                                    <p>S/23.00</p>
+                                </div>
+                                <button class="botones agregar-carrito">Añadir al carrito</button>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="3" data-name="Perla de arena" data-price="26.00">
-                            <img src="img/collares/descarga (3).webp" class="card-img-top" alt="...">
+                        <div class="cont_pro" data-id="3" data-name="Producto 3" data-price="30.00">
+                            <img src="img/collares/descarga (3).png" class="card-img-top" alt="...">
                             <div class="g-2">
                                 <h6>Perla de arena</h6>
                                 <p>S/26.00</p>
@@ -251,8 +234,8 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="4" data-name="Marfil suave" data-price="24.00">
-                            <img src="img/collares/descarga (4).webp" class="card-img-top" alt="...">
+                        <div class="cont_pro">
+                            <img src="img/collares/descarga (4).png" class="card-img-top" alt="...">
                             <div class="g-2">
                                 <h6>Marfil suave</h6>
                                 <p>S/24.00</p>
@@ -262,7 +245,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="5" data-name="Brisa de primavera" data-price="25.00">
+                        <div class="cont_pro">
                             <img src="img/pulseras/pulsera-lila-flores.webp" class="card-img-top" alt="...">
                             <div class="g-2">
                                 <h6>Brisa de primavera</h6>
@@ -273,7 +256,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="6" data-name="Tierra dorada" data-price="28.00">
+                        <div class="cont_pro">
                             <img src="img/pulseras/8a4cb19d-2b7d-4cae-95d7-b9cf8c690897.jpg" class="card-img-top"
                                 alt="...">
                             <div class="g-2">
@@ -287,7 +270,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="7" data-name="Hilo de plata" data-price="32.00">
+                        <div class="cont_pro">
                             <img src="img/pulseras/d5aca453-6573-40a1-a97f-7d035ba5e605.jpg" class="card-img-top"
                                 alt="...">
                             <div class="g-2">
@@ -299,7 +282,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="8" data-name="Sueño lavanda" data-price="22.00">
+                        <div class="cont_pro">
                             <img src="img/pulseras/pulsera-lila-bolitas.webp" class="card-img-top" alt="...">
                             <div class="g-2">
                                 <h6>Sueño lavanda</h6>
@@ -310,7 +293,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="9" data-name="Lila fragante" data-price="25.00">
+                        <div class="cont_pro">
                             <img src="img/pulseras/descarga (7).png" class="card-img-top" alt="...">
                             <div class="g-2">
                                 <h6>Lila fragante</h6>
@@ -321,7 +304,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="10" data-name="Olas del mar" data-price="19.00">
+                        <div class="cont_pro">
                             <img src="img/aretes/aretes-celestes-extravagante.png" class="card-img-top" alt="...">
                             <div class="g-2">
                                 <h6>Olas del mar</h6>
@@ -332,7 +315,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="11" data-name="Producto 1" data-price="28.00">
+                        <div class="cont_pro">
                             <img src="img/aretes/aretes-bolita-grandes.png" class="card-img-top" alt="...">
                             <div class="g-2">
                                 <h6>Dulce despertar</h6>
@@ -343,18 +326,18 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="12" data-name="Joya de la selva" data-price="17.00">
+                        <div class="cont_pro">
                             <img src="img/aretes/aretes-bolita-verdes-small.png" class="card-img-top" alt="...">
                             <div class="g-2">
                                 <h6>Joya de la selva</h6>
                                 <p>S/17.00</p>
                                 <button type="button" class="botones">Añadir al carrito</button>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="d-flex mx-0 p-0 paginacion justify-content-center">
+                <div class="d-flex m-0 p-0 paginacion justify-content-center">
                     <div class="pag_btn">
                         <a href=""><button>1</button></a>
                     </div>
@@ -371,220 +354,12 @@
         </div>
     </main>
 
-    <footer class="row m-0">
-        <div class="row d-none d-md-flex p-0">
-            <div class="col-lg-3 col-md-4 info conocenos ps-10">
-                <h5 class="mb-4">Conócenos</h5>
-                <ul>
-                    <li class="my-2"><a href="conocenoss.html" class="info-light">Amefil</a></li>
-                    <li class="my-2"><a href="contactos.html" class="info-light">Contactos</a></li>
-                    <li class="my-2"><a href="inicio_sesion.html" class="info-light">Únete</a></li>
-                    <li class="my-2"><a href="#" class="info-light">Términos y condiciones</a></li>
-                    <li class="my-2"><a href="#" class="info-light">Política de privacidad</a></li>
-                    <li class="my-2"><a href="#" class="info-light">Política de cookies</a></li>
-                </ul>
-            </div>
-    
-            <div class="col-lg-2 col-md-4 info info-light ps-lg-5 ps-md-5">
-                <h5 class="mb-4">Contáctanos</h5>
-                <ul>
-                    <li class="my-2">amefilonline@gmail.com</li>
-                    <li class="my-2">+51 987 963 214</li>
-                </ul>   
-            </div>
-    
-            <div class="col-lg-3 col-md-4 info soporte ps-10">
-                <h5 class="mb-4">Soporte</h5>
-                <ul>
-                    <li class="my-2"><a href="#" class="info-light">Libro de Reclamaciones</a></li>
-                    <li class="my-2"><a href="#" class="info-light">Formas de pago</a></li>
-                    <li class="my-2"><a href="#" class="info-light">Guía de tallas de collar</a></li>
-                    <li class="my-2"><a href="#" class="info-light">Guía de tallas de pulseras</a></li>
-                </ul>
-            </div>
-    
-            <div class="col-lg-4 col-md-12 info mb-md-5">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 text-md-center">
-                        <img src="img/img_logo/logo_blanco.svg" id="logofooter">
-                    </div>
-    
-                    <div class="col-lg-9 col-md-9 ps-4">
-                        <h5 class="mb-3">Únetenos</h5>
-                        <input type="text" class="form-control" style="width: 70%; font-size: 0.8rem;" placeholder="Ingresa tu email aquí">
-                    </div>
-                </div>
-    
-                <div class="row redes-sociales mt-lg-5 pt-lg-5 ms-lg-5">
-                    <div class="d-flex justify-content-start justify-content-md-center">
-                        <div class="mx-3">
-                            <a href="#">
-                                <i class="fa-brands fa-facebook text-light"></i>
-                            </a>
-                        </div>
-        
-                        <div class="mx-3">
-                            <a href="#">
-                                <i class="fa-brands fa-instagram text-light"></i>
-                            </a>
-                        </div>
-        
-                        <div class="mx-3">
-                            <a href="#">
-                                <i class="fa-brands fa-tiktok text-light"></i>
-                            </a>
-                        </div>
-        
-                        <div class="mx-3">
-                            <a href="#">
-                                <i class="fa-brands fa-whatsapp text-light"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <footer>
 
-        <div class="accordion d-md-none col-sm-12 col-12 mt-4 p-0">
-            <div class="accordion-item">
-                <h5 class="accordion-header" id="headingOne">
-                    <button class="accordion-footer botones collapsed py-3 d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne">
-                        <div class="col">
-                            Conócenos
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-caret-down justify-content-end"></i>
-                        </div>
-                    </button>
-                </h5>
-                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#footerAccordion">
-                    <div class="accordion-body p-0">
-                        <div class="col-sm-12 info m-0">
-                            <ul class="list-group">
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Amefil</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Contactos</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Únete</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Términos y condiciones</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Política de privacidad</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Política de cookies</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="accordion-item">
-                <h5 class="accordion-header" id="headingTwo">
-                    <button class="accordion-footer botones collapsed py-3 d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo">
-                        <div class="col">
-                            Contáctanos
-                        </div>
-                        
-                        <div>
-                            <i class="fa-solid fa-caret-down"></i>
-                        </div>
-                    </button>
-                </h5>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#footerAccordion">
-                    <div class="accordion-body">
-                        <div class="col-lg-2 info contactos m-0">
-                            <ul class="ms-5">
-                                <li class="my-2"><i class="fa-solid fa-envelope me-3"></i>amefilonline@gmail.com</li>
-                                <li class="my-2"><i class="fa-solid fa-phone me-3"></i>+51 987 963 214</li>
-                            </ul>   
-                        </div>    
-                    </div>
-                </div>
-            </div>
-    
-            <div class="accordion-item">
-                <h5 class="accordion-header" id="headingThree">
-                    <button class="accordion-footer botones collapsed py-3 d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-controls="collapseThree">
-                        <div class="col"> 
-                            Soporte
-                        </div>
-
-                        <div>
-                            <i class="fa-solid fa-caret-down"></i>
-                        </div>
-                    </button>
-                </h5>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#footerAccordion">
-                    <div class="accordion-body p-0">
-                        <div class="col-sm-12 info m-0">
-                            <ul class="list-group">
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Libro de Reclamaciones</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Formas de pago</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Guía de tallas de collar</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Guía de talla de pulseras</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h5 class="accordion-header" id="headingFour">
-                    <button class="accordion-footer botones collapsed py-3 d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-controls="collapseFour">
-                        <div class="col">
-                            Únetenos
-                        </div>
-                        
-                        <div>
-                            <i class="fa-solid fa-caret-down"></i>
-                        </div>
-                    </button>
-                </h5>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#footerAccordion">
-                    <div class="accordion-body">
-                        <div class="row">
-                            <div class="col-sm-3 text-md-center">
-                                <img src="img/img_logo/logoAmefil - solo logo.svg" id="logofooter">
-                            </div>
-            
-                            <div class="col-sm-9">
-                                <h5 class="mb-3 text-dark">Únetenos</h5>
-                                <input type="text" class="form-control" style="width: 70%; font-size: 0.8rem;" placeholder="Ingresa tu email aquí">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <div class="row redes-sociales py-3">
-                    <div class="d-flex justify-content-sm-center justify-content-center">
-                        <div class="mx-3">
-                            <a href="#">
-                                <i class="fa-brands fa-facebook text-light"></i>
-                            </a>
-                        </div>
-        
-                        <div class="mx-3">
-                            <a href="#">
-                                <i class="fa-brands fa-instagram text-light"></i>
-                            </a>
-                        </div>
-        
-                        <div class="mx-3">
-                            <a href="#">
-                                <i class="fa-brands fa-tiktok text-light"></i>
-                            </a>
-                        </div>
-        
-                        <div class="mx-3">
-                            <a href="#">
-                                <i class="fa-brands fa-whatsapp text-light"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </footer>
     <script src="JS/jquery-3.7.1.slim.min.js"></script>
     <script src="JS/bootstrap.bundle.min.js"></script>
-    <script src="JS/carrito.js"></script>
+    <script src="JS/carrito_mari.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,11 @@
+#dropzone {
+    position: relative;
+}
+
+.perla_xs img, .perla_min img, .perla img {
+    cursor: grab;
+}
+
 
 .person{
     background-color: #F2F0F3;
