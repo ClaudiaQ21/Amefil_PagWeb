@@ -1,7 +1,44 @@
 
 .img_prin img{
-    width: 30em;
+    max-width: 30em;
     padding: 0%;
+}
+
+@media (max-width:767px){
+    .img_prin img{
+        max-width: 50%;
+    }
+
+    .img_sec img{
+        width: 20%;
+        height: 20%;
+    }
+
+    .img_sec .img-peque{
+        width: 10%;
+    }
+}
+
+@media (min-width:768px) and (max-width:991px){
+    .img_prin img{
+        max-width: 20em;
+    }
+
+    .img_sec img{
+        width: 6.6rem;
+        height: 6.6rem;
+    }
+}
+
+@media (min-width:992px){
+    .img_prin img{
+        max-width: 30em;
+    }
+
+    .img_sec img{
+        width: 6.6rem;
+        height: 6.6rem;
+    }
 }
 
 .img_prin{
