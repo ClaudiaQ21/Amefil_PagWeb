@@ -1,39 +1,28 @@
-// Seleccionar todos los botones "Añadir al carrito"
-const agregarCarritoButtons = document.querySelectorAll('.agregar-carrito');
+document.addEventListener('DOMContentLoaded', () => {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    const carritoBody = document.querySelector('#carrito tbody');
 
-// Agregar listener a cada botón
-agregarCarritoButtons.forEach(button => {
-    button.addEventListener('click', agregarAlCarrito);
-});
+    carrito.forEach(producto => {
+        const filaCarrito = document.createElement('tr');
+        filaCarrito.innerHTML = `
+            <td><img src="${producto.imagen}" style="width: 50px; height: 50px;"></td>
+            <td>${producto.nombre}</td>
+            <td>S/${producto.precio.toFixed(2)}</td>
+            <td>1</td>
+            <td>S/${producto.total.toFixed(2)}</td>
+            <td><button class="btn btn-danger btn-sm eliminar-item">Eliminar</button></td>
+        `;
+        carritoBody.appendChild(filaCarrito);
+    });
 
-function agregarAlCarrito(event) {
-    const button = event.target;
-    const producto = button.parentElement.parentElement; // div.cont_pro
-
-    // Obtener datos del producto
-    const imagen = producto.querySelector('img').src;
-    const nombre = producto.querySelector('h6').innerText;
-    const precio = parseFloat(producto.querySelector('p').innerText.replace('S/', ''));
-
-    // Crear fila para el carrito
-    const filaCarrito = document.createElement('tr');
-    filaCarrito.innerHTML = `
-        <td><img src="${imagen}" style="width: 50px; height: 50px;"></td>
-        <td>${nombre}</td>
-        <td>S/${precio.toFixed(2)}</td>
-        <td>1</td>
-        <td>S/${precio.toFixed(2)}</td>
-        <td><button class="btn btn-danger btn-sm eliminar-item">Eliminar</button></td>
-    `;
-
-    // Agregar fila al cuerpo de la tabla del carrito
-    const carrito = document.getElementById('carrito');
-    const carritoBody = carrito.querySelector('tbody');
-    carritoBody.appendChild(filaCarrito);
-
-    // Actualizar subtotal y total
     actualizarTotales();
-}
+
+    // Agregar funcionalidad a los botones de eliminar
+    const eliminarButtons = document.querySelectorAll('.eliminar-item');
+    eliminarButtons.forEach(button => {
+        button.addEventListener('click', eliminarItem);
+    });
+});
 
 function actualizarTotales() {
     const precios = document.querySelectorAll('#carrito tbody tr td:nth-child(5)');
@@ -43,7 +32,19 @@ function actualizarTotales() {
         subtotal += parseFloat(precio.innerText.replace('S/', ''));
     });
 
-    // Mostrar subtotal y total
-    document.getElementById('subtotal').value = `S/${subtotal.toFixed(2)}`;
-    document.getElementById('total').value = `S/${subtotal.toFixed(2)}`;
+    document.getElementById('subtotal').value = S/${subtotal.toFixed(2)};
+    document.getElementById('total').value = S/${subtotal.toFixed(2)};
+}
+
+function eliminarItem(event) {
+    const button = event.target;
+    const fila = button.parentElement.parentElement;
+    const nombreProducto = fila.querySelector('td:nth-child(2)').innerText;
+
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    carrito = carrito.filter(producto => producto.nombre !== nombreProducto);
+
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    fila.remove();
+    actualizarTotales();
 }
