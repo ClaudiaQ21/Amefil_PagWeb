@@ -14,7 +14,7 @@
     <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
 </head>
 <body>
-    <header class="row m-0 p-0">
+    <header class="row m-0 p-0 sticky-top">
         <div class="row descuentos m-0">
             <div id="carrusel-des-prom" class="carousel slide p-0">
                 <div class="carousel-inner">
@@ -36,8 +36,8 @@
         </div>
 
         <div class="row menu m-0 p-0">
-            <div class="col-lg-3 d-flex justify-content-center align-items-center col-md-6 col-sm-4 col-4 order-2 order-lg-1 order-md-1 order-sm-2">
-                <img src="img/img_logo/logo_amefil.svg" class="" id="amefil">
+            <div class="col-lg-3 d-flex text-center align-items-center col-md-6 col-sm-4 col-4 order-2 order-lg-1 order-md-1 order-sm-2">
+                <a href="index.html"><img src="img/img_logo/logo_amefil.svg" class="" id="amefil"></a>
             </div>
             
 
@@ -104,59 +104,80 @@
 
     <main class="row m-0 p-0">
         <!-- CARRUSEL -->
-        <div class="row">
-            
+        <div class="row m-0 p-0">
+            <div id="carouselExampleIndicators" class="carousel slide m-0 p-0">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="img/carrusel1.webp" class="d-block w-100" alt="promocion">
+                    </div>
+                    
+                    <div class="carousel-item active">
+                        <img src="img/promocion-2x1-compartidos.jpg" class="d-block w-100" alt="imagen de 3">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+              </div>
         </div>
 
         <!-- TARJETA DE PRODUCTOS -->
-        <div class="row productos pt-3 ps-5 pb-5 m-0"> 
-            <div class="row my-3">
-                <h3 class="m-0">NUESTROS PRODUCTOS</h3>
+        <div class="row productos pt-3 ps-5 pb-5 my-5 mx-0"> 
+            <div class="row my-4">
+                <h3 class="m-0 text-lg-start text-center"><a href="Nav_Productos_final.html">NUESTROS PRODUCTOS</a></h3>
             </div>
 
             <div class="contenedor_producto d-flex">
 
-                <!-- <div>
-                    <button id="leftArrow">&lt;</button>
-                </div> -->
-
                 <div class="producto">
-                    <div class="card p-0" style="width: 20rem;">
-                        <img src="img/pulseras/descarga (3).png" class="rounded" alt="...">
+                    <div class="card p-0" style="width: 18rem;">
+                        <img src="img/collares/descarga (5).webp" class="rounded" alt="...">
+                        <button class="botones btn-oculto">Ver producto</button>
                     </div>
     
-                    <div class="card p-0" style="width: 20rem;">
-                        <img src="img/pulseras/descarga (3).png" class="rounded" alt="...">
+                    <div class="card p-0" style="width: 18rem;">
+                        <img src="img/pulseras/pulsera-corazon-lleno-negra.webp" class="rounded" alt="...">
+                        <button class="botones btn-oculto">Ver producto</button>
                     </div>
     
-                    <div class="card p-0" style="width: 20rem;">
-                        <img src="img/pulseras/descarga (3).png" class="rounded" alt="...">
+                    <div class="card p-0" style="width: 18rem;">
+                        <img src="" class="rounded" alt="...">
+                        <button class="botones btn-oculto">Ver producto</button>
                     </div>
     
-                    <div class="card p-0" style="width: 20rem;">
-                        <img src="img/pulseras/descarga (3).png" class="rounded" alt="...">
+                    <div class="card p-0" style="width: 18rem;">
+                        <img src="img/pulseras/pulsera-lila-bolitas.webp" class="rounded" alt="...">
+                        <button class="botones btn-oculto">Ver producto</button>
                     </div>
     
-                    <div class="card p-0" style="width: 20rem;">
-                        <img src="img/pulseras/descarga (3).png" class="rounded" alt="...">
+                    <div class="card p-0" style="width: 18rem;">
+                        <img src="" class="rounded" alt="...">
+                        <button class="botones btn-oculto">Ver producto</button>
                     </div>
     
-                    <div class="card p-0" style="width: 20rem;">
-                        <img src="img/pulseras/descarga (3).png" class="rounded" alt="...">
+                    <div class="card p-0" style="width: 18rem;">
+                        <img src="img/pulseras/pulsera-dije-arena.webp" class="rounded" alt="...">
+                        <button class="botones btn-oculto">Ver producto</button>
                     </div>
     
-                    <div class="card p-0" style="width: 20rem;">
-                        <img src="img/pulseras/descarga (3).png" class="rounded" alt="...">
+                    <div class="card p-0" style="width: 18rem;">
+                        <img src="" class="rounded" alt="...">
+                        <button class="botones btn-oculto">Ver producto</button>
                     </div>
     
-                    <div class="card p-0" style="width: 20rem;">
-                        <img src="img/pulseras/descarga (3).png" class="rounded" alt="...">
+                    <div class="card p-0" style="width: 18rem;">
+                        <img src="img/pulseras/pulsera-roja-dije-arena.webp" class="rounded" alt="...">
+                        <button class="botones btn-oculto">Ver producto</button>
                     </div>
                 </div>
 
-                <!-- <div>
-                    <button id="rightArrow">&gt;</button>
-                </div> -->
             </div>
         </div>
 
@@ -164,19 +185,31 @@
         <div class="row m-0 p-0">
             <div class="row m-0 p-0">
                 <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                    <img src="img/collares/descarga.png" alt="coleccionCollares" class="img-fluid">
+                    <div class="coleccion-texto">
+                        <img src="img/collares/descarga.png" alt="coleccionCollares" class="img-fluid imagen-sombreada">
+                        <div class="texto-colecciones">COLLARES</div>
+                    </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                    <img src="img/pulseras/pulsera2 - copia.png" alt="coleccionpulseras" class="img-fluid">
+                    <div class="coleccion-texto">
+                        <img src="img/pulseras/pulsera2-copia.webp" alt="coleccionpulseras" class="img-fluid imagen-sombreada">
+                        <div class="texto-colecciones">PULSERAS</div>
+                    </div>
                 </div>
             </div>
 
             <div class="row m-0 p-0">
                 <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                    <img src="img/bolsos/descarga (5) - copia.png" alt="coleccionBolsos" class="img-fluid">
+                    <div class="coleccion-texto">
+                        <img src="img/bolsos/descarga (5) - copia.png" alt="coleccionBolsos" class="img-fluid imagen-sombreada">
+                        <div class="texto-colecciones">BOLSOS</div>
+                    </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                    <img src="img/aretes/descarga (2) - copia.png" alt="coleccionesAretes" class="img-fluid">
+                    <div class="coleccion-texto">
+                        <img src="img/aretes/aretes-forma-bolita-pag-principal.png" alt="coleccionesAretes" class="img-fluid imagen-sombreada">
+                        <div class="texto-colecciones">ARETES</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -202,8 +235,8 @@
     </main>
 
     <footer class="row m-0">
-        <div class="d-none d-md-flex">
-            <div class="col-lg-3 info conocenos">
+        <div class="row d-none d-md-flex p-0">
+            <div class="col-lg-3 col-md-4 info conocenos ps-md-5">
                 <h5 class="mb-4">Conócenos</h5>
                 <ul>
                     <li class="my-2"><a href="#" class="info-light">Amefil</a></li>
@@ -215,7 +248,7 @@
                 </ul>
             </div>
     
-            <div class="col-lg-2 info info-light contactos">
+            <div class="col-lg-2 col-md-4 info info-light contactos">
                 <h5 class="mb-4">Contáctanos</h5>
                 <ul>
                     <li class="my-2">amefilonline@gmail.com</li>
@@ -223,7 +256,7 @@
                 </ul>   
             </div>
     
-            <div class="col-lg-3 info soporte">
+            <div class="col-lg-3 col-md-4 info soporte">
                 <h5 class="mb-4">Soporte</h5>
                 <ul>
                     <li class="my-2"><a href="#" class="info-light">Libro de Reclamaciones</a></li>
@@ -233,7 +266,7 @@
                 </ul>
             </div>
     
-            <div class="col-lg-4 info">
+            <div class="col-lg-4 col-md-12 info">
                 <div class="row">
                     <div class="col-lg-3">
                         <img src="img/img_logo/logo_blanco.svg" id="logofooter">
@@ -241,12 +274,12 @@
     
                     <div class="col-lg-9">
                         <h5 class="mb-3">Únetenos</h5>
-                        <input type="text" class="" placeholder="Ingresa tu email aquí">
+                        <input type="text" class="form-control" style="width: 70%; font-size: 0.8rem;" placeholder="Ingresa tu email aquí">
                     </div>
                 </div>
     
-                <div class="row redes-sociales">
-                    <div class="d-flex justify-content-center">
+                <div class="row redes-sociales mt-lg-5 pt-lg-5 ms-lg-5">
+                    <div class="d-flex justify-content-start">
                         <div class="mx-3">
                             <a href="#">
                                 <i class="fa-brands fa-facebook text-light"></i>
@@ -271,7 +304,6 @@
                             </a>
                         </div>
                     </div>
-    
                 </div>
             </div>
         </div>
