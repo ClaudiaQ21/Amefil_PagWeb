@@ -23,14 +23,14 @@
 
 .contenedor_producto{
     overflow: hidden;
-    width: 100%; /* Ajusta esto al tamaño que necesites */
+    width: 100%; 
     position: relative;
 }
 
 .producto{
     display: flex;
     flex-wrap: nowrap;
-    width: max-content; /* Permite que el contenido se extienda más allá del contenedor */
+    width: max-content;
     cursor: grab;
 }
 

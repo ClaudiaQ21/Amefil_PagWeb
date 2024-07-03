@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/carrito.css">
+    <title>Carrito de compras</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/encabezado_pie.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+    <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
+</head>
+
+<body>
+    <header class="row m-0 p-0">
+        <div class="row descuentos m-0">
+            <div id="carrusel-des-prom" class="carousel slide p-0">
+                <div class="carousel-inner">
+                    <div class="carousel-item active text-center">
+                        50% DE DESCUENTO EN TU PRIMERA COMPRA
+                    </div>
+                    <div class="carousel-item text-center">
+                        ENCUENTRA ACCESORIOS DE TODO TIPO PARA ADORNAR TU VIDA
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carrusel-des-prom"
+                    data-bs-slide="prev">
+                    <span class="flecha-prom" aria-hidden="true">&lt;</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carrusel-des-prom"
+                    data-bs-slide="next">
+                    <span class="flecha-prom" aria-hidden="true">&gt;</span>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="row menu m-0 p-0">
+            <div
+                class="col-lg-3 d-flex justify-content-center align-items-center col-md-6 col-sm-4 col-4 order-2 order-lg-1 order-md-1 order-sm-2">
+                <img src="img/img_logo/logo_amefil.svg" class="" id="amefil">
+            </div>
+
+
+            <div class="navegacion col-lg-6 col-md-12 col-sm-4 col-4 order-1 order-lg-2 order-md-3 order-sm-1 py-2">
+                <nav class="navbar navbar-expand-md">
+                    <div class="d-flex align-items-center">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon icono"></span>
+                        </button>
+                        <div class="buscar-sm d-sm-block d-md-none ms-2">
+                            <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-magnifying-glass icono"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-buscar">
+                                <input class="form-control" id="busqueda" placeholder="Buscar...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" href="#">NOVEDADES</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" href="#">COLECCIONES</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" href="#">MÁS VENDIDOS</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" href="">DESCUENTOS</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <div
+                class="menu-iconos col-lg-3 col-md-6 col-sm-4 col-4 order-3 d-flex justify-content-lg-end justify-content-md-center justify-content-sm-end justify-content-end order-md-2 py-md-3">
+                <div class="d-none d-md-flex">
+                    <div class="buscar">
+                        <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-magnifying-glass icono"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-buscar">
+                            <input class="form-control" id="busqueda" placeholder="Buscar...">
+                        </div>
+                    </div>
+                </div>
+                <button class="boton-icono me-2"><i class="fa-solid fa-cart-shopping icono"></i></button>
+                <div class="buscar">
+                    <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-regular fa-user icono"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
+                        <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                        <li><a class="dropdown-item" href="#">Registrarse con Google</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mt-5">
+        <h3><b>CARRITO DE COMPRAS</b></h3>
+        <div class="row">
+            <nav class="col-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Total</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="carrito">
+                        <!-- Carrito -->
+                    </tbody>
+                </table>
+            </nav>
+            <section class="col-4">
+                <div class="container text-start">
+                    <div class="row g-4 justify-content-center">
+                        <h6 class="text-center">GENERAR COMPRA</h6>
+                        <div class="col-lg-10 col-md-10 col-sm-12">
+                            <label class="form-label">Subtotal:</label>
+                            <input type="text" class="form-control" id="subtotal" readonly>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-12">
+                            <label class="form-label">Descuento:</label>
+                            <input type="text" class="form-control" id="descuento" value="0" readonly>
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-12">
+                            <label class="form-label">Total a pagar:</label>
+                            <input type="text" class="form-control" id="total" readonly>
+                        </div>
+                        <br>
+                        <div class="col-lg-7 col-md-7 col-sm-12">
+                            <button id="boton" class="btn btn-primary btn-dark" type="submit">Pagar</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <script src="JS/jquery-3.7.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/Nav_productos.js"></script>
+</body>
+
+</html>
