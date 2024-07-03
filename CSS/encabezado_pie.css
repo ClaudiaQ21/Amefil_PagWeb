@@ -128,10 +128,7 @@ footer{
     background-color: #6b4e44;
 }
 
-footer .info{
-    margin-top: 3.3rem;
-    margin-bottom: 3.3rem;
-}
+
 
 .info ul{
     list-style: none;
@@ -201,6 +198,14 @@ footer .redes-sociales{
     #logofooter{
         width: 100px;
     }
+
+    .ps-10{
+        padding-left: 50px;
+    }
+
+    footer .info{
+        margin-top: 3rem;
+    }
 }
 
 @media (min-width:992px){
@@ -210,5 +215,14 @@ footer .redes-sociales{
 
     #logofooter{
         width: 90px;
+    }
+
+    .ps-10{
+        padding-left: 100px;
+    }
+
+    footer .info{
+        margin-top: 3.3rem;
+        margin-bottom: 3.3rem;
     }
 }
