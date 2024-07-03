@@ -1,4 +1,3 @@
-// Función para agregar productos al carrito
 function addToCart(event) {
     const button = event.target;
     const productElement = button.closest('.cont_pro');
@@ -9,14 +8,11 @@ function addToCart(event) {
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Verificar si el producto ya está en el carrito
     let productInCart = cart.find(item => item.id === productId);
 
     if (productInCart) {
-        // Si el producto ya está en el carrito, incrementar su cantidad
         productInCart.quantity++;
     } else {
-        // Si no está en el carrito, agregarlo con cantidad inicial 1
         cart.push({
             id: productId,
             name: productName,
@@ -31,7 +27,6 @@ function addToCart(event) {
     renderCart();
 }
 
-// Función para renderizar los productos en la página del carrito
 function renderCart() {
     const cartContainer = document.getElementById('cart');
     const subtotalInput = document.getElementById('subtotal');
@@ -57,13 +52,12 @@ function renderCart() {
         `;
         cartContainer.appendChild(cartItem);
 
-        subtotal += product.price * product.quantity; // Calcular subtotal sumando el precio por la cantidad de cada producto
+        subtotal += product.price * product.quantity; 
     });
-
+   
     subtotalInput.value = subtotal.toFixed(2);
-    totalInput.value = subtotal.toFixed(2); // Total inicial igual al subtotal
+    totalInput.value = subtotal.toFixed(2); 
 
-    // Event listeners para los botones de incrementar y decrementar cantidad
     document.querySelectorAll('.incrementar-cantidad').forEach(button => {
         button.addEventListener('click', () => {
             const productId = button.getAttribute('data-id');
@@ -78,8 +72,6 @@ function renderCart() {
         });
     });
 }
-
-// Función para actualizar la cantidad de productos en el carrito
 function updateQuantity(productId, change) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let product = cart.find(item => item.id === productId);
@@ -88,15 +80,14 @@ function updateQuantity(productId, change) {
         product.quantity += change;
 
         if (product.quantity < 1) {
-            product.quantity = 1; // Evitar que la cantidad sea menor que 1
+            product.quantity = 1; 
         }
 
         localStorage.setItem('cart', JSON.stringify(cart));
-        renderCart(); // Renderizar de nuevo el carrito con la cantidad actualizada
+        renderCart(); 
     }
 }
 
-// Función para eliminar productos del carrito
 function removeFromCart(index) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.splice(index, 1);
@@ -104,7 +95,6 @@ function removeFromCart(index) {
     renderCart();
 }
 
-// Inicializar la página de productos o la del carrito
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('lista-cursos')) {
         const buttons = document.querySelectorAll('.agregar-carrito');
@@ -113,3 +103,4 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCart();
     }
 });
+

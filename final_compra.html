@@ -136,12 +136,13 @@
                 <div class="container text-start">
                     <div class="row g-3">
                         <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label">Nombre:</label>
-                            <input type="text" class="form-control">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" id="nombre" class="form-control" required>
+
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label">Apellidos:</label>
-                            <input type="text" class="form-control">
+                            <label for="apellido" class="form-label">Apellidos:</label>
+                            <input type="text" id="apellido" class="form-control" required>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <label class="form-label">Documento de identidad:</label>
@@ -230,21 +231,18 @@
             <section class="col-lg-4 col-md-12 col-sm-12 mt-5">
                 <div class="container text-start">
                     <div class="row g-4 justify-content-center">
-                        <button id="otra" class="btn btn-secondary dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Resumen de pedido N°
-                        </button>
                         <div class="col-lg-10 col-md-10 col-sm-12">
                             <label class="form-label">Precio envío:</label>
                             <input type="text" class="form-control">
                         </div>
                         <div class="col-lg-10 col-md-10 col-sm-12">
                             <label class="form-label">Total a pagar:</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" id="totalInput">
                         </div>
                         <br>
                         <div class="col-lg-7 col-md-7 col-sm-12">
-                            <button id="boton" class="btn btn-primary" type="submit">Pagar</button>
+                            <button id="btnPagar" class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#compraModal">Pagar</button>
+
                         </div>
                     </div>
                 </div>
@@ -464,6 +462,36 @@
             </div>
         </div>
     </footer>
+
+    <div class="modal fade" id="compraModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Compra registrada</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex align-items-center">
+                        <img src="img/img_logo/logo_amefil.svg" alt="Logo" style="width: 40%; height: 45px; margin-right: 20px;">
+                        <div>
+                            <p id="pagoExitoso">PAGO EXITOSO <br>
+                                ¡GRACIAS POR SU COMPRA!
+                            </p>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="background-color: #6b4e44;border-color: #6b4e44;">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/carrito.js"></script>
+    <script src="JS/bootstrap.bundle.min.js"></script>
+    <script src="JS/jquery-3.7.1.slim.min.js"></script>
+    
 </body>
 
 </html>
