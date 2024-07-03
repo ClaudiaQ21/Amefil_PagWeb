@@ -206,20 +206,24 @@
     display: block;
 }
 
+.cont_sig{
+    margin-top: 7%;
+}
+
 .siguenos{
-    display: flex;
-    font-size: 1.2em;
     justify-content: center;    
     align-items: center;
+    height: 4rem;
     background-color: #6b4e44;
     color: #ffffff;
 }
 
 .siguenos p{
-    margin-right: 2em;
+    margin-right: 2rem;
 }
 
 .siguenos a img{
     width: 2em;
     height: auto;
+    margin-inline-end: 1rem;
 }
