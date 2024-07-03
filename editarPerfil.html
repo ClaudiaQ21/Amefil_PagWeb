@@ -123,15 +123,15 @@
     <main class="row m-0 p-0">
         <div class="contenedor_info">
             <div class="row">
-                <div class="col-lg-1 d-flex align-items-center justify-content-end col-md-6 col-sm-5">
+                <div class="col-lg-1 d-flex align-items-center justify-content-end">
                     <i class="fa-regular fa-user icono-nav-perfil"></i>
                 </div>
 
-                <div class="col-lg-3 d-flex align-items-center col-md-6 col-sm-5 text-center icono-nav-perfil p-md-y-3">
+                <div class="col-lg-3 d-flex align-items-center text-center icono-nav-perfil">
                     ¡Bienvenido!
                 </div>
 
-                <div class="col-lg-8 nav-perfil col-md-12">
+                <div class="col-lg-8 nav-perfil">
                     <ul class="nav  justify-content-evenly">
                         <li class="nav-item">
                             <a href="Perfil.html" class="nav-link text-light">Perfil</a>
@@ -156,48 +156,79 @@
                 </a>
             </div>
 
-            <div class="row datos-perfil" id="bloc_direcciones">
-                <div class="col-lg-6">
-                    <div class="row my-1">
-                        <span class="my-1">NOMBRES</span>
-                        <p>Claudia Libertad</p>
+            <div class="row " id="bloc_direcciones">
+                <div class="row mt-0 pt-0 g-4 justify-content-center">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label class="form-label">Nombre*</label>
+                        <input type="text" class="form-control" id="lab">
                     </div>
 
-                    <div class="row my-1">
-                        <span class="my-1">CORREO ELECTRÓNICO</span>
-                        <p>claudialibertad05@gmail.com</p>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label class="form-label">Apellidos*</label>
+                        <input type="text" class="form-control" id="lab">
                     </div>
 
-                    <div class="row my-1">
-                        <span class="my-1">DNI</span>
-                        <p>71256365</p>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label class="form-label">Departamento</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>--Seleccione su departamento--</option>
+                            <option value="1">Cajamarca</option>
+                            <option value="2">Lambayeque</option>
+                            <option value="3">Tumbres</option>
+                        </select>
                     </div>
 
-                    <div class="row my-1">
-                        <span class="my-1">GÉNERO</span>
-                        <p>Femenino</p>    
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label class="form-label">Distrito</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>--Seleccione su distrito--</option>
+                        </select>
                     </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label class="form-label">DNI</label>
+                        <input type="text" class="form-control" id="lab">
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-between">
+                        <div class="d-block">
+                            <label class="form-label">Día</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option value="1">21</option>
+                            </select>
+                        </div>
+                        <div class="d-block">
+                            <label class="form-label">Mes</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option value="1">05</option>
+                            </select>
+                        </div>
+                        <div class="d-block">
+                            <label class="form-label">Año</label>
+                            <select class="form-select" aria-label="Default select example">
+                                <option value="1">2005</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label class="form-label">Género</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>--Seleccione su género--</option>
+                            <option value="1">Femenino</option>
+                            <option value="2">Masculino</option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <label class="form-label">Celular</label>
+                        <input type="text" class="form-control" id="lab">
+                    </div>
+
                 </div>
-                
-                <div class="col-lg-6">
-                    <div class="row my-1">
-                        <span class="my-1">APELLIDOS</span>
-                        <p>Pérez Alvela</p>
-                    </div>
-
-                    <div class="row my-1">
-                        <span class="my-1">FECHA DE NACIMIENTO</span>
-                        <p>21/05/2005</p>
-                    </div>
-
-                    <div class="row my-1">
-                        <span class="my-1">CELULAR</span>
-                        <p>987 654 321</p>    
-                    </div>
-                </div>
-
-                <div class="col-lg-12">
-                    <button class="botones" onclick="location.href='editarPerfil.html'">Editar</button>
+        
+                <div class="col-lg-12 my-3">
+                    <button class="botones" onclick="location.href='Perfil.html'">Guardar datos</button>
                 </div>
             </div>
         </div>
@@ -216,7 +247,7 @@
                     <li class="my-2"><a href="#" class="info-light">Política de cookies</a></li>
                 </ul>
             </div>
-    
+
             <div class="col-lg-2 col-md-4 info info-light ps-lg-5 ps-md-5">
                 <h5 class="mb-4">Contáctanos</h5>
                 <ul>
@@ -224,7 +255,7 @@
                     <li class="my-2">+51 987 963 214</li>
                 </ul>   
             </div>
-    
+
             <div class="col-lg-3 col-md-4 info soporte ps-10">
                 <h5 class="mb-4">Soporte</h5>
                 <ul>
@@ -234,19 +265,19 @@
                     <li class="my-2"><a href="#" class="info-light">Guía de tallas de pulseras</a></li>
                 </ul>
             </div>
-    
+
             <div class="col-lg-4 col-md-12 info mb-md-5">
                 <div class="row">
                     <div class="col-lg-3 col-md-3 text-md-center">
                         <img src="img/img_logo/logo_blanco.svg" id="logofooter">
                     </div>
-    
+
                     <div class="col-lg-9 col-md-9 ps-4">
                         <h5 class="mb-3">Únetenos</h5>
                         <input type="text" class="form-control" style="width: 70%; font-size: 0.8rem;" placeholder="Ingresa tu email aquí">
                     </div>
                 </div>
-    
+
                 <div class="row redes-sociales mt-lg-5 pt-lg-5 ms-lg-5">
                     <div class="d-flex justify-content-start justify-content-md-center">
                         <div class="mx-3">
@@ -304,7 +335,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="accordion-item">
                 <h5 class="accordion-header" id="headingTwo">
                     <button class="accordion-footer botones collapsed py-3 d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo">
@@ -328,7 +359,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="accordion-item">
                 <h5 class="accordion-header" id="headingThree">
                     <button class="accordion-footer botones collapsed py-3 d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-controls="collapseThree">
@@ -412,11 +443,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
     </footer>
 
-    <script src="js/index.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    
+<script src="js/index.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
