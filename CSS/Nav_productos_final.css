@@ -60,3 +60,27 @@
 .flechita{
     width: 1rem;
 }
+
+.paginacion{
+    margin-bottom: 3rem;
+}
+
+
+.desc{
+    position: absolute;
+    background-color: #6b4e44;
+    color: #ffffff;
+    border-radius: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8px;
+    height: 35px;
+    width: 35px;
+}
+
+.ant{
+    text-decoration: line-through;
+    color: rgb(151, 144, 135);
+    font-size: 80%;
+}
