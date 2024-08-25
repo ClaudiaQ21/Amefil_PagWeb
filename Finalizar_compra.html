@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="CSS/Finalizar_compra.css">
     <link rel="stylesheet" href="css/encabezado_pie.css">
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="CSS/contactos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
     <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
-    <title>Contáctanos</title>
+    <title>Finalizar Compra</title>
 </head>
 
 <body>
@@ -127,73 +127,126 @@
 
     <main class="container">
         <br>
-        <h3><b>CONTÁCTANOS</b></h3>
-        <div id="centr" class="row g-3">
-            <div id="ce" class="row d-flex justify-content-center">
-                <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
-                    <img id="ofici" src="img/ofinica.jpg" class="img-fluid rounded-start" alt="...">
+        <h3><b>FINALIZAR COMPRA</b></h3>
+        <br>
+        <div id="con" class="row g-10">
+            <nav id="central" class="col-lg-8 col-md-12 col-sm-12">
+                <h6><b>INGRESA TUS DATOS</b></h6>
+                <br>
+                <div class="container text-start">
+                    <div class="row g-3">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" id="nombre" class="form-control" required>
+
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label for="apellido" class="form-label">Apellidos:</label>
+                            <input type="text" id="apellido" class="form-control" required>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label class="form-label">Documento de identidad:</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label class="form-label">Teléfono/móvil:</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
                 </div>
-                <div id="tes" class="col-lg-8 col-md-6 col-sm-12 d-flex justify-content-center">
-                    <div class="card-body">
-                        <h5 class="card-title">Nuestra oficina</h5>
+                <br>
+                <h6><b>SELECCIONA TU MÉTODO DE ENTREGA</b></h6>
+                <br>
+                <div class="container text-center">
+                    <div class="row g-3">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <button id="boton" class="btn btn-primary" type="submit">Envio a domicilio</button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <button id="boton1" class="btn btn-primary" type="submit">Recojo en tienda</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <h6><b>COMPLETA TU DIRECCIÓN DE ENVÍO</b></h6>
+                <br>
+                <div class="container text-start">
+                    <div class="row g-3">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <button id="combo" class="btn btn-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Departamento
+                            </button>
+                            <br>
+                            <button id="combo" class="btn btn-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Provincia
+                            </button>
+                            <br>
+                            <button id="combo" class="btn btn-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Distrito
+                            </button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label class="form-label">Dirección:</label>
+                            <input type="text" class="form-control">
+                            <label class="form-label">Referencia (opcional):</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <h6><b>INGRESE LOS DATOS DE SU TARJETA</b></h6>
+                <br>
+                <div class="container text-start">
+                    <div class="row g-3">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label class="form-label">Tarjeta de crédito:</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label class="form-label">Fecha de vencimiento:</label>
+                            <br>
+                            <button id="com" class="btn btn-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                MM
+                            </button>
+                            <button id="com" class="btn btn-secondary dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                AA
+                            </button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label class="form-label">Titular de la tarjeta:</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <label class="form-label">Código de seguridad:</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <section class="col-lg-4 col-md-12 col-sm-12 mt-5">
+                <div class="container text-start">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-10 col-md-10 col-sm-12">
+                            <label class="form-label">Precio envío:</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-12">
+                            <label class="form-label">Total a pagar:</label>
+                            <input type="text" class="form-control" id="totalInput">
+                        </div>
                         <br>
-                        <p class="card-text">Te invitamos a visitar nuestro acogedor taller ubicado en Calle
-                            Tejeduría, 123, Ciudad Chiclayo, Estado de Artesanía, Perú. Aquí es donde nacen cada
-                            uno de nuestros accesorios tejidos con amor y cuidado. ¡Estamos emocionados de
-                            recibirte y compartir nuestra pasión por la artesanía contigo!"</p>
-                    </div>
-                </div>
-            </div>
-            <div id="med" class="row">
-                <div id="ali" class="col-lg-6 col-md-6 col-sm-12 g-5">
-                    <div id="corre" class="card" style="width: 16rem;">
-                        <img id="co" src="img/correo.png" alt="...">
-                        <div class="card-body">
-                            <p class="card-text d-flex justify-content-center">email</p>
-                        </div>
-                        <p>amefilonline@gmail.com</p>
-                        <p>AmefilVentas@hotmail.com</p>
-                    </div>
-                </div>
-                <div id="red" class="col-lg-6 col-md-6 col-sm-12 g-5">
-                    <br>
-                    <h5>Redes sociales</h5>
-                    <div class="row g-4 mt-2">
-                        <div class="col-4 d-flex justify-content-end">
-                            <img id="redes" src="img/facebook_color.png" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body">
-                                <p class="card-text">@AmefilHiloDelAlma</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row g-4 mt-2">
-                        <div class="col-4 d-flex justify-content-end">
-                            <img id="redes" src="img/instagram_color.png" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body">
-                                <p class="card-text">@Amefil_HiloDelAlma</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row g-4 mt-2">
-                        <div class="col-4 d-flex justify-content-end">
-                            <img id="redes" src="img/wasap_color.png" class="img-fluid rounded-start" alt="...">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body">
-                                <p class="card-text">+51 987 963 214</p>
-                            </div>
+                        <div class="col-lg-7 col-md-7 col-sm-12">
+                            <button id="btnPagar" class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#compraModal">Pagar</button>
+
                         </div>
                     </div>
                 </div>
-            </div>
-            <div id="tesa" class="row mt-5">
-                <p>"Amefil es tu destino para obtener accesorios de calidad y diseños especiales."
-                    Acompáñanos a descubrir la belleza duradera de nuestras creaciones hechas a mano.</p>
-            </div>
+            </section>
         </div>
     </main>
     <br>
@@ -420,6 +473,35 @@
         </div>
     </footer>
 
+    <div class="modal fade" id="compraModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Compra registrada</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex align-items-center">
+                        <img src="img/img_logo/logo_amefil.svg" alt="Logo" style="width: 40%; height: 45px; margin-right: 20px;">
+                        <div>
+                            <p id="pagoExitoso">PAGO EXITOSO <br>
+                                ¡GRACIAS POR SU COMPRA!
+                            </p>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="background-color: #6b4e44;border-color: #6b4e44;">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/carrito.js"></script>
+    <script src="JS/bootstrap.bundle.min.js"></script>
+    <script src="JS/jquery-3.7.1.slim.min.js"></script>
+    
 </body>
 
 </html>

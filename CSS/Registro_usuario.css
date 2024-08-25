@@ -1,12 +1,23 @@
 
 /*--------------------------------------Inicio Sesion---------------------------*/
 
+main{
+    background-color: #F2F0F3;
+}
+#bloque input{
+    border-color: rgb(99, 97, 97);
+    border-radius: 0;
+    height: 45px;
+}
 label{
     display: block;
     margin-top: 30px;
     margin-bottom: 10px;
 }
 
+span a{
+    color: black;
+}
 #but{
     background-color: #6b4e44;
     color: hsl(0, 0%, 100%);
@@ -18,22 +29,11 @@ label{
 
 }
 
-#bloque input{
-    border-color: rgb(99, 97, 97);
-    border-radius: 0;
-    height: 45px;
-}
-
-#mensaje{
-    text-align: justify;
-    font-size: 15;
-    margin-top: 24px;
-    line-height: 150%;
-}
 .card {
     background-color: white;
     padding: 2rem;
     border-radius: 1%;
+    border-color: black;
 }
 .btn-primary {
     background-color: #6b4e44;

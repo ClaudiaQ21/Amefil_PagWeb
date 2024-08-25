@@ -1,20 +1,17 @@
-<html lang="es">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/direccion_2.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/Reestablecer_contraseña.css">
+    <link rel="stylesheet" href="css/encabezado_pie.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
     <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
-    <link rel="stylesheet" href="css/encabezado_pie.css">
-    <title>Direcciones</title>
-</head>
-
+    <title>Amefil</title>
+</head> 
 <body>
     <header class="row m-0 p-0 sticky-top">
         <div class="row descuentos m-0">
@@ -123,102 +120,31 @@
         
     </header>
 
-    <section class="container-fluid my-5">
-        <div class="row px-5">
-            <div class="col-lg-4 col-md-12" id="div_usuario">
-                <img src="img/img_iconos/usuario.png" class="" id="usu">
-                <h4>¡Bienvenido!</h4>
-            </div>
-            <div class="col-lg-8 col-md-12 justify-content-center" id="barrita_container">
-                <div class="d-flex align-items-center justify-content-between" id="barrita">
-                    <a href="#" class="link">Perfil</a>
-                    <a href="#" class="link"><u><strong>Direcciones</strong></u></a>
-                    <a href="#" class="link">Pedidos</a>
-                    <a href="#" class="link" id="mf">Mis favoritos</a>
-                </div>
-            </div>
-        </div>
-        <br>
-        <br>
-        <div class="row d-flex align-items-center" id="bloque_flecha">
-            <div class="col-2 d-flex justify-content-end">
-                <img src="img/atras_24.png" class="img-fluid" id="flecha">
-
-            </div>
-            <div class="col-10">
-                <a href="#" class="link" id="atras">Ver direcciones</a>
-            </div>
-        </div>
-        <br>
-        <br>
-        <div id="con" class="row d-flex justify-content-center">
-            <nav id="central" class="col-lg-8 col-md-12 col-sm-12">
-
-                <div class="container text-start p-5" id="bloc">
-                    <div class="row g-5">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label" >País</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>--Seleccione su país--</option>
-                                <option value="1">Perú</option>
-                                <option value="2">Argentina</option>
-                                <option value="3">E.E.U.U</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label">Distritos</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>--Seleccione su distrito--</option>
-                                <option value="1">Perú</option>
-                                <option value="2">Argentina</option>
-                                <option value="3">E.E.U.U</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label">Departamento</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>--Seleccione su departamento--</option>
-                                <option value="1">Perú</option>
-                                <option value="2">Argentina</option>
-                                <option value="3">E.E.U.U</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label">Calle</label>
-                            <input type="text" class="form-control" id="lab">
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label">Provincia</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>--Seleccione su provincia--</option>
-                                <option value="1">Perú</option>
-                                <option value="2">Argentina</option>
-                                <option value="3">E.E.U.U</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label" >N° de calle</label>
-                            <input type="text" id="lab" class="form-control">
-                            <br>
-                            
-                            <label class="form-check-label" for="flexRadioDefault1"><input type="radio">
-                                No tengo calle
-                            </label>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <label class="form-label" >Información adicional</label>
-                            <input type="text" id="lab" class="form-control">
-                        </div>
-                        <div class="col-lg-12">
-                            <button class="btn btn-primary" id="but_bloque" type="submit">Añadir dirección</button>
+    <main class="container-fluid">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center my-5">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-5">
+                    <div class="card shadow-lg">
+                        <div class="card-body " id="bloque">
+                            <h4 class="card-title text-center">REESTABLECER CONTRASEÑA</h4>
+                            <p id="mensaje" >Para restablecer tu contraseña, por favor introduce tu dirección de correo electrónico. Te enviaremos un enlace para que puedas crear una nueva contraseña.</p>
+                            <form>
+                                <div class="form-group">
+                                    <label for="email">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Ingrese su correo electrónico">
+                                </div>
+                                <br>
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-primary" id="but">Enviar correo</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-    
-            </nav>
+            </div>
         </div>
         
-    </section>
+    </main>
     <footer class="row m-0">
         <div class="row d-none d-md-flex p-0">
             <div class="col-lg-3 col-md-4 info conocenos ps-md-5">
@@ -397,9 +323,11 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script> 
+    
 </body>
+</html>

@@ -67,13 +67,3 @@ body {
 #add{
     margin-left: 50%;
 }
-@media (max-width:576px){
-  
-}
-
-@media (min-width: 577px) and (max-width:950px){
-    #mensaje{
-        
-    }
-    
-}
