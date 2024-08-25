@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/Direccion_lista.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/Estandar_perfil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
@@ -122,133 +122,44 @@
         
     </header>
 
+    <main class="row m-0 p-0">
+        <div class="contenedor_info">
+            <div class="row">
+                <div class="col-lg-1 d-flex align-items-center justify-content-end col-md-6 col-sm-5">
+                    <i class="fa-regular fa-user icono-nav-perfil"></i>
+                </div>
 
-    <section class="container-fluid my-5">
-        <div class="row px-5">
-            <div class="col-lg-4 col-md-12" id="div_usuario">
-                <img src="img/img_iconos/usuario.png" class="" id="usu">
-                <h4>¡Bienvenido!</h4>
-            </div>
-            <div class="col-lg-8 col-md-12 justify-content-center" id="barrita_container">
-                <div class="d-flex align-items-center justify-content-between" id="barrita">
-                    <a href="#" class="link">Perfil</a>
-                    <a href="#" class="link"><u><strong>Direcciones</strong></u></a>
-                    <a href="#" class="link">Pedidos</a>
-                    <a href="#" class="link" id="mf">Mis favoritos</a>
+                <div class="col-lg-3 d-flex align-items-center col-md-6 col-sm-5 text-center icono-nav-perfil p-md-y-3">
+                    ¡Bienvenido!
+                </div>
+
+                <div class="col-lg-8 nav-perfil">
+                    <ul class="nav justify-content-evenly">
+                        <li class="nav-item">
+                            <a href="Perfil.html" class="nav-link text-light">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Direccion_lista.html" class="nav-link text-light">Direcciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Pedidos_lista.html" class="nav-link text-light">Pedidos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Favoritos_lista.html" class="nav-link text-light">Mis favoritos</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-        <br>
-        <br>
 
-        <div class="container-fluid py-5" id="bloc_direcciones">
-            <div class="row d-flex py-3" id="flecha">
-                <a href="index.html" class="d-flex align-items-center" style="
-    color: #000;">
-                    <i class="fa-solid fa-arrow-left pe-3"></i>
-                    <p class="m-0">Atrás</p>
+            <div class="row d-flex py-4 volver-inicio">
+                <a href="index.html" class="d-flex align-items-center ">
+                    <i class="fa-solid fa-arrow-left pe-3 text-dark"></i>
+                    <p class="m-0 text-dark">Volver al inicio</p>
                 </a>
             </div>
-            <br>
-            <div class="row">
-                <div class="col-10">
-                    <button id="direcc" onclick="location.href='Añadir_direccion.html'">Añadir dirección</button>
-                </div>
-            </div>
-            <div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-center " id="content_direcciones">
-                <div class="col ">
-                    <div class="card h-100 p-4">
-                        <div class="card-body">
-                            <li><strong>País:</strong> Perú</li>
-                            <li><strong>Departamento:</strong> Lambayeque</li>
-                            <li><strong>Provinvia:</strong> Chiclayo</li>
-                            <li><strong>Distrito:</strong> Chiclayo</li>
-                            <li><strong>Calle:</strong> Av. José Leonardo Ortiz</li>
-                            <li><strong>Información adicional:</strong> Casa de 3 pisos junto a un parque</li>
-                        </div>
-                        <button class="booooot">Editar</button>
-                        <br>
-                        <button class="booooot">Borrar dirección</button>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 p-4">
-                        <div class="card-body">
-                            <li><strong>País:</strong> Perú</li>
-                            <li><strong>Departamento:</strong> Tacna</li>
-                            <li><strong>Provinvia:</strong> Tacna</li>
-                            <li><strong>Distrito:</strong> Tacna</li>
-                            <li><strong>Calle:</strong> c.Brasil</li>
-                            <li><strong>Información adicional:</strong> Casa de 2 pisos</li>
-
-                        </div>
-                        <button class="booooot">Editar</button>
-                        <br>
-                        <button class="booooot">Borrar dirección</button>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 p-4">
-                        <div class="card-body">
-                            <li><strong>País:</strong> Perú</li>
-                            <li><strong>Departamento:</strong> Lima</li>
-                            <li><strong>Provinvia:</strong> Barranca</li>
-                            <li><strong>Distrito:</strong> Barranca</li>
-                            <li> <strong>Calle:</strong> Ricardo Palma</li>
-                            <li> <strong>N° de Calle:</strong> 180</li>
-                            <li> <strong>Información adicional:</strong> Casa de 3 pisos junto a un parque</li>
-                        </div>
-                        <button class="booooot">Editar</button>
-                        <br>
-                        <button class="booooot">Borrar dirección</button>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 p-4">
-                        <div class="card-body">
-                            <li><strong>País:</strong> Perú</li>
-                            <li><strong>Departamento:</strong> Lambayeque</li>
-                            <li><strong>Provinvia:</strong> Chiclayo</li>
-                            <li><strong>Distrito:</strong> Chiclayo</li>
-                            <li><strong>Calle:</strong> Av. José Leonardo Ortiz</li>
-                            <li><strong>Información adicional:</strong> Casa de 3 pisos junto a un parque</li>
-                        </div>
-                        <button class="booooot">Editar</button>
-                        <br>
-                        <button class="booooot">Borrar dirección</button>
-                    </div>
-                </div>
-            </div>
 
         </div>
-        <br>
-        <br>
-        <br>
-        <div class="row d-flex justify-content-end align-items-end" id="div_navicito">
-            <nav aria-label="Page navigation example" id="navicito">
-                <ul class="pagination" >
-                    <li class="page-item" >
-                        <a class="page-link" href="#" aria-label="Previous" id="colorcito">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#" id="colorcito">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#" id="colorcito">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#" id="colorcito">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next" id="colorcito">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-
-
-    </section>
-
-
-
+    </main>
 
     <footer class="row m-0">
         <div class="row d-none d-md-flex p-0">
@@ -470,3 +381,104 @@
 </body>
 
 </html>
+
+
+<!-- <div class="container-fluid" id="bloc_direcciones">
+    <div class="row d-flex py-3" id="flecha">
+        <a href="index.html" class="d-flex align-items-center" style="color: #000;">
+            <i class="fa-solid fa-arrow-left pe-3"></i>
+            <p class="m-0">Atrás</p>
+        </a>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-10">
+            <button id="direcc" onclick="location.href='Añadir_direccion.html'">Añadir dirección</button>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-center " id="content_direcciones">
+        <div class="col ">
+            <div class="card h-100 p-4">
+                <div class="card-body">
+                    <li><strong>País:</strong> Perú</li>
+                    <li><strong>Departamento:</strong> Lambayeque</li>
+                    <li><strong>Provinvia:</strong> Chiclayo</li>
+                    <li><strong>Distrito:</strong> Chiclayo</li>
+                    <li><strong>Calle:</strong> Av. José Leonardo Ortiz</li>
+                    <li><strong>Información adicional:</strong> Casa de 3 pisos junto a un parque</li>
+                </div>
+                <button class="booooot">Editar</button>
+                <br>
+                <button class="booooot">Borrar dirección</button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 p-4">
+                <div class="card-body">
+                    <li><strong>País:</strong> Perú</li>
+                    <li><strong>Departamento:</strong> Tacna</li>
+                    <li><strong>Provinvia:</strong> Tacna</li>
+                    <li><strong>Distrito:</strong> Tacna</li>
+                    <li><strong>Calle:</strong> c.Brasil</li>
+                    <li><strong>Información adicional:</strong> Casa de 2 pisos</li>
+
+                </div>
+                <button class="booooot">Editar</button>
+                <br>
+                <button class="booooot">Borrar dirección</button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 p-4">
+                <div class="card-body">
+                    <li><strong>País:</strong> Perú</li>
+                    <li><strong>Departamento:</strong> Lima</li>
+                    <li><strong>Provinvia:</strong> Barranca</li>
+                    <li><strong>Distrito:</strong> Barranca</li>
+                    <li> <strong>Calle:</strong> Ricardo Palma</li>
+                    <li> <strong>N° de Calle:</strong> 180</li>
+                    <li> <strong>Información adicional:</strong> Casa de 3 pisos junto a un parque</li>
+                </div>
+                <button class="booooot">Editar</button>
+                <br>
+                <button class="booooot">Borrar dirección</button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100 p-4">
+                <div class="card-body">
+                    <li><strong>País:</strong> Perú</li>
+                    <li><strong>Departamento:</strong> Lambayeque</li>
+                    <li><strong>Provinvia:</strong> Chiclayo</li>
+                    <li><strong>Distrito:</strong> Chiclayo</li>
+                    <li><strong>Calle:</strong> Av. José Leonardo Ortiz</li>
+                    <li><strong>Información adicional:</strong> Casa de 3 pisos junto a un parque</li>
+                </div>
+                <button class="booooot">Editar</button>
+                <br>
+                <button class="booooot">Borrar dirección</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row d-flex justify-content-end align-items-end" id="div_navicito">
+    <nav aria-label="Page navigation example" id="navicito">
+        <ul class="pagination" >
+            <li class="page-item" >
+                <a class="page-link" href="#" aria-label="Previous" id="colorcito">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#" id="colorcito">1</a></li>
+            <li class="page-item"><a class="page-link" href="#" id="colorcito">2</a></li>
+            <li class="page-item"><a class="page-link" href="#" id="colorcito">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next" id="colorcito">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div> -->

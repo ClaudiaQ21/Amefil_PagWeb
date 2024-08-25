@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/favoritos.css">
+    <link rel="stylesheet" href="CSS/Lista_favoritos.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -15,6 +16,7 @@
     <link rel="stylesheet" href="css/encabezado_pie.css">
     <title>Favoritos</title>
 </head>
+
 <body>
     <header class="row m-0 p-0 sticky-top">
         <div class="row descuentos m-0">
@@ -127,45 +129,206 @@
     <section class="container-fluid m-0 p-0" style="border: 1px solid;">
         <div class="contenedor_info">
             <div class="row">
-                <div class="col-lg-1 d-flex align-items-center text-center">
+                <div class="col-lg-1 d-flex align-items-center justify-content-end col-md-6 col-sm-5">
                     <i class="fa-regular fa-user icono-nav-perfil"></i>
                 </div>
 
-                <div class="col-lg-3 d-flex align-items-center text-center icono-nav-perfil">
+                <div class="col-lg-3 d-flex align-items-center col-md-6 col-sm-5 text-center icono-nav-perfil p-md-y-3">
                     ¡Bienvenido!
                 </div>
 
-                <div class="col-lg-8 nav-perfil d-flex justify-content-center align-items-center">
-                    <ul class="nav  justify-content-evenly  ">
+                <div class="col-lg-8 nav-perfil">
+                    <ul class="nav justify-content-evenly">
                         <li class="nav-item">
-                            <a href="" class="nav-link text-light">Perfil</a>
+                            <a href="Perfil.html" class="nav-link text-light">Perfil</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link text-light">Direcciones</a>
+                            <a href="Direccion_lista.html" class="nav-link text-light">Direcciones</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link text-light">Pedidos</a>
+                            <a href="Pedidos_lista.html" class="nav-link text-light">Pedidos</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link text-light">Mis favoritos</a>
+                            <a href="Favoritos_lista.html" class="nav-link text-light">Mis favoritos</a>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div class="row d-flex py-3">
-                <a href="index.html" class="d-flex align-items-center">
-                    <i class="fa-solid fa-arrow-left pe-3"></i>
-                    <p class="m-0">Volver al inicio</p>
-                </a>
+                <div class="col-6">
+                    <a href="index.html" class="d-flex align-items-center">
+                        <i class="fa-solid fa-arrow-left pe-3"></i>
+                        <p class="m-0">Volver al inicio</p>
+                    </a>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                    <p>N° de favoritos: 6</p>
+                </div>
             </div>
 
-            <div class="row d-flex align-items-center" id="mensaje">
-                <h3>No se ha elegido ningún favorito</h3>
+            <div class="row row-cols-1 row-cols-md-2 g-5 d-flex justify-content-between">
+
+                <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
+                    <div class="card border-0 h-100">
+                        <div id="imm">
+                            <img src="img/pulseras/pulsera-corazon-rosa-delgada.png" class="card-img-top" id="card1">
+                        </div>
+                        
+                        <div class="card-body py-4">
+                            <div id="pruebadiv_visible">
+                                <h5 class="card-title">Pulsera de corazón</h5>
+                                <p class="card-text">Color: Rosa</p>
+                                <p class="card-text">Precio: S/20.00</p>
+                            </div>
+
+                            
+                            <br>
+                            <button type="button" class="btn btn-primary" id="but2">Añadir al carrito</button>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-primary" id="but2">Quitar de favoritos</button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
+                    <div class="card border-0 h-100">
+                        <div id="imm">
+                            <img src="img/pulseras/pulsera-triple-trenza-marron-cream.webp" class="card-img-top" id="card1"
+                            style="border-radius: 0.2em;">
+                        </div>
+                        
+                        <div class="card-body py-4">
+                            <div id="pruebadiv_visible">
+                                <h5 class="card-title">Pulsera de triple trenza</h5>
+                                <p class="card-text">Color: Marrón y crema</p>
+                                <p class="card-text">Precio: S/20.00</p>
+                            </div>
+
+                            
+                            <br>
+                            <button type="button" class="btn btn-primary" id="but2">Añadir al carrito</button>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-primary" id="but2">Quitar de favoritos</button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
+                    <div class="card border-0 h-100">
+                        <div id="imm">
+                            <img src="img/bolsos/bolso-floreado-negro.webp" class="card-img-top" id="card1">
+                        </div>
+                        
+                        <div class="card-body py-4">
+                            <div id="pruebadiv_visible">
+                                <h5 class="card-title">Bolso floreado </h5>
+                                <p class="card-text">Color: negro</p>
+                                <p class="card-text">Precio: S/55.00
+                                    <small class="text-body-secondary"><del>$65.00</del></small></p>
+                                <p>Descuento: 10%</p>
+                            </div>
+
+                            <div >
+                                <button type="button" class="btn btn-primary" id="but2">Añadir al carrito</button>
+                                <br>
+                                <br>
+                                <button type="button" class="btn btn-primary" id="but2">Quitar de favoritos</button>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                </div>
             </div>
             <br>
             <br>
-        </div>
+            <div class="row  g-5 d-flex justify-content-between">
+
+                <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
+                    <div class="card border-0 h-100 d-flex flex-column">
+                        <div id="imm">
+                            <img src="img/pulseras/pulsera-tonos-marrones-estrella-mar.webp" class="card-img-top" id="card1">
+                        </div>
+                        
+                        <div class="card-body py-4 ">
+                            <div id="pruebadiv_visible">
+                                <h5 class="card-title">Pulsera de estrella de mar</h5>
+                                <p class="card-text">Color: Rosa</p>
+                                <p class="card-text">Precio: S/20.00</p>
+                            </div>
+
+                            
+                            <br>
+                            <button type="button" class="btn btn-primary" id="but2">Añadir al carrito</button>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-primary" id="but2">Quitar de favoritos</button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
+                    <div class="card border-0 h-100">
+                        <div id="imm">
+                            <img src="img/aretes/aretes-en-aro-celestes.png" class="card-img-top" id="card1">
+                        </div>
+                        
+                        <div class="card-body py-4">
+                            <div id="pruebadiv_visible">
+                                <h5 class="card-title">Aretes en aro</h5>
+                                <p class="card-text">Color: Celeste</p>
+                                <p class="card-text">Precio: S/20.00</p>
+                            </div>
+
+                            
+                            <br>
+                            <button type="button" class="btn btn-primary" id="but2">Añadir al carrito</button>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-primary" id="but2">Quitar de favoritos</button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
+                    <div class="card border-0 h-100">
+                        <div id="imm">
+                            <img src="img/bolsos/bolso-tonos-marrones-asa-larga-corta.webp" class="card-img-top" id="card1">
+                        </div>
+                        
+                        <div class="card-body py-4">
+                            <div id="pruebadiv_visible">
+                                <h5 class="card-title">Bolsa de asa corta</h5>
+                                <p class="card-text">Color: Rosa</p>
+                                <p class="card-text">Precio: S/20.00</p>
+                            </div>
+
+                            
+                            <br>
+                            <button type="button" class="btn btn-primary" id="but2">Añadir al carrito</button>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-primary" id="but2">Quitar de favoritos</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
     </section>
     <footer class="row m-0">
         <div class="row d-none d-md-flex p-0">
