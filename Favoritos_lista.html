@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/favoritos.css">
-    <link rel="stylesheet" href="CSS/Lista_favoritos.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/favoritos.css">
+    <link rel="stylesheet" href="CSS/Estandar_perfil.css">
+    <link rel="stylesheet" href="CSS/Lista_favoritos.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -128,6 +129,7 @@
 
     <section class="container-fluid m-0 p-0" style="border: 1px solid;">
         <div class="contenedor_info">
+                
             <div class="row">
                 <div class="col-lg-1 d-flex align-items-center justify-content-end col-md-6 col-sm-5">
                     <i class="fa-regular fa-user icono-nav-perfil"></i>
@@ -155,17 +157,14 @@
                 </div>
             </div>
 
-            <div class="row d-flex py-3">
-                <div class="col-6">
-                    <a href="index.html" class="d-flex align-items-center">
-                        <i class="fa-solid fa-arrow-left pe-3"></i>
-                        <p class="m-0">Volver al inicio</p>
-                    </a>
-                </div>
-                <div class="col-6 d-flex justify-content-end">
-                    <p>N° de favoritos: 6</p>
-                </div>
-            </div>
+            <div class="row d-flex py-4 volver-inicio align-items-center">
+                <a href="index.html" class="d-flex align-items-center col-6">
+                    <i class="fa-solid fa-arrow-left pe-3 text-dark"></i>
+                    <p class="m-0 text-dark">Volver al inicio</p>
+                </a>
+
+                <p class=" my-0 col-6 d-flex justify-content-end align-items-center">N° de favoritos: 6</p>
+            </div>    
 
             <div class="row row-cols-1 row-cols-md-2 g-5 d-flex justify-content-between">
 

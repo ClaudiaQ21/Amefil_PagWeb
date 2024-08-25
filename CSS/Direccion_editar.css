@@ -8,18 +8,17 @@ body {
 
 }
 
-
-
-/*----------------------------------------------------------------*/
 h4{
     display: inline;
     margin-left: 5%;
     font-family: Montserrat;
 }
+
 .link{
     text-decoration-line: none;
     color: #ffffff;
 }
+
 .link:hover{
     font-weight: 600;
 }
@@ -34,13 +33,16 @@ h4{
     display: flex;
     flex-wrap: wrap;
 }
+
 #mf .link{
     margin-right: 0;
     
 }
+
 #flecha{
     margin-left: 12%;
 }
+
 #flecha:hover{
     background-color: #d7d7d7;
     border-radius: 50%;
@@ -54,9 +56,11 @@ a{
     top: 2px;
     
 }
+
 #atras{
     color: #000;
 }
+
 #bloc{
     background-color: #F2F0F3;
     

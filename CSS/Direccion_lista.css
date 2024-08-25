@@ -8,47 +8,16 @@ body {
 
 }
 
-/*----------------------------------------------------------------*/
-/*h4{
-    display: inline;
-    margin-left: 5%;
-    font-family: Montserrat;
-}
-.link{
-    text-decoration-line: none;
-    color: #ffffff;
-}
-.link:hover{
-    font-weight: 600;
+#bloc_direcciones{
+    background-color: #F2F0F3;
+    border-radius: 1px;
+    box-shadow: 0 0 20px rgba(2, 1, 1, 0.2); 
 }
 
-#barrita{
-    background-color: #6b4e44;
-    height: 90%;
-    padding-left: 10%;
-    padding-right: 10%;
-    border-radius: 0.5rem;
-    font-family: Montserrat;
-    display: flex;
-    flex-wrap: wrap;
-}*/
-
-#flecha{
-    margin-left: 5%;
+#datos_direccion li{
+    list-style: none;
+    margin-bottom: 10px;
 }
-
-a{
-    padding: 0;
-    margin: 0;
-    font-family: "Montserrat";
-    position: relative;
-    top: 2px;
-    
-}
-/*
-#atras{
-    color: #000;
-}*/
 
 #direcc{
     margin-left: 8%;
@@ -71,25 +40,7 @@ a{
 
 #content_direcciones{
     width: 90%;
-    margin: auto;
-    
-}
-
-/*#carrrr{
-    height: 300px;
-}*/
-
-#bloc_direcciones{
-    background-color: #F2F0F3;
-    width: 80%;
-    border-radius: 1px;
-    box-shadow: 0 0 20px rgba(2, 1, 1, 0.2); 
-    
-}
-
-li{
-    list-style: none;
-    margin-bottom: 10px;
+    margin: auto; 
 }
 
 .booooot{
@@ -112,15 +63,10 @@ li{
 #navicito{
     display: flex;
     justify-content: end;
-   
 }
 
 #div_navicito{
-    margin-right: 8%;
-}
-
-.page-item{
-    color: #000;
+    margin-right: 5%;
 }
 
 #colorcito{

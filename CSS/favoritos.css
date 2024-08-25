@@ -9,10 +9,6 @@ body {
 
 }
 
-
-
-/*----------------------------------------------------------------*/
-
 .contenedor_info{
     padding: 50px 150px;
 }
@@ -35,7 +31,6 @@ body {
 .datos-perfil span{
     font-weight: 600;
 }
-
 
 #direcc{
     width: auto;
@@ -66,14 +61,4 @@ body {
 
 #add{
     margin-left: 50%;
-}
-@media (max-width:576px){
-  
-}
-
-@media (min-width: 577px) and (max-width:950px){
-    #mensaje{
-        
-    }
-    
 }
