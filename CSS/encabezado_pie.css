@@ -122,11 +122,10 @@ header .nav-item{
 }
 
 /*FOOTER*/
+
 footer{
-    background-color: #6b4e44;
+    background-color: rgb(40, 34, 24);
 }
-
-
 
 .info ul{
     list-style: none;
@@ -134,39 +133,57 @@ footer{
 }
 
 .info ul li{
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 .info ul a{
     text-decoration: none;
+    color: rgb(251, 249, 242);
 }
 
-.info-light{
-    color: white;
+.info ul a:hover{
+    color: rgb(158, 134, 94);
 }
-
-.info-dark{
-    color: black;
-}
-
-
 
 footer h5{
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.3rem;
+    color: rgb(158, 134, 94);
+    font-weight: 500;
+    font-size: 1.4rem;
 }
 
 footer .redes-sociales{
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .accordion-footer{
     width: 100%;
 }
 
+.unirse {
+    border-color: rgb(158, 134, 94);
+}
 
+.unirse:focus{
+    box-shadow: 0 0 0 2px rgb(158, 134, 94);
+}
 
+.redicono{
+    color: rgb(251, 249, 242);
+}
+
+.redicono:hover{
+    color: rgb(158, 134, 94);
+}
+
+.fechacopy{
+    background-color: rgb(158, 134, 94);
+    color: rgb(251, 249, 242);
+}
+
+.fechacopy p{
+    padding-block: 10px;
+    margin: 0;
+}
 
 
 
