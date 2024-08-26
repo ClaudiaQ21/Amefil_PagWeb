@@ -1,27 +1,30 @@
-<header class="row m-0 p-0 sticky-top">
-    <div class="row descuentos m-0">
-        <div id="carrusel-des-prom" class="carousel slide p-0">
+<header>
+
+    <div class="row g-0 cabi py-2 px-4">
+        <div class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active text-center">
-                    50% DE DESCUENTO EN TU PRIMERA COMPRA
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <p>
+                        <a class="nav-link" href="Navegacion_productos.html">DESCUBRE LOS MEJORES ACCESORIOS EN AMEFIL<br class="d-md-none"></a>
+                    </p>
                 </div>
-                <div class="carousel-item text-center">
-                    ENCUENTRA ACCESORIOS DE TODO TIPO PARA ADORNAR TU VIDA
+                <div class="carousel-item" data-bs-interval="3000">
+                    <p>
+                        <a class="nav-link" href="Navegacion_productos.html">50% DE DESCUENTO EN TU PRIMERA COMPRA<br class="d-md-none"></a>
+                    </p>
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <p>
+                        <a class="nav-link" href="Navegacion_productos.html">ADORNANDO CADA UNA DE SUS VIDAS<br class="d-md-none"></a>
+                    </p>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carrusel-des-prom" data-bs-slide="prev">
-                <span class="flecha-prom" aria-hidden="true">&lt;</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carrusel-des-prom" data-bs-slide="next">
-                <span class="flecha-prom" aria-hidden="true">&gt;</span>
-            </button>
         </div>
-    
     </div>
-
+    
     <div class="row menu m-0 p-0">
         <div class="col-lg-3 d-flex text-center justify-content-center align-items-center col-md-6 col-sm-4 col-4 order-2 order-lg-1 order-md-1 order-sm-2">
-            <a href="index.html"><img src="img/img_logo/logo_amefil.svg" class="" id="amefil"></a>
+            <a href="index.html"><img src="img/logotipo_oro.svg" class="log1" id="amefil"></a>
         </div>
         
 
@@ -29,7 +32,7 @@
             <nav class="navbar navbar-expand-md">
                 <div class="d-flex align-items-center">
 
-                    <button class="btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><span class="navbar-toggler-icon icono text-light"></span></button>
+                    <button class="btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><span class="navbar-toggler-icon"></span></button>
                     
                     <div class="buscar-sm d-sm-block d-md-none ms-2">
                         <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -65,10 +68,10 @@
                                 <a class="nav-link" href="Menu_crea.html">¡CREA!</a>
                             </li>
                             <li class="nav-item mx-3">
-                                <a class="nav-link" href="">MÁS VENDIDOS</a>
+                                <a class="nav-link" href="Menu_descuentos.html">DESCUENTOS</a>
                             </li>
                             <li class="nav-item mx-3">
-                                <a class="nav-link" href="Menu_descuentos.html">DESCUENTOS</a>
+                                <a class="nav-link" href="">CONTACTO</a>
                             </li>
                         </ul>
                     </div>
@@ -78,7 +81,7 @@
             </nav>
         </div>
     
-        <div class="menu-iconos col-lg-3 col-md-6 col-sm-4 col-4 order-3 d-flex justify-content-lg-end justify-content-md-center justify-content-sm-end justify-content-end order-md-2 py-md-3">
+        <div class="menu-iconos col-lg-3 col-md-6 col-sm-4 col-4 order-3 d-flex justify-content-lg-center justify-content-md-center justify-content-sm-end justify-content-end order-md-2 py-md-3">
             <div class="d-none d-md-flex">
                 <div class="buscar">
                     <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -89,10 +92,10 @@
                     </div>
                 </div>
             </div>
-            <button class="boton-icono me-2" onclick="location.href='carrito.html'"><i class="fa-solid fa-cart-shopping icono"></i></button>
+            <button class="boton-icono" onclick="location.href='carrito.html'"><i class="fa-solid fa-bag-shopping"></i></button>
             <div class="buscar">
                 <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-regular fa-user icono"></i>
+                    <i class="fa-solid fa-user icono"></i>
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="Iniciar_sesion.html">Iniciar sesión</a></li>
