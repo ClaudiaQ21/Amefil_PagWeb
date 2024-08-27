@@ -89,6 +89,6 @@
 }
 
 .coleccion-texto:hover .imagen-sombreada{
-    transform: scale(1.1); 
+    transform: scale(1.2); 
     filter: brightness(0.7);
 }

@@ -2,6 +2,19 @@
     font-family: Monserrat;
     src: url(recursos/Montserrat-VariableFont_wght.ttf);
 }
+
+main{
+    background-color: rgb(251, 249, 242);
+}
+
+.nues_produc{
+    border-top: 2px solid rgb(158, 134, 94);
+}
+
+.nues_produc h3{
+    color: rgb(158, 134, 94);
+}
+
 body {
     font-family: 'Monserrat';
 }

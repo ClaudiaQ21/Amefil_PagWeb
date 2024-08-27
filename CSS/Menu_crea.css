@@ -1,3 +1,12 @@
+.nues_produc{
+    background-color: rgb(251, 249, 242);
+    border-top: 2px solid rgb(158, 134, 94);
+}
+
+.nues_produc h3{
+    color: rgb(158, 134, 94);
+}
+
 #dropzone {
     position: relative;
 }
@@ -6,12 +15,10 @@
     cursor: grab;
 }
 
-
 .person{
     background-color: #F2F0F3;
     font-weight: bold;
 }
-
 
 .cont_hilos{
     align-content: center;
