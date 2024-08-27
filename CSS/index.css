@@ -1,20 +1,28 @@
 /*Información rápida*/
 .info-rapida{
-    border-top: 1px solid #d7d7d7;
+    color: rgb(40, 34, 24);
+    background-color: rgb(251, 249, 242);
 }
 
 .info-rapida i{
+    color: rgb(158, 134, 94);
     font-size: 2.5rem;
     margin: 1.5rem 0;
 }
 
-/*Producto*/
-.productos{
-    background-color: #F2F0F3;
+.frase-chevere{
+    color: rgb(158, 134, 94);
 }
 
-.productos h3{
-    font-weight: bold;
+/*Producto*/
+.productos{
+    background-color: rgb(251, 249, 242);
+}
+
+.titulop a{
+    color: rgb(158, 134, 94);
+    text-decoration: none;
+    font-weight: 500;
 }
 
 .contenedor_producto{
@@ -32,11 +40,7 @@
 
 .producto .card{
     margin: 0 20px;
-}
-
-.productos h3 a{
-    text-decoration: none;
-    color: black;
+    border-color: rgb(158, 134, 94);
 }
 
 .productos .card {
@@ -79,7 +83,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white; 
+    color: rgb(251, 249, 242); 
     font-size: 1.7rem;
     transition: transform 0.3s ease, font-size 0.3s ease;
 }
