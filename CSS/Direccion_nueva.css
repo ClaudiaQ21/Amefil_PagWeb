@@ -28,7 +28,7 @@ a{
     margin-top:8px;
 }
 .form-select{
-    width: 98%;
+    width: 98%; 
     margin: 5px;
     height: 45px;
     font-family: 'Monserrat';
@@ -36,17 +36,12 @@ a{
     color: grey;
     
 }
+
 #but_bloque{
-    background-color: #6b4e44;
-    color: hsl(0, 0%, 100%);
-    font-size: 0.9em;
-    border-color: #6b4e44;
     width: 100%;
     height: 45px;
 }
-#but_bloque:hover{
-    background-color: #816b63;
-}
+
 @media (max-width: 576px) {
     #barrita .link {
 
