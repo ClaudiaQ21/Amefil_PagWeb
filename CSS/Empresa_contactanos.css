@@ -5,6 +5,8 @@
 
 main{
     background-color: rgb(251, 249, 242);
+    height: 100%; 
+
 }
 
 .nues_produc{
@@ -15,6 +17,10 @@ main{
     color: rgb(158, 134, 94);
 }
 
+#ofi_gr{
+    height: 100vh; 
+    width: 100%;
+}
 body {
     font-family: 'Monserrat';
 }
@@ -38,8 +44,8 @@ h5{
 #centr{
     justify-content: center;
     margin: 4%;
-    background-color: #F2F0F3;
-    box-shadow: 0 0 20px rgba(5, 1, 1, 0.2); /*sombra*/
+    margin-top: -2%;
+    
 }
 #ali{
     text-align: center;
@@ -50,7 +56,8 @@ h5{
     border: none;
     width: 100%;
     justify-content: center;
-    background-color: #F2F0F3;
+    background-color: rgb(251, 249, 242);
+
 }
 #co{
     width: 70%;
@@ -61,7 +68,6 @@ h5{
     text-align: center;
     justify-content: center;
     width: 80%;
-    margin-bottom: 3%;
 }
 #ce{
     margin-top: 5%;
