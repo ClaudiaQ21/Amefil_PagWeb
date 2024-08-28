@@ -8,13 +8,21 @@ body {
     font-family: 'Monserrat';
 }
 
+#menu{
+    margin: 0 auto;
+    margin-top: 50px;
+}
+#men{
+    margin-left:4%;
+}
+
 #carouselExampleSlidesOnly{
-    background-color: #F2F0F3;
+    background-color: rgb(251, 249, 242);
     width: 100%; 
     overflow: hidden;
     height: 340px;
     position: relative;
-    box-shadow: 0 0 20px rgba(5, 1, 1, 0.2); /*sombra*/
+    box-shadow: 0 0 15px rgba(5, 1, 1, 0.2); 
 }
 .carousel-inner {
     display: flex;
@@ -31,7 +39,7 @@ body {
     width: 40%; 
 }
 .carousel-item {
-    min-width: 100%; /* Asegura que cada item tome el 100% del contenedor del carrusel */
+    min-width: 100%; 
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
@@ -129,7 +137,7 @@ body {
 }
 .fras{
     display: flex;
-    background-color: #6b4e44;
+    background-color: rgb(158, 134, 94);
     height: 60px;
     align-items: center;
     justify-content: center;
