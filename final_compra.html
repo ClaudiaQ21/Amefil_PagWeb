@@ -67,27 +67,27 @@
                         <div class="offcanvas-body justify-content-center">
                             <ul class="navbar-nav">
                                 <li class="nav-item mx-3">
-                                    <a class="nav-link" href="#">NOVEDADES</a>
-                                    <div class="dropdown-contenido">
-                                        <a href="#">Opción 1</a>
-                                        <a href="#">Opción 2</a>
-                                        <a href="#">Opción 3</a>
+                                    <a class="nav-link" href="Novedades.html">NOVEDADES</a>
+                                </li>
+                                <li class="nav-item mx-3">
+                                    <a class="nav-link" data-bs-toggle="dropdown" aria-expanded="false" href="#">COLECCIONES</a>
+                                    <div class="buscar">
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="Collares.html">Collares</a></li>
+                                            <li><a class="dropdown-item" href="Nav_Productos_final.html">Pulseras</a></li>
+                                            <li><a class="dropdown-item" href="Nav_Productos_final.html">Aretes</a></li>
+                                            <li><a class="dropdown-item" href="Nav_Productos_final.html">Bolsos</a></li>
+                                        </ul>
                                     </div>
                                 </li>
                                 <li class="nav-item mx-3">
-                                    <a class="nav-link" href="#">COLECCIONES</a>
-                                    <div class="dropdown-contenido">
-                                        <a href="#">Collares</a>
-                                        <a href="#">Pulseras</a>
-                                        <a href="#">Aretes</a>
-                                        <a href="#">Bolsos</a>
-                                    </div>
+                                    <a class="nav-link" href="Exclusiva.html">¡CREA!</a>
                                 </li>
                                 <li class="nav-item mx-3">
                                     <a class="nav-link" href="#">MÁS VENDIDOS</a>
                                 </li>
                                 <li class="nav-item mx-3">
-                                    <a class="nav-link" href="">DESCUENTOS</a>
+                                    <a class="nav-link" href="Descuentos.html">DESCUENTOS</a>
                                 </li>
                             </ul>
                         </div>
@@ -124,7 +124,6 @@
         
     </header>
 
-
     <main class="container">
         <br>
         <h3><b>FINALIZAR COMPRA</b></h3>
@@ -136,12 +135,13 @@
                 <div class="container text-start">
                     <div class="row g-3">
                         <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label">Nombre:</label>
-                            <input type="text" class="form-control">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" id="nombre" class="form-control" required>
+
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
-                            <label class="form-label">Apellidos:</label>
-                            <input type="text" class="form-control">
+                            <label for="apellido" class="form-label">Apellidos:</label>
+                            <input type="text" id="apellido" class="form-control" required>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             <label class="form-label">Documento de identidad:</label>
@@ -230,21 +230,18 @@
             <section class="col-lg-4 col-md-12 col-sm-12 mt-5">
                 <div class="container text-start">
                     <div class="row g-4 justify-content-center">
-                        <button id="otra" class="btn btn-secondary dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Resumen de pedido N°
-                        </button>
                         <div class="col-lg-10 col-md-10 col-sm-12">
                             <label class="form-label">Precio envío:</label>
                             <input type="text" class="form-control">
                         </div>
                         <div class="col-lg-10 col-md-10 col-sm-12">
                             <label class="form-label">Total a pagar:</label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" id="totalInput">
                         </div>
                         <br>
                         <div class="col-lg-7 col-md-7 col-sm-12">
-                            <button id="boton" class="btn btn-primary" type="submit">Pagar</button>
+                            <button id="btnPagar" class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#compraModal">Pagar</button>
+
                         </div>
                     </div>
                 </div>
@@ -323,6 +320,16 @@
                             </a>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6">
+                    <p class="text-light ms-4">Fecha de creación: 09/04/2024 - Fecha de última actualización: 03/07/2024</p>
+                </div>
+
+                <div class="col-lg-6 text-end">
+                    <p class="text-light">&copyAutor: Grupo 02</p>
                 </div>
             </div>
         </div>
@@ -464,6 +471,36 @@
             </div>
         </div>
     </footer>
+
+    <div class="modal fade" id="compraModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Compra registrada</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex align-items-center">
+                        <img src="img/img_logo/logo_amefil.svg" alt="Logo" style="width: 40%; height: 45px; margin-right: 20px;">
+                        <div>
+                            <p id="pagoExitoso">PAGO EXITOSO <br>
+                                ¡GRACIAS POR SU COMPRA!
+                            </p>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="background-color: #6b4e44;border-color: #6b4e44;">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="JS/carrito.js"></script>
+    <script src="JS/bootstrap.bundle.min.js"></script>
+    <script src="JS/jquery-3.7.1.slim.min.js"></script>
+    
 </body>
 
 </html>
