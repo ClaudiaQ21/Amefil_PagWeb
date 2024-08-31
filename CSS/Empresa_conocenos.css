@@ -2,7 +2,9 @@
     font-family: Monserrat;
     src: url(recursos/Montserrat-VariableFont_wght.ttf);
 }
-
+html, body {
+    overflow-x: hidden;
+}
 body {
     
     font-family: 'Monserrat';
