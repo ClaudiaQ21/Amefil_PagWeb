@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amefil</title>
+    <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/Navegacion_productos.css">
+    <link rel="stylesheet" href="CSS/encabezado_pie.css">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div id="header">
+
+    </div>
+
+    <main>
+        <div class="row container-fluid m-0 p-0">
+            <div class="col-lg-12 col-md-12 col-12  ">
+                <h3 class="nues_produc m-1 p-4">PRODUCTOS</h3>
+            </div>
+        </div>
+
+        <div class="row d-flex container-fluid m-0 p-0 ">
+            <div class="col-lg-12 text-center prom m-0 p-3">
+                <h6 class="m-0">Envío gratis por todo el mes de junio</h6>
+            </div>
+        </div>
+
+        <div class="row container-fluid m-0 p-0">
+            <div class="col-lg-3 col-md-3 p-0 m-0 d-flex text-start justify-content-start d-md-block d-sm-none d-none">
+                <div class="filtros align-items-left text-start">
+                    <div class="fil">
+                        <legend>Colecciones</legend>
+                        <input type="checkbox" name="colecc" id="colecc" value="col_pul"> Pulseras <br>
+                        <input type="checkbox" name="colecc" id="colecc" value="col_bol"> Bolsos <br>
+                        <input type="checkbox" name="colecc" id="colecc" value="col_coll"> Collares <br>
+                        <input type="checkbox" name="colecc" id="colecc" value="col_are"> Aretes <br>
+                    </div>
+                    <div class="fil">
+                        <legend>Temporada</legend>
+                        <input type="checkbox" name="temp" id="temp" value="tem_pr"> Primavera <br>
+                        <input type="checkbox" name="temp" id="temp" value="tem_ve"> Verano <br>
+                        <input type="checkbox" name="temp" id="temp" value="tem_oto"> Otoño <br>
+                        <input type="checkbox" name="temp" id="temp" value="tem_in"> Invierno <br>
+                    </div>
+                    <div class="fil">
+                        <legend>Puntuación</legend>
+                        <input type="checkbox" name="punt" id="punt" value="pun_5"> 5 estrellas <br>
+                        <input type="checkbox" name="punt" id="punt" value="pun_4"> 4 a más estrellas <br>
+                        <input type="checkbox" name="punt" id="punt" value="pun_3"> 3 a más estrellas <br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion d-md-none col-sm-12 col-12 mt-4" id="footerAccordion">
+                <div class="accordion-item">
+                    <h6 class="accordion-header" id="headingOne">
+                        <button class="botones collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-controls="collapseOne">
+                            Colecciones <img src="img/img_iconos/flechita.png" class="flechita" alt="">
+                        </button>
+                    </h6>
+                    <div id="collapseOne" class="collapse show" data-bs-parent="#footerAccordion">
+                        <div class="accordion-body">
+                            <input type="checkbox" name="colecc" id="colecc" value="col_pul"> Pulseras <br>
+                            <input type="checkbox" name="colecc" id="colecc" value="col_bol"> Bolsos <br>
+                            <input type="checkbox" name="colecc" id="colecc" value="col_coll"> Collares <br>
+                            <input type="checkbox" name="colecc" id="colecc" value="col_are"> Aretes <br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h6 class="accordion-header" id="headingTwo">
+                        <button class="botones collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-controls="collapseTwo">
+                            Temporadas <img src="img/img_iconos/flechita.png" class="flechita" alt="">
+                        </button>
+                    </h6>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#footerAccordion">
+                        <div class="accordion-body">
+                            <input type="checkbox" name="temp" id="temp" value="tem_pr"> Primavera <br>
+                            <input type="checkbox" name="temp" id="temp" value="tem_ve"> Verano <br>
+                            <input type="checkbox" name="temp" id="temp" value="tem_oto"> Otoño <br>
+                            <input type="checkbox" name="temp" id="temp" value="tem_in"> Invierno <br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h6 class="accordion-header" id="headingThree">
+                        <button class="botones collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-controls="collapseThree">
+                            Puntuación <img src="img/img_iconos/flechita.png" class="flechita" alt="">
+                        </button>
+                    </h6>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#footerAccordion">
+                        <div class="accordion-body">
+                            <input type="checkbox" name="punt" id="punt" value="pun_5"> 5 estrellas <br>
+                            <input type="checkbox" name="punt" id="punt" value="pun_4"> 4 a más estrellas <br>
+                            <input type="checkbox" name="punt" id="punt" value="pun_3"> 3 a más estrellas <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9 col-md-9 col-sm-12 col-12 p-0 m-0">
+                <div id="lista-cursos" class="row container-fluid m-0 p-0 mt-5">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <div class="cont_pro" data-id="1" data-name="Atardecer dorado" data-price="28.00">
+                            <img src="img/collares/descarga (1).webp" class="card-img-top" alt="Atardecer dorado">
+                            <div class="g-2">
+                                <h6>Atardecer dorado</h6>
+                                <div class="precio">
+                                    <p>S/28.00</p>
+                                </div>
+                                <button class="botones agregar-carrito">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <div class="cont_pro" data-id="2" data-name="Duna dorada" data-price="23.00">
+                            <img src="img/collares/descarga (2).webp" class="card-img-top" alt="...">
+                            <div class="g-2">
+                                <h6>Duna dorada</h6>
+                                <p>S/23.00</p>
+                                <button class="botones agregar-carrito">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <div class="cont_pro" data-id="3" data-name="Perla de arena" data-price="26.00">
+                            <img src="img/collares/descarga (3).webp" class="card-img-top" alt="...">
+                            <div class="g-2">
+                                <h6>Perla de arena</h6>
+                                <p>S/26.00</p>
+                                <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <div class="cont_pro" data-id="4" data-name="Marfil suave" data-price="24.00">
+                            <img src="img/collares/descarga (4).webp" class="card-img-top" alt="...">
+                            <div class="g-2">
+                                <h6>Marfil suave</h6>
+                                <p>S/24.00</p>
+                                <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <div class="cont_pro" data-id="5" data-name="Brisa de primavera" data-price="25.00">
+                            <img src="img/pulseras/pulsera-lila-flores.webp" class="card-img-top" alt="...">
+                            <div class="g-2">
+                                <h6>Brisa de primavera</h6>
+                                <p>S/25.00</p>
+                                <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <div class="cont_pro" data-id="6" data-name="Tierra dorada" data-price="28.00">
+                            <img src="img/pulseras/8a4cb19d-2b7d-4cae-95d7-b9cf8c690897.jpg" class="card-img-top"
+                                alt="...">
+                            <div class="g-2">
+                                <h6>Tierra dorada</h6>
+                                <p>S/28.00</p>
+                                <div class="d-flex align-items-end">
+                                    <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <div class="cont_pro" data-id="7" data-name="Hilo de plata" data-price="32.00">
+                            <img src="img/pulseras/d5aca453-6573-40a1-a97f-7d035ba5e605.jpg" class="card-img-top"
+                                alt="...">
+                            <div class="g-2">
+                                <h6>Hilo de plata</h6>
+                                <p>S/32.00</p>
+                                <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <div class="cont_pro" data-id="8" data-name="Sueño lavanda" data-price="22.00">
+                            <img src="img/pulseras/pulsera-lila-bolitas.webp" class="card-img-top" alt="...">
+                            <div class="g-2">
+                                <h6>Sueño lavanda</h6>
+                                <p>S/22.00</p>
+                                <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <div class="cont_pro" data-id="9" data-name="Lila fragante" data-price="25.00">
+                            <img src="img/pulseras/descarga (7).png" class="card-img-top" alt="...">
+                            <div class="g-2">
+                                <h6>Lila fragante</h6>
+                                <p>S/25.00</p>
+                                <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <div class="cont_pro" data-id="10" data-name="Olas del mar" data-price="19.00">
+                            <img src="img/aretes/aretes-celestes-extravagante.png" class="card-img-top" alt="...">
+                            <div class="g-2">
+                                <h6>Olas del mar</h6>
+                                <p>S/19.00</p>
+                                <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <div class="cont_pro" data-id="11" data-name="Dulce despertar" data-price="28.00">
+                            <img src="img/aretes/aretes-bolita-grandes.png" class="card-img-top" alt="...">
+                            <div class="g-2">
+                                <h6>Dulce despertar</h6>
+                                <p>S/16.00</p>
+                                <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                        <div class="cont_pro" data-id="12" data-name="Joya de la selva" data-price="17.00">
+                            <img src="img/aretes/aretes-bolita-verdes-small.png" class="card-img-top" alt="...">
+                            <div class="g-2">
+                                <h6>Joya de la selva</h6>
+                                <p>S/17.00</p>
+                                <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex mx-0 p-0 paginacion justify-content-center">
+                    <div class="pag_btn">
+                        <a href=""><button>1</button></a>
+                    </div>
+
+                    <div class="pag_btn">
+                        <a href=""><button>2</button></a>
+                    </div>
+
+                    <div class="pag_btn">
+                        <a href=""><button>3</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer">
+
+    </div>
+
+    <script src="JS/header_footer.js"></script>
+    <script src="JS/jquery-3.7.1.slim.min.js"></script>
+    <script src="JS/bootstrap.bundle.min.js"></script>
+    <script src="JS/carrito.js"></script>
+</body>
+
+</html>

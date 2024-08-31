@@ -1,0 +1,76 @@
+@font-face {
+    font-family: Monserrat;
+    src: url(recursos/Montserrat-VariableFont_wght.ttf);
+}
+body {
+    font-family: 'Monserrat';
+}
+#central{
+    background-color: #F2F0F3;
+    padding: 20px;
+    border-radius: 3px;
+    box-shadow: 0 0 20px rgba(5, 1, 1, 0.2); 
+
+  
+}
+#con input{
+    width: 100%;
+    height: 40px;
+}
+#con h6{
+    margin-left: 1.8%;
+    font-size: 0.9em;
+}
+#boton{
+    background-color: #6b4e44;
+    color: hsl(0, 0%, 100%);
+    font-size: 0.9em;
+    border-color: #6b4e44;
+    width: 100%;
+    height: 45px;
+}
+#btnPagar{
+    background-color: #6b4e44;
+    color: hsl(0, 0%, 100%);
+    font-size: 0.9em;
+    border-color: #6b4e44;
+    width: 100%;
+    height: 45px;
+}
+
+#boton1{
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 0.9em;
+    border-color: rgb(99, 97, 97);
+    width: 100%;
+    height: 45px;
+}
+.container input{
+    border-color: rgb(99, 97, 97);
+    border-radius: 0;
+    height: 45px;
+}
+
+#combo{
+    width: 98%;
+    margin: 5px;
+    height: 45px;
+    font-family: 'Monserrat';
+    background-color: #ffffff;
+    color: grey;
+}
+#com{
+    width: 40%;
+    height: 45px;
+    font-family: 'Monserrat';
+    background-color: #ffffff;
+    color: grey;
+}
+#otra{
+    width: 80%;
+    height: 45px;
+    font-family: 'Monserrat';
+    background-color: #ffffff;
+    color: grey;
+}

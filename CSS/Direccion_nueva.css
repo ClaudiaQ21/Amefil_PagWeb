@@ -1,0 +1,84 @@
+body {
+    font-family: "Montserrat";
+  }
+@font-face {
+    font-family: Montserrat;
+    src: url('recursos/Montserrat-VariableFont_wght.ttf');
+}
+
+a{
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat";
+    position: relative;
+    top: 2px;
+}
+
+#bloc{
+    background-color: #F2F0F3;
+    border-radius: 3px;
+    box-shadow: 0 0 20px rgba(2, 1, 1, 0.2); 
+}
+
+.row #lab{
+    width: 100%;
+    border-color: rgb(99, 97, 97);
+    border-radius: 0;
+    height: 40px;
+    margin-top:8px;
+}
+.form-select{
+    width: 98%; 
+    margin: 5px;
+    height: 45px;
+    font-family: 'Monserrat';
+    background-color: #ffffff;
+    color: grey;
+    
+}
+
+#but_bloque{
+    width: 100%;
+    height: 45px;
+}
+
+@media (max-width: 576px) {
+    #barrita .link {
+
+        flex: 1 1 100%;
+        text-align: center;
+    }
+    #barrita{
+        margin-top: 10%;
+    }
+    #bloque_flecha{
+        margin-top: 15%;
+        padding-left: 30px;
+    }
+    #direcc{
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    #div_usuario{
+        width: 100%;
+        margin-bottom: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media (min-width: 577px) and (max-width:950px){
+    #div_usuario{
+        width: 100%;
+        margin-bottom: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #barrita{
+        height: 200%;
+    }
+    #bloque_flecha{
+        margin-top: 2%;
+    }
+}

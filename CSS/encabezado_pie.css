@@ -5,160 +5,127 @@
 
 body{
     font-family: 'Monserrat';
+} 
+
+/*Barra*/
+
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff;
-    z-index: 1000; 
+::-webkit-scrollbar-track {
+    background: rgb(246, 244, 240);
 }
 
-.descuentos{
-    background-color: #6b4e44;
-    color: #fff;
-    justify-content: center;
-    font-weight: 550;
-    padding: 0.5rem 0;
-    font-size: 0.8rem;
+::-webkit-scrollbar-thumb {
+    background-color: rgb(158, 134, 94);
+    border: 1px solid rgb(246, 244, 240); 
 }
 
-.flecha-prom{
-    font-size: 1.5rem;
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(rgb(119, 101, 71),rgb(158, 134, 94),rgb(119, 101, 71))
 }
 
-.custom-control-prev,
-.custom-control-next {
-    width: 50px;  
-    height: 50px; 
+/*Encabezado*/
+
+.cabi{
+    cursor: pointer;
+    background-color: rgb(158, 134, 94);
 }
 
-/*LOGO AMEFIL*/
+.cabi p{
+    margin: 0;
+    font-size: 10pt;
+    color: rgb(251, 249, 242);
+    text-align: center;
+}
 
+.cabi:hover{
+    background: linear-gradient(to left,rgb(119, 101, 71),rgb(158, 134, 94),rgb(119, 101, 71));
+}
 
+.log1{
+    height: 80px;
+} 
 
 .menu{
     display: flex;
     align-items: center;
-    background-color: #fff;
+    background-color: rgb(251, 249, 242);
 }
 
 .menu .nav-item>.nav-link{
-    color: black;
+    color: rgb(158, 134, 94);
     font-size: 0.8rem;
     font-weight: 500;
-}
-
-.menu .nav-item{
-    height: 2.3rem;
 }
 
 .menu .nav-item>.nav-link:hover{
     border-bottom: 1px solid;
 }
 
-.menu-iconos{
-    display: flex;
-}
-
 .menu-iconos i{
-    color: black;
     font-size: 1.2rem;
 }
 
 .boton-icono{
     border: none;
-    background-color: white;
+    color: rgb(158, 134, 94);
+    background-color: rgb(251, 249, 242);
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    margin-right: 0.7rem;
+    margin-right: 0.8rem;
 }
 
 .boton-icono:hover{
-    background-color: #d7d7d7;
+    color: rgb(251, 249, 242);
+    background-color: rgb(158, 134, 94);
 }
 
-header{
-    border-bottom: 1px solid rgb(220, 220, 220);
-}
-
-/*Navegacion*/
 header .nav-item{
     position: relative;
 }
 
-.nav-item .dropdown-contenido{
-    display: none;
-    position: absolute;
-    top: 150%;
-    left: 0;
-    width: 100vw;
-    background-color: white;
-    border-bottom: 1px solid #d7d7d7;
-    z-index: 1;
-    padding: 20px 20px;
-}
-
-header .nav-item:hover .dropdown-contenido{
-    display: block;
-}
-
-.dropdown-contenido a{
-    color: black;
-    text-decoration: none;
-    display: block;
-}
-
-.navegacion .nav-item>.nav-link{
-    white-space: nowrap;
-}
-
-/*iconos de navegacion*/
 .buscar li>a{
     font-size: 0.9rem;
+    color: rgb(158, 134, 94);
 }
 
 .buscar li>a:hover{
-    background-color: #6b4e44;
-    color: #fff;
+    background-color: rgb(158, 134, 94);
+    color: rgb(251, 249, 242);
 }
 
 .dropdown-buscar{
     width: 37%;
+    background-color: rgb(251, 249, 242);
 }
 
 #busqueda{
     width: 95%;
     margin: 0 auto;
     font-size: 0.9rem;
+    border-color: rgb(158, 134, 94);
 }
 
 #busqueda:focus{
-    border: #6b4e44; 
-    box-shadow: 0 0 0 3px #6b4e44; 
+    box-shadow: 0 0 0 1px rgb(158, 134, 94); 
 }
 
-.frase-chevere h4{
-    color: #6b4e44;
-    font-weight: 800;
-    font-size: 2rem;
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgb(158, 134, 94)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-
-
-
-
-
+.offcanvas{
+    background-color: rgb(251, 249, 242);
+}
 
 /*FOOTER*/
+
 footer{
-    background-color: #6b4e44;
+    background-color: rgb(40, 34, 24);
 }
-
-
 
 .info ul{
     list-style: none;
@@ -166,39 +133,57 @@ footer{
 }
 
 .info ul li{
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 .info ul a{
     text-decoration: none;
+    color: rgb(251, 249, 242);
 }
 
-.info-light{
-    color: white;
+.info ul a:hover{
+    color: rgb(158, 134, 94);
 }
-
-.info-dark{
-    color: black;
-}
-
-
 
 footer h5{
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.3rem;
+    color: rgb(158, 134, 94);
+    font-weight: 500;
+    font-size: 1.4rem;
 }
 
 footer .redes-sociales{
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .accordion-footer{
     width: 100%;
 }
 
+.unirse {
+    border-color: rgb(158, 134, 94);
+}
 
+.unirse:focus{
+    box-shadow: 0 0 0 2px rgb(158, 134, 94);
+}
 
+.redicono{
+    color: rgb(251, 249, 242);
+}
+
+.redicono:hover{
+    color: rgb(158, 134, 94);
+}
+
+.fechacopy{
+    background-color: rgb(158, 134, 94);
+    color: rgb(251, 249, 242);
+}
+
+.fechacopy p{
+    padding-block: 10px;
+    margin: 0;
+}
 
 
 

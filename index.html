@@ -11,131 +11,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
-    <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
+    <link rel="icon" href="img/icono_claro.svg">
 </head>
 <body>
-    <header class="row m-0 p-0 sticky-top">
-        <div class="row descuentos m-0">
-            <div id="carrusel-des-prom" class="carousel slide p-0">
-                <div class="carousel-inner">
-                    <div class="carousel-item active text-center">
-                        50% DE DESCUENTO EN TU PRIMERA COMPRA
-                    </div>
-                    <div class="carousel-item text-center">
-                        ENCUENTRA ACCESORIOS DE TODO TIPO PARA ADORNAR TU VIDA
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carrusel-des-prom" data-bs-slide="prev">
-                    <span class="flecha-prom" aria-hidden="true">&lt;</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carrusel-des-prom" data-bs-slide="next">
-                    <span class="flecha-prom" aria-hidden="true">&gt;</span>
-                </button>
-            </div>
-        
-        </div>
-
-        <div class="row menu m-0 p-0">
-            <div class="col-lg-3 d-flex text-center justify-content-center align-items-center col-md-6 col-sm-4 col-4 order-2 order-lg-1 order-md-1 order-sm-2">
-                <a href="index.html"><img src="img/img_logo/logo_amefil.svg" class="" id="amefil"></a>
-            </div>
-            
-
-            <div class="navegacion col-lg-6 col-md-12 col-sm-4 col-4 order-1 order-lg-2 order-md-3 order-sm-1 py-2">
-                <nav class="navbar navbar-expand-md">
-                    <div class="d-flex align-items-center">
-
-                        <button class="btn d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><span class="navbar-toggler-icon icono text-light"></span></button>
-                        
-                        <div class="buscar-sm d-sm-block d-md-none ms-2">
-                            <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-solid fa-magnifying-glass icono"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-buscar">
-                                <input class="form-control" id="busqueda" placeholder="Buscar...">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-                        <div class="offcanvas-header">
-                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body justify-content-center">
-                            <ul class="navbar-nav">
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link" href="Novedades.html">NOVEDADES</a>
-                                </li>
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link" data-bs-toggle="dropdown" aria-expanded="false" href="#">COLECCIONES</a>
-                                    <div class="buscar">
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="Collares.html">Collares</a></li>
-                                            <li><a class="dropdown-item" href="Nav_Productos_final.html">Pulseras</a></li>
-                                            <li><a class="dropdown-item" href="Nav_Productos_final.html">Aretes</a></li>
-                                            <li><a class="dropdown-item" href="Nav_Productos_final.html">Bolsos</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link" href="Exclusiva.html">¡CREA!</a>
-                                </li>
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link" href="#">MÁS VENDIDOS</a>
-                                </li>
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link" href="Descuentos.html">DESCUENTOS</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    
-                </nav>
-            </div>
-        
-            <div class="menu-iconos col-lg-3 col-md-6 col-sm-4 col-4 order-3 d-flex justify-content-lg-end justify-content-md-center justify-content-sm-end justify-content-end order-md-2 py-md-3">
-                <div class="d-none d-md-flex">
-                    <div class="buscar">
-                        <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-magnifying-glass icono"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-buscar">
-                            <input class="form-control" id="busqueda" placeholder="Buscar...">
-                        </div>
-                    </div>
-                </div>
-                <button class="boton-icono me-2" onclick="location.href='carrito.html'"><i class="fa-solid fa-cart-shopping icono"></i></button>
-                <div class="buscar">
-                    <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-regular fa-user icono"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="inicio_sesion.html">Iniciar sesión</a></li>
-                        <li><a class="dropdown-item" href="registrarse.html">Registrarse</a></li>
-                        <li><a class="dropdown-item" href="Perfil.html">Perfil</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-    </header>
+    <audio src="audio/welcome.mp3" autoplay type="audio/mpeg"></audio>
+    <div id="header" class="sticky-top">    </div>
 
     <main class="row m-0 p-0">
         <!-- CARRUSEL -->
         <div class="row m-0 p-0">
-            <div id="carouselExampleIndicators" class="carousel slide m-0 p-0">
+            <div id="carouselExampleIndicators" class="carousel flyers slide m-0 p-0">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
-                    <div class="carousel-item">
-                        <img src="img/carrusel1.webp" class="d-block w-100" alt="promocion">
+                    <div class="carousel-item active">
+                        <img src="img/f1.jpg" class="d-block w-100" alt="flyer1">
                     </div>
                     
-                    <div class="carousel-item active">
-                        <img src="img/promocion-2x1-compartidos.jpg" class="d-block w-100" alt="imagen de 3">
+                    <div class="carousel-item">
+                        <img src="img/f2.jpg" class="d-block w-100" alt="flyer2">
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="img/f3.jpg" class="d-block w-100" alt="flyer3">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -144,13 +45,16 @@
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  </button>
               </div>
         </div>
 
         <!-- TARJETA DE PRODUCTOS -->
-        <div class="row productos pt-3 ps-5 pb-5 my-5 mx-0"> 
-            <div class="row my-4">
-                <h3 class="m-0 text-lg-start text-center"><a href="Nav_Productos_final.html">NUESTROS PRODUCTOS</a></h3>
+        <div class="row productos py-5 ps-5 m-0"> 
+            <div class="row mb-5">
+                <h3 class="m-0 text-center titulop"><a href="Navegacion_productos.html">NUESTROS PRODUCTOS</a></h3>
             </div>
 
             <div class="contenedor_producto d-flex">
@@ -158,12 +62,12 @@
                 <div class="producto">
                     <div class="card p-0" style="width: 18rem;">
                         <img src="img/collares/descarga (5).webp" class="rounded" alt="...">
-                        <button class="botones btn-oculto" onclick="location.href='Nav_Productos_final.html'">Ver producto</button>
+                        <button class="botones btn-oculto" onclick="location.href='Navegacion_productos.html'">Ver producto</button>
                     </div>
     
                     <div class="card p-0" style="width: 18rem;">
                         <img src="img/pulseras/pulsera-corazon-lleno-negra.webp" class="rounded" alt="...">
-                        <button class="botones btn-oculto" onclick="location.href='Nav_Productos_final.html'">Ver producto</button>
+                        <button class="botones btn-oculto" onclick="location.href='Navegacion_productos.html'">Ver producto</button>
                     </div>
     
                     <div class="card p-0" style="width: 18rem;">
@@ -173,27 +77,27 @@
     
                     <div class="card p-0" style="width: 18rem;">
                         <img src="img/pulseras/pulsera-lila-bolitas.webp" class="rounded" alt="...">
-                        <button class="botones btn-oculto" onclick="location.href='Nav_Productos_final.html'">Ver producto</button>
+                        <button class="botones btn-oculto" onclick="location.href='Navegacion_productos.html'">Ver producto</button>
                     </div>
     
                     <div class="card p-0" style="width: 18rem;">
                         <img src="img/collares/descarga (2).webp" class="rounded" alt="...">
-                        <button class="botones btn-oculto" onclick="location.href='Nav_Productos_final.html'">Ver producto</button>
+                        <button class="botones btn-oculto" onclick="location.href='Navegacion_productos.html'">Ver producto</button>
                     </div>
     
                     <div class="card p-0" style="width: 18rem;">
                         <img src="img/pulseras/pulsera-dije-arena.webp" class="rounded" alt="...">
-                        <button class="botones btn-oculto" onclick="location.href='Nav_Productos_final.html'">Ver producto</button>
+                        <button class="botones btn-oculto" onclick="location.href='Navegacion_productos.html'">Ver producto</button>
                     </div>
     
                     <div class="card p-0" style="width: 18rem;">
                         <img src="img/collares/descarga (6).webp" class="rounded" alt="...">
-                        <button class="botones btn-oculto" onclick="location.href='Nav_Productos_final.html'">Ver producto</button>
+                        <button class="botones btn-oculto" onclick="location.href='Navegacion_productos.html'">Ver producto</button>
                     </div>
     
                     <div class="card p-0" style="width: 18rem;">
                         <img src="img/pulseras/pulsera-roja-dije-arena.webp" class="rounded" alt="...">
-                        <button class="botones btn-oculto" onclick="location.href='Nav_Productos_final.html'">Ver producto</button>
+                        <button class="botones btn-oculto" onclick="location.href='Navegacion_productos.html'">Ver producto</button>
                     </div>
                 </div>
 
@@ -204,17 +108,17 @@
         <div class="row m-0 p-0">
             <div class="row m-0 p-0">
                 <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                    <a href="Collares.html">
+                    <a href="Coleccion_collares.html">
                         <div class="coleccion-texto">
-                            <img src="img/collares/descarga.png" alt="coleccionCollares" class="img-fluid imagen-sombreada">
+                            <img src="img/collar.jpg" alt="coleccionCollares" class="img-fluid imagen-sombreada">
                             <div class="texto-colecciones">COLLARES</div>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                    <a href="#">
+                    <a href="Coleccion_pulseras.html">
                         <div class="coleccion-texto">
-                            <img src="img/pulseras/pulsera2-copia.webp" alt="coleccionpulseras" class="img-fluid imagen-sombreada">
+                            <img src="img/pulsera.jpg" alt="coleccionpulseras" class="img-fluid imagen-sombreada">
                             <div class="texto-colecciones">PULSERAS</div>
                         </div>
                     </a>
@@ -223,17 +127,17 @@
 
             <div class="row m-0 p-0">
                 <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                    <a href="#">
+                    <a href="Coleccion_bolsos.html">
                         <div class="coleccion-texto">
-                            <img src="img/bolsos/descarga (5) - copia.png" alt="coleccionBolsos" class="img-fluid imagen-sombreada">
+                            <img src="img/bolso.jpg" alt="coleccionBolsos" class="img-fluid imagen-sombreada">
                             <div class="texto-colecciones">BOLSOS</div>
                         </div>
                     </a>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                    <a href="#">
+                    <a href="Coleccion_aretes.html">
                         <div class="coleccion-texto">
-                            <img src="img/aretes/aretes-forma-bolita-pag-principal.png" alt="coleccionesAretes" class="img-fluid imagen-sombreada">
+                            <img src="img/arete.jpg" alt="coleccionesAretes" class="img-fluid imagen-sombreada">
                             <div class="texto-colecciones">ARETES</div>
                         </div>
                     </a>
@@ -242,11 +146,11 @@
         </div>
 
         <div class="frase-chevere row d-flex justify-content-center text-center py-4">
-            <h4>MÁS QUE ACCESORIOS,</h4>
-            <h4>ARTE TEJIDO PARA TI</h4>
+            <h3>MÁS QUE ACCESORIOS,</h3>
+            <h3>ARTE TEJIDO PARA TI</h3>
         </div>
 
-        <div class="info-rapida row py-4">
+        <div class="info-rapida row py-4 m-0">
             <div class="col-4 text-center">
                 <i class="fa-regular fa-credit-card"></i>
                 <p>Diferentes y seguras formas de pago</p>
@@ -262,229 +166,12 @@
         </div>
     </main>
 
-    <footer class="row m-0">
-        <div class="row d-none d-md-flex p-0">
-            <div class="col-lg-3 col-md-4 info conocenos ps-10">
-                <h5 class="mb-4">Conócenos</h5>
-                <ul>
-                    <li class="my-2"><a href="conocenoss.html" class="info-light">Amefil</a></li>
-                    <li class="my-2"><a href="contactos.html" class="info-light">Contactos</a></li>
-                    <li class="my-2"><a href="inicio_sesion.html" class="info-light">Únete</a></li>
-                    <li class="my-2"><a href="#" class="info-light">Términos y condiciones</a></li>
-                    <li class="my-2"><a href="#" class="info-light">Política de privacidad</a></li>
-                    <li class="my-2"><a href="#" class="info-light">Política de cookies</a></li>
-                </ul>
-            </div>
-    
-            <div class="col-lg-2 col-md-4 info info-light ps-lg-5 ps-md-5">
-                <h5 class="mb-4">Contáctanos</h5>
-                <ul>
-                    <li class="my-2">amefilonline@gmail.com</li>
-                    <li class="my-2">+51 987 963 214</li>
-                </ul>   
-            </div>
-    
-            <div class="col-lg-3 col-md-4 info soporte ps-10">
-                <h5 class="mb-4">Soporte</h5>
-                <ul>
-                    <li class="my-2"><a href="#" class="info-light">Libro de Reclamaciones</a></li>
-                    <li class="my-2"><a href="#" class="info-light">Formas de pago</a></li>
-                    <li class="my-2"><a href="#" class="info-light">Guía de tallas de collar</a></li>
-                    <li class="my-2"><a href="#" class="info-light">Guía de tallas de pulseras</a></li>
-                </ul>
-            </div>
-    
-            <div class="col-lg-4 col-md-12 info mb-md-5">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 text-md-center">
-                        <img src="img/img_logo/logo_blanco.svg" id="logofooter">
-                    </div>
-    
-                    <div class="col-lg-9 col-md-9 ps-4">
-                        <h5 class="mb-3">Únetenos</h5>
-                        <input type="text" class="form-control" style="width: 70%; font-size: 0.8rem;" placeholder="Ingresa tu email aquí">
-                    </div>
-                </div>
-    
-                <div class="row redes-sociales mt-lg-5 pt-lg-5 ms-lg-5">
-                    <div class="d-flex justify-content-start justify-content-md-center">
-                        <div class="mx-3">
-                            <a href="#">
-                                <i class="fa-brands fa-facebook text-light"></i>
-                            </a>
-                        </div>
-        
-                        <div class="mx-3">
-                            <a href="#">
-                                <i class="fa-brands fa-instagram text-light"></i>
-                            </a>
-                        </div>
-        
-                        <div class="mx-3">
-                            <a href="#">
-                                <i class="fa-brands fa-tiktok text-light"></i>
-                            </a>
-                        </div>
-        
-                        <div class="mx-3">
-                            <a href="#">
-                                <i class="fa-brands fa-whatsapp text-light"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div id="footer">
 
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-6">
-                    <p class="text-light ms-4">Fecha de creación: 09/04/2024 - Fecha de última actualización: 03/07/2024</p>
-                </div>
-
-                <div class="col-lg-6 text-end">
-                    <p class="text-light">&copyAutor: Grupo 02</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion d-md-none col-sm-12 col-12 mt-4 p-0">
-            <div class="accordion-item">
-                <h5 class="accordion-header" id="headingOne">
-                    <button class="accordion-footer botones collapsed py-3 d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-controls="collapseOne">
-                        <div class="col">
-                            Conócenos
-                        </div>
-                        <div>
-                            <i class="fa-solid fa-caret-down justify-content-end"></i>
-                        </div>
-                    </button>
-                </h5>
-                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#footerAccordion">
-                    <div class="accordion-body p-0">
-                        <div class="col-sm-12 info m-0">
-                            <ul class="list-group">
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Amefil</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Contactos</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Únete</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Términos y condiciones</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Política de privacidad</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Política de cookies</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="accordion-item">
-                <h5 class="accordion-header" id="headingTwo">
-                    <button class="accordion-footer botones collapsed py-3 d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo">
-                        <div class="col">
-                            Contáctanos
-                        </div>
-                        
-                        <div>
-                            <i class="fa-solid fa-caret-down"></i>
-                        </div>
-                    </button>
-                </h5>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#footerAccordion">
-                    <div class="accordion-body">
-                        <div class="col-lg-2 info contactos m-0">
-                            <ul class="ms-5">
-                                <li class="my-2"><i class="fa-solid fa-envelope me-3"></i>amefilonline@gmail.com</li>
-                                <li class="my-2"><i class="fa-solid fa-phone me-3"></i>+51 987 963 214</li>
-                            </ul>   
-                        </div>    
-                    </div>
-                </div>
-            </div>
-    
-            <div class="accordion-item">
-                <h5 class="accordion-header" id="headingThree">
-                    <button class="accordion-footer botones collapsed py-3 d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-controls="collapseThree">
-                        <div class="col"> 
-                            Soporte
-                        </div>
-
-                        <div>
-                            <i class="fa-solid fa-caret-down"></i>
-                        </div>
-                    </button>
-                </h5>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#footerAccordion">
-                    <div class="accordion-body p-0">
-                        <div class="col-sm-12 info m-0">
-                            <ul class="list-group">
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Libro de Reclamaciones</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Formas de pago</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Guía de tallas de collar</a></li>
-                                <li class="list-group-item text-center"><a href="#" class="info-dark">Guía de talla de pulseras</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <h5 class="accordion-header" id="headingFour">
-                    <button class="accordion-footer botones collapsed py-3 d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-controls="collapseFour">
-                        <div class="col">
-                            Únetenos
-                        </div>
-                        
-                        <div>
-                            <i class="fa-solid fa-caret-down"></i>
-                        </div>
-                    </button>
-                </h5>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#footerAccordion">
-                    <div class="accordion-body">
-                        <div class="row">
-                            <div class="col-sm-3 text-md-center">
-                                <img src="img/img_logo/logoAmefil - solo logo.svg" id="logofooter">
-                            </div>
-            
-                            <div class="col-sm-9">
-                                <h5 class="mb-3 text-dark">Únetenos</h5>
-                                <input type="text" class="form-control" style="width: 70%; font-size: 0.8rem;" placeholder="Ingresa tu email aquí">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div>
-                <div class="row redes-sociales py-3">
-                    <div class="d-flex justify-content-sm-center justify-content-center">
-                        <div class="mx-3">
-                            <a href="#">
-                                <i class="fa-brands fa-facebook text-light"></i>
-                            </a>
-                        </div>
-        
-                        <div class="mx-3">
-                            <a href="#">
-                                <i class="fa-brands fa-instagram text-light"></i>
-                            </a>
-                        </div>
-        
-                        <div class="mx-3">
-                            <a href="#">
-                                <i class="fa-brands fa-tiktok text-light"></i>
-                            </a>
-                        </div>
-        
-                        <div class="mx-3">
-                            <a href="#">
-                                <i class="fa-brands fa-whatsapp text-light"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    </div>
 
     <script src="js/index.js"></script>
+    <script src="JS/header_footer.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     
 </body>

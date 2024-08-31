@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'Monserrat';
+    src: url('recursos/Montserrat-VariableFont_wght.ttf');
+}
+
+body {
+    font-family: 'Monserrat';
+}
+
+main {
+    background-color: rgb(251, 249, 242);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.imagen-altura-completa {
+    height: 100vh; 
+    width: 100%;
+    object-fit: cover; 
+}
+
+.nues_produc {
+    border-top: 2px solid rgb(158, 134, 94);
+}
+
+.nues_produc h3 {
+    color: rgb(158, 134, 94);
+}
+
+#redes {
+    width: 30%;
+    margin-top: -6%;
+}
+
+#ofici {
+    width: 70%;
+}
+
+#tes {
+    align-items: center;
+    text-align: justify;
+    justify-content: center;
+}
+
+h5 {
+    text-align: center;
+}
+
+.titulo-espaciado {
+    margin-bottom: 20px; 
+    color: rgb(158, 134, 94);
+}
+
+#centr {
+    justify-content: center;
+    margin: 4%;
+    margin-top: -2.5%;
+    margin-bottom: 0;
+}
+
+#ali {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#corre {
+    border: none;
+    width: 100%;
+    background-color: rgb(251, 249, 242);
+}
+
+#co {
+    width: 30%;
+
+}
+
+#tesa {
+    text-align: center;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+#ce {
+    margin-top: 9%;
+}
+
+#med {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+}
+
+#red{
+    margin-top: 10px;
+}

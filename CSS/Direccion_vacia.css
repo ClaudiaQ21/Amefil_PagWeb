@@ -1,0 +1,52 @@
+body {
+    font-family: "Montserrat";
+  }
+@font-face {
+    font-family: Montserrat;
+    src: url('recursos/Montserrat-VariableFont_wght.ttf');
+}
+
+.nav-perfil{
+    background-color: #6b4e44;
+    border-radius: 9px;
+    padding: 10px 0;
+}
+
+.icono-nav-perfil{
+    font-size: 1.2rem;
+}
+
+.datos-perfil{
+    background-color: #F2F0F3;
+    padding: 40px 100px;
+}
+
+.datos-perfil span{
+    font-weight: 600;
+}
+
+#direcc{
+    width: auto;
+    margin-left: 1%;
+    background-color: #6b4e44;
+    color: #ffffff;
+    border: #6b4e44;
+    height: 40px;
+    border-radius: 0.5rem;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+#direcc:hover{
+    background-color: #6d544cf8;
+}
+
+#mensaje{
+    background-color: #F2F0F3;
+    border-radius: 0.8rem;
+    margin-left: 12%;
+    text-align: center;
+    margin: auto;
+    height: 50%;
+}
+

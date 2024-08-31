@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amefil</title>
+    <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/Producto.css">
+    <link rel="stylesheet" href="CSS/encabezado_pie.css">
+    <link rel="stylesheet" href="CSS/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header">
+
+    </div>
+
+    <main>
+        <div class="row container-fluid m-0 pt-4">
+            <div class="col col-lg-6">
+                <div class="row m-0">
+                    <div class="img_prin cont_pro">
+                        <img id="main-image" src="img/pulseras/pulsera-lila-flores.webp" alt="Producto Principal">
+                    </div>
+                </div>
+                <div class="row p-3 m-0">
+                    <div class="img_sec p-0 m-0">
+                        <img class="thumbnail img-peque" src="img/pulseras/pulsera-delgada-lila-ajustable.webp" alt="Producto Lateral 1">
+                        <img class="thumbnail img-peque" src="img/pulseras/pulsera-lila-flores.webp" alt="Producto Principal" data-main="true">
+                        <img class="thumbnail img-peque" src="img/pulseras/descarga (7).png" alt="Producto Lateral 2">
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col col-lg-6">
+                <div class="detalles">
+                    <div class="descrip">
+                        <h4>Brisa de primavera <button type="button" class="far fa-heart" id="favoritos"></button></h4>
+                        <p>Talla: 3</p>
+                        <p>Collares: Lavanda</p>
+                        <p>Material: Hilo chino</p>
+                        <p>Descripción: Materiales duraderos y cierre ajustable</p>
+                    </div>
+
+                    <div class="row m-0 p-0">
+                        <div class="col-lg-5 col-sm-12 monto p-0 m-0">
+                            <p>S/25.00</p>
+                        </div>
+                        <div class="col-lg-3 col-sm-12 d-flex cantidad mt-0 p-0">     
+                            <h6>Cantidad</h6>
+                            <button id="menos" class="botones counter-btn pt-0 pb-0">-</button>
+                            <input type="text" id="counter-value" value="1" readonly>
+                            <button id="mas" class="botones counter-btn pt-0 pb-0">+</button>
+                        </div>
+                    </div>
+                    <div class="row m-0 mt-5 p-0 justify-content-center cont_pro" id="lista-cursos" data-id="11" data-name="Brisa de primavera" data-price="25.00">
+                        <img id="main-image" class="d-none" src="img/pulseras/pulsera-lila-flores.webp" alt="Producto Principal">
+                        <button class="botones agregar-carrito" type="button" id="mas_carr">Añadir al carrito</button>
+                        <button class="botones" type="button" id="mas_carr">Comprar ahora</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row total_reseñas d-flex align-items-center  container-fluid m-0">
+            <div class="col-lg-9 col-md-6 my-auto align-items-center p-0">
+                <p id="titulo" class="m-0">
+                    RESEÑAS DEL PRODUCTO
+                </p>
+            </div>
+            
+            <div class="col-lg-3 col-md-6 d-flex align-items-center justify-content-md-end p-0">
+                <p id="calificacion" class="m-0 p-0">
+                    4.0 / 5.0
+                    <span class="estrellas_total">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <div class="row m-0 p-0 justify-content-center align-items-center">
+            <div class="contenedor_reseña">
+                <button id="prev" class="botones">&lt;</button>
+                <div class="carrusel">
+                    <div class="reseña" data-index="0">
+                        <p>- Cliente 1
+                        </p>
+                        <div class="estrellas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>"Reseña 1: Excelente producto, muy recomendado!"</p>
+                        
+                    </div>
+                    <div class="reseña" data-index="1" style="display: none;">
+                        <p>- Cliente 2
+                        </p>
+                        <div class="estrellas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p>"Reseña 2: Buen servicio y calidad."</p>
+                    </div>
+                    <div class="reseña" data-index="2" style="display: none;">
+                        <p>- Cliente 3
+                        </p>
+                        <div class="estrellas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p>"Quedé encantada con esta pulsera. Los colores lavanda y rosa son simplemente preciosos y los detalles de las cuentas florales le dan un toque femenino muy lindo. El envío fue rápido y llegó muy bien empaquetado. ¡Una excelente compra para renovar mis accesorios esta temporada!"</p>
+                    </div>
+                </div>
+                <button id="next" class="botones">&gt;</button>
+            </div>
+        </div>
+
+        <div class="row crea_reseña m-0 p-0">
+            <button id="cre_res" class="botones">Escribe una reseña</button>
+        </div>
+
+        <div class="row container-fluid m-0 p-0">
+            <div class="col-lg-12 col-sm-12 titulo_produc_sim m-0 p-0">
+                <p>PRODUCTOS SIMILARES</p>
+            </div>
+        </div>
+
+        <div class="img_produ_sim row container-fluid d-flex g-3 m-0 p-0">
+            <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+                <a href=""><img src="img/pulseras/pulsera-lila-1.webp" alt="" class="img-fluid"></a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+                <a href=""><img src="img/pulseras/pulsera-corazon-rosa-delgada.png" alt="" class="img-fluid"></a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+                <a href=""><img src="img/pulseras/pulsera-lila-bolitas.webp" alt="" class="img-fluid"></a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+                <a href=""><img src="img/pulseras/pulsera-rosa-flor-delgada.webp" alt="" class="img-fluid"></a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+                <a href=""><img src="img/pulseras/pulsera-lila-simple-no-ajustable.webp" alt="" class="img-fluid"></a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-4 col-6">
+                <a href=""><img src="img/pulseras/pulsera-simple-marron-tranzada.webp" alt="" class="img-fluid"></a>
+            </div>
+        </div>
+
+        <div class="row container-fluid cont_sig mx-0 p-0">            
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 d-flex m-0 siguenos">
+                <p class="mt-0 mb-0 p-0 d-md-block d-none">
+                    NO OLVIDES SEGUIRNOS EN NUESTRAS REDES
+                </p> 
+                <div class="mx-3">
+                    <a href="#">
+                        <i class="fa-brands fa-facebook text-light"></i>
+                    </a>
+                </div>
+
+                <div class="mx-3">
+                    <a href="#">
+                        <i class="fa-brands fa-instagram text-light"></i>
+                    </a>
+                </div>
+
+                <div class="mx-3">
+                    <a href="#">
+                        <i class="fa-brands fa-tiktok text-light"></i>
+                    </a>
+                </div>
+
+                <div class="mx-3">
+                    <a href="#">
+                        <i class="fa-brands fa-whatsapp text-light"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+    <div id="footer">
+
+    </div>
+
+    <script src="JS/header_footer.js"></script>
+
+    <script src="JS/jquery-3.7.1.slim.min.js"></script>
+    <script src="JS/carrito.js"></script>
+    <script src="JS/Producto_final.js"></script>
+    <script src="JS/index.js"></script>
+    <script src="JS/bootstrap.bundle.min.js"></script>
+</body>
+</html>

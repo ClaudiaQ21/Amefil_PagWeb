@@ -1,0 +1,93 @@
+body {
+    font-family: "Montserrat";
+  }
+@font-face {
+    font-family: Montserrat;
+
+    src: url('recursos/Montserrat-VariableFont_wght.ttf');
+
+}
+
+#bloc_direcciones{
+    background-color: #F2F0F3;
+    border-radius: 1px;
+    box-shadow: 0 0 20px rgba(2, 1, 1, 0.2); 
+}
+
+#datos_direccion li{
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+#direcc{
+    margin-left: 7.5%;
+    width: auto;
+    padding-left: 3%;
+    padding-right: 3%;
+} 
+
+#content_direcciones{
+    width: 90%;
+    margin: auto; 
+}
+
+.booooot{
+    width: 60%;
+    margin: auto;
+    height: 45px;
+}
+
+#navicito{
+    display: flex;
+    justify-content: end;
+}
+
+#div_navicito{
+    margin-right: 5%;
+}
+
+#colorcito{
+    color: #000;
+}
+
+/*@media (max-width: 576px) {
+    #barrita .link {
+
+        flex: 1 1 100%;
+        text-align: center;
+    }
+    #barrita{
+        margin-top: 10%;
+    }
+    #bloque_flecha{
+        margin-top: 15%;
+        padding-left: 30px;
+    }
+    #direcc{
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    #div_usuario{
+        width: 100%;
+        margin-bottom: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 577px) and (max-width:950px){
+    #div_usuario{
+        width: 100%;
+        margin-bottom: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #barrita{
+        height: 200%;
+    }
+    #bloque_flecha{
+        margin-top: 2%;
+    }
+}*/

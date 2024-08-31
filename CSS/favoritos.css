@@ -1,3 +1,14 @@
+/*---------------------------Encabezado----------------------*/
+body {
+    font-family: "Montserrat";
+  }
+@font-face {
+    font-family: Montserrat;
+
+    src: url('recursos/Montserrat-VariableFont_wght.ttf');
+
+}
+
 .contenedor_info{
     padding: 50px 150px;
 }
@@ -18,8 +29,20 @@
     font-weight: 600;
 }
 
-.link:hover{
-    font-weight: 600;
+#direcc{
+    width: auto;
+    margin-left: 1%;
+    background-color: #6b4e44;
+    color: #ffffff;
+    border: #6b4e44;
+    height: 40px;
+    border-radius: 0.5rem;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+#direcc:hover{
+    background-color: #6d544cf8;
 }
 
 #bloc_direcciones{
@@ -39,28 +62,6 @@
     font-weight: bold;
 }
 
-@media (max-width:767px){
-    #bloc_direcciones{
-        padding: 10px 15px;
-        height: 40%;
-        margin-bottom: 40%;
-    }
-
-    .contenedor_info{
-        padding: 10px 30px;
-    }
-}
-
-@media (min-width:768px) and (max-width:991px){
-    #bloc_direcciones{
-        padding: 40px 100px;
-        margin-bottom: 20%;
-    }
-}
-
-@media (min-width:992px){
-    #bloc_direcciones{
-        padding: 40px 100px;
-    }
-    
+#add{
+    margin-left: 50%;
 }
