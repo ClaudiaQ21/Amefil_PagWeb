@@ -2,7 +2,7 @@
 /*--------------------------------------Inicio Sesion---------------------------*/
 
 main{
-    background-color: #F2F0F3;
+    background-color: white;
 }
 #bloque input{
     border-color: rgb(99, 97, 97);
@@ -14,7 +14,7 @@ label{
     margin-top: 30px;
     margin-bottom: 10px;
 }
-a{
+span a{
     color: black;
 }
 #but{
@@ -34,10 +34,15 @@ a{
     border-radius: 1%;
     border-color: black;
 }
-.btn-primary {
+.btn-primary #but {
     background-color: #6b4e44;
-    border: none;
+    color: hsl(0, 0%, 100%);
+    font-size: 0.9em;
+    border-color: #6b4e44;
+    width: 100%;
+    height: 45px;
 }
-.btn-primary:hover {
-    background-color: #6d544cf8;
+ #but:hover {
+    background-color: #816b63;
+    border-color: #6b4e44;
 }

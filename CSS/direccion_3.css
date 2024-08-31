@@ -22,6 +22,7 @@
     padding-left: 3%;
     padding-right: 3%;
     border-style: none;
+    margin-bottom: 30px;
 }
 
 #direcc:hover{
@@ -37,7 +38,7 @@
     color: hsl(0, 0%, 100%);
     font-size: 0.9em;
     border-color: #6b4e44;
-    
+    margin-bottom: 30px;
     border-style: none;
     border-radius: 0.5em;
 }
@@ -98,12 +99,6 @@
     }
 }
 
-@media (min-width:768px) and (max-width:991px){
-    #bloc_direcciones{
-        height: 88%;
-        
-    }
-}
 
 @media (min-width:992px){
     #bloc_direcciones{
