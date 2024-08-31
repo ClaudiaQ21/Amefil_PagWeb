@@ -2,10 +2,10 @@
 /*--------------------------------------Inicio Sesion---------------------------*/
 
 main{
-    background-color: #F2F0F3;
+    background-color: white;
 }
 #bloque input{
-    border-color: rgb(99, 97, 97);
+    border-color:  black;
     border-radius: 0;
     height: 45px;
 }
@@ -18,27 +18,13 @@ label{
 span a{
     color: black;
 }
-#but{
-    background-color: #6b4e44;
-    color: hsl(0, 0%, 100%);
-    font-size: 0.9em;
-    border-style: none;
-    border-color: #6b4e44;
-    width: 100%;
-    height: 45px;
 
+#bloc{
+    border-color: black;
 }
-
 .card {
     background-color: white;
     padding: 2rem;
     border-radius: 1%;
     border-color: black;
-}
-.btn-primary {
-    background-color: #6b4e44;
-    border: none;
-}
-.btn-primary:hover {
-    background-color: #6d544cf8;
 }

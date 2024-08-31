@@ -23,6 +23,14 @@ body {
     font-size: 1.2rem;
 }
 
+#mensaje{
+    background-color: #F2F0F3;
+    border-radius: 0.8rem;
+    margin-left: 12%;
+    text-align: center;
+    margin: auto;
+    height: 50%;
+}
 
 
 .datos-perfil span{

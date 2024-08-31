@@ -26,20 +26,12 @@ body {
 }
 
 #direcc{
+    margin-left: 1.5%;
     width: auto;
-    margin-left: 1%;
-    background-color: #6b4e44;
-    color: #ffffff;
-    border: #6b4e44;
-    height: 40px;
-    border-radius: 0.5rem;
     padding-left: 3%;
     padding-right: 3%;
 }
 
-#direcc:hover{
-    background-color: #6d544cf8;
-}
 
 #mensaje{
     background-color: #F2F0F3;

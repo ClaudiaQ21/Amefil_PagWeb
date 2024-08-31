@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="CSS/favoritos.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="CSS/Estandar_perfil.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,19 +21,19 @@
 
     </div>
 
-    <section class="container-fluid m-0 p-0" style="border: 1px solid;">
+    <main class="container-fluid m-0 p-0">
         <div class="contenedor_info">
             <div class="row">
-                <div class="col-lg-1 d-flex align-items-center text-center">
+                <div class="col-lg-1 d-flex align-items-center justify-content-end col-md-6 col-sm-5">
                     <i class="fa-regular fa-user icono-nav-perfil"></i>
                 </div>
 
-                <div class="col-lg-3 d-flex align-items-center text-center icono-nav-perfil">
+                <div class="col-lg-3 d-flex align-items-center col-md-6 col-sm-5 text-center icono-nav-perfil p-md-y-3">
                     ¡Bienvenido!
                 </div>
 
-                <div class="col-lg-8 nav-perfil d-flex justify-content-center align-items-center">
-                    <ul class="nav  justify-content-evenly  ">
+                <div class="col-lg-8 nav-perfil">
+                    <ul class="nav justify-content-evenly">
                         <li class="nav-item">
                             <a href="Perfil.html" class="nav-link text-light">Perfil</a>
                         </li>
@@ -49,20 +50,18 @@
                 </div>
             </div>
 
-            <div class="row d-flex py-3">
-                <a href="index.html" class="d-flex align-items-center">
-                    <i class="fa-solid fa-arrow-left pe-3"></i>
-                    <p class="m-0">Volver al inicio</p>
+            <div class="row d-flex py-4 volver-inicio">
+                <a href="index.html" class="d-flex align-items-center ">
+                    <i class="fa-solid fa-arrow-left pe-3 text-dark"></i>
+                    <p class="m-0 text-dark">Volver al inicio</p>
                 </a>
             </div>
 
-            <div class="row d-flex align-items-center" id="mensaje">
-                <h3>No se ha elegido ningún favorito</h3>
+            <div class="row align-items-center my-3" id="mensaje">
+                <h5>No se han encontrado favoritos</h5>
             </div>
-            <br>
-            <br>
         </div>
-    </section>
+    </main>
 
     <div id="footer">
 
