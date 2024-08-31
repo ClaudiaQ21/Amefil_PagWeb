@@ -36,3 +36,23 @@ h5{
 .btn {
     width: 100%;
 }
+#navicito{
+    display: flex;
+    justify-content: end;
+   
+}.volver-inicio a{
+    text-decoration: none;
+}
+
+.volver-inicio p:hover{
+    font-weight: bold;
+}
+#div_navicito{
+}
+.page-item{
+    color: #000;
+}
+
+#colorcito{
+    color: #000;
+}
