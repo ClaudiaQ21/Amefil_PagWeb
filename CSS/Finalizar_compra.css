@@ -24,14 +24,6 @@ main {
     margin-bottom: 20px;
 }
 
-footer {
-    background-color: #f8f9fa;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-
 h6 {
     margin-top: 20px;
 }
