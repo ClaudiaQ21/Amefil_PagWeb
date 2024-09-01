@@ -43,15 +43,15 @@
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <div class="container text-start">
+                                <div id="dats" class="container text-start">
                                     <div class="row g-3">
                                         <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="nombre" class="form-label">Nombre:</label>
+                                            <label for="nombre" class="form-label">Nombre completo:</label>
                                             <input type="text" id="nombre" class="form-control" required>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="apellido" class="form-label">Apellidos:</label>
-                                            <input type="text" id="apellido" class="form-control" required>
+                                            <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
+                                            <input type="date" id="fechaNacimiento" class="form-control" required>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <label for="dni" class="form-label">Documento de identidad:</label>
@@ -78,7 +78,7 @@
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <div class="container text-start">
+                                <div id="dats" class="container text-start">
                                     <div class="row g-3">
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <label for="departamento" class="form-label">Departamento:</label>
@@ -107,6 +107,7 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <label for="direccion" class="form-label">Dirección:</label>
+                                            
                                             <input type="text" id="direccion" class="form-control" required>
                                             <label for="referencia" class="form-label">Referencia (opcional):</label>
                                             <input type="text" id="referencia" class="form-control">
@@ -126,17 +127,22 @@
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <div class="container text-start">
+                                <div id="dats" class="container text-start">
                                     <div class="row g-3">
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="tarjeta" class="form-label">Tarjeta de crédito:</label>
-                                            <input type="text" id="tarjeta" class="form-control" pattern="\d{16}"
-                                                required>
+                                        <div class="col-lg-12 col-md-6 col-sm-12">
+                                            <label for="tarjeta" class="form-label">
+                                                Número de la tarjeta:
+                                                <img src="img/visa.png" alt="Visa" style="width: 30px; margin-left: 5px;">
+                                                <img src="img/master.png" alt="MasterCard" style="width: 30px; margin-left: 5px;">
+                                                <img src="img/amex.png" alt="American Express" style="width: 30px; margin-left: 5px;">
+                                                <img src="img/paypal.png" alt="Paypal" style="width: 30px; margin-left: 5px;">
+                                                <img src="img/discover.png" alt="Discover" style="width: 30px; margin-left: 5px;">
+
+
+                                            </label>
+                                            <input type="text" id="tarjeta" class="form-control" pattern="\d{16}" required>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
-                                            <input type="date" id="fechaNacimiento" class="form-control" required>
-                                        </div>
+                                        
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <label for="titular" class="form-label">Titular de la tarjeta:</label>
                                             <input type="text" id="titular" class="form-control" required>

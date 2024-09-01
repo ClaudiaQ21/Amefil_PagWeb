@@ -20,6 +20,10 @@ main {
     padding-top: 40px;
 }
 
+#dats{
+    padding-top: 20px;
+}
+
 #con {
     margin-bottom: 20px;
 }
@@ -49,3 +53,4 @@ h6 {
     box-shadow: none; 
     outline: none;
 }
+
