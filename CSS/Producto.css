@@ -141,14 +141,9 @@
     transition: transform 0.5s ease-in-out;
 }
 
-.btn_res {
-    background-color: #6b4e44;
-    border: none;
-    color: white;
-    padding: 10px;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: 5px;
+#next, #prev{
+    width: 2rem;
+    height: 2.5rem;
 }
 
 .btn_res:disabled {
@@ -207,15 +202,7 @@
 }
 
 #cre_res{
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    font-size: 1em;
     width: 20em;
-    border: none;
-    cursor: pointer;
-    color: #ffffff;
-    background-color: #6b4e44;
 }
 
 

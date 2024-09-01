@@ -2,75 +2,23 @@
     font-family: Monserrat;
     src: url(recursos/Montserrat-VariableFont_wght.ttf);
 }
-
+html, body {
+    overflow-x: hidden;
+}
 body {
     
     font-family: 'Monserrat';
 }
-
-#carouselExampleSlidesOnly{
-    background-color: #F2F0F3;
-    width: 100%; 
-    overflow: hidden;
-    height: 340px;
-    position: relative;
-    box-shadow: 0 0 20px rgba(5, 1, 1, 0.2); /*sombra*/
+main{
+    background-color:rgb(251, 249, 242);
 }
-.carousel-inner {
-    display: flex;
-    transition: transform 0.5s ease;
-    width: 100%; 
-} 
-#logs {
-    width:500px;
-    margin-right: 20px; 
+#men{
+    margin-left:4%;
 }
-.carousel-item p {
-    text-align: center;
-    line-height: 1.6;
-    width: 40%; 
-}
-.carousel-item {
-    min-width: 100%; /* Asegura que cada item tome el 100% del contenedor del carrusel */
-    text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
-    align-items: center;
-}
-
-.carousel-item .cen{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 17px;
-}
-.carousel-item .cen p{
-    text-align: center;
-    line-height: 1.6;
-    width: 40%;
-}
-#imag {
-    width: 250px;
-    margin-left: 4px;
-    margin-bottom: 5px;
-}
-.carousel-item .disi{
-    display: flex;
-}
-.img_contener {
-    display: flex;
-    justify-content: space-between; 
-    margin: 5px 0; /
-
-}
-.imagen {
-    width: 280px; 
-}
-
 .card{
     width: 350px; 
     height: 450px; 
-    background-color: #ffffff; 
+    background-color:  rgb(251, 249, 242); 
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -110,26 +58,9 @@ body {
     width: 200px;
     margin: 0 auto;
 }
-.carousel-item .img_contener {
-    display: flex;
-    text-align: center;
-    margin-right: 4%;
-    margin-top: 2%;
-}
-
-.carousel-item .imagen {
-    max-width: 30%;
-    flex: 1;
-    object-fit: cover;
-    padding-left: 5%;
-
-}
-#peruan{
-    text-align: center;
-}
 .fras{
     display: flex;
-    background-color: #6b4e44;
+    background-color: rgb(158, 134, 94);
     height: 60px;
     align-items: center;
     justify-content: center;
@@ -138,10 +69,6 @@ body {
     margin-top: 60px;
     margin-bottom: 34px;
 }
-#logs, .imagen, #imag {
-    width: 100%;
-    height: auto;
-}
 .card-title {
     text-align: center;
     margin-top: 1rem;
@@ -149,28 +76,55 @@ body {
 .card-body {
     text-align: justify;
 }
+
+.custom-card {
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.custom-card-img {
+    width: 100%; 
+    border-top-left-radius: 8px; 
+    border-top-right-radius: 8px;
+}
+
+.custom-card-body {
+    padding: 20px; 
+    background-color:rgb(251, 249, 242)
+}
+
+.custom-card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+    color: rgb(158, 134, 94);
+}
+
+.custom-card-text {
+    font-size: 1em;
+    color: #333;
+    text-align: center;
+}
+
 @media (max-width: 768px) {
-    .carousel-item .col-lg-6 {
-        flex: 0 0 100%;
-        max-width: 100%;
+    .card {
+        width: 90%;
     }
-    .carousel-item .col-lg-3 {
-        flex: 0 0 50%;
-        max-width: 50%;
+    .card img {
+        width: 150px;
     }
 }
+
 @media (max-width: 576px) {
-    .carousel-item .col-lg-6 {
-        flex: 0 0 100%;
-        max-width: 100%;
+    .card {
+        width: 100%;
+        margin-top: 40px;
     }
-    .carousel-item .col-lg-3 {
-        flex: 0 0 100%;
-        max-width: 100%;
-    }
-    .carousel-item .col-lg-6.d-flex {
-        justify-content: center !important;
+    .card img {
+        width: 120px;
     }
 }
-
-

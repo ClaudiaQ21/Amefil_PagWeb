@@ -23,10 +23,15 @@ body {
     font-size: 1.2rem;
 }
 
-.datos-perfil{
+#mensaje{
     background-color: #F2F0F3;
-    padding: 40px 100px;
+    border-radius: 0.8rem;
+    margin-left: 12%;
+    text-align: center;
+    margin: auto;
+    height: 50%;
 }
+
 
 .datos-perfil span{
     font-weight: 600;
@@ -48,15 +53,21 @@ body {
     background-color: #6d544cf8;
 }
 
-#mensaje{
+#bloc_direcciones{
     background-color: #F2F0F3;
-    
-    border-radius: 0.8rem;
-    height: 50%;
-    margin-left: 12%;
-    width: 100%;
-    text-align: center;
-    margin: auto;
+    border-radius: 1px;
+    box-shadow: 0 0 20px rgba(2, 1, 1, 0.2);
+    padding: 40px 100px;
+    height: 70%;
+    margin-bottom: 20%;
+}
+
+.volver-inicio a{
+    text-decoration: none;
+}
+
+.volver-inicio p:hover{
+    font-weight: bold;
 }
 
 #add{
