@@ -1,0 +1,107 @@
+.titulo{
+    border-bottom:2px solid rgb(158, 134, 94);
+}
+
+.titulo h1{
+    color: rgb(119, 101, 71);
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+}
+
+.slogan img{
+    width: 100px;
+}
+
+.slogan p{
+    text-align: center;
+    margin: 0;
+}
+
+.miperu img{
+    border-radius: 20px;
+    max-height: 500px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.miperu p{
+    text-align: center;
+    margin: 0;
+}
+
+.valores{
+    background-color: rgb(251, 249, 242);
+    border-radius: 20px;
+}
+
+.valores .elemento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 60px;
+}
+
+.valores i{
+    color: rgb(251, 249, 242);
+    font-size: xx-large;
+    background-color: rgb(158, 134, 94);
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.valores h3{
+    color: rgb(158, 134, 94);
+    text-align: center;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.valores p{
+    text-align: center;
+    margin: 0;
+}
+
+.separador i{
+    color: rgb(119, 101, 71);
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.misvis img{
+    border-radius: 20px;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.misvis h3{
+    color: rgb(158, 134, 94);
+    text-align: center;
+    margin: 0;
+}
+
+.misvis p{
+    margin: 0;
+    text-align: center;
+}
+
+.myv{
+    transform: scale(75%);
+}
+
+.mision h3, .mision p{
+    margin-bottom: 15px;
+}
+
+.vision h3, .vision p{
+    margin-top: 15px;
+}

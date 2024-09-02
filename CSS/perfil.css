@@ -2,10 +2,14 @@
     padding: 50px 150px;
 }
 
+.titulo{
+    border-top: 2px solid rgb(158, 134, 94);
+}
+
 .icono-nav-perfil{
     font-size: 1.2rem;
 }
-/*--------*/
+
 .datos-perfil span{
     font-weight: 600;
 }
@@ -14,10 +18,9 @@
     font-weight: 600;
 }
 
-#bloc_direcciones{
-    background-color: #F2F0F3;
+.bloque{
+    background-color: rgb(251, 249, 242);
     border-radius: 1px;
-    box-shadow: 0 0 20px rgba(2, 1, 1, 0.2);
     padding: 40px 100px;
 }
 

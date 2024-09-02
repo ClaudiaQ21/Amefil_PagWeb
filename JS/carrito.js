@@ -104,3 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+function finalizarCompra() {
+    const total = document.getElementById('total').value; 
+    localStorage.setItem('totalAmount', total); 
+
+    window.location.href = 'Finalizar_compra.html'; 
+}

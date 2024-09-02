@@ -1,15 +1,3 @@
-
-/*--------------------------------------Inicio Sesion---------------------------*/
-@font-face {
-    font-family: Monserrat;
-    src: url(recursos/Montserrat-VariableFont_wght.ttf);
-}
-body {
-    font-family: 'Monserrat';
-    
-}
-
- 
 label{
     display: block;
     margin-bottom: 10px;
