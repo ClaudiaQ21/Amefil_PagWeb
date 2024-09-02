@@ -67,20 +67,19 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     document.querySelector('#miFormulario').addEventListener('submit', function (e) {
-        e.preventDefault(); // Evitar el envío del formulario
-        const isNameValid = checkName(); // Llamada a la función de validación del nombre
-        const isDniValid = checkDni(); // Llamada a la función de validación del DNI
+        e.preventDefault(); 
+        const isNameValid = checkName(); 
+        const isDniValid = checkDni(); 
         if (isNameValid && isDniValid) {
-            // Si el formulario es válido, puedes enviarlo o procesarlo aquí
             alert('Formulario válido');
         }
     });
 
     nombreEl.addEventListener('input', function () {
-        checkName(); // Validación mientras el usuario escribe
+        checkName(); 
     });
 
     dniEl.addEventListener('input', function () {
-        checkDni(); // Validación mientras el usuario escribe
+        checkDni(); 
     });
 });
