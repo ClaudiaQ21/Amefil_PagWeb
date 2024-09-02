@@ -20,6 +20,7 @@ label{
     border-color: rgb(99, 97, 97);
     border-radius: 0;
     height: 45px;
+    margin-bottom: 5px;
 }
 a{
     color: black;
@@ -34,4 +35,47 @@ a{
 
 main{
     background-color: white;
+}
+
+#men{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#men2{
+    margin-top: 30px;
+}
+:root {
+    --error-color: #dc3545;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+}
+
+.form-group input:focus {
+    outline: none;
+}
+
+
+.form-group.error input {
+    border-color: var(--error-color);
+}
+
+.form-group.success input {
+    border-color: var(--success-color);
+}
+
+
+.form-group small {
+    color: var(--error-color);
+
+}
+
+label#lab {
+    
+    text-align: center; /* Centra verticalmente los elementos */
+    margin: 0;
+    padding: 0;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px; /* Añadir un poco de espacio si es necesario */
 }

@@ -12,6 +12,7 @@ label{
     border-color: rgb(99, 97, 97);
     border-radius: 0;
     height: 45px;
+    margin-bottom: 5px;
 }
 
 #mensaje{
@@ -25,4 +26,33 @@ label{
     padding: 2rem;
     border-radius: 1%;
     border-color: black;
+}
+#env{
+    margin-top: 35px;
+}
+
+:root {
+    --error-color: #dc3545;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+}
+
+
+.form-group input:focus {
+    outline: none;
+}
+
+
+.form-group.error input {
+    border-color: var(--error-color);
+}
+
+.form-group.success input {
+    border-color: var(--success-color);
+}
+
+
+.form-group small {
+    color: var(--error-color);
+
 }

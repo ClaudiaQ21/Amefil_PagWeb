@@ -1,7 +1,4 @@
-//validacion
 const emailC = document.querySelector('#email');
-const passwordC = document.querySelector('#password');
-
 const form = document.querySelector('#signup');
 
 const Req = value => value === '' ? false : true;
@@ -10,11 +7,6 @@ const email_valido = (email) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(gmail\.com|hotmail\.com)$/;
 
     return re.test(email);
-};
-
-const contraseña_valida = (password) => {
-    const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-    return re.test(password);
 };
 
 const showError = (input, message) => {
@@ -56,33 +48,15 @@ const check_email = () => {
     return valid;
 }
 
-const check_password = () => {
-    let valid = false;
-    const password = passwordC.value.trim();
-    if (!Req(password)) {
-        showError(passwordC, '*Campo obligatorio');
-    } else if (!contraseña_valida(password)) {
-        showError(passwordC, 'Debe ingresar una contraseña válida');
-    } else {
-        showSuccess(passwordC);
-        valid = true;
-    }
-    return valid;
-}
-
-
 form.addEventListener('submit', function (e) {
     // prevent the form from submitting
     e.preventDefault();
 
     // validate forms
-    let 
-        emailValido = check_email(),
-        passwordValido = check_password();
+    let emailValido = check_email();
 
-    let isFormValid =
-        emailValido &&
-        passwordValido;
+    let isFormValid = 
+        emailValido;
 
     // submit to the server if the form is valid
     if (isFormValid) {
@@ -110,17 +84,5 @@ form.addEventListener('input', debounce(function (e) {
         case 'email':
             check_email();
             break;
-        case 'password':
-            check_password();
-            break;
     }
 }));
-
-//validacion para admin
-const check_box= document.getElementById("#term");
-function isCheckboxChecked() {
-    return check_box.checked; // Retorna true si está marcado, false si no
-}
-
-
-

@@ -23,31 +23,32 @@
     <main class="container-fluid ">
         <div class="row justify-content-center align-items-center ">
             <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-                <div class="card shadow-lg my-5">
+                <div class="card shadow-lg my-5" >
                     <div class="card-body" id="bloque">
                         <h4 class="card-title text-center">INICIO DE SESIÓN</h4>
-                        <form>
+                        <form id="signup" class="form">
                             <div class="form-group">
                                 <label for="email">Correo electrónico</label>
                                 <input type="email" class="form-control" id="email"
                                     placeholder="Ingrese su correo electrónico">
+                                <small></small>
                             </div>
                             <div class="form-group">
                                 <label for="password">Contraseña</label>
                                 <input type="password" class="form-control" id="password"
                                     placeholder="Ingrese su contraseña">
+                                <small></small>
                             </div>
-                            <br>
-                            <div class="form-group text-center">
+                            <div class="form-group text-center" id="men">
                                 <a href="Reestablecer_contraseña.html" class="small">¿Olvidaste tu contraseña?</a>
                             </div>
-                            <br>
+                            <div class="form-group text-center">
+                                <label for="term" id="lab" ><input type="checkbox" name="term" id="term" style="vertical-align: middle;"><small style="color: black;">Iniciar sesión como administrador</small></label>
+                            </div>
                             <div class="form-group text-center">
                                 <button type="submit" class="botones">Ingresar</button>
-
                             </div>
-                            <br>
-                            <div class="form-group text-center">
+                            <div class="form-group text-center" id="men2">
                                 <span class="small">¿Todavía no tienes cuenta? <a href="Registro_usuario.html"
                                         id="regis">Registrate</a></span>
                             </div>
@@ -64,6 +65,7 @@
     </div>
     
     <script src="JS/header_footer.js"></script>
+    <script src="JS/Iniciar_Sesion.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
