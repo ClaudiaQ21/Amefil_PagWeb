@@ -289,12 +289,12 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     document.querySelector('#compraModal .btn-primary').addEventListener('click', function () {
-        document.querySelector('#miFormulario').reset(); 
-        resetValidation(); 
-
-        localStorage.removeItem('totalAmount'); 
-
+        document.querySelector('#miFormulario').reset();
+        resetValidation();
         document.getElementById('totalInput').value = 'S/. 0.00';
         document.getElementById('precioEnvio').value = 'S/. 0.00';
+        localStorage.removeItem('totalAmount');
+        localStorage.removeItem('cartItems'); 
+        document.getElementById('cart').innerHTML = ''; 
     });
 });
