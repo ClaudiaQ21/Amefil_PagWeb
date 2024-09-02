@@ -1,30 +1,68 @@
-
-/*--------------------------------------Inicio Sesion---------------------------*/
-
-main{
-    background-color: white;
-}
-#bloque input{
-    border-color:  black;
-    border-radius: 0;
-    height: 45px;
-}
-label{
-    display: block;
-    margin-top: 30px;
-    margin-bottom: 10px;
+.titulo{
+    border-bottom:2px solid rgb(158, 134, 94);
 }
 
-span a{
-    color: black;
+.titulo h1{
+    color: rgb(119, 101, 71);
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
 }
 
-#bloc{
-    border-color: black;
+.registrar p{
+    text-align: center;
+    margin: 0;
 }
-.card {
-    background-color: white;
+
+.separador i{
+    color: rgb(119, 101, 71);
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.formulario{
+    background-color: rgb(251, 249, 242);
+    border-radius: 20px;
+}
+
+#fondo{
+    border: 0;
+    border-radius: 20px;
     padding: 2rem;
-    border-radius: 1%;
-    border-color: black;
+}
+
+#fondo h3{
+    color: rgb(158, 134, 94);
+    font-weight: 500;
+    margin: 0;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom:2px solid rgb(158, 134, 94);
+}
+
+#fondo input{
+    height: 45px;
+    border-radius: 20px;
+    border-color: rgb(158, 134, 94);
+}
+
+#fondo label{
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-weight: 550;
+}
+
+#fondo span a{
+    text-decoration: none;
+    font-weight: 550;
+    color: rgb(158, 134, 94);
+}
+
+#fondo span a:hover{
+    color: rgb(119, 101, 71);
+    cursor: pointer;
 }
