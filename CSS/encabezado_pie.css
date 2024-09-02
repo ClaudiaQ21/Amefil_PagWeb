@@ -185,6 +185,42 @@ footer .redes-sociales{
     margin: 0;
 }
 
+/* ACORDEON */
+
+.acordeon_general {
+    width: 100%;
+}
+
+.acordeon {
+    width: 100%;
+    background-color: rgb(40, 34, 24);
+    color: #fff;
+    padding: 15px;
+    text-align: left;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.acordeon:not(.collapsed) {
+    background-color: rgb(158, 134, 94);
+    color: #fff;
+}
+
+.acordeon:focus {
+    outline: none; 
+    box-shadow: none; 
+}
+
+.fondo_oscuro{
+    background-color: rgb(40, 34, 24);
+}
+
+/*.acordeon.collapsed::after, .acordeon:not(.collapsed)::after{
+    background-color: #fff;
+}*/
 
 
 
