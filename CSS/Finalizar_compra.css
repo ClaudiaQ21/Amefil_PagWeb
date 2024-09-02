@@ -20,6 +20,10 @@ main {
     padding-top: 40px;
 }
 
+#dats{
+    padding-top: 20px;
+}
+
 #con {
     margin-bottom: 20px;
 }
@@ -27,6 +31,7 @@ main {
 h6 {
     margin-top: 20px;
 }
+
 
 .accordion-button {
     background-color: rgb(158, 134, 94);
@@ -40,4 +45,22 @@ h6 {
 .accordion-button:focus {
     box-shadow: none; 
     outline: none;
+}
+
+
+:root {
+    --error-color: red;
+    --success-color: green;
+}
+
+.form-field.error input {
+    border-color: var(--error-color); 
+}
+
+.form-field.success input {
+    border-color: var(--success-color);
+}
+
+.form-field small {
+    color: var(--error-color); 
 }

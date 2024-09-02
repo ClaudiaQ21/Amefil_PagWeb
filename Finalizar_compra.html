@@ -30,150 +30,172 @@
     </div>
 
     <main class="container">
-        <div id="con" class="row g-10">
-            <nav id="central" class="col-lg-8 col-md-12 col-sm-12">
-                <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                INGRESA TUS DATOS
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <div class="container text-start">
-                                    <div class="row g-3">
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="nombre" class="form-label">Nombre:</label>
-                                            <input type="text" id="nombre" class="form-control" required>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="apellido" class="form-label">Apellidos:</label>
-                                            <input type="text" id="apellido" class="form-control" required>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="dni" class="form-label">Documento de identidad:</label>
-                                            <input type="text" id="dni" class="form-control" pattern="\d{8}" required>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="telefono" class="form-label">Teléfono/móvil:</label>
-                                            <input type="tel" id="telefono" class="form-control" pattern="\d{9}"
-                                                required>
+        <form id="miFormulario">
+            <div id="con" class="row g-10">
+                <nav id="central" class="col-lg-8 col-md-12 col-sm-12">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    INGRESA TUS DATOS
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div id="dats" class="container text-start">
+                                        <div class="row g-3">
+                                            <div class="col-lg-6 col-md-6 col-sm-12 form-field">
+                                                <label for="nombre" class="form-label">Nombre completo:</label>
+                                                <input type="text" id="nombre" class="form-control" required>
+                                                <small></small>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <label for="fechaNacimiento" class="form-label">Fecha de
+                                                    Nacimiento:</label>
+                                                <input type="date" id="fechaNacimiento" class="form-control" required>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12 form-field">
+                                                <label for="dni" class="form-label">Documento de identidad:</label>
+                                                <input type="text" id="dni" class="form-control" required>
+                                                <small></small>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12 form-field">
+                                                <label for="telefono" class="form-label">Teléfono/móvil:</label>
+                                                <input type="tel" id="telefono" class="form-control" required>
+                                                <small></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                COMPLETA TU DIRECCIÓN DE ENVÍO
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <div class="container text-start">
-                                    <div class="row g-3">
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="departamento" class="form-label">Departamento:</label>
-                                            <select id="departamento" class="form-control" required>
-                                                <option value="">Seleccionar</option>
-                                                <option value="Lima">Lima</option>
-                                                <option value="Arequipa">Arequipa</option>
-                                                <option value="Cusco">Cusco</option>
-                                            </select>
-                                            <br>
-                                            <label for="provincia" class="form-label">Provincia:</label>
-                                            <select id="provincia" class="form-control" required>
-                                                <option value="">Seleccionar</option>
-                                                <option value="Lima">Lima</option>
-                                                <option value="Cusco">Cusco</option>
-                                                <option value="Arequipa">Arequipa</option>
-                                            </select>
-                                            <br>
-                                            <label for="distrito" class="form-label">Distrito:</label>
-                                            <select id="distrito" class="form-control" required>
-                                                <option value="">Seleccionar</option>
-                                                <option value="Miraflores">Miraflores</option>
-                                                <option value="Santiago">Santiago</option>
-                                                <option value="Yanahuara">Yanahuara</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="direccion" class="form-label">Dirección:</label>
-                                            <input type="text" id="direccion" class="form-control" required>
-                                            <label for="referencia" class="form-label">Referencia (opcional):</label>
-                                            <input type="text" id="referencia" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                INGRESE LOS DATOS DE SU TARJETA
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <div class="container text-start">
-                                    <div class="row g-3">
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="tarjeta" class="form-label">Tarjeta de crédito:</label>
-                                            <input type="text" id="tarjeta" class="form-control" pattern="\d{16}"
-                                                required>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
-                                            <input type="date" id="fechaNacimiento" class="form-control" required>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="titular" class="form-label">Titular de la tarjeta:</label>
-                                            <input type="text" id="titular" class="form-control" required>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="codigo" class="form-label">Código de seguridad:</label>
-                                            <input type="text" id="codigo" class="form-control" pattern="\d{3,4}"
-                                                required>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    COMPLETA TU DIRECCIÓN DE ENVÍO
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div id="dats" class="container text-start">
+                                        <div class="row g-3">
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <label for="departamento" class="form-label">Departamento:</label>
+                                                <select id="departamento" class="form-control" required>
+                                                    <option value="">Seleccionar</option>
+                                                    <option value="Lima">Lima</option>
+                                                    <option value="Arequipa">Arequipa</option>
+                                                    <option value="Cusco">Cusco</option>
+                                                </select>
+                                                <br>
+                                                <label for="provincia" class="form-label">Provincia:</label>
+                                                <select id="provincia" class="form-control" required>
+                                                    <option value="">Seleccionar</option>
+                                                    <option value="Lima">Lima</option>
+                                                    <option value="Cusco">Cusco</option>
+                                                    <option value="Arequipa">Arequipa</option>
+                                                </select>
+                                                <br>
+                                                <label for="distrito" class="form-label">Distrito:</label>
+                                                <select id="distrito" class="form-control" required>
+                                                    <option value="">Seleccionar</option>
+                                                    <option value="Miraflores">Miraflores</option>
+                                                    <option value="Santiago">Santiago</option>
+                                                    <option value="Yanahuara">Yanahuara</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="form-field">
+                                                    <label for="direccion" class="form-label">Dirección:</label>
+                                                    <input type="text" id="direccion" class="form-control" required>
+                                                    <small></small>
+                                                </div>
+                                                <div class="form-field">
+                                                    <label for="referencia" class="form-label">Referencia
+                                                        (opcional):</label>
+                                                    <input type="text" id="referencia" class="form-control">
+                                                    <small></small>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </nav>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    INGRESE LOS DATOS DE SU TARJETA
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div id="dats" class="container text-start">
+                                        <div class="row g-3">
+                                            <div class="col-lg-12 col-md-6 col-sm-12 form-field">
+                                                <label for="tarjeta" class="form-label">
+                                                    Número de la tarjeta:
+                                                    <img src="img/visa.png" alt="Visa"
+                                                        style="width: 30px; margin-left: 5px;">
+                                                    <img src="img/master.png" alt="MasterCard"
+                                                        style="width: 30px; margin-left: 5px;">
+                                                    <img src="img/amex.png" alt="American Express"
+                                                        style="width: 30px; margin-left: 5px;">
+                                                    <img src="img/paypal.png" alt="Paypal"
+                                                        style="width: 30px; margin-left: 5px;">
+                                                    <img src="img/discover.png" alt="Discover"
+                                                        style="width: 30px; margin-left: 5px;">
+                                                </label>
+                                                <input type="text" id="tarjeta" class="form-control" required>
+                                                <small></small>
+                                            </div>
 
-            <section class="col-lg-4 col-md-12 col-sm-12 mt-5">
-                <div class="container text-start">
-                    <div class="row g-4 justify-content-center">
-                        <div class="col-lg-10 col-md-10 col-sm-12">
-                            <label class="form-label">Precio envío:</label>
-                            <input type="text" class="form-control" readonly>
-                        </div>
-                        <div class="col-lg-10 col-md-10 col-sm-12">
-                            <label class="form-label">Total a pagar:</label>
-                            <input type="text" class="form-control" id="totalInput" readonly>
-                        </div>
-                        <br>
-                        <div class="col-lg-7 col-md-7 col-sm-12">
-                            <button class="botones agregar-carrito" type="button" data-bs-toggle="modal"
-                                data-bs-target="#compraModal">Pagar</button>
+                                            <div class="col-lg-6 col-md-6 col-sm-12 form-field">
+                                                <label for="titular" class="form-label">Titular de la tarjeta:</label>
+                                                <input type="text" id="titular" class="form-control" required>
+                                                <small></small>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12 form-field">
+                                                <label for="codigo" class="form-label">Código de seguridad:</label>
+                                                <input type="text" id="codigo" class="form-control" required>
+                                                <small></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </nav>
+
+                <section class="col-lg-4 col-md-12 col-sm-12 mt-5">
+                    <div class="container text-start">
+                        <div class="row g-4 justify-content-center">
+                            <div class="col-lg-10 col-md-10 col-sm-12">
+                                <label class="form-label">Precio envío:</label>
+                                <input type="text" class="form-control" readonly>
+                            </div>
+                            <div class="col-lg-10 col-md-10 col-sm-12">
+                                <label class="form-label">Total a pagar:</label>
+                                <input type="text" class="form-control" id="totalInput" readonly>
+                            </div>
+                            <br>
+                            <div class="col-lg-7 col-md-7 col-sm-12">
+                                <button class="botones agregar-carrito" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#compraModal">Pagar</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </form>
     </main>
 
 
