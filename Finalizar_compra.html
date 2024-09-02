@@ -49,9 +49,8 @@
                                             <div class="col-lg-6 col-md-6 col-sm-12 form-field">
                                                 <label for="nombre" class="form-label">Nombre completo:</label>
                                                 <input type="text" id="nombre" class="form-control" required>
-                                                <small></small> 
+                                                <small></small>
                                             </div>
-
                                             <div class="col-lg-6 col-md-6 col-sm-12">
                                                 <label for="fechaNacimiento" class="form-label">Fecha de
                                                     Nacimiento:</label>
@@ -60,12 +59,12 @@
                                             <div class="col-lg-6 col-md-6 col-sm-12 form-field">
                                                 <label for="dni" class="form-label">Documento de identidad:</label>
                                                 <input type="text" id="dni" class="form-control" required>
-                                                <small></small> 
+                                                <small></small>
                                             </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="col-lg-6 col-md-6 col-sm-12 form-field">
                                                 <label for="telefono" class="form-label">Teléfono/móvil:</label>
-                                                <input type="tel" id="telefono" class="form-control" pattern="\d{9}"
-                                                    required>
+                                                <input type="tel" id="telefono" class="form-control" required>
+                                                <small></small>
                                             </div>
                                         </div>
                                     </div>
@@ -111,12 +110,17 @@
                                                 </select>
                                             </div>
                                             <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <label for="direccion" class="form-label">Dirección:</label>
-
-                                                <input type="text" id="direccion" class="form-control" required>
-                                                <label for="referencia" class="form-label">Referencia
-                                                    (opcional):</label>
-                                                <input type="text" id="referencia" class="form-control">
+                                                <div class="form-field">
+                                                    <label for="direccion" class="form-label">Dirección:</label>
+                                                    <input type="text" id="direccion" class="form-control" required>
+                                                    <small></small>
+                                                </div>
+                                                <div class="form-field">
+                                                    <label for="referencia" class="form-label">Referencia
+                                                        (opcional):</label>
+                                                    <input type="text" id="referencia" class="form-control">
+                                                    <small></small>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -135,7 +139,7 @@
                                 <div class="accordion-body">
                                     <div id="dats" class="container text-start">
                                         <div class="row g-3">
-                                            <div class="col-lg-12 col-md-6 col-sm-12">
+                                            <div class="col-lg-12 col-md-6 col-sm-12 form-field">
                                                 <label for="tarjeta" class="form-label">
                                                     Número de la tarjeta:
                                                     <img src="img/visa.png" alt="Visa"
@@ -148,21 +152,20 @@
                                                         style="width: 30px; margin-left: 5px;">
                                                     <img src="img/discover.png" alt="Discover"
                                                         style="width: 30px; margin-left: 5px;">
-
-
                                                 </label>
-                                                <input type="text" id="tarjeta" class="form-control" pattern="\d{16}"
-                                                    required>
+                                                <input type="text" id="tarjeta" class="form-control" required>
+                                                <small></small>
                                             </div>
 
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="col-lg-6 col-md-6 col-sm-12 form-field">
                                                 <label for="titular" class="form-label">Titular de la tarjeta:</label>
                                                 <input type="text" id="titular" class="form-control" required>
+                                                <small></small>
                                             </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="col-lg-6 col-md-6 col-sm-12 form-field">
                                                 <label for="codigo" class="form-label">Código de seguridad:</label>
-                                                <input type="text" id="codigo" class="form-control" pattern="\d{3,4}"
-                                                    required>
+                                                <input type="text" id="codigo" class="form-control" required>
+                                                <small></small>
                                             </div>
                                         </div>
                                     </div>
