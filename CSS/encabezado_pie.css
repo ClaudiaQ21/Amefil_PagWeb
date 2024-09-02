@@ -237,7 +237,19 @@ footer .redes-sociales{
     }
 
     #logofooter{
-        width: 100px;
+        width: 70px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .unete h5{
+        font-size: 1.2rem;
+
+    }
+
+    .unirse{
+        width: 100%;
+        font-size: 0.7rem;
     }
 }
 
@@ -246,16 +258,24 @@ footer .redes-sociales{
         max-width: 40%;
     }
 
-    #logofooter{
-        width: 100px;
-    }
-
     .ps-10{
         padding-left: 50px;
     }
 
     footer .info{
         margin-top: 3rem;
+    }    
+    
+    #logofooter{
+        width: 100px;
+    }
+
+    .unete h5{
+        font-size: 1.5rem;
+    }
+
+    .unirse{
+        width: 80%;
     }
 }
 
