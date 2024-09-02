@@ -1,0 +1,39 @@
+.titulo{
+    border-bottom:2px solid rgb(158, 134, 94);
+}
+
+.titulo h1{
+    color: rgb(119, 101, 71);
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+}
+
+.contenido {
+    background-color: rgb(251, 249, 242);
+    border-radius: 20px;
+}
+
+.subtitulo h3{
+    color: rgb(158, 134, 94);
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.contenido p{
+    text-align: justify;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.contenido a{
+    text-decoration: none;
+    font-weight: 550;
+    color: rgb(158, 134, 94);
+}
+
+.contenido a:hover{
+    color: rgb(119, 101, 71);
+    cursor: pointer;
+}
