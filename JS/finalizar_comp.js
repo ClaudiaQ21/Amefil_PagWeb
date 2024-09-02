@@ -6,6 +6,45 @@ window.onload = function () {
     }
 }
 
+// document.addEventListener('DOMContentLoaded', function () {
+//     const preciosEnvio = {
+//         Lima: {
+//             Lima: 5.00,
+//             Miraflores: 7.00
+//         },
+//         Arequipa: {
+//             Arequipa: 10.00,
+//             Yanahuara: 12.00
+//         },
+//         Cusco: {
+//             Cusco: 8.00,
+//             Santiago: 9.50
+//         }
+//     };
+
+//     const departamentoSelect = document.getElementById('departamento');
+//     const provinciaSelect = document.getElementById('provincia');
+//     const distritoSelect = document.getElementById('distrito');
+//     const precioEnvioInput = document.getElementById('precioEnvio');
+
+//     function actualizarPrecioEnvio() {
+//         const departamento = departamentoSelect.value;
+//         const distrito = distritoSelect.value;
+
+//         if (preciosEnvio[departamento] && preciosEnvio[departamento][distrito]) {
+//             precioEnvioInput.value = `S/. ${preciosEnvio[departamento][distrito].toFixed(2)}`;
+//         } else {
+//             precioEnvioInput.value = 'No disponible';
+//         }
+//     }
+
+//     departamentoSelect.addEventListener('change', actualizarPrecioEnvio);
+//     provinciaSelect.addEventListener('change', actualizarPrecioEnvio);
+//     distritoSelect.addEventListener('change', actualizarPrecioEnvio);
+// });
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const nombreEl = document.querySelector('#nombre');
     const dniEl = document.querySelector('#dni');
@@ -182,6 +221,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const isCvvValid = checkCvv();
         if (isNameValid && isDniValid && isPhoneValid && isAddressValid && isReferenceValid && isCardNumberValid && isCardHolderValid && isCvvValid) {
             alert('Formulario válido');
+            formulario.reset();
         }
     });
 
