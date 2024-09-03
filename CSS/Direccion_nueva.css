@@ -14,12 +14,6 @@ a{
     top: 2px;
 }
 
-#bloc{
-    background-color: #F2F0F3;
-    border-radius: 3px;
-    box-shadow: 0 0 20px rgba(2, 1, 1, 0.2); 
-}
-
 .row #lab{
     width: 100%;
     border-color: rgb(99, 97, 97);

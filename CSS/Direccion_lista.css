@@ -3,15 +3,7 @@ body {
   }
 @font-face {
     font-family: Montserrat;
-
     src: url('recursos/Montserrat-VariableFont_wght.ttf');
-
-}
-
-#bloc_direcciones{
-    background-color: #F2F0F3;
-    border-radius: 1px;
-    box-shadow: 0 0 20px rgba(2, 1, 1, 0.2); 
 }
 
 #datos_direccion li{

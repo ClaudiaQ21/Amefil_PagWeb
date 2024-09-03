@@ -82,6 +82,10 @@
     border-color: rgb(158, 134, 94);
 }
 
+.datos:focus{
+    box-shadow: 0 0 0 2px rgb(158, 134, 94); 
+}
+
 .consideraciones p{
     text-align: justify;
     margin: 0;

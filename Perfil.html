@@ -20,20 +20,19 @@
     </div>
 
     <main class="row m-0 p-0">
-        <div class="contenedor_info">
+        <div class="contenedor py-lg-5 py-md-4 py-4">
             <div class="row">
-                <div class="col-lg-1 d-flex align-items-center justify-content-end col-md-6 col-sm-5">
-                    <i class="fa-regular fa-user icono-nav-perfil"></i>
+                <div class="col-lg-4 col-6 d-flex align-items-center justify-content-end">
+                    <i class="fa-regular fa-user icono-nav-perfil col-lg-2 col-3"></i>
+                    <div class="d-flex align-items-center text-center icono-nav-perfil col-lg-10 col-9">
+                        ¡Bienvenido!
+                    </div>
                 </div>
 
-                <div class="col-lg-3 d-flex align-items-center col-md-6 col-sm-5 text-center icono-nav-perfil p-md-y-3">
-                    ¡Bienvenido!
-                </div>
-
-                <div class="col-lg-8 nav-perfil">
+                <div class="col-lg-8 d-lg-block d-md-none d-none nav-perfil">
                     <ul class="nav justify-content-evenly">
                         <li class="nav-item">
-                            <a href="Perfil.html" class="nav-link text-light">Perfil</a>
+                            <a href="Perfil.html" class="nav-link text-light">Datos Personales</a>
                         </li>
                         <li class="nav-item">
                             <a href="Direccion_lista.html" class="nav-link text-light">Direcciones</a>
@@ -46,57 +45,68 @@
                         </li>
                     </ul>
                 </div>
+
+                <div class="d-lg-none d-md-block d-block col-6 text-end">
+                    <div class="btn-group">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> Menú
+                        </button>
+                        <ul class="dropdown-menu">
+                            
+                        </ul>
+                    </div>
+
+                </div>
             </div>
 
             <div class="row d-flex py-4 volver-inicio">
-                <a href="index.html" class="d-flex align-items-center ">
-                    <i class="fa-solid fa-arrow-left pe-3 text-dark"></i>
-                    <p class="m-0 text-dark">Volver al inicio</p>
+                <a href="Perfil.html" class="d-flex align-items-center ">
+                    <i class="fa-solid fa-arrow-left pe-3 text-dark regresar"></i>
+                    <p class="m-0 text-dark regresar">Regresar</p>
                 </a>
             </div>
 
-            <div class="row datos-perfil titulo bloque">
-                <div class="col-lg-6">
-                    <div class="row my-1">
-                        <span class="my-1">NOMBRES</span>
-                        <p>Claudia Libertad</p>
-                    </div>
+            <div class="row datos-perfil justify-content-center">
+                <div class="titulo bloque py-lg-4 py-3">
+                    <div class="col-lg-12">
+                        <div class="row my-1">
+                            <span class="my-1">NOMBRES</span>
+                            <p>Claudia Libertad</p>
+                        </div>
 
-                    <div class="row my-1">
-                        <span class="my-1">CORREO ELECTRÓNICO</span>
-                        <p>claudialibertad05@gmail.com</p>
+                        <div class="row my-1">
+                            <span class="my-1">APELLIDOS</span>
+                            <p>Pérez Alvela</p>
+                        </div>
+    
+                        <div class="row my-1">
+                            <span class="my-1">CORREO ELECTRÓNICO</span>
+                            <p>claudialibertad05@gmail.com</p>
+                        </div>
+    
+                        <div class="row my-1">
+                            <span class="my-1">DNI</span>
+                            <p>71256365</p>
+                        </div>
+    
+                        <div class="row my-1">
+                            <span class="my-1">GÉNERO</span>
+                            <p>Femenino</p>    
+                        </div>
+    
+                        <div class="row my-1">
+                            <span class="my-1">FECHA DE NACIMIENTO</span>
+                            <p>21/05/2005</p>
+                        </div>
+    
+                        <div class="row my-1">
+                            <span class="my-1">CELULAR</span>
+                            <p>987 654 321</p>    
+                        </div>
                     </div>
-
-                    <div class="row my-1">
-                        <span class="my-1">DNI</span>
-                        <p>71256365</p>
+    
+                    <div class="col-lg-12 boton-editar">
+                        <button class="botones py-1" onclick="location.href='Perfil_editar.html'">Editar</button>
                     </div>
-
-                    <div class="row my-1">
-                        <span class="my-1">GÉNERO</span>
-                        <p>Femenino</p>    
-                    </div>
-                </div>
-                
-                <div class="col-lg-6">
-                    <div class="row my-1">
-                        <span class="my-1">APELLIDOS</span>
-                        <p>Pérez Alvela</p>
-                    </div>
-
-                    <div class="row my-1">
-                        <span class="my-1">FECHA DE NACIMIENTO</span>
-                        <p>21/05/2005</p>
-                    </div>
-
-                    <div class="row my-1">
-                        <span class="my-1">CELULAR</span>
-                        <p>987 654 321</p>    
-                    </div>
-                </div>
-
-                <div class="col-lg-12">
-                    <button class="botones" onclick="location.href='Perfil_editar.html'">Editar</button>
                 </div>
             </div>
         </div>

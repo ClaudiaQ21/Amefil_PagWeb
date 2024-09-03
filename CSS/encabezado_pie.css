@@ -8,7 +8,7 @@ body{
 } 
 
 /*Barra*/
-
+ 
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -75,7 +75,6 @@ body{
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    margin-right: 0.8rem;
 }
 
 .boton-icono:hover{
@@ -229,7 +228,7 @@ footer .redes-sociales{
 
 @media (max-width:767px){
     #amefil{
-        max-width: 120px;
+        max-width: 100px;
     }
 
     header .icono{
@@ -253,6 +252,7 @@ footer .redes-sociales{
     }
 }
 
+/*Tamaño tableta*/
 @media (min-width:768px) and (max-width:991px){
     #amefil{
         max-width: 40%;
@@ -272,6 +272,10 @@ footer .redes-sociales{
 
     .unete h5{
         font-size: 1.5rem;
+    }
+
+    .unete{
+        margin: 0;
     }
 
     .unirse{

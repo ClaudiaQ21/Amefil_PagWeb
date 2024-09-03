@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amefil</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/Perfil_editar.css">
     <link rel="stylesheet" href="css/encabezado_pie.css">
+    <link rel="stylesheet" href="CSS/Estandar_perfil.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -19,20 +20,19 @@
     </div> 
 
     <main class="row m-0 p-0">
-        <div class="contenedor_info">
+        <div class="contenedor py-lg-5 py-md-4 py-4">
             <div class="row">
-                <div class="col-lg-1 d-flex align-items-center justify-content-end">
-                    <i class="fa-regular fa-user icono-nav-perfil"></i>
+                <div class="col-lg-4 col-6 d-flex align-items-center justify-content-end">
+                    <i class="fa-regular fa-user icono-nav-perfil col-lg-2 col-3"></i>
+                    <div class="d-flex align-items-center text-center icono-nav-perfil col-lg-10 col-9">
+                        ¡Bienvenido!
+                    </div>
                 </div>
 
-                <div class="col-lg-3 d-flex align-items-center text-center icono-nav-perfil">
-                    ¡Bienvenido!
-                </div>
-
-                <div class="col-lg-8 nav-perfil">
-                    <ul class="nav  justify-content-evenly">
+                <div class="col-lg-8 d-lg-block d-md-none d-none nav-perfil">
+                    <ul class="nav justify-content-evenly">
                         <li class="nav-item">
-                            <a href="Perfil.html" class="nav-link text-light">Perfil</a>
+                            <a href="Perfil.html" class="nav-link text-light">Datos Personales</a>
                         </li>
                         <li class="nav-item">
                             <a href="Direccion_lista.html" class="nav-link text-light">Direcciones</a>
@@ -45,88 +45,170 @@
                         </li>
                     </ul>
                 </div>
-            </div>
 
-            <div class="row d-flex py-4 volver-inicio">
-                <a href="index.html" class="d-flex align-items-center ">
-                    <i class="fa-solid fa-arrow-left pe-3 text-dark"></i>
-                    <p class="m-0 text-dark">Volver al inicio</p>
-                </a>
-            </div>
-
-            <div class="row titulo bloque">
-                <div class="row mt-0 pt-0 g-4 justify-content-center">
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <label class="form-label">Nombre*</label>
-                        <input type="text" class="form-control" id="lab">
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <label class="form-label">Apellidos*</label>
-                        <input type="text" class="form-control" id="lab">
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <label class="form-label">Departamento</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>--Seleccione su departamento--</option>
-                            <option value="1">Cajamarca</option>
-                            <option value="2">Lambayeque</option>
-                            <option value="3">Tumbres</option>
-                        </select>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <label class="form-label">Distrito</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>--Seleccione su distrito--</option>
-                        </select>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <label class="form-label">DNI</label>
-                        <input type="text" class="form-control" id="lab">
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-between">
-                        <div class="d-block">
-                            <label class="form-label">Día</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option value="1">21</option>
-                            </select>
-                        </div>
-                        <div class="d-block">
-                            <label class="form-label">Mes</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option value="1">05</option>
-                            </select>
-                        </div>
-                        <div class="d-block">
-                            <label class="form-label">Año</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option value="1">2005</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <label class="form-label">Género</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>--Seleccione su género--</option>
-                            <option value="1">Femenino</option>
-                            <option value="2">Masculino</option>
-                        </select>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <label class="form-label">Celular</label>
-                        <input type="text" class="form-control" id="lab">
+                <div class="d-lg-none d-md-block d-block col-6 text-end">
+                    <div class="btn-group">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> Menú
+                        </button>
+                        <ul class="dropdown-menu">
+                            
+                        </ul>
                     </div>
 
                 </div>
-        
-                <div class="col-lg-12 my-3">
-                    <button class="botones" onclick="location.href='Perfil.html'">Guardar datos</button>
+            </div>
+
+            <div class="row d-flex py-4 volver-inicio">
+                <a href="Perfil.html" class="d-flex align-items-center ">
+                    <i class="fa-solid fa-arrow-left pe-3 text-dark regresar"></i>
+                    <p class="m-0 text-dark regresar">Regresar</p>
+                </a>
+            </div>
+
+            <div class="row justify-content-center bloque-info">
+                <div class="titulo bloque py-lg-4 py-md-4 pt-0 pb-4">
+                    <div class="row mt-0 pt-0 g-4 justify-content-center">
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <label class="form-label">Nombre *</label>
+                            <input type="text" class="form-control datos" id="nombres">
+                        </div>
+    
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <label class="form-label">Apellidos *</label>
+                            <input type="text" class="form-control datos" id="apellidos">
+                        </div>
+    
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <label class="form-label">Departamento</label>
+                            <select class="form-select datos" aria-label="Default select example">
+                                <option selected>--Seleccione su departamento--</option>
+                                <option value="1">Cajamarca</option>
+                                <option value="2">Lambayeque</option>
+                                <option value="3">Tumbes</option>
+                                <option value="4">Moquegua</option>
+                                <option value="5">Arequipa</option>
+                                <option value="6">Iquitos</option>
+                            </select>
+                        </div>
+    
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <label class="form-label">Distrito</label>
+                            <select class="form-select datos" aria-label="Default select example">
+                                <option selected>--Seleccione su distrito--</option>
+                            </select>
+                        </div>
+    
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <label class="form-label">DNI</label>
+                            <input type="text" class="form-control datos" class="lab" id="dni">
+                        </div>
+    
+                        <div class="col-lg-12 col-md-12 col-12 d-flex justify-content-between">
+                            <div class="d-block">
+                                <label class="form-label">Día</label>
+                                <select class="form-select datos" aria-label="Default select example">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                            </div>
+                            <div class="d-block">
+                                <label class="form-label">Mes</label>
+                                <select class="form-select datos" aria-label="Default select example">
+                                    <option value="1">Enero</option>
+                                    <option value="2">Febrero</option>
+                                    <option value="3">Marzo</option>
+                                    <option value="4">Abril</option>
+                                    <option value="5">Mayo</option>
+                                    <option value="6">Junio</option>
+                                    <option value="7">Julio</option>
+                                    <option value="8">Agosto</option>
+                                    <option value="9">Septiempre</option>
+                                    <option value="10">Octubre</option>
+                                    <option value="11">Noviembre</option>
+                                    <option value="12">Diciembre</option>
+                                </select>
+                            </div>
+                            <div class="d-block">
+                                <label class="form-label">Año</label>
+                                <select class="form-select datos" aria-label="Default select example">
+                                    <option value="1">2024</option>
+                                    <option value="2">2023</option>
+                                    <option value="3">2022</option>
+                                    <option value="4">2021</option>
+                                    <option value="5">2020</option>
+                                    <option value="6">2019</option>
+                                    <option value="7">2018</option>
+                                    <option value="8">2017</option>
+                                    <option value="9">2016</option>
+                                    <option value="10">2015</option>
+                                    <option value="11">2014</option>
+                                    <option value="12">2013</option>
+                                    <option value="13">2012</option>
+                                    <option value="14">2011</option>
+                                    <option value="15">2010</option>
+                                    <option value="16">2009</option>
+                                    <option value="17">2008</option>
+                                    <option value="18">2007</option>
+                                    <option value="19">2006</option>
+                                    <option value="20">2005</option>
+                                    <option value="21">2004</option>
+                                    <option value="22">2003</option>
+                                    <option value="23">2002</option>
+                                    <option value="24">2001</option>
+                                    <option value="25">2000</option>
+                                </select>
+                            </div>
+                        </div>
+    
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <label class="form-label">Género</label>
+                            <select class="form-select datos" aria-label="Default select example">
+                                <option selected>--Seleccione su género--</option>
+                                <option value="1">Femenino</option>
+                                <option value="2">Masculino</option>
+                                <option value="3">Prefiero no decirlo</option>
+                            </select>
+                        </div>
+    
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <label class="form-label">Celular</label>
+                            <input type="text" class="form-control datos" id="celular">
+                        </div>
+    
+                    </div>
+            
+                    <div class="col-lg-12 boton-guardar mt-4">
+                        <button class="botones py-1" onclick="location.href='Perfil.html'">Guardar datos</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -137,9 +219,8 @@
     </div>
 
     <script src="JS/header_footer.js"></script>
-
-<script src="js/index.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
