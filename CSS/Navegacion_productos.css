@@ -23,17 +23,15 @@
  
 .filtros .fil{
     margin-bottom: 1em;
-    font-size: 100%;
 }
 
 .fil input, .fil legend{
     margin-top: 1em;
-    font-size: 100%;
+    size: 6rem;
 }
 
 .fil legend{
     color: rgb(158, 134, 94);
-    font-size: 1.1rem;
     font-weight: 500;
 }
 
@@ -71,14 +69,13 @@ input[type="checkbox"]:checked {
     margin-bottom: 10px;
 }
 
-.pag_btn, .pag_btn a button{
+.pag_btn, .pag_btn button{
     border-radius: 50%;
 }
 
-.pag_btn a button{
-    width: 150%;
-    height: 100%;
-    padding: 10px;
+.pag_btn, .pag_btn button{
+    width: 3rem;
+    height: 3rem;
     text-align: center;
     font-size: 100%;
     background-color: rgb(158, 134, 94);
