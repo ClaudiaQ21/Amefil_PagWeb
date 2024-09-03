@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amefil</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/encabezado_pie.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="CSS/LibroReclamo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="img/icono_claro.svg">
+</head>
+<body>
+    <div id="header" class="sticky-top">    </div>
+
+    <main class="container">
+        <div class="row titulo">
+            <div class="col py-4">
+                <h1>Libro de Reclamaciones</h1>
+            </div>
+        </div>
+        <div class="row slogan">
+            <div class="col py-md-4 d-flex justify-content-center">
+                
+            </div>
+            <div class="col-md-8 col-12 py-4 d-flex align-items-center">
+                <p>
+                    En nuestro Libro de Reclamaciones, tu opinión es esencial. Estamos aquí para escuchar y resolver cualquier inquietud que puedas tener. Tu satisfacción es nuestra prioridad, y nos comprometemos a brindarte una respuesta rápida y efectiva.
+                </p>
+            </div>
+            <div class="col py-md-4 d-flex justify-content-center">
+                
+            </div>
+        </div>
+        <div class="row libro">
+            <div class="col-12">
+                <img src="img/libro.jpg" alt="made_in_peru" class="img-fluid w-100">
+            </div>
+        </div>
+        <div class="row titulo">
+            <div class="col py-4">
+                <h1>Formulario de Reclamo</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center formulario">
+            <div class="col-12 col-sm-8 col-md-6 col-lg-5 my-5">
+                <div class="card" id="fondo">
+                    <div class="card-body py-0">
+                        <h3 class="card-title">Datos</h3>
+                        <form>
+                            <div class="form-group">
+                                <label for="nombres">Nombres</label>
+                                <input type="text" class="form-control datos" id="nombres" placeholder="Ingrese sus nombres">
+                            </div>
+                            <div class="form-group">
+                                <label for="apellidos">Apellidos</label>
+                                <input type="text" class="form-control datos" id="apellidos" placeholder="Ingrese sus apellidos">
+                            </div>
+                            <div class="form-group">
+                                <label for="dni">DNI</label>
+                                <input type="text" class="form-control datos" id="dni" placeholder="Ingrese su número de DNI">
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Número de Teléfono</label>
+                                <input type="text" class="form-control datos" id="telefono" placeholder="Ingrese su número de teléfono">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo electrónico</label>
+                                <input type="email" class="form-control datos" id="email" placeholder="Ingrese su correo electrónico">
+                            </div>
+                            <div class="form-group">
+                                <label for="edad">Edad</label>
+                                <input type="number" class="form-control datos" id="edad" placeholder="Ingrese su edad">
+                            </div>
+                            <div class="form-group">
+                                <label for="detalle">Detalle del Reclamo</label>
+                                <textarea id="detalle" class="form-control datos" placeholder="Ingrese los detalles de su reclamo"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="archivo">Adjuntar Documentos</label>
+                                <input type="file" id="archivo" class="form-control datos form-control-file py-2">
+                            </div>
+                            <br>
+                            <div class="form-group text-center">
+                                <span class="small">Asegúrate de leer los <a href="TyC.html">Términos y Condiciones</a></span>
+                            </div>
+                            <br>
+                            <div class="form-group text-center">
+                                <button type="submit" class="botones">Enviar reclamo</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row titulo">
+            <div class="col py-4">
+                <h1>Consideraciones</h1>
+            </div>
+        </div>
+        <div class="row consideraciones justify-content-center">
+            <div class="col-10 py-4">
+                <p>
+                    RECLAMO: Disconformidad relacionada a los productos o servicios.
+                    <br><br>
+                    QUEJA: Disconformidad no relacionada a los productos o servicios o malestar o descontento respecto a la atención al público.
+                    <br><br>
+                    La formulación del reclamo no impide acudir a otras vías de solución de controversias ni es requisito previo para interponer una denuncia ante el INDECOPI.
+                    <br><br>
+                    El proveedor deberá dar respuesta al reclamo en un plazo no mayor de treinta (30) días calendario, pudiendo ampliar el plazo hasta por treinta (30) días más, previa comunicación al consumidor.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer">   </div>
+
+    <script src="JS/header_footer.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

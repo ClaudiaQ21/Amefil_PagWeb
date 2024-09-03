@@ -8,7 +8,7 @@ body{
 } 
 
 /*Barra*/
-
+ 
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -75,7 +75,6 @@ body{
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    margin-right: 0.8rem;
 }
 
 .boton-icono:hover{
@@ -229,7 +228,7 @@ footer .redes-sociales{
 
 @media (max-width:767px){
     #amefil{
-        max-width: 120px;
+        max-width: 100px;
     }
 
     header .icono{
@@ -237,17 +236,26 @@ footer .redes-sociales{
     }
 
     #logofooter{
-        width: 100px;
+        width: 70px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .unete h5{
+        font-size: 1.2rem;
+
+    }
+
+    .unirse{
+        width: 100%;
+        font-size: 0.7rem;
     }
 }
 
+/*Tamaño tableta*/
 @media (min-width:768px) and (max-width:991px){
     #amefil{
         max-width: 40%;
-    }
-
-    #logofooter{
-        width: 100px;
     }
 
     .ps-10{
@@ -256,6 +264,22 @@ footer .redes-sociales{
 
     footer .info{
         margin-top: 3rem;
+    }    
+    
+    #logofooter{
+        width: 100px;
+    }
+
+    .unete h5{
+        font-size: 1.5rem;
+    }
+
+    .unete{
+        margin: 0;
+    }
+
+    .unirse{
+        width: 80%;
     }
 }
 

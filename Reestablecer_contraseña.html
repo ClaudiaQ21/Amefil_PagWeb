@@ -25,13 +25,13 @@
                         <div class="card-body " id="bloque">
                             <h4 class="card-title text-center">REESTABLECER CONTRASEÑA</h4>
                             <p id="mensaje" >Para restablecer tu contraseña, por favor introduce tu dirección de correo electrónico. Te enviaremos un enlace para que puedas crear una nueva contraseña.</p>
-                            <form>
+                            <form id="signup" class="form">
                                 <div class="form-group">
                                     <label for="email">Correo electrónico</label>
                                     <input type="email" class="form-control" id="email" placeholder="Ingrese su correo electrónico">
+                                    <small></small>
                                 </div>
-                                <br>
-                                <div class="form-group text-center">
+                                <div class="form-group text-center" id="env">
                                     <button type="submit" class="botones" id="but">Enviar correo</button>
                                 </div>
                             </form>
@@ -48,6 +48,7 @@
     </div>
 
     <script src="JS/header_footer.js"></script>
+    <script src="JS/Reestablecer_contraseña.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>

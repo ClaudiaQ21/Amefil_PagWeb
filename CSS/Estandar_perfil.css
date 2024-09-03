@@ -1,6 +1,8 @@
-.contenedor_info{
-    padding: 50px 150px;
+.bloque{
+    background-color: rgb(251, 249, 242);
 }
+
+/*Icono bienvenido*/
 
 .nav-perfil{ 
     background-color: rgb(158, 134, 94);
@@ -9,8 +11,10 @@
 }
 
 .icono-nav-perfil{
-    font-size: 1.2rem;
+    font-size: 0.9rem;
 }
+
+/*Opción volver al inicio*/
 
 .volver-inicio a{
     text-decoration: none;
@@ -20,8 +24,34 @@
     font-weight: bold;
 }
 
-@media (max-width:767px){
-    .contenedor_info{
-        padding: 10px 30px;
+.regresar{
+    font-size: 0.8rem;
+}
+
+/*Cuadro con información*/
+
+.titulo{
+    border-top: 2px solid rgb(158, 134, 94);
+}
+
+/*Tamaño Tableta*/
+@media (min-width:768px) and (max-width:991px){
+    .icono-nav-perfil{
+        font-size: 1rem;
+    }
+
+    .regresar{
+        font-size: 1rem;
+    }
+}
+
+/*Tamaño laptop a más*/
+@media (min-width:992px){
+    .icono-nav-perfil{
+        font-size: 1.2rem;
+    }
+
+    .regresar{
+        font-size: 1.1rem;
     }
 }

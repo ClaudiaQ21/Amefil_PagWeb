@@ -6,22 +6,32 @@
 /*Contenedor de datos*/
 .bloque{
     width: 90%;
-    padding-inline: 10%;
+    padding: 10%;
 }
 
 .datos-perfil span{
     font-weight: 600;
+}
+
+.datos:focus{
+    box-shadow: 0 0 0 2px rgb(158, 134, 94); 
+    border-color: rgb(158, 134, 94);
+}
+
+/*Formulario*/
+.form-label{
     font-size: 0.8rem;
 }
 
-.datos-perfil p{
-    font-size: 0.7rem;
+.datos{
+    height: 1.7rem;
+    font-size: 0.6rem;
 }
 
-.boton-editar{
-    margin-top: 1rem;
-    font-size: 0.7rem;
-    height: 1.9rem;
+.boton-guardar{
+    margin-top: 1.5rem;
+    font-size: 0.6rem;
+    height: 1.7rem;
 }
 
 /*Tamaño Tableta*/
@@ -35,18 +45,13 @@
         padding-inline: 12%;
     }
 
-    .datos-perfil span{
-        font-size: 0.9rem;
+    .form-label{
+        font-size: 1rem;
     }
 
-    .datos-perfil p{
+    .datos{
+        height: 2rem;
         font-size: 0.8rem;
-    }
-
-    .boton-editar{
-        margin-top: 1rem;
-        font-size: 0.8rem;
-        height: 2.2rem;
     }
 }
 
@@ -61,17 +66,22 @@
         padding-inline: 10%;
     }
 
-    .datos-perfil span{
+    .bloque-info{
+        margin-inline: 0px;
+    }
+
+    .form-label{
+        font-size: 1.1rem;
+    }
+
+    .datos{
+        height: 2.5rem;
         font-size: 1rem;
     }
 
-    .datos-perfil p{
+    .boton-guardar{
         font-size: 1rem;
-    }
-
-    .boton-editar{
-        margin-top: 0;
-        font-size: 1rem;
+        margin-top: 2.3rem;
         height: 2.5rem;
     }
 }

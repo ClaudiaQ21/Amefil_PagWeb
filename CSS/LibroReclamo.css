@@ -1,0 +1,92 @@
+.titulo{
+    border-bottom:2px solid rgb(158, 134, 94);
+}
+
+.titulo h1{
+    color: rgb(119, 101, 71);
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+}
+
+.slogan p{
+    text-align: center;
+    margin: 0;
+}
+
+.libro img{
+    border-radius: 20px;
+    max-height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.formulario{
+    background-color: rgb(251, 249, 242);
+    border-radius: 20px;
+}
+
+#fondo{
+    border: 0;
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+#fondo h3{
+    color: rgb(158, 134, 94);
+    font-weight: 500;
+    margin: 0;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom:2px solid rgb(158, 134, 94);
+}
+
+#fondo input{
+    height: 45px;
+    border-radius: 20px;
+    border-color: rgb(158, 134, 94);
+}
+
+#fondo textarea{
+    height: 75px;
+    border-radius: 20px;
+    border-color: rgb(158, 134, 94);
+}
+
+#fondo label{
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-weight: 550;
+}
+
+#fondo span a{
+    text-decoration: none;
+    font-weight: 550;
+    color: rgb(158, 134, 94);
+}
+
+#fondo span a:hover{
+    color: rgb(119, 101, 71);
+    cursor: pointer;
+}
+
+#fondo textarea{
+    resize: none;
+    overflow: auto;
+}
+
+#fondo #archivo{
+    border: 1px solid;
+    height: 100%;
+    border-color: rgb(158, 134, 94);
+}
+
+.datos:focus{
+    box-shadow: 0 0 0 2px rgb(158, 134, 94); 
+}
+
+.consideraciones p{
+    text-align: justify;
+    margin: 0;
+}
