@@ -1,64 +1,75 @@
-//validacion
+
 const emailC = document.querySelector('#email');
 const passwordC = document.querySelector('#password');
-
+const check_box = document.getElementById("term");
 const form = document.querySelector('#signup');
 
-const Req = value => value === '' ? false : true;
+
+function isCheckboxChecked() {
+    return check_box.checked;
+}
+
+
+const Req = value => value.trim() !== '';
+
 
 const email_valido = (email) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(gmail\.com|hotmail\.com)$/;
-
     return re.test(email);
 };
 
+const email_valido_admin = (email) => {
+    const re = /^[^@]+@amefil\.com$/;
+    return re.test(email);
+};
+
+
 const contraseña_valida = (password) => {
-    const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return re.test(password);
 };
 
+
 const showError = (input, message) => {
-    // get the form-field element
     const formField = input.parentElement;
-    // add the error class
     formField.classList.remove('success');
     formField.classList.add('error');
-
-    // show the error message
     const error = formField.querySelector('small');
     error.textContent = message;
 };
 
 const showSuccess = (input) => {
-    // get the form-field element
     const formField = input.parentElement;
-
-    // remove the error class
     formField.classList.remove('error');
     formField.classList.add('success');
-
-    // hide the error message
     const error = formField.querySelector('small');
     error.textContent = '';
-}
+};
 
-const check_email = () => {
+
+const validateEmail = () => {
     let valid = false;
     const email = emailC.value.trim();
+
     if (!Req(email)) {
         showError(emailC, '*Campo obligatorio');
-    } else if (!email_valido(email)) {
-        showError(emailC, 'Debe ingresar un email válido');
+    } else if (isCheckboxChecked() && !email_valido_admin(email)) {
+        showError(emailC, 'Debe ingresar un correo válido para administrador');
+    } else if (!isCheckboxChecked() && !email_valido(email)) {
+        showError(emailC, 'Debe ingresar un correo válido');
     } else {
         showSuccess(emailC);
         valid = true;
     }
+
     return valid;
-}
+};
+
 
 const check_password = () => {
     let valid = false;
     const password = passwordC.value.trim();
+
     if (!Req(password)) {
         showError(passwordC, '*Campo obligatorio');
     } else if (!contraseña_valida(password)) {
@@ -67,60 +78,48 @@ const check_password = () => {
         showSuccess(passwordC);
         valid = true;
     }
+
     return valid;
-}
+};
 
 
 form.addEventListener('submit', function (e) {
-    // prevent the form from submitting
     e.preventDefault();
 
-    // validate forms
-    let 
-        emailValido = check_email(),
+    let emailValido = validateEmail(),
         passwordValido = check_password();
 
-    let isFormValid =
-        emailValido &&
-        passwordValido;
+    let isFormValid = emailValido && passwordValido;
 
-    // submit to the server if the form is valid
     if (isFormValid) {
-
+        
     }
 });
+
 
 const debounce = (fn, delay = 500) => {
     let timeoutId;
     return (...args) => {
-        // cancel the previous timer
         if (timeoutId) {
             clearTimeout(timeoutId);
         }
-        // setup a new timer
         timeoutId = setTimeout(() => {
-            fn.apply(null, args)
+            fn.apply(null, args);
         }, delay);
     };
 };
 
+
 form.addEventListener('input', debounce(function (e) {
     switch (e.target.id) {
-        
+        case 'term':
+            validateEmail();
+            break;
         case 'email':
-            check_email();
+            validateEmail();
             break;
         case 'password':
             check_password();
             break;
     }
 }));
-
-//validacion para admin
-const check_box= document.getElementById("#term");
-function isCheckboxChecked() {
-    return check_box.checked; // Retorna true si está marcado, false si no
-}
-
-
-

@@ -27,7 +27,8 @@ main{
 
 #men{
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+
 }
 #men2{
     margin-top: 30px;
@@ -56,7 +57,9 @@ main{
     color: var(--error-color);
 
 }
-
+#ing{
+    margin-top: 30px;
+}
 label#lab {
     
     text-align: center; /* Centra verticalmente los elementos */
