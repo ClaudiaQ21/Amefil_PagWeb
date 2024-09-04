@@ -10,8 +10,19 @@
     padding: 10px 0;
 }
 
-.icono-nav-perfil{
-    font-size: 0.9rem;
+/*Dropdown menú*/
+.drop-perfil{
+    background-color: rgb(158, 134, 94);
+    color: white;
+}
+
+.drop-perfil:hover{
+    background-color: rgb(119, 101, 71);
+    color: white;
+}
+
+.drop-menu a:hover{
+    background-color: rgb(158, 134, 94);
 }
 
 /*Opción volver al inicio*/
@@ -24,34 +35,9 @@
     font-weight: bold;
 }
 
-.regresar{
-    font-size: 0.8rem;
-}
-
 /*Cuadro con información*/
 
 .titulo{
     border-top: 2px solid rgb(158, 134, 94);
 }
 
-/*Tamaño Tableta*/
-@media (min-width:768px) and (max-width:991px){
-    .icono-nav-perfil{
-        font-size: 1rem;
-    }
-
-    .regresar{
-        font-size: 1rem;
-    }
-}
-
-/*Tamaño laptop a más*/
-@media (min-width:992px){
-    .icono-nav-perfil{
-        font-size: 1.2rem;
-    }
-
-    .regresar{
-        font-size: 1.1rem;
-    }
-}

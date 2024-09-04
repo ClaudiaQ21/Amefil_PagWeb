@@ -1,34 +1,39 @@
-body {
-    font-family: "Montserrat";
-  }
-@font-face {
-    font-family: Montserrat;
-    src: url('recursos/Montserrat-VariableFont_wght.ttf');
+/*Contenedor general*/
+.contenedor{
+    padding-inline: 8%;
 }
 
-#datos_direccion li{
-    list-style: none;
-    margin-bottom: 10px;
+/*Contenedor de datos*/
+.bloque{
+    width: 90%;
+    padding-inline: 0%;
 }
 
-#direcc{
-    margin-left: 7.5%;
-    width: auto;
-    padding-left: 3%;
-    padding-right: 3%;
-} 
-
-#content_direcciones{
+.bloque-direcciones{
     width: 90%;
     margin: auto; 
 }
 
-.booooot{
+/*Boton añadir dirección*/
+#direccion{
+    width: auto;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+/*Información de la dirección*/
+.datos-direccion li{
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.boton-borrar, .boton-editar{
     width: 60%;
     margin: auto;
     height: 45px;
 }
 
+/*Paginacion*/
 #navicito{
     display: flex;
     justify-content: end;
@@ -42,44 +47,26 @@ body {
     color: #000;
 }
 
-/*@media (max-width: 576px) {
-    #barrita .link {
+/*Tamaño Tableta*/
+@media (min-width:768px) and (max-width:991px){
+    .bloque{
+        width: 90%;
+        padding: 12%;
+    }
 
-        flex: 1 1 100%;
-        text-align: center;
-    }
-    #barrita{
-        margin-top: 10%;
-    }
-    #bloque_flecha{
-        margin-top: 15%;
-        padding-left: 30px;
-    }
-    #direcc{
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-    #div_usuario{
-        width: 100%;
-        margin-bottom: 5%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .contenedor{
+        padding-inline: 12%;
     }
 }
 
-@media (min-width: 577px) and (max-width:950px){
-    #div_usuario{
-        width: 100%;
-        margin-bottom: 5%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+/*Tamaño laptop a más*/
+@media (min-width:992px){
+    .bloque{
+        padding: 3%;
+        width: 80%;
     }
-    #barrita{
-        height: 200%;
+
+    .contenedor{
+        padding-inline: 10%;
     }
-    #bloque_flecha{
-        margin-top: 2%;
-    }
-}*/
+}

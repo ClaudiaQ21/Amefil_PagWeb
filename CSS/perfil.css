@@ -11,17 +11,6 @@
 
 .datos-perfil span{
     font-weight: 600;
-    font-size: 0.8rem;
-}
-
-.datos-perfil p{
-    font-size: 0.7rem;
-}
-
-.boton-editar{
-    margin-top: 1rem;
-    font-size: 0.7rem;
-    height: 1.9rem;
 }
 
 /*Tamaño Tableta*/
@@ -34,20 +23,6 @@
     .contenedor{
         padding-inline: 12%;
     }
-
-    .datos-perfil span{
-        font-size: 0.9rem;
-    }
-
-    .datos-perfil p{
-        font-size: 0.8rem;
-    }
-
-    .boton-editar{
-        margin-top: 1rem;
-        font-size: 0.8rem;
-        height: 2.2rem;
-    }
 }
 
 /*Tamaño laptop a más*/
@@ -59,19 +34,5 @@
 
     .contenedor{
         padding-inline: 10%;
-    }
-
-    .datos-perfil span{
-        font-size: 1rem;
-    }
-
-    .datos-perfil p{
-        font-size: 1rem;
-    }
-
-    .boton-editar{
-        margin-top: 0;
-        font-size: 1rem;
-        height: 2.5rem;
     }
 }

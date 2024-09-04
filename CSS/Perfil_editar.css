@@ -12,7 +12,7 @@
 .datos-perfil span{
     font-weight: 600;
 }
-
+    
 .datos:focus{
     box-shadow: 0 0 0 2px rgb(158, 134, 94); 
     border-color: rgb(158, 134, 94);

@@ -82,6 +82,10 @@ body{
     background-color: rgb(158, 134, 94);
 }
 
+.icono-carrito, .icono-perfil{
+    padding-right: 0px;
+}
+
 header .nav-item{
     position: relative;
 }
@@ -250,6 +254,7 @@ footer .redes-sociales{
         width: 100%;
         font-size: 0.7rem;
     }
+
 }
 
 /*Tamaño tableta*/
@@ -281,6 +286,10 @@ footer .redes-sociales{
     .unirse{
         width: 80%;
     }
+
+    .icono-carrito, .icono-perfil{
+        padding-right: 6px;
+    }
 }
 
 @media (min-width:992px){
@@ -299,5 +308,9 @@ footer .redes-sociales{
     footer .info{
         margin-top: 3.3rem;
         margin-bottom: 3.3rem;
+    }
+
+    .icono-carrito, .icono-perfil{
+        padding-right: 6px;
     }
 }
