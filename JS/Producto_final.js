@@ -91,6 +91,7 @@ $(document).ready(function() {
             this.classList.add('far');
         }
     });
+    
 
     $('#mas_carr').click(function() {
         if ($(this).text() === 'Añadir al carrito') {

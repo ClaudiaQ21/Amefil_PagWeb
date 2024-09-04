@@ -43,16 +43,23 @@
                     </div>
                     <div class="fil">
                         <legend>Temporada</legend>
-                        <input type="checkbox" name="temp" id="temp" value="tem_pr"> Primavera <br>
-                        <input type="checkbox" name="temp" id="temp" value="tem_ve"> Verano <br>
-                        <input type="checkbox" name="temp" id="temp" value="tem_oto"> Otoño <br>
-                        <input type="checkbox" name="temp" id="temp" value="tem_in"> Invierno <br>
+                        <input type="checkbox" name="temp" id="temp" value="primavera"> Primavera <br>
+                        <input type="checkbox" name="temp" id="temp" value="verano"> Verano <br>
+                        <input type="checkbox" name="temp" id="temp" value="otoño"> Otoño <br>
+                        <input type="checkbox" name="temp" id="temp" value="invierno"> Invierno <br>
                     </div>
                     <div class="fil">
-                        <legend>Puntuación</legend>
-                        <input type="checkbox" name="punt" id="punt" value="pun_5"> 5 estrellas <br>
-                        <input type="checkbox" name="punt" id="punt" value="pun_4"> 4 a más estrellas <br>
-                        <input type="checkbox" name="punt" id="punt" value="pun_3"> 3 a más estrellas <br>
+                        <legend>Color</legend>
+                        <input type="checkbox" name="color" id="color" value="negro">Negro<br>
+                        <input type="checkbox" name="color" id="color" value="blanco">Blanco<br>
+                        <input type="checkbox" name="color" id="color" value="plateado">Plateado<br>
+                        <input type="checkbox" name="color" id="color" value="crema">Crema<br>
+                        <input type="checkbox" name="color" id="color" value="rosa">Rosa<br>
+                        <input type="checkbox" name="color" id="color" value="rojo">Rojo<br>
+                        <input type="checkbox" name="color" id="color" value="celeste">Celeste<br>
+                        <input type="checkbox" name="color" id="color" value="lila">Lila<br>
+                        <input type="checkbox" name="color" id="color" value="verde">Verde<br>
+                        <input type="checkbox" name="color" id="color" value="marron">Marrón<br>
                     </div>
                 </div>
             </div>
@@ -85,10 +92,10 @@
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                         data-bs-parent="#footerAccordion">
                         <div class="accordion-body">
-                            <input type="checkbox" name="temp" id="temp" value="tem_pr"> Primavera <br>
-                            <input type="checkbox" name="temp" id="temp" value="tem_ve"> Verano <br>
-                            <input type="checkbox" name="temp" id="temp" value="tem_oto"> Otoño <br>
-                            <input type="checkbox" name="temp" id="temp" value="tem_in"> Invierno <br>
+                            <input type="checkbox" name="temp" id="temp" value="primavera"> Primavera <br>
+                            <input type="checkbox" name="temp" id="temp" value="verano"> Verano <br>
+                            <input type="checkbox" name="temp" id="temp" value="otoño"> Otoño <br>
+                            <input type="checkbox" name="temp" id="temp" value="invierno"> Invierno <br>
                         </div>
                     </div>
                 </div>
@@ -97,15 +104,22 @@
                     <h6 class="accordion-header" id="headingThree">
                         <button class="botones collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseThree" aria-controls="collapseThree">
-                            Puntuación <img src="img/img_iconos/flechita.png" class="flechita" alt="">
+                            Color <img src="img/img_iconos/flechita.png" class="flechita" alt="">
                         </button>
                     </h6>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                         data-bs-parent="#footerAccordion">
                         <div class="accordion-body">
-                            <input type="checkbox" name="punt" id="punt" value="pun_5"> 5 estrellas <br>
-                            <input type="checkbox" name="punt" id="punt" value="pun_4"> 4 a más estrellas <br>
-                            <input type="checkbox" name="punt" id="punt" value="pun_3"> 3 a más estrellas <br>
+                            <input type="checkbox" name="color" id="color" value="negro">Negro<br>
+                            <input type="checkbox" name="color" id="color" value="blanco">Blanco<br>
+                            <input type="checkbox" name="color" id="color" value="plateado">Plateado<br>
+                            <input type="checkbox" name="color" id="color" value="crema">Crema<br>
+                            <input type="checkbox" name="color" id="color" value="rosa">Rosa<br>
+                            <input type="checkbox" name="color" id="color" value="rojo">Rojo<br>
+                            <input type="checkbox" name="color" id="color" value="celeste">Celeste<br>
+                            <input type="checkbox" name="color" id="color" value="lila">Lila<br>
+                            <input type="checkbox" name="color" id="color" value="verde">Verde<br>
+                            <input type="checkbox" name="color" id="color" value="marron">Marrón<br>
                         </div>
                     </div>
                 </div>
@@ -114,7 +128,7 @@
             <div class="col-lg-9 col-md-9 col-sm-12 col-12 p-0 m-0">
                 <div id="lista-cursos" class="row container-fluid m-0 p-0 mt-5">
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="32" data-name="Cielo nocturno" data-price="28.00" data-category="aretes">
+                        <div class="cont_pro" data-id="32" data-name="Cielo nocturno" data-price="28.00" data-colecc="aretes" data-temp="invierno" data-color="negro">
                             <img src="img/aretes/aretes-en-aro-negros.jpg" class="card-img-top" alt="Atardecer dorado">
                             <div class="g-2">
                                 <h6>Cielo nocturno</h6>
@@ -127,7 +141,7 @@
                     </div>
                 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="33" data-name="Ramo blanco" data-price="23.00" data-category="aretes">
+                        <div class="cont_pro" data-id="33" data-name="Ramo blanco" data-price="23.00" data-colecc="aretes" data-temp="invierno" data-color="blanco">
                             <img src="img/aretes/aretes-forma-hojas-crema.png" class="card-img-top" alt="...">
                             <div class="g-2">
                                 <h6>Ramo blanco</h6>
@@ -138,7 +152,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="34" data-name="Arena roja" data-price="26.00" data-category="pulseras">
+                        <div class="cont_pro" data-id="34" data-name="Arena roja" data-price="26.00" data-colecc="pulseras" data-temp="verano" data-color="rojo">
                             <img src="img/pulseras/pulsera-roja-dije-arena.webp" class="card-img-top" alt="...">
                             <div class="g-2">
                                 <h6>Arena roja</h6>
@@ -149,7 +163,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="35" data-name="Dije de arena" data-price="24.00" data-category="pulseras">
+                        <div class="cont_pro" data-id="35" data-name="Dije de arena" data-price="24.00" data-colecc="pulseras" data-temp="verano" data-color="crema">
                             <img src="img/pulseras/pulsera-dije-arena.webp" class="card-img-top" alt="...">
                             <div class="g-2">
                                 <h6>Dije de arena</h6>
@@ -160,7 +174,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="36" data-name="Esfera rosa" data-price="25.00" data-category="pulseras">
+                        <div class="cont_pro" data-id="36" data-name="Esfera rosa" data-price="25.00" data-colecc="pulseras" data-temp="primavera" data-color="rosa">
                             <img src="img/pulseras/pulsera-rosa-bolita-plana.webp" class="card-img-top" alt="...">
                             <div class="g-2">
                                 <h6>Esfera rosa</h6>
@@ -171,7 +185,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="37" data-name="Corazones unidos" data-price="28.00" data-category="pulseras">
+                        <div class="cont_pro" data-id="37" data-name="Corazones unidos" data-price="28.00" data-colecc="pulseras" data-temp="primavera" data-color="negro">
                             <img src="img/pulseras/pulsera-corazones-partidos-negra.webp" class="card-img-top"
                                 alt="...">
                             <div class="g-2">
@@ -185,7 +199,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="38" data-name="Bolso pompón" data-price="32.00" data-category="bolsos">
+                        <div class="cont_pro" data-id="38" data-name="Bolso pompón" data-price="32.00" data-colecc="bolsos" data-temp="otoño" data-color="crema">
                             <img src="img/bolsos/bolso-tonos-marrones-pompon.webp" class="card-img-top"
                                 alt="...">
                             <div class="g-2">
@@ -197,7 +211,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="39" data-name="Bolso flamenco" data-price="22.00" data-category="bolsos">
+                        <div class="cont_pro" data-id="39" data-name="Bolso flamenco" data-price="22.00" data-colecc="bolsos" data-temp="primavera" data-color="rosa">
                             <img src="img/bolsos/bolso-aestethic-rosa.webp" class="card-img-top" alt="...">
                             <div class="g-2">
                                 <h6>Bolso flamenco </h6>
@@ -208,7 +222,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="40" data-name="Lila fragante" data-price="25.00" data-category="bolsos">
+                        <div class="cont_pro" data-id="40" data-name="Lila fragante" data-price="25.00" data-colecc="bolsos" data-temp="verano" data-color="negro">
                             <img src="img/bolsos/bolso-floreado-negro.webp" class="card-img-top" alt="...">
                             <div class="g-2">
                                 <h6>Flor oscura</h6>
@@ -218,6 +232,10 @@
                         </div>
                     </div>
 
+                </div>
+
+                <div class="d-flex mx-0 p-0 paginacion justify-content-center">
+                    
                 </div>
 
             </div>
@@ -230,7 +248,7 @@
     <script src="JS/header_footer.js"></script>
     <script src="JS/jquery-3.7.1.slim.min.js"></script>
     <script src="JS/bootstrap.bundle.min.js"></script>
-    <script src="JS/filtros.js"></script>
+    <script src="JS/paginacion_filtro.js"></script>
     <script src="JS/carrito.js"></script>
 </body>
 
