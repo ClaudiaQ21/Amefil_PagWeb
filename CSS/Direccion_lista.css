@@ -28,7 +28,7 @@
 }
 
 .boton-borrar, .boton-editar{
-    width: 60%;
+    width: 80%;
     margin: auto;
     height: 45px;
 }
@@ -51,7 +51,6 @@
 @media (min-width:768px) and (max-width:991px){
     .bloque{
         width: 90%;
-        padding: 12%;
     }
 
     .contenedor{
