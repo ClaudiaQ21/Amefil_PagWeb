@@ -14,6 +14,22 @@ def navegacionproductos():
     productos_con_imagen = controlador_producto.obtener_productos()
     return render_template("Navegacion_productos.html", productos_con_imagen = productos_con_imagen)
 
+@app.route("/contacto")
+def contacto():
+    return render_template('Contacto.html')
+
+@app.route("/sobreNosotros")
+def sobreNosotros():
+    return render_template('Amefil.html')
+
+@app.route("/carrito")
+def carrito():
+    return render_template("carrito.html")
+
+@app.route("/finalizarCompra")
+def carrito():
+    return render_template("Finalizar_compra.html")
+
 # Iniciar el servidor
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000, debug=True)
