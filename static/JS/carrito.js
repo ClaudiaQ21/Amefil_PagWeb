@@ -43,20 +43,20 @@ function renderCart() {
             <td>${product.name}</td>
             <td>S/${product.price.toFixed(2)}</td>
             <td>
-                <button class=" btn-sm botones_increde decrementar-cantidad" data-id="${product.id}">-</button>
-                <span class="cantidad">${product.quantity}</span> <!-- Mostrar la cantidad actual del producto -->
-                <button class=" btn-sm botones_increde incrementar-cantidad" data-id="${product.id}">+</button>
+                <button class="btn-sm botones_increde decrementar-cantidad" data-id="${product.id}">-</button>
+                <span class="cantidad">${product.quantity}</span>
+                <button class="btn-sm botones_increde incrementar-cantidad" data-id="${product.id}">+</button>
             </td>
             <td>S/${(product.price * product.quantity).toFixed(2)}</td>
             <td><button type="button" class="botones_increde borrar-curso" onclick="removeFromCart(${index})" data-id="${product.id}" aria-label="Close">X</button></td>
         `;
         cartContainer.appendChild(cartItem);
 
-        subtotal += product.price * product.quantity; 
+        subtotal += product.price * product.quantity;
     });
-   
+
     subtotalInput.value = subtotal.toFixed(2);
-    totalInput.value = subtotal.toFixed(2); 
+    totalInput.value = subtotal.toFixed(2);
 
     document.querySelectorAll('.incrementar-cantidad').forEach(button => {
         button.addEventListener('click', () => {
@@ -72,6 +72,7 @@ function renderCart() {
         });
     });
 }
+
 function updateQuantity(productId, change) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let product = cart.find(item => item.id === productId);
@@ -80,11 +81,11 @@ function updateQuantity(productId, change) {
         product.quantity += change;
 
         if (product.quantity < 1) {
-            product.quantity = 1; 
+            product.quantity = 1;
         }
 
         localStorage.setItem('cart', JSON.stringify(cart));
-        renderCart(); 
+        renderCart();
     }
 }
 
@@ -104,10 +105,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
 function finalizarCompra() {
-    const total = document.getElementById('total').value; 
-    localStorage.setItem('totalAmount', total); 
+    let carrito = JSON.parse(localStorage.getItem('cart')) || [];
 
-    window.location.href = 'Finalizar_compra.html'; 
+    fetch("/procesar_carrito", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ carrito: carrito })
+    })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = "/gracias";
+            } else {
+                alert("Error al procesar el carrito");
+            }
+        });
 }
