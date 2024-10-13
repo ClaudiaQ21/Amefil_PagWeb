@@ -1,129 +1,130 @@
--- Tabla Ubigeo
-CREATE TABLE Ubigeo (
-    id_ubigeo INT(10) PRIMARY KEY,
-    departamento VARCHAR(100),
-    provincia VARCHAR(100),
-    distrito VARCHAR(100)
+-- Tabla ubigeo
+CREATE TABLE ubigeo (
+    id_ubigeo INT(10) PRIMARY KEY AUTO_INCREMENT,
+    departamento VARCHAR(100) NOT NULL,
+    provincia VARCHAR(100) NOT NULL,
+    distrito VARCHAR(100) NOT NULL,
+    UNIQUE(departamento, provincia, distrito)  -- Restricción UNIQUE
 );
 
--- Tabla Direccion
-CREATE TABLE Direccion (
-    id_direccion INT(10) PRIMARY KEY,
-    detalle VARCHAR(250),
-    id_ubigeo INT(10),
-    FOREIGN KEY (id_ubigeo) REFERENCES Ubigeo(id_ubigeo)
+-- Tabla direccion
+CREATE TABLE direccion (
+    id_direccion INT(10) PRIMARY KEY AUTO_INCREMENT,
+    detalle VARCHAR(250) NOT NULL,
+    id_ubigeo INT(10) NOT NULL,
+    FOREIGN KEY (id_ubigeo) REFERENCES ubigeo(id_ubigeo)
 );
 
--- Tabla Tipo_Usuario
-CREATE TABLE Tipo_Usuario (
-    id_tipo INT(10) PRIMARY KEY,
-    nombre VARCHAR(100)
+-- Tabla tipo_usuario
+CREATE TABLE tipo_usuario (
+    id_tipo INT(10) PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL UNIQUE  -- Restricción UNIQUE
 );
 
--- Tabla Usuario
-CREATE TABLE Usuario (
-    id_usuario INT(10) PRIMARY KEY,
-    nombre VARCHAR(150),
-    apellido_p VARCHAR(150),
-    apellido_m VARCHAR(150),
-    correo VARCHAR(300),
-    contrasena VARCHAR(25),
-    telefono CHAR(9),
-    genero TINYINT(2),  -- Usamos tinyint como boolean
-    nacimiento DATE,
-    id_tipo INT(10),
-    id_direccion INT(10),
-    FOREIGN KEY (id_tipo) REFERENCES Tipo_Usuario(id_tipo),
-    FOREIGN KEY (id_direccion) REFERENCES Direccion(id_direccion)
+-- Tabla usuario
+CREATE TABLE usuario (
+    id_usuario INT(10) PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(150) NOT NULL,
+    apellido_p VARCHAR(150) NOT NULL,
+    apellido_m VARCHAR(150) NOT NULL,
+    correo VARCHAR(300) NOT NULL UNIQUE,  -- Restricción UNIQUE
+    contrasena VARCHAR(25) NOT NULL,
+    telefono CHAR(9) NOT NULL UNIQUE,  -- Restricción UNIQUE
+    genero BOOLEAN,  -- Cambiado a BOOLEAN
+    nacimiento DATE NOT NULL,
+    id_tipo INT(10) NOT NULL,
+    id_direccion INT(10) NOT NULL,
+    FOREIGN KEY (id_tipo) REFERENCES tipo_usuario(id_tipo),
+    FOREIGN KEY (id_direccion) REFERENCES direccion(id_direccion)
 );
 
--- Tabla Color
-CREATE TABLE Color (
-    id_color INT(10) PRIMARY KEY,
-    nombre VARCHAR(50)
+-- Tabla color
+CREATE TABLE color (
+    id_color INT(10) PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL UNIQUE  -- Restricción UNIQUE
 );
 
--- Tabla Temporada
-CREATE TABLE Temporada (
-    id_temporada INT(10) PRIMARY KEY,
-    nombre VARCHAR(50)
+-- Tabla temporada
+CREATE TABLE temporada (
+    id_temporada INT(10) PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL UNIQUE  -- Restricción UNIQUE
 );
 
--- Tabla Talla
-CREATE TABLE Talla (
-    id_talla INT(10) PRIMARY KEY,
-    nombre VARCHAR(5),
-    minimo FLOAT,
-    maximo FLOAT
+-- Tabla talla
+CREATE TABLE talla (
+    id_talla INT(10) PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(5) NOT NULL UNIQUE,  -- Restricción UNIQUE
+    minimo FLOAT NOT NULL,
+    maximo FLOAT NOT NULL
 );
 
--- Tabla Tipo_Producto
-CREATE TABLE Tipo_Producto (
-    id_tipo INT(10) PRIMARY KEY,
-    nombre VARCHAR(50)
+-- Tabla tipo_producto
+CREATE TABLE tipo_producto (
+    id_tipo INT(10) PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(50) NOT NULL UNIQUE  -- Restricción UNIQUE
 );
 
--- Tabla Producto
-CREATE TABLE Producto (
-    id_producto INT(10) PRIMARY KEY,
-    nombre VARCHAR(100),
-    precio FLOAT,
-    vigencia TINYINT(3),  -- Usamos tinyint como boolean
-    stock INT(10),
+-- Tabla producto
+CREATE TABLE producto (
+    id_producto INT(10) PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL,
+    precio FLOAT NOT NULL,
+    vigencia BOOLEAN NOT NULL,  -- Cambiado a BOOLEAN
+    stock INT(10) NOT NULL,
     descripcion VARCHAR(300),
-    id_color INT(10),
-    id_temporada INT(10),
-    id_tipo INT(10),
-    id_talla INT(10),
+    id_color INT(10) NOT NULL,
+    id_temporada INT(10) NOT NULL,
+    id_tipo INT(10) NOT NULL,
+    id_talla INT(10) NOT NULL,
     imagen LONGBLOB,
-    FOREIGN KEY (id_color) REFERENCES Color(id_color),
-    FOREIGN KEY (id_temporada) REFERENCES Temporada(id_temporada),
-    FOREIGN KEY (id_tipo) REFERENCES Tipo_Producto(id_tipo),
-    FOREIGN KEY (id_talla) REFERENCES Talla(id_talla)
+    FOREIGN KEY (id_color) REFERENCES color(id_color),
+    FOREIGN KEY (id_temporada) REFERENCES temporada(id_temporada),
+    FOREIGN KEY (id_tipo) REFERENCES tipo_producto(id_tipo),
+    FOREIGN KEY (id_talla) REFERENCES talla(id_talla)
 );
 
--- Tabla Descuento
-CREATE TABLE Descuento (
-    id_descuento INT(10) PRIMARY KEY,
-    tasa FLOAT,
-    fecha_inicio DATE,
-    fecha_fin DATE,
-    vigencia TINYINT(3)  -- Usamos tinyint como boolean
+-- Tabla descuento
+CREATE TABLE descuento (
+    id_descuento INT(10) PRIMARY KEY AUTO_INCREMENT,
+    tasa FLOAT NOT NULL,
+    fecha_inicio DATE NOT NULL,
+    fecha_fin DATE NOT NULL,
+    vigencia BOOLEAN NOT NULL  -- Cambiado a BOOLEAN
 );
 
--- Tabla Detalle_Descuento (Many-to-Many entre Producto y Descuento)
-CREATE TABLE Detalle_Descuento (
-    id_producto INT(10),
-    id_descuento INT(10),
+-- Tabla detalle_descuento (Many-to-Many entre producto y descuento)
+CREATE TABLE detalle_descuento (
+    id_producto INT(10) NOT NULL,
+    id_descuento INT(10) NOT NULL,
     PRIMARY KEY (id_producto, id_descuento),
-    FOREIGN KEY (id_producto) REFERENCES Producto(id_producto),
-    FOREIGN KEY (id_descuento) REFERENCES Descuento(id_descuento)
+    FOREIGN KEY (id_producto) REFERENCES producto(id_producto),
+    FOREIGN KEY (id_descuento) REFERENCES descuento(id_descuento)
 );
 
--- Tabla Pedido_Cesta
-CREATE TABLE Pedido_Cesta (
-    id_pedido INT(10) PRIMARY KEY,
-    id_usuario INT(10),
-    fecha_registro DATE,
-    FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario)
+-- Tabla pedido_cesta
+CREATE TABLE pedido_cesta (
+    id_pedido INT(10) PRIMARY KEY AUTO_INCREMENT,
+    id_usuario INT(10) NOT NULL,
+    fecha_registro DATE NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
 );
 
--- Tabla Detalle_Cesta
-CREATE TABLE Detalle_Cesta (
-    id_detalle INT(10) PRIMARY KEY,
-    cantidad INT(10),
-    total FLOAT,
-    id_producto INT(10),
-    id_pedido INT(10),
-    FOREIGN KEY (id_producto) REFERENCES Producto(id_producto),
-    FOREIGN KEY (id_pedido) REFERENCES Pedido_Cesta(id_pedido)
+-- Tabla detalle_cesta
+CREATE TABLE detalle_cesta (
+    id_detalle INT(10) PRIMARY KEY AUTO_INCREMENT,
+    cantidad INT(10) NOT NULL,
+    total FLOAT NOT NULL,
+    id_producto INT(10) NOT NULL,
+    id_pedido INT(10) NOT NULL,
+    FOREIGN KEY (id_producto) REFERENCES producto(id_producto),
+    FOREIGN KEY (id_pedido) REFERENCES pedido_cesta(id_pedido)
 );
 
--- Tabla Favoritos (Many-to-Many entre Usuario y Producto)
-CREATE TABLE Favoritos (
-    id_usuario INT(10),
-    id_producto INT(10),
+-- Tabla favoritos (Many-to-Many entre usuario y producto)
+CREATE TABLE favoritos (
+    id_usuario INT(10) NOT NULL,
+    id_producto INT(10) NOT NULL,
     PRIMARY KEY (id_usuario, id_producto),
-    FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
-    FOREIGN KEY (id_producto) REFERENCES Producto(id_producto)
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
+    FOREIGN KEY (id_producto) REFERENCES producto(id_producto)
 );
