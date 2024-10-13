@@ -1,244 +1,199 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "maestra.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="CSS/Finalizar_compra.css">
-    <link rel="stylesheet" href="css/encabezado_pie.css">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="CSS/Navegacion_productos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
-    <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
-    <title>Finalizar Compra</title>
-</head>
+{% block titulo %}
+Finalizar Compra
+{% endblock %}
 
-<body>
-    <div id="header">
+{% block estilos_adicionales %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/Finalizar_compra.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/encabezado_pie.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/Navegacion_productos.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
 
+{% block contenido %}
+<div id="header"></div>
+
+<div class="row nues_produc m-0">
+    <div class="col-12">
+        <h3 class="text-center py-4">FINALIZAR COMPRA</h3>
     </div>
-    <div class="row nues_produc m-0">
-        <div class="col-12">
-            <h3 class="text-center py-4">FINALIZAR COMPRA</h3>
+</div>
+
+<main class="container">
+    <form id="miFormulario">
+        <div id="con" class="row g-10">
+            <nav id="central" class="col-lg-8 col-md-12 col-sm-12">
+                <div class="accordion" id="accordionExample">
+                    <!-- INGRESA TUS DATOS -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                INGRESA TUS DATOS
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div id="dats" class="container text-start">
+                                    <div class="row g-3">
+                                        <!-- Campos de datos personales -->
+                                        <div class="col-lg-6 col-md-6 col-sm-12 form-field">
+                                            <label for="nombre" class="form-label">Nombre completo:</label>
+                                            <input type="text" id="nombre" class="form-control" required>
+                                            <small></small>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
+                                            <input type="date" id="fechaNacimiento" class="form-control" required>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12 form-field">
+                                            <label for="dni" class="form-label">Documento de identidad:</label>
+                                            <input type="text" id="dni" class="form-control" required>
+                                            <small></small>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12 form-field">
+                                            <label for="telefono" class="form-label">Teléfono/móvil:</label>
+                                            <input type="tel" id="telefono" class="form-control" required>
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COMPLETA TU DIRECCIÓN DE ENVÍO -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                COMPLETA TU DIRECCIÓN DE ENVÍO
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div id="dats" class="container text-start">
+                                    <div class="row g-3">
+                                        <!-- Campos de dirección -->
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <label for="departamento" class="form-label">Departamento:</label>
+                                            <select id="departamento" class="form-control" required>
+                                                <option value="">Seleccionar</option>
+                                                <option value="Lima">Lima</option>
+                                                <option value="Arequipa">Arequipa</option>
+                                                <option value="Cusco">Cusco</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <label for="provincia" class="form-label">Provincia:</label>
+                                            <select id="provincia" class="form-control" required>
+                                                <option value="">Seleccionar</option>
+                                                <option value="Lima">Lima</option>
+                                                <option value="Cusco">Cusco</option>
+                                                <option value="Arequipa">Arequipa</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <label for="distrito" class="form-label">Distrito:</label>
+                                            <select id="distrito" class="form-control" required>
+                                                <option value="">Seleccionar</option>
+                                                <option value="Miraflores">Miraflores</option>
+                                                <option value="Santiago">Santiago</option>
+                                                <option value="Yanahuara">Yanahuara</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12 form-field">
+                                            <label for="direccion" class="form-label">Dirección:</label>
+                                            <input type="text" id="direccion" class="form-control" required>
+                                            <small></small>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12 form-field">
+                                            <label for="referencia" class="form-label">Referencia:</label>
+                                            <input type="text" id="referencia" class="form-control">
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- INGRESA LOS DATOS DE SU TARJETA -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                INGRESA LOS DATOS DE SU TARJETA
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div id="dats" class="container text-start">
+                                    <div class="row g-3">
+                                        <!-- Campos de tarjeta -->
+                                        <div class="col-lg-12 col-md-6 col-sm-12 form-field">
+                                            <label for="tarjeta" class="form-label">
+                                                Número de la tarjeta:
+                                                <img src="{{ url_for('static', filename='img/visa.png') }}" alt="Visa"
+                                                    style="width: 30px; margin-left: 5px;">
+                                                <img src="{{ url_for('static', filename='img/master.png') }}"
+                                                    alt="MasterCard" style="width: 30px; margin-left: 5px;">
+                                                <img src="{{ url_for('static', filename='img/amex.png') }}" alt="Amex"
+                                                    style="width: 30px; margin-left: 5px;">
+                                            </label>
+                                            <input type="text" id="tarjeta" class="form-control" required>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-sm-12 form-field">
+                                            <label for="titular" class="form-label">Titular de la tarjeta:</label>
+                                            <input type="text" id="titular" class="form-control" required>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-sm-12 form-field">
+                                            <label for="codigo" class="form-label">Código de seguridad:</label>
+                                            <input type="text" id="codigo" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Resumen de compra -->
+            <section class="col-lg-4 col-md-12 col-sm-12 mt-5">
+                <div class="container text-start">
+                    <div class="row g-4 justify-content-center">
+                        <div class="col-lg-10 col-md-10 col-sm-12">
+                            <label class="form-label">Precio envío:</label>
+                            <input id="precioEnvio" class="form-control" type="text" readonly>
+                        </div>
+
+                        <div class="col-lg-10 col-md-10 col-sm-12">
+                            <label class="form-label">Total a pagar:</label>
+                            <input id="totalPagar" class="form-control" type="text" readonly>
+                        </div>
+
+                        <div class="col-lg-10 col-md-10 col-sm-12">
+                            <button id="btn_pagar" type="submit" class="btn btn-success btn-lg w-100">PAGAR</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-    </div>
+    </form>
+</main>
 
-    <main class="container">
-        <form id="miFormulario">
-            <div id="con" class="row g-10">
-                <nav id="central" class="col-lg-8 col-md-12 col-sm-12">
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    INGRESA TUS DATOS
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <div id="dats" class="container text-start">
-                                        <div class="row g-3">
-                                            <div class="col-lg-6 col-md-6 col-sm-12 form-field">
-                                                <label for="nombre" class="form-label">Nombre completo:</label>
-                                                <input type="text" id="nombre" class="form-control" required>
-                                                <small></small>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <label for="fechaNacimiento" class="form-label">Fecha de
-                                                    Nacimiento:</label>
-                                                <input type="date" id="fechaNacimiento" class="form-control" required>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12 form-field">
-                                                <label for="dni" class="form-label">Documento de identidad:</label>
-                                                <input type="text" id="dni" class="form-control" required>
-                                                <small></small>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12 form-field">
-                                                <label for="telefono" class="form-label">Teléfono/móvil:</label>
-                                                <input type="tel" id="telefono" class="form-control" required>
-                                                <small></small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+{% endblock %}
 
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    COMPLETA TU DIRECCIÓN DE ENVÍO
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <div id="dats" class="container text-start">
-                                        <div class="row g-3">
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <label for="departamento" class="form-label">Departamento:</label>
-                                                <select id="departamento" class="form-control" required>
-                                                    <option value="">Seleccionar</option>
-                                                    <option value="Lima">Lima</option>
-                                                    <option value="Arequipa">Arequipa</option>
-                                                    <option value="Cusco">Cusco</option>
-                                                </select>
-                                                <br>
-                                                <label for="provincia" class="form-label">Provincia:</label>
-                                                <select id="provincia" class="form-control" required>
-                                                    <option value="">Seleccionar</option>
-                                                    <option value="Lima">Lima</option>
-                                                    <option value="Cusco">Cusco</option>
-                                                    <option value="Arequipa">Arequipa</option>
-                                                </select>
-                                                <br>
-                                                <label for="distrito" class="form-label">Distrito:</label>
-                                                <select id="distrito" class="form-control" required>
-                                                    <option value="">Seleccionar</option>
-                                                    <option value="Miraflores">Miraflores</option>
-                                                    <option value="Santiago">Santiago</option>
-                                                    <option value="Yanahuara">Yanahuara</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12">
-                                                <div class="form-field">
-                                                    <label for="direccion" class="form-label">Dirección:</label>
-                                                    <input type="text" id="direccion" class="form-control" required>
-                                                    <small></small>
-                                                </div>
-                                                <div class="form-field">
-                                                    <label for="referencia" class="form-label">Referencia:</label>
-                                                    <input type="text" id="referencia" class="form-control">
-                                                    <small></small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    INGRESE LOS DATOS DE SU TARJETA
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <div id="dats" class="container text-start">
-                                        <div class="row g-3">
-                                            <div class="col-lg-12 col-md-6 col-sm-12 form-field">
-                                                <label for="tarjeta" class="form-label">
-                                                    Número de la tarjeta:
-                                                    <img src="img/visa.png" alt="Visa"
-                                                        style="width: 30px; margin-left: 5px;">
-                                                    <img src="img/master.png" alt="MasterCard"
-                                                        style="width: 30px; margin-left: 5px;">
-                                                    <img src="img/amex.png" alt="American Express"
-                                                        style="width: 30px; margin-left: 5px;">
-                                                    <img src="img/paypal.png" alt="Paypal"
-                                                        style="width: 30px; margin-left: 5px;">
-                                                    <img src="img/discover.png" alt="Discover"
-                                                        style="width: 30px; margin-left: 5px;">
-                                                </label>
-                                                <input type="text" id="tarjeta" class="form-control" required>
-                                                <small></small>
-                                            </div>
-
-                                            <div class="col-lg-6 col-md-6 col-sm-12 form-field">
-                                                <label for="titular" class="form-label">Titular de la tarjeta:</label>
-                                                <input type="text" id="titular" class="form-control" required>
-                                                <small></small>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12 form-field">
-                                                <label for="codigo" class="form-label">Código de seguridad:</label>
-                                                <input type="text" id="codigo" class="form-control" required>
-                                                <small></small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-
-                <section class="col-lg-4 col-md-12 col-sm-12 mt-5">
-                    <div class="container text-start">
-                        <div class="row g-4 justify-content-center">
-                            <div class="col-lg-10 col-md-10 col-sm-12">
-                                <label class="form-label">Precio envío:</label>
-                                <input type="text" class="form-control" id="precioEnvio" readonly>
-                            </div>
-                            <div class="col-lg-10 col-md-10 col-sm-12">
-                                <label class="form-label">Total a pagar:</label>
-                                <input type="text" class="form-control" id="totalInput" readonly>
-                            </div>
-                            <br>
-                            <div class="col-lg-7 col-md-7 col-sm-12">
-                                <button class="botones agregar-carrito" type="button" data-bs-toggle="modal"
-                                    data-bs-target="#compraModal">Pagar</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </form>
-    </main>
-
-
-
-    <div id="footer">
-
-    </div>
-
-
-    <div class="modal fade" id="compraModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel" style="color: rgb(40, 34, 24);">Compra registrada
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="d-flex align-items-center">
-                        <img src="img/logotipo_oro.svg" alt="Logo"
-                            style="width: 40%; height: 45px; margin-right: 20px;">
-                        <div>
-                            <p id="pagoExitoso">PAGO EXITOSO <br>
-                                ¡GRACIAS POR SU COMPRA!
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="aceptarBtn" class="btn btn-primary" data-bs-dismiss="modal"
-                        style="background-color: rgb(158, 134, 94);border-color: rgb(158, 134, 94);">Aceptar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="JS/bootstrap.bundle.min.js"></script>
-    <script src="JS/header_footer.js"></script>
-    <script src="JS/jquery-3.7.1.slim.min.js"></script>
-    <script src="JS/finalizar_comp.js"></script>
-
-
-
-</body>
-
-</html>
+{% block scripts_adicionales %}
+<script src="{{ url_for('static', filename='JS/Finalizar_compra.js') }}"></script>
+{% endblock %}

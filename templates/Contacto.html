@@ -1,100 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amefil</title>
-    <link rel="stylesheet" href="CSS/bootstrap.min.css">
-    <link rel="stylesheet" href="CSS/encabezado_pie.css">
-    <link rel="stylesheet" href="CSS/estilos.css">
-    <link rel="stylesheet" href="CSS/Contacto.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="img/icono_claro.svg">
-</head>
-<body>
-    <div id="header" class="sticky-top">    </div>
+{% extends "maestra.html" %}
 
-    <main class="container">
-        <div class="row titulo">
-            <div class="col py-4">
-                <h1>Contacto</h1>
-            </div>
-        </div>
-        <div class="row slogan">
-            <div class="col py-md-4 d-flex justify-content-center">
-                <img src="img/icono_oro.svg" alt="amefil_oro" class="d-none d-md-block">
-            </div>
-            <div class="col-md-7 col-12 py-4 d-flex align-items-center">
-                <p>Conecta con el Hilo del Alma, estamos aquí para escucharte y ayudarte a descubrir el alma detrás de cada creación. Contáctanos y déjanos ser parte de tu historia.</p>
-            </div>
-            <div class="col py-md-4 d-flex justify-content-center">
-                <img src="img/icono_oro.svg" alt="amefil_oro" class="d-none d-md-block">
-            </div>
-        </div>
-        <div class="row oficina">
-            <div class="col-12">
-                <img src="img/oficina.jpg" alt="made_in_peru" class="img-fluid w-100">
-            </div>
-        </div>
-        <div class="row titulo">
-            <div class="col py-4">
-                <h1>Nuestra Oficina</h1>
-            </div>
-        </div>
-        <div class="row direccion">
-            <div class="col"></div>
-            <div class="col-md-8 col-12 py-4">
-                <p>Te invitamos a visitar nuestro acogedor taller ubicado en <b>Calle Tejeduría 123, Ciudad Chiclayo, Perú.</b> Aquí es donde nacen cada uno de nuestros accesorios tejidos con amor y cuidado. ¡Estamos emocionados de recibirte y compartir nuestra pasión por la artesanía contigo!</p>
-            </div>
-            <div class="col"></div>
-            <div class="col-12">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15848.310975258846!2d-79.87333327531813!3d-6.760374650773932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904ceeeffd190ddd%3A0xce387ae6229aa09e!2sUSAT!5e0!3m2!1ses-419!2spe!4v1725254506396!5m2!1ses-419!2spe" width="960" height="360" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-        </div>
-        <div class="row titulo">
-            <div class="col py-4">
-                <h1>Redes Sociales</h1>
-            </div>
-        </div>
-        <div class="row redes">
-            <div class="col-12 col-md-6 py-4 elemento">
-                <i class="fa-brands fa-facebook-f"></i>
-                <h3>Facebook</h3>
-                <p>@AmefilHiloDelAlma</p>
-            </div>
-            <div class="col-12 col-md-6 py-4 elemento">
-                <i class="fa-brands fa-instagram"></i>
-                <h3>Instagram</h3>
-                <p>@Amefil_HiloDelAlma</p>
-            </div>
-            <div class="col-12 col-md-6 py-4 elemento">
-                <i class="fa-solid fa-envelope"></i>
-                <h3>Email</h3>
-                <p>amefilonline@gmail.com</p>
-            </div>
-            <div class="col-12 col-md-6 py-4 elemento">
-                <i class="fa-brands fa-whatsapp"></i>
-                <h3>WhatsApp</h3>
-                <p>+51 987 963 214</p>
-            </div>
-        </div>
-        <div class="row frase justify-content-center">
-            <div class="col">
+{% block titulo %}
+Contacto
+{% endblock %}
 
-            </div>
-            <div class="col-9 col-md-7 py-5">
-                <img src="img/frase_online.svg" alt="frase_online" class="d-none d-md-block">
-                <img src="img/frase_twoline.svg" alt="frase_twoline" class="d-md-none d-block">
-            </div>
-            <div class="col">
+{% block estilos_adicionales %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/Contacto.css') }}">
+{% endblock %}
 
-            </div>
+{% block contenido %}
+<div class="container">
+    <div class="row titulo">
+        <div class="col py-4">
+            <h1>Contacto</h1>
         </div>
-    </main>
-
-    <div id="footer">    </div>
-
-    <script src="JS/header_footer.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    </div>
+    <div class="row slogan">
+        <div class="col py-md-4 d-flex justify-content-center">
+            <img src="{{ url_for('static', filename='img/icono_oro.svg') }}" alt="amefil_oro" class="d-none d-md-block">
+        </div>
+        <div class="col-md-7 col-12 py-4 d-flex align-items-center">
+            <p>Conecta con el Hilo del Alma, estamos aquí para escucharte y ayudarte a descubrir el alma detrás de
+                cada creación. Contáctanos y déjanos ser parte de tu historia.</p>
+        </div>
+        <div class="col py-md-4 d-flex justify-content-center">
+            <img src="{{ url_for('static', filename='img/icono_oro.svg') }}" alt="amefil_oro" class="d-none d-md-block">
+        </div>
+    </div>
+    <div class="row oficina">
+        <div class="col-12">
+            <img src="{{ url_for('static', filename='img/oficina.jpg') }}" alt="made_in_peru" class="img-fluid w-100">
+        </div>
+    </div>
+    <div class="row titulo">
+        <div class="col py-4">
+            <h1>Nuestra Oficina</h1>
+        </div>
+    </div>
+    <div class="row direccion">
+        <div class="col"></div>
+        <div class="col-md-8 col-12 py-4">
+            <p>Te invitamos a visitar nuestro acogedor taller ubicado en <b>Calle Tejeduría 123, Ciudad Chiclayo,
+                    Perú.</b> Aquí es donde nacen cada uno de nuestros accesorios tejidos con amor y cuidado.
+                ¡Estamos emocionados de recibirte y compartir nuestra pasión por la artesanía contigo!</p>
+        </div>
+        <div class="col"></div>
+        <div class="col-12">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15848.310975258846!2d-79.87333327531813!3d-6.760374650773932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904ceeeffd190ddd%3A0xce387ae6229aa09e!2sUSAT!5e0!3m2!1ses-419!2spe!4v1725254506396!5m2!1ses-419!2spe"
+                width="960" height="360" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    <div class="row titulo">
+        <div class="col py-4">
+            <h1>Redes Sociales</h1>
+        </div>
+    </div>
+    <div class="row redes">
+        <div class="col-12 col-md-6 py-4 elemento">
+            <i class="fa-brands fa-facebook-f"></i>
+            <h3>Facebook</h3>
+            <p>@AmefilHiloDelAlma</p>
+        </div>
+        <div class="col-12 col-md-6 py-4 elemento">
+            <i class="fa-brands fa-instagram"></i>
+            <h3>Instagram</h3>
+            <p>@Amefil_HiloDelAlma</p>
+        </div>
+        <div class="col-12 col-md-6 py-4 elemento">
+            <i class="fa-solid fa-envelope"></i>
+            <h3>Email</h3>
+            <p>amefilonline@gmail.com</p>
+        </div>
+        <div class="col-12 col-md-6 py-4 elemento">
+            <i class="fa-brands fa-whatsapp"></i>
+            <h3>WhatsApp</h3>
+            <p>+51 987 963 214</p>
+        </div>
+    </div>
+    <div class="row frase justify-content-center">
+        <div class="col"></div>
+        <div class="col-9 col-md-7 py-5">
+            <img src="{{ url_for('static', filename='img/frase_online.svg') }}" alt="frase_online"
+                class="d-none d-md-block">
+            <img src="{{ url_for('static', filename='img/frase_twoline.svg') }}" alt="frase_twoline"
+                class="d-md-none d-block">
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
