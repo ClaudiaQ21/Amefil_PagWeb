@@ -53,7 +53,7 @@
 
         <div class="row menu m-0 p-0">
             <div class="col-lg-3 d-flex text-center justify-content-center align-items-center col-md-6 col-sm-4 col-4 order-2 order-lg-1 order-md-1 order-sm-2">
-                <a href="index.html"><img src="{{ url_for('static', filename='img/logotipo_oro.svg') }}" class="log1" id="amefil"></a>
+                <a href="{{url_for('amefil')}}"><img src="{{ url_for('static', filename='img/logotipo_oro.svg') }}" class="log1" id="amefil"></a>
             </div>
 
             <div class="navegacion col-lg-6 col-md-12 col-sm-4 col-4 order-1 order-lg-2 order-md-3 order-sm-1 py-2">
@@ -77,27 +77,27 @@
                         <div class="offcanvas-body justify-content-center">
                             <ul class="navbar-nav">
                                 <li class="nav-item mx-3">
-                                    <a class="nav-link" href="Menu_novedades.html">NOVEDADES</a>
+                                    <a class="nav-link" href="{{url_for('novedades')}}">NOVEDADES</a>
                                 </li>
                                 <li class="nav-item mx-3">
                                     <a class="nav-link" data-bs-toggle="dropdown" aria-expanded="false" href="#">COLECCIONES</a>
                                     <div class="buscar">
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="Coleccion_collares.html">Collares</a></li>
-                                            <li><a class="dropdown-item" href="Coleccion_pulseras.html">Pulseras</a></li>
-                                            <li><a class="dropdown-item" href="Coleccion_aretes.html">Aretes</a></li>
-                                            <li><a class="dropdown-item" href="Coleccion_bolsos.html">Bolsos</a></li>
+                                            <li><a class="dropdown-item" href="{{url_for('colecciones')}}">Collares</a></li>
+                                            <li><a class="dropdown-item" href="{{url_for('colecciones')}}">Pulseras</a></li>
+                                            <li><a class="dropdown-item" href="{{url_for('colecciones')}}">Aretes</a></li>
+                                            <li><a class="dropdown-item" href="{{url_for('colecciones')}}">Bolsos</a></li>
                                         </ul>
                                     </div>
                                 </li>
                                 <li class="nav-item mx-3">
-                                    <a class="nav-link" href="Menu_crea.html">¡CREA!</a>
+                                    <a class="nav-link" href="{{url_for('crea')}}">¡CREA!</a>
                                 </li>
                                 <li class="nav-item mx-3">
-                                    <a class="nav-link" href="Menu_descuentos.html">DESCUENTOS</a>
+                                    <a class="nav-link" href="{{url_for('descuentos')}}">DESCUENTOS</a>
                                 </li>
                                 <li class="nav-item mx-3">
-                                    <a class="nav-link" href="Contacto.html">CONTACTO</a>
+                                    <a class="nav-link" href="{{url_for('contacto')}}">CONTACTO</a>
                                 </li>
                             </ul>
                         </div>
@@ -116,22 +116,21 @@
                         </div>
                     </div>
                 </div>
-                <button class="boton-icono icono-carrito" onclick="location.href='carrito.html'"><i class="fa-solid fa-bag-shopping"></i></button>
+                <a class="btn boton-icono icono-carrito" href="{{url_for('carrito')}}"><i class="fa-solid fa-bag-shopping"></i></a>
                 <div class="buscar">
                     <button class="boton-icono icono-perfil" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-user icono"></i>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="Iniciar_sesion.html">Iniciar sesión</a></li>
-                        <li><a class="dropdown-item" href="Registro_usuario.html">Registrarse</a></li>
-                        <li><a class="dropdown-item" href="Perfil.html">Perfil</a></li>
+                        <li><a class="dropdown-item" href="{{url_for('iniciarsesion')}}">Iniciar sesión</a></li>
+                        <li><a class="dropdown-item" href="{{url_for('registrar')}}">Registrarse</a></li>
+                        <li><a class="dropdown-item" href="{{url_for('perfil')}}">Perfil</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Contenido dinámico -->
     <main>
         {% block contenido %}{% endblock %}
     </main>
@@ -142,12 +141,12 @@
             <div class="col-lg-3 col-md-4 info conocenos ps-10">
                 <h5 class="mb-4">Conócenos</h5>
                 <ul>
-                    <li class="my-2"><a href="Amefil.html" class="info-light">Amefil</a></li>
-                    <li class="my-2"><a href="Contacto.html" class="info-light">Contacto</a></li>
-                    <li class="my-2"><a href="Registro_usuario.html" class="info-light">Únete</a></li>
-                    <li class="my-2"><a href="TyC.html" class="info-light">Términos y condiciones</a></li>
-                    <li class="my-2"><a href="PoliticaPrivacidad.html" class="info-light">Política de privacidad</a></li>
-                    <li class="my-2"><a href="PoliticaCookies.html" class="info-light">Política de cookies</a></li>
+                    <li class="my-2"><a href="{{url_for('sobrenosotros')}}" class="info-light">Amefil</a></li>
+                    <li class="my-2"><a href="{{url_for('contacto')}}" class="info-light">Contacto</a></li>
+                    <li class="my-2"><a href="{{url_for('registrar')}}" class="info-light">Únete</a></li>
+                    <li class="my-2"><a href="{{url_for('terminosycondiciones')}}" class="info-light">Términos y condiciones</a></li>
+                    <li class="my-2"><a href="{{url_for('politicaprivacidad')}}" class="info-light">Política de privacidad</a></li>
+                    <li class="my-2"><a href="{{url_for('politicacookies')}}" class="info-light">Política de cookies</a></li>
                 </ul>
             </div>
     
@@ -162,9 +161,9 @@
             <div class="col-lg-3 col-md-4 info soporte ps-10">
                 <h5 class="mb-4">Soporte</h5>
                 <ul>
-                    <li class="my-2"><a href="LibroReclamo.html">Libro de Reclamaciones</a></li>
-                    <li class="my-2"><a href="FormasPago.html">Formas de pago</a></li>
-                    <li class="my-2"><a href="TallaPulseras.html">Guía de tallas</a></li>
+                    <li class="my-2"><a href="{{url_for('librodereclamaciones')}}">Libro de Reclamaciones</a></li>
+                    <li class="my-2"><a href="{{url_for('formasdepago')}}">Formas de pago</a></li>
+                    <li class="my-2"><a href="{{url_for('tallaspulseras')}}">Guía de tallas</a></li>
                 </ul>
             </div>
     

@@ -1,23 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "maestra.html" %}
+{% block titulo%}
+Novedades
+{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amefil</title>
-    <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
-    <link rel="stylesheet" href="CSS/bootstrap.min.css">
-    <link rel="stylesheet" href="CSS/Navegacion_productos.css">
-    <link rel="stylesheet" href="CSS/encabezado_pie.css">
-    <link rel="stylesheet" href="CSS/estilos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+{% block estilos_adicionales %} 
+<link rel="stylesheet" href="{{url_for('static', filename='CSS/Navegacion_productos.css')}}">
+{% endblock %}
 
-<body>
-    <div id="header" class="sticky-top">
-
-    </div>
-
+{% block contenido %}
     <main>
         <div class="row nues_produc m-0">
             <div class="col-12">
@@ -240,16 +230,10 @@
 
             </div>
         </div>
-    </main>
 
-    <div id="footer">
-
-    </div>
     <script src="JS/header_footer.js"></script>
     <script src="JS/jquery-3.7.1.slim.min.js"></script>
     <script src="JS/bootstrap.bundle.min.js"></script>
     <script src="JS/paginacion_filtro.js"></script>
     <script src="JS/carrito.js"></script>
-</body>
-
-</html>
+{% endblock %}

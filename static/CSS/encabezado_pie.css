@@ -310,7 +310,12 @@ footer .redes-sociales{
         margin-bottom: 3.3rem;
     }
 
-    .icono-carrito, .icono-perfil{
+    .icono-carrito{
+        padding-right: 13px;
+        padding-top: 8px;
+    }
+
+    .icono-perfil{
         padding-right: 6px;
     }
 }

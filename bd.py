@@ -2,9 +2,6 @@ import pymysql
 from dotenv import load_dotenv
 import os
 
-with open('.env') as f:
-    print(f.read())
-
 # Cargar las variables de entorno desde el archivo .env
 load_dotenv(dotenv_path='.env')
 

@@ -42,7 +42,7 @@ Amefil
     <!-- TARJETA DE PRODUCTOS -->
     <div class="row productos py-5 ps-lg-5 m-0"> 
         <div class="row mb-5 text-center justify-content-center">
-            <h3 class="m-0 text-center titulop"><a href="Navegacion_productos.html">NUESTROS PRODUCTOS</a></h3>
+            <h3 class="m-0 text-center titulop"><a href="{{url_for('navegacionproductos')}}">NUESTROS PRODUCTOS</a></h3>
         </div>
 
         <div class="contenedor_producto d-flex">
@@ -50,43 +50,37 @@ Amefil
             <div class="producto">
                 <div class="card p-0" style="width: 18rem;">
                     <img src="{{ url_for('static', filename='img/collares/descarga (5).webp') }}" class="rounded" alt="...">
-                    <button class="botones btn-oculto" onclick="location.href='Navegacion_productos.html'">Ver producto</button>
+                    <a class="btn botones btn-oculto" href="{{ url_for('navegacionproductos') }}">Ver producto</a>
                 </div>
 
                 <div class="card p-0" style="width: 18rem;">
                     <img src="{{ url_for('static', filename='img/pulseras/pulsera-corazon-lleno-negra.webp') }}" class="rounded" alt="...">
-                    <button class="botones btn-oculto" onclick="location.href='Navegacion_productos.html'">Ver producto</button>
+                    <a class="btn botones btn-oculto" href="{{ url_for('navegacionproductos') }}">Ver producto</a>
                 </div>
 
                 <div class="card p-0" style="width: 18rem;">
                     <img src="{{ url_for('static', filename='img/bolsos/bolso-tonos-marrones-pompon.webp') }}" class="rounded" alt="...">
-                    <button class="botones btn-oculto" onclick="location.href='Navegacion_productos.html'">Ver producto</button>
-                </div>
+                    <a class="btn botones btn-oculto" href="{{ url_for('navegacionproductos') }}">Ver producto</a>                </div>
 
                 <div class="card p-0" style="width: 18rem;">
                     <img src="{{ url_for('static', filename='img/pulseras/pulsera-lila-bolitas.webp') }}" class="rounded" alt="...">
-                    <button class="botones btn-oculto" onclick="location.href='Navegacion_productos.html'">Ver producto</button>
-                </div>
+                    <a class="btn botones btn-oculto" href="{{ url_for('navegacionproductos') }}">Ver producto</a>                </div>
 
                 <div class="card p-0" style="width: 18rem;">
                     <img src="{{ url_for('static', filename='img/collares/descarga (2).webp') }}" class="rounded" alt="...">
-                    <button class="botones btn-oculto" onclick="location.href='Navegacion_productos.html'">Ver producto</button>
-                </div>
+                    <a class="btn botones btn-oculto" href="{{ url_for('navegacionproductos') }}">Ver producto</a>                </div>
 
                 <div class="card p-0" style="width: 18rem;">
                     <img src="{{ url_for('static', filename='img/pulseras/pulsera-dije-arena.webp') }}" class="rounded" alt="...">
-                    <button class="botones btn-oculto" onclick="location.href='Navegacion_productos.html'">Ver producto</button>
-                </div>
+                    <a class="btn botones btn-oculto" href="{{ url_for('navegacionproductos') }}">Ver producto</a>                </div>
 
                 <div class="card p-0" style="width: 18rem;">
                     <img src="{{ url_for('static', filename='img/collares/descarga (6).webp') }}" class="rounded" alt="...">
-                    <button class="botones btn-oculto" onclick="location.href='Navegacion_productos.html'">Ver producto</button>
-                </div>
+                    <a class="btn botones btn-oculto" href="{{ url_for('navegacionproductos') }}">Ver producto</a>                </div>
 
                 <div class="card p-0" style="width: 18rem;">
                     <img src="{{ url_for('static', filename='img/pulseras/pulsera-roja-dije-arena.webp') }}" class="rounded" alt="...">
-                    <button class="botones btn-oculto" onclick="location.href='Navegacion_productos.html'">Ver producto</button>
-                </div>
+                    <a class="btn botones btn-oculto" href="{{ url_for('navegacionproductos') }}">Ver producto</a>                </div>
             </div>
 
         </div>
@@ -96,7 +90,7 @@ Amefil
     <div class="row m-0 p-0">
         <div class="row m-0 p-0">
             <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                <a href="Coleccion_collares.html">
+                <a href="{{ url_for('colecciones') }}">
                     <div class="coleccion-texto">
                         <img src="{{ url_for('static', filename='img/collar.jpg') }}" alt="coleccionCollares" class="img-fluid imagen-sombreada">
                         <div class="texto-colecciones">COLLARES</div>
@@ -104,7 +98,7 @@ Amefil
                 </a>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                <a href="Coleccion_pulseras.html">
+                <a href="{{ url_for('colecciones') }}">
                     <div class="coleccion-texto">
                         <img src="{{ url_for('static', filename='img/pulsera.jpg') }}" alt="coleccionpulseras" class="img-fluid imagen-sombreada">
                         <div class="texto-colecciones">PULSERAS</div>
@@ -115,7 +109,7 @@ Amefil
 
         <div class="row m-0 p-0">
             <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                <a href="Coleccion_bolsos.html">
+                <a href="{{ url_for('colecciones') }}">
                     <div class="coleccion-texto">
                         <img src="{{ url_for('static', filename='img/bolso.jpg') }}" alt="coleccionBolsos" class="img-fluid imagen-sombreada">
                         <div class="texto-colecciones">BOLSOS</div>
@@ -123,7 +117,7 @@ Amefil
                 </a>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                <a href="Coleccion_aretes.html">
+                <a href="{{ url_for('colecciones') }}">
                     <div class="coleccion-texto">
                         <img src="{{ url_for('static', filename='img/arete.jpg') }}" alt="coleccionesAretes" class="img-fluid imagen-sombreada">
                         <div class="texto-colecciones">ARETES</div>
@@ -154,8 +148,8 @@ Amefil
     </div>
 </main>
 
-<script src="js/index.js"></script>
-<script src="JS/header_footer.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
 {% endblock %}
