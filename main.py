@@ -27,7 +27,7 @@ def carrito():
     return render_template("carrito.html")
 
 @app.route("/finalizarCompra")
-def carrito():
+def carrito_finalizar():
     return render_template("Finalizar_compra.html")
 
 # Iniciar el servidor
