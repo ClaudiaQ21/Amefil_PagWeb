@@ -5,99 +5,51 @@
 {% endblock %}
 
 {% block contenidoPerfil %}
-    <main class="row m-0 p-0">
-        <div class="contenedor py-lg-5 py-md-4 py-4">
-            <div class="row justify-content-center">       
-                <div class="titulo bloque py-lg-4 py-md-4 pt-0 pb-4">
-                    <div class="row">
-                        <div class="col-12 mt-lg-0 mt-4 text-lg-start text-center">
-                            <button class="botones" id="direccion" onclick="location.href='Direccion_nueva.html'">Añadir dirección</button>
-                        </div>
-                    </div>
-                
-                    <div class="bloque-direcciones row g-4 d-flex justify-content-center pb-lg-5">
-                        <div class="col-lg-6 col-md-12 col-12">
-                            <div class="card h-100 p-4">
-                                <div class="card-body datos-direccion">
-                                    <li><strong>País:</strong><br class="d-block d-sm-block d-lg-none"> Perú</li>
-                                    <li><strong>Departamento:</strong><br class="d-block d-sm-block d-lg-none"> Lambayeque</li>
-                                    <li><strong>Provinvia:</strong><br class="d-block d-sm-block d-lg-none"> Chiclayo</li>
-                                    <li><strong>Distrito:</strong><br class="d-block d-sm-block d-lg-none"> Chiclayo</li>
-                                    <li><strong>Calle:</strong><br class="d-block d-sm-block d-lg-none"> Av. José Leonardo Ortiz</li>
-                                    <li><strong>Información adicional:</strong><br class="d-block d-sm-block d-lg-none"> Casa de 3 pisos junto a un parque</li>
-                                </div>
-                                
-                                <button class="botones my-2 boton-editar" onclick="location.href='Direccion_editar.html'">Editar</button>
-                                <button class="botones boton-borrar mt-lg-2">Borrar dirección</button>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-12">
-                            <div class="card h-100 p-4">
-                                <div class="card-body datos-direccion">
-                                    <li><strong>País:</strong><br class="d-block d-sm-block d-lg-none"> Perú</li>
-                                    <li><strong>Departamento:</strong><br class="d-block d-sm-block d-lg-none"> Tacna</li>
-                                    <li><strong>Provinvia:</strong><br class="d-block d-sm-block d-lg-none"> Tacna</li>
-                                    <li><strong>Distrito:</strong><br class="d-block d-sm-block d-lg-none"> Tacna</li>
-                                    <li><strong>Calle:</strong><br class="d-block d-sm-block d-lg-none"> c.Brasil</li>
-                                    <li><strong>Información adicional:</strong><br class="d-block d-sm-block d-lg-none"> Casa de 2 pisos</li>
-            
-                                </div>
-                                <button class="botones my-2 boton-editar" onclick="location.href='Direccion_editar.html'">Editar</button>
-                                <button class="botones boton-borrar mt-lg-2">Borrar dirección</button>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-12">
-                            <div class="card h-100 p-4">
-                                <div class="card-body datos-direccion">
-                                    <li><strong>País:</strong><br class="d-block d-sm-block d-lg-none"> Perú</li>
-                                    <li><strong>Departamento:</strong><br class="d-block d-sm-block d-lg-none"> Lima</li>
-                                    <li><strong>Provinvia:</strong><br class="d-block d-sm-block d-lg-none"> Barranca</li>
-                                    <li><strong>Distrito:</strong><br class="d-block d-sm-block d-lg-none"> Barranca</li>
-                                    <li> <strong>Calle:</strong><br class="d-block d-sm-block d-lg-none"> Ricardo Palma</li>
-                                    <li> <strong>N° de Calle:</strong><br class="d-block d-sm-block d-lg-none"> 180</li>
-                                    <li> <strong>Información adicional:</strong><br class="d-block d-sm-block d-lg-none"> Casa de 3 pisos junto a un parque</li>
-                                </div>
-                                <button class="botones my-2 boton-editar" onclick="location.href='Direccion_editar.html'">Editar</button>
-                                <button class="botones boton-borrar mt-lg-2">Borrar dirección</button>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-12">
-                            <div class="card h-100 p-4">
-                                <div class="card-body datos-direccion">
-                                    <li><strong>País:</strong><br class="d-block d-sm-block d-lg-none"> Perú</li>
-                                    <li><strong>Departamento:</strong><br class="d-block d-sm-block d-lg-none"> Lambayeque</li>
-                                    <li><strong>Provinvia:</strong><br class="d-block d-sm-block d-lg-none"> Chiclayo</li>
-                                    <li><strong>Distrito:</strong><br class="d-block d-sm-block d-lg-none"> Chiclayo</li>
-                                    <li><strong>Calle:</strong><br class="d-block d-sm-block d-lg-none"> Av. José Leonardo Ortiz</li>
-                                    <li><strong>Información adicional:</strong><br class="d-block d-sm-block d-lg-none"> Casa de 3 pisos junto a un parque</li>
-                                </div>
-                                <button class="botones my-2 boton-editar" onclick="location.href='Direccion_editar.html'">Editar</button>
-                                <button class="botones boton-borrar mt-lg-2">Borrar dirección</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="row d-flex justify-content-end align-items-end mt-lg-4" id="div_navicito">
-                <nav aria-label="Page navigation example" id="navicito">
-                    <ul class="pagination" >
-                        <li class="page-item" >
-                            <a class="page-link" href="#" aria-label="Previous" id="colorcito">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#" id="colorcito">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#" id="colorcito">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#" id="colorcito">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next" id="colorcito">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+<div class="row datos-perfil justify-content-center">
+    <div class="titulo bloque py-lg-4 py-3">
+        <div class="row d-flex">
+            <div class="col-12 mt-lg-0 mt-4 text-lg-start text-center">
+                <button class="botones" id="direccion" onclick="location.href='Direccion_nueva.html'">Añadir dirección</button>
             </div>
         </div>
-    </main>
+    
+        <div class="row bloque-direcciones d-flex justify-content-center pb-lg-4 pt-lg-4">
+            <div class="col-lg-6 col-md-12 col-12">
+                <div class="card h-100 p-4">
+                    <div class="card-body datos-direccion">
+                        <li><strong>País:</strong><br class="d-block d-sm-block d-lg-none"> Perú</li>
+                        <li><strong>Departamento:</strong><br class="d-block d-sm-block d-lg-none"> Lambayeque</li>
+                        <li><strong>Provinvia:</strong><br class="d-block d-sm-block d-lg-none"> Chiclayo</li>
+                        <li><strong>Distrito:</strong><br class="d-block d-sm-block d-lg-none"> Chiclayo</li>
+                        <li><strong>Calle:</strong><br class="d-block d-sm-block d-lg-none"> Av. José Leonardo Ortiz</li>
+                        <li><strong>Información adicional:</strong><br class="d-block d-sm-block d-lg-none"> Casa de 3 pisos junto a un parque</li>
+                    </div>
+                    
+                    <a class="btn botones my-2 boton-editar" href="{{url_for('editardireccion')}}">Editar</a>
+                    <button class="botones boton-borrar mt-lg-2">Borrar dirección</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row d-flex justify-content-end align-items-end" id="div_navicito">
+            <nav aria-label="Page navigation example" id="navicito">
+                <ul class="pagination" >
+                    <li class="page-item" >
+                        <a class="page-link" href="#" aria-label="Previous" id="colorcito">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#" id="colorcito">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#" id="colorcito">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#" id="colorcito">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next" id="colorcito">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -64,6 +64,17 @@ def perfil():
 def editardatos():
     return render_template("Perfil_editar.html")
 
+# @app.route("/editardatos/<int:id>")
+# def editardatos(id):
+#     usuario = controlador_usuario.obtener_usuario_por_id(id)
+#     return render_template("Perfil_editar.html", usuario=usuario)
+
+# @app.route("/actualizardatosusuario")
+# def actualizarUsuario():
+#     id = request.form["id"]
+#     nombre = request.form["nombre"]
+#     return redirect("/perfil")
+
 ### >>>> DIRECCIONES
 @app.route("/editardireccion")
 def editardireccion():
@@ -168,6 +179,10 @@ def dashboardadmin():
 @app.route("/dashboardmantenedor")
 def dashboardmantenedor():
     return render_template("DashboardMantenedor.html")
+
+@app.route("/productoadmin")
+def productoadmin():
+    return render_template("ProductoLME.html")
 
 # Iniciar el servidor
 if __name__ == "__main__":
