@@ -27,34 +27,25 @@ Amefil
                 <div class="filtros align-items-left text-start">
                     <div class="fil">
                         <legend>Colecciones</legend>
-                        <input type="checkbox" name="colecc" id="colecc" value="pulseras"> Pulseras <br>
-                        <input type="checkbox" name="colecc" id="colecc" value="bolsos"> Bolsos <br>
-                        <input type="checkbox" name="colecc" id="colecc" value="collares"> Collares <br>
-                        <input type="checkbox" name="colecc" id="colecc" value="aretes"> Aretes <br>
+                        {% for tipo_pro in tipo_pro %}
+                            <input type="checkbox" name = "colecc" id="colecc" value="{{tipo_pro[1]}}">{{tipo_pro[1]}}<br>
+                        {% endfor %}
                     </div>
                     <div class="fil">
                         <legend>Temporada</legend>
-                        <input type="checkbox" name="temp" id="temp" value="primavera"> Primavera <br>
-                        <input type="checkbox" name="temp" id="temp" value="verano"> Verano <br>
-                        <input type="checkbox" name="temp" id="temp" value="otoño"> Otoño <br>
-                        <input type="checkbox" name="temp" id="temp" value="invierno"> Invierno <br>
+                        {% for temporada in temporada %}
+                            <input type="checkbox" name = "temp" id="temp" value="{{temporada[1]}}">{{temporada[1]}}<br>
+                        {% endfor %}
                     </div>
                     <div class="fil">
                         <legend>Color</legend>
-                        <input type="checkbox" name="color" id="color" value="negro">Negro<br>
-                        <input type="checkbox" name="color" id="color" value="blanco">Blanco<br>
-                        <input type="checkbox" name="color" id="color" value="plateado">Plateado<br>
-                        <input type="checkbox" name="color" id="color" value="crema">Crema<br>
-                        <input type="checkbox" name="color" id="color" value="rosa">Rosa<br>
-                        <input type="checkbox" name="color" id="color" value="rojo">Rojo<br>
-                        <input type="checkbox" name="color" id="color" value="celeste">Celeste<br>
-                        <input type="checkbox" name="color" id="color" value="lila">Lila<br>
-                        <input type="checkbox" name="color" id="color" value="verde">Verde<br>
-                        <input type="checkbox" name="color" id="color" value="marron">Marrón<br>
+                        {% for color in color %}
+                                <input type="checkbox" name = "color" id="color" value="{{color[1]}}">{{color[1]}}<br>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
-
+    
             <div class="accordion d-md-none col-sm-12 col-12 mt-4" id="footerAccordion">
                 <div class="accordion-item">
                     <h6 class="accordion-header" id="headingOne">
@@ -65,52 +56,43 @@ Amefil
                     </h6>
                     <div id="collapseOne" class="collapse show" data-bs-parent="#footerAccordion">
                         <div class="accordion-body">
-                            <input type="checkbox" name="colecc" id="colecc" value="pulseras"> Pulseras <br>
-                            <input type="checkbox" name="colecc" id="colecc" value="bolsos"> Bolsos <br>
-                            <input type="checkbox" name="colecc" id="colecc" value="collares"> Collares <br>
-                            <input type="checkbox" name="colecc" id="colecc" value="aretes"> Aretes <br>
+                            {% for tipo_pro in tipo_pro %}
+                                <input type="checkbox" name = "colecc" id="colecc" value="{{tipo_pro[1]}}">{{tipo_pro[1]}}<br>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
-
+    
                 <div class="accordion-item">
                     <h6 class="accordion-header" id="headingTwo">
                         <button class="botones collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseTwo" aria-controls="collapseTwo">
-                            Temporada <img src="img/img_iconos/flechita.png" class="flechita" alt="">
+                            Temporadas <img src="img/img_iconos/flechita.png" class="flechita" alt="">
                         </button>
                     </h6>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                         data-bs-parent="#footerAccordion">
                         <div class="accordion-body">
-                            <input type="checkbox" name="temp" id="temp" value="primavera"> Primavera <br>
-                            <input type="checkbox" name="temp" id="temp" value="verano"> Verano <br>
-                            <input type="checkbox" name="temp" id="temp" value="otoño"> Otoño <br>
-                            <input type="checkbox" name="temp" id="temp" value="invierno"> Invierno <br>
+                            {% for temporada in temporada %}
+                                <input type="checkbox" name = "temp" id="temp" value="{{temporada[1]}}">{{temporada[1]}}<br>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
-
+    
                 <div class="accordion-item">
                     <h6 class="accordion-header" id="headingThree">
                         <button class="botones collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseThree" aria-controls="collapseThree">
-                            Color<img src="img/img_iconos/flechita.png" class="flechita" alt="">
+                            Color <img src="img/img_iconos/flechita.png" class="flechita" alt="">
                         </button>
                     </h6>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                         data-bs-parent="#footerAccordion">
                         <div class="accordion-body">
-                            <input type="checkbox" name="color" id="color" value="negro">Negro<br>
-                            <input type="checkbox" name="color" id="color" value="blanco">Blanco<br>
-                            <input type="checkbox" name="color" id="color" value="plateado">Plateado<br>
-                            <input type="checkbox" name="color" id="color" value="crema">Crema<br>
-                            <input type="checkbox" name="color" id="color" value="rosa">Rosa<br>
-                            <input type="checkbox" name="color" id="color" value="rojo">Rojo<br>
-                            <input type="checkbox" name="color" id="color" value="celeste">Celeste<br>
-                            <input type="checkbox" name="color" id="color" value="lila">Lila<br>
-                            <input type="checkbox" name="color" id="color" value="verde">Verde<br>
-                            <input type="checkbox" name="color" id="color" value="marron">Marrón<br>
+                            {% for color in color %}
+                                <input type="checkbox" name = "color" id="color" value="{{color[1]}}">{{color[1]}}<br>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -123,7 +105,7 @@ Amefil
                             
                         {% else %}
                             <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                                <div class="cont_pro" data-id="{{producto[0]}}" data-name="{{producto[1]}}" data-price="{{producto[2]}}" data-colecc="{{producto[3]}}" data-temp="{{producto[4]}}" data-color="marron">
+                                <div class="cont_pro" data-id="{{producto[0]}}" data-name="{{producto[1]}}" data-price="{{producto[2]}}" data-colecc="{{producto[7]}}" data-temp="{{producto[9]}}" data-color="{{producto[8]}}">
                                     <div class="desc">
                                         <h6>{{ (producto[10]|float * 100)|round(2) }}%</h6>
                                     </div>
@@ -150,10 +132,9 @@ Amefil
             </div>
         </div>
     </main>
-
-    <script src="JS/header_footer.js"></script>
-    <script src="JS/jquery-3.7.1.slim.min.js"></script>
-    <script src="JS/bootstrap.bundle.min.js"></script>
-    <script src="JS/paginacion_filtro.js"></script>
-    <script src="JS/carrito.js"></script>
+    
+<script src="{{ url_for('static', filename='JS/jquery-3.7.1.slim.min.js') }}"></script>
+<script src="{{ url_for('static', filename='JS/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='JS/paginacion_filtro.js') }}"></script>
+<script src="{{ url_for('static', filename='JS/carrito.js') }}"></script>
 {% endblock %}

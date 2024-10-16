@@ -125,7 +125,7 @@ Amefil
                                     <h6>{{producto[1]}}</h6>
                                     <div class="precio">
                                         <p class="ant">S/{{producto[2]}}</p>
-                                        <p>S/25.2</p>
+                                        <p>S/{{(producto[2]-producto[2]*producto[10])|round(2) }}</p>
                                     </div>
                                     <button class="botones agregar-carrito">Añadir al carrito</button>
                                 </div>
