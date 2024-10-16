@@ -1,0 +1,22 @@
+{% extends "maestra.html" %}
+{% block titulo %}
+Amefil
+{% endblock %}
+
+{% block estilos_adicionales %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/Dashboard.css') }}">
+{% endblock %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row titulo">
+        <div class="col py-4">
+            <h1>Contacto</h1>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+
+{% endblock %}
