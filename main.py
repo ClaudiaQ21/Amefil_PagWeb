@@ -136,6 +136,16 @@ def formasdepago():
 def tallaspulseras():
     return render_template("TallaPulseras.html")
 
+
+###ADMIN
+@app.route("/dashboardadmin")
+def dashboardadmin():
+    return render_template("DashboardAdmin.html")
+
+@app.route("/dashboardmantenedor")
+def dashboardmantenedor():
+    return render_template("DashboardMantenedor.html")
+
 # Iniciar el servidor
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000, debug=True)
