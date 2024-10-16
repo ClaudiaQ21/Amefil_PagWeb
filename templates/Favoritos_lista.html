@@ -1,243 +1,171 @@
-<html lang="es">
+{% extends "maestraPerfil.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="CSS/favoritos.css">
-    <link rel="stylesheet" href="CSS/Estandar_perfil.css">
-    <link rel="stylesheet" href="CSS/Lista_favoritos.css">
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
-    <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
-    <link rel="stylesheet" href="css/encabezado_pie.css">
-    <title>Favoritos</title>
-</head>
+{% block estilosPerfil %}
+    <link rel="stylesheet" href="{{url_for('static', filename = 'CSS/favoritos.css')}}">
+    <link rel="stylesheet" href="'{{url_for('static', filename = 'CSS/Lista_favoritos.css')}}'">
+{% endblock %}
 
-<body>
-    <div id="header">
- 
-    </div>
+{% block contenidoPerfil %}
+    <div class="row row-cols-1 row-cols-md-2 g-5 d-flex justify-content-between">
 
-    <section class="container-fluid m-0 p-0" style="border: 1px solid;">
-        <div class="contenedor_info">
+        <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
+            <div class="card border-0 h-100">
+                <div id="imm">
+                    <img src="img/pulseras/pulsera-corazon-rosa-delgada.png" class="card-img-top" id="card1">
+                </div>
                 
-            <div class="row">
-                <div class="col-lg-1 d-flex align-items-center justify-content-end col-md-6 col-sm-5">
-                    <i class="fa-regular fa-user icono-nav-perfil"></i>
+                <div class="card-body py-4">
+                    <div id="pruebadiv_visible">
+                        <h5 class="card-title">Pulsera de corazón</h5>
+                        <p class="card-text">Color: Rosa</p>
+                        <p class="card-text">Precio: S/20.00</p>
+                    </div>
+
+                    
+                    <br>
+                    <button type="button" class="botones" id="but2">Añadir al carrito</button>
+                    <br>
+                    <br>
+                    <button type="button" class="botones" id="but2">Quitar de favoritos</button>
                 </div>
 
-                <div class="col-lg-3 d-flex align-items-center col-md-6 col-sm-5 text-center icono-nav-perfil p-md-y-3">
-                    ¡Bienvenido!
-                </div>
-
-                <div class="col-lg-8 nav-perfil">
-                    <ul class="nav justify-content-evenly">
-                        <li class="nav-item">
-                            <a href="Perfil.html" class="nav-link text-light">Perfil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="Direccion_lista.html" class="nav-link text-light">Direcciones</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="Pedidos_lista.html" class="nav-link text-light">Pedidos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="Favoritos_lista.html" class="nav-link text-light">Mis favoritos</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
+        </div>
 
-            <div class="row d-flex py-4 volver-inicio align-items-center">
-                <a href="index.html" class="d-flex align-items-center col-6">
-                    <i class="fa-solid fa-arrow-left pe-3 text-dark"></i>
-                    <p class="m-0 text-dark">Volver al inicio</p>
-                </a>
 
-                <p class=" my-0 col-6 d-flex justify-content-end align-items-center">N° de favoritos: 6</p>
-            </div>    
 
-            <div class="row row-cols-1 row-cols-md-2 g-5 d-flex justify-content-between">
-
-                <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
-                    <div class="card border-0 h-100">
-                        <div id="imm">
-                            <img src="img/pulseras/pulsera-corazon-rosa-delgada.png" class="card-img-top" id="card1">
-                        </div>
-                        
-                        <div class="card-body py-4">
-                            <div id="pruebadiv_visible">
-                                <h5 class="card-title">Pulsera de corazón</h5>
-                                <p class="card-text">Color: Rosa</p>
-                                <p class="card-text">Precio: S/20.00</p>
-                            </div>
-
-                            
-                            <br>
-                            <button type="button" class="botones" id="but2">Añadir al carrito</button>
-                            <br>
-                            <br>
-                            <button type="button" class="botones" id="but2">Quitar de favoritos</button>
-                        </div>
-
+        <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
+            <div class="card border-0 h-100">
+                <div id="imm">
+                    <img src="img/pulseras/pulsera-triple-trenza-marron-cream.webp" class="card-img-top" id="card1"
+                    style="border-radius: 0.2em;">
+                </div>
+                
+                <div class="card-body py-4">
+                    <div id="pruebadiv_visible">
+                        <h5 class="card-title">Pulsera de triple trenza</h5>
+                        <p class="card-text">Color: Marrón y crema</p>
+                        <p class="card-text">Precio: S/20.00</p>
                     </div>
+
+                    
+                    <br>
+                    <button type="button" class="botones" id="but2">Añadir al carrito</button>
+                    <br>
+                    <br>
+                    <button type="button" class="botones" id="but2">Quitar de favoritos</button>
                 </div>
 
-
-
-                <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
-                    <div class="card border-0 h-100">
-                        <div id="imm">
-                            <img src="img/pulseras/pulsera-triple-trenza-marron-cream.webp" class="card-img-top" id="card1"
-                            style="border-radius: 0.2em;">
-                        </div>
-                        
-                        <div class="card-body py-4">
-                            <div id="pruebadiv_visible">
-                                <h5 class="card-title">Pulsera de triple trenza</h5>
-                                <p class="card-text">Color: Marrón y crema</p>
-                                <p class="card-text">Precio: S/20.00</p>
-                            </div>
-
-                            
-                            <br>
-                            <button type="button" class="botones" id="but2">Añadir al carrito</button>
-                            <br>
-                            <br>
-                            <button type="button" class="botones" id="but2">Quitar de favoritos</button>
-                        </div>
-
-                    </div>
-                </div>
-
-
-
-                <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
-                    <div class="card border-0 h-100">
-                        <div id="imm">
-                            <img src="img/bolsos/bolso-floreado-negro.webp" class="card-img-top" id="card1">
-                        </div>
-                        
-                        <div class="card-body py-4">
-                            <div id="pruebadiv_visible">
-                                <h5 class="card-title">Bolso floreado </h5>
-                                <p class="card-text">Color: negro</p>
-                                <p class="card-text">Precio: S/55.00
-                                    <small class="text-body-secondary"><del>$65.00</del></small></p>
-                                <p>Descuento: 10%</p>
-                            </div>
-
-                            <div >
-                                <button type="button" class="botones" id="but2">Añadir al carrito</button>
-                                <br>
-                                <br>
-                                <button type="button" class="botones" id="but2">Quitar de favoritos</button>
-                            </div>
-                            
-                        </div>
-
-                    </div>
-                </div>
             </div>
-            <br>
-            <br>
-            <div class="row  g-5 d-flex justify-content-between">
+        </div>
 
-                <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
-                    <div class="card border-0 h-100 d-flex flex-column">
-                        <div id="imm">
-                            <img src="img/pulseras/pulsera-tonos-marrones-estrella-mar.webp" class="card-img-top" id="card1">
-                        </div>
-                        
-                        <div class="card-body py-4 ">
-                            <div id="pruebadiv_visible">
-                                <h5 class="card-title">Pulsera de estrella de mar</h5>
-                                <p class="card-text">Color: Rosa</p>
-                                <p class="card-text">Precio: S/20.00</p>
-                            </div>
 
-                            
-                            <br>
-                            <button type="button" class="botones" id="but2">Añadir al carrito</button>
-                            <br>
-                            <br>
-                            <button type="button" class="botones" id="but2">Quitar de favoritos</button>
-                        </div>
 
+        <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
+            <div class="card border-0 h-100">
+                <div id="imm">
+                    <img src="img/bolsos/bolso-floreado-negro.webp" class="card-img-top" id="card1">
+                </div>
+                
+                <div class="card-body py-4">
+                    <div id="pruebadiv_visible">
+                        <h5 class="card-title">Bolso floreado </h5>
+                        <p class="card-text">Color: negro</p>
+                        <p class="card-text">Precio: S/55.00
+                            <small class="text-body-secondary"><del>$65.00</del></small></p>
+                        <p>Descuento: 10%</p>
                     </div>
+
+                    <div >
+                        <button type="button" class="botones" id="but2">Añadir al carrito</button>
+                        <br>
+                        <br>
+                        <button type="button" class="botones" id="but2">Quitar de favoritos</button>
+                    </div>
+                    
                 </div>
 
-
-
-                <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
-                    <div class="card border-0 h-100">
-                        <div id="imm">
-                            <img src="img/aretes/aretes-en-aro-celestes.png" class="card-img-top" id="card1">
-                        </div>
-                        
-                        <div class="card-body py-4">
-                            <div id="pruebadiv_visible">
-                                <h5 class="card-title">Aretes en aro</h5>
-                                <p class="card-text">Color: Celeste</p>
-                                <p class="card-text">Precio: S/20.00</p>
-                            </div>
-
-                            
-                            <br>
-                            <button type="button" class="botones" id="but2">Añadir al carrito</button>
-                            <br>
-                            <br>
-                            <button type="button" class="botones" id="but2">Quitar de favoritos</button>
-                        </div>
-
-                    </div>
-                </div>
-
-
-
-                <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
-                    <div class="card border-0 h-100">
-                        <div id="imm">
-                            <img src="img/bolsos/bolso-tonos-marrones-asa-larga-corta.webp" class="card-img-top" id="card1">
-                        </div>
-                        
-                        <div class="card-body py-4">
-                            <div id="pruebadiv_visible">
-                                <h5 class="card-title">Bolsa de asa corta</h5>
-                                <p class="card-text">Color: Rosa</p>
-                                <p class="card-text">Precio: S/20.00</p>
-                            </div>
-
-                            
-                            <br>
-                            <button type="button" class="botones" id="but2">Añadir al carrito</button>
-                            <br>
-                            <br>
-                            <button type="button" class="botones" id="but2">Quitar de favoritos</button>
-                        </div>
-
-                    </div>
-                </div>
             </div>
-    </section>
-
-    <div id="footer">
-
+        </div>
     </div>
+    <br>
+    <br>
+    <div class="row  g-5 d-flex justify-content-between">
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
-    <script src="JS/header_footer.js"></script>
+        <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
+            <div class="card border-0 h-100 d-flex flex-column">
+                <div id="imm">
+                    <img src="img/pulseras/pulsera-tonos-marrones-estrella-mar.webp" class="card-img-top" id="card1">
+                </div>
+                
+                <div class="card-body py-4 ">
+                    <div id="pruebadiv_visible">
+                        <h5 class="card-title">Pulsera de estrella de mar</h5>
+                        <p class="card-text">Color: Rosa</p>
+                        <p class="card-text">Precio: S/20.00</p>
+                    </div>
 
-</body>
+                    
+                    <br>
+                    <button type="button" class="botones" id="but2">Añadir al carrito</button>
+                    <br>
+                    <br>
+                    <button type="button" class="botones" id="but2">Quitar de favoritos</button>
+                </div>
 
-</html>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
+            <div class="card border-0 h-100">
+                <div id="imm">
+                    <img src="img/aretes/aretes-en-aro-celestes.png" class="card-img-top" id="card1">
+                </div>
+                
+                <div class="card-body py-4">
+                    <div id="pruebadiv_visible">
+                        <h5 class="card-title">Aretes en aro</h5>
+                        <p class="card-text">Color: Celeste</p>
+                        <p class="card-text">Precio: S/20.00</p>
+                    </div>
+
+                    
+                    <br>
+                    <button type="button" class="botones" id="but2">Añadir al carrito</button>
+                    <br>
+                    <br>
+                    <button type="button" class="botones" id="but2">Quitar de favoritos</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-4 col-md-6 col-sm-12" id="bloquecitos">
+            <div class="card border-0 h-100">
+                <div id="imm">
+                    <img src="img/bolsos/bolso-tonos-marrones-asa-larga-corta.webp" class="card-img-top" id="card1">
+                </div>
+                
+                <div class="card-body py-4">
+                    <div id="pruebadiv_visible">
+                        <h5 class="card-title">Bolsa de asa corta</h5>
+                        <p class="card-text">Color: Rosa</p>
+                        <p class="card-text">Precio: S/20.00</p>
+                    </div>
+
+                    
+                    <br>
+                    <button type="button" class="botones" id="but2">Añadir al carrito</button>
+                    <br>
+                    <br>
+                    <button type="button" class="botones" id="but2">Quitar de favoritos</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

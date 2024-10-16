@@ -47,22 +47,47 @@ def producto():
 def colecciones():
     return render_template("Colecciones.html")
 
+
+
 ### PERFIL
 @app.route("/perfil")
 def perfil():
     return render_template("Perfil.html")
 
-### PEDIDOS
+@app.route("/editardatos")
+def editardatos():
+    return render_template("Perfil_editar.html")
 
+### >>>> DIRECCIONES
+@app.route("/editardireccion")
+def editardireccion():
+    return render_template("Direccion_editar.html")
+
+@app.route("/agregardireccion")
+def agregardireccion():
+    return render_template("Direccion_nueva.html")
+
+@app.route("/listadirecciones")
+def listadirecciones():
+    return render_template("Direccion_lista.html")
+
+### >>>> PEDIDOS
 @app.route("/listapedidos")
 def listapedidos():
     return render_template("Pedidos_lista.html")
 
-### PEDIDOS
 @app.route("/detallepedidos")
 def detallepedidos():
     return render_template("Pedidos_detalle.html")
 
+### >>>> FAVORITOS
+@app.route("/listafavoritos")
+def listafavoritos():
+    return render_template("Favoritos_lista.html")
+
+
+
+### CARRITO
 @app.route("/carrito")
 def carrito():
     return render_template("carrito.html")
@@ -70,6 +95,8 @@ def carrito():
 @app.route("/finalizarCompra")
 def carrito_finalizar():
     return render_template("Finalizar_compra.html")
+
+
 
 ### INICIAR SESION
 @app.route("/iniciarsesion")
