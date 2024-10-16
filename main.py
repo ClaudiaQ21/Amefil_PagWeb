@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, flash, jsonify
 import controlador_producto
+import controlador_filtros
 
 app = Flask(__name__)
 
@@ -37,7 +38,10 @@ def sobrenosotros():
 @app.route("/navegacionproductos")
 def navegacionproductos():
     productos_con_imagen = controlador_producto.obtener_productos()
-    return render_template("Navegacion_productos.html", productos_con_imagen = productos_con_imagen)
+    color = controlador_filtros.obtener_colores()
+    tipo_pro = controlador_filtros.obtener_tipo_producto()
+    temporada = controlador_filtros.obtener_temporadas()
+    return render_template("Navegacion_productos.html", productos_con_imagen = productos_con_imagen, color = color, tipo_pro = tipo_pro, temporada=temporada)
 
 @app.route("/producto")
 def producto():
