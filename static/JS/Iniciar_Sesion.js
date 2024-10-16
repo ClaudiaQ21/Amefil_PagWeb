@@ -14,7 +14,6 @@ const email_valido = (email) => {
     return re.test(email);
 };
 
-
 const contraseña_valida = (password) => {
     const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return re.test(password);
@@ -44,7 +43,7 @@ const validateEmail = () => {
 
     if (!Req(email)) {
         showError(emailC, '*Campo obligatorio');
-    } else if (email_valido(email)) {
+    } else if (!email_valido(email)) {
         showError(emailC, 'Debe ingresar un correo válido');
     } else {
         showSuccess(emailC);
@@ -101,9 +100,6 @@ const debounce = (fn, delay = 500) => {
 
 form.addEventListener('input', debounce(function (e) {
     switch (e.target.id) {
-        case 'term':
-            validateEmail();
-            break;
         case 'email':
             validateEmail();
             break;

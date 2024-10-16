@@ -58,6 +58,14 @@
     font-weight: 550;
 }
 
+#fondo select{
+    height: 45px;
+    border-radius: 20px;
+    border-color: rgb(158, 134, 94);
+    
+    margin-bottom: 5px;
+}
+
 #fondo span a{
     text-decoration: none;
     font-weight: 550;
@@ -123,3 +131,10 @@ input[type="checkbox"] {
     margin-right: 8px; /* Añadir un poco de espacio si es necesario */
 }
 
+.form-group.error select {
+    border-color: var(--error-color);
+}
+
+.form-group.success select {
+    border-color: var(--success-color);
+}

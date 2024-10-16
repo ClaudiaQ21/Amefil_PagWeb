@@ -4,7 +4,6 @@ const apellidospaC = document.querySelector('#apellidospa');
 const apellidosmaC = document.querySelector('#apellidosma');
 const emailC = document.querySelector('#email');
 const telefonoC = document.querySelector('#telefono');
-const generoC = document.getElementById('#genero');
 const errorDisplay2 = document.getElementById('#genero-error'); // Usar el <small> para mostrar el mensaje de error
 const fecha = document.getElementById('fecha');
 const passwordC = document.querySelector('#password');
@@ -169,20 +168,22 @@ const check_telefono = () => {
 
 
 
-const check_genero = () => {
+const validateGenero = () => {
     let valid = false;
+    const genero = document.getElementById('genero');
+    const selectedValue = genero.value;
 
-    if(generoC.v){
-        errorDisplay2.textContent = "Debe seleccionar un género"; // Mostrar el mensaje de error
-        errorDisplay2.style.display = 'block';
+    if (selectedValue === "seleccionar") {
+        showError(genero, '*Debe seleccionar un género');
     } else {
-        errorDisplay2.textContent = ""; // Limpiar el mensaje de error
-        errorDisplay2.style.display = 'none';
+        showSuccess(genero);
         valid = true;
     }
 
     return valid;
 };
+
+
 
 
 
@@ -281,7 +282,7 @@ form.addEventListener('submit', function (e) {
          apellidoMaValido = check_apellidos_ma(),
          emailValido = check_email(),
          telefonoValido=check_telefono(),
-         generoValido = check_genero(),
+         generoValido = validateGenero(),
          fechaValida = check_fechaNacimiento(),
          passwordValido = check_password(),
          confirmValido = check_confirm(),
@@ -342,7 +343,7 @@ form.addEventListener('input', debounce(function (e) {
             check_telefono();
             break;
         case 'genero':
-            check_genero();
+            validateGenero();
             break;
         case 'fecha':
             check_fechaNacimiento();

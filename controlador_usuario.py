@@ -11,6 +11,7 @@ def insertar_usuario(nombre, apellido_p, apellido_m, correo, telefono, genero, n
     conexion.close()
 
 
+
 def obtener_usuarios():
     conexion = obtener_conexion()
     usuario = []
