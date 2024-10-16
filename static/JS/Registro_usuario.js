@@ -1,9 +1,19 @@
 //validacion
 const nombresC = document.querySelector('#nombres');
-const apellidosC = document.querySelector('#apellidos');
+const apellidospaC = document.querySelector('#apellidospa');
+const apellidosmaC = document.querySelector('#apellidosma');
 const emailC = document.querySelector('#email');
+const telefonoC = document.querySelector('#telefono');
+const generoC = document.getElementById('#genero');
+const errorDisplay2 = document.getElementById('#genero-error'); // Usar el <small> para mostrar el mensaje de error
+const fecha = document.getElementById('fecha');
 const passwordC = document.querySelector('#password');
 const confirmC = document.querySelector('#confirm-password');
+const checkbox = document.getElementById('term');
+const errorDisplay = document.getElementById('checkbox-error'); // Usar el id del <small>
+// const errorDisplay3 = document.getElementById('fecha-error'); // Usar el <small> para mostrar el mensaje de error
+
+
 
 const form = document.querySelector('#signup');
 
@@ -15,18 +25,29 @@ const limite = (length, min, max) => length < min || length > max ? false : true
 const nomb_valido = (nombres) => {
     const nomb = /^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$/;
     return nomb.test(nombres);
-}
+};
 
-const ap_valido = (apellidos) => {
+const ap_valido_pa = (apellidos) => {
     const nomb = /^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$/;
     return nomb.test(apellidos);
-}
+};
 
+const ap_valido_ma = (apellidos) => {
+    const nomb = /^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$/;
+    return nomb.test(apellidos);
+};
 const email_valido = (email) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(gmail\.com|hotmail\.com)$/;
 
     return re.test(email);
 };
+
+const telefono_valido = (telefono) => {
+    const nomb = /^9[0-9]{8}$/;
+    return nomb.test(telefono);
+};
+
+
 
 const contraseña_valida = (password) => {
     const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
@@ -56,7 +77,7 @@ const showSuccess = (input) => {
     // hide the error message
     const error = formField.querySelector('small');
     error.textContent = '';
-}
+};
 
 const check_nombre = () => {
 
@@ -77,27 +98,46 @@ const check_nombre = () => {
         valid = true;
     }
     return valid;
-}
-const check_apellidos = () => {
+};
+const check_apellidos_pa = () => {
 
     let valid = false;
     const min = 3,
         max = 50;
-    const apellidos = apellidosC.value.trim();
+    const apellidos = apellidospaC.value.trim();
 
     if (!Req(apellidos)) {
-        showError(apellidosC, '*Campo obligatorio');
+        showError(apellidospaC, '*Campo obligatorio');
     } else if (!limite(apellidos.length, min, max)) {
-        showError(apellidosC, `Debe ingresar un apellido válido de ${min} y ${max} caracteres`);
-    } else if (!ap_valido(apellidos)) {
-        showError(apellidosC, `Debe ingresar un apellido válido de ${min} y ${max} caracteres`);
+        showError(apellidospaC, `Debe ingresar un apellido válido de ${min} y ${max} caracteres`);
+    } else if (!ap_valido_pa(apellidos)) {
+        showError(apellidospaC, `Debe ingresar un apellido válido de ${min} y ${max} caracteres`);
     } else {
-        showSuccess(apellidosC);
+        showSuccess(apellidospaC);
         valid = true;
     }
     return valid;
-}
+};
 
+const check_apellidos_ma = () => {
+
+    let valid = false;
+    const min = 3,
+        max = 50;
+    const apellidos = apellidosmaC.value.trim();
+
+    if (!Req(apellidos)) {
+        showError(apellidosmaC, '*Campo obligatorio');
+    } else if (!limite(apellidos.length, min, max)) {
+        showError(apellidosmaC, `Debe ingresar un apellido válido de ${min} y ${max} caracteres`);
+    } else if (!ap_valido_ma(apellidos)) {
+        showError(apellidosmaC, `Debe ingresar un apellido válido de ${min} y ${max} caracteres`);
+    } else {
+        showSuccess(apellidosmaC);
+        valid = true;
+    }
+    return valid;
+};
 
 const check_email = () => {
     let valid = false;
@@ -111,7 +151,78 @@ const check_email = () => {
         valid = true;
     }
     return valid;
-}
+};
+
+const check_telefono = () => {
+    let valid = false;
+    const telefono = telefonoC.value.trim();
+    if (!Req(telefono)) {
+        showError(telefonoC, '*Campo obligatorio');
+    } else if (!telefono_valido(telefono)) {
+        showError(telefonoC, 'Debe ingresar un teléfono válido');
+    } else {
+        showSuccess(telefonoC);
+        valid = true;
+    }
+    return valid;
+};
+
+
+
+const check_genero = () => {
+    let valid = false;
+
+    if(generoC.v){
+        errorDisplay2.textContent = "Debe seleccionar un género"; // Mostrar el mensaje de error
+        errorDisplay2.style.display = 'block';
+    } else {
+        errorDisplay2.textContent = ""; // Limpiar el mensaje de error
+        errorDisplay2.style.display = 'none';
+        valid = true;
+    }
+
+    return valid;
+};
+
+
+
+
+
+const check_fechaNacimiento = () => {
+        let valid = false;
+        const fechaValue = fecha.value.trim(); // Obtener el valor del campo de fecha
+    
+        if (!Req(fechaValue)) {
+            showError(fecha, '*Debe ingresar su fecha de nacimiento*');
+        } else {
+            const fechaIngresada = new Date(fechaValue);
+            const fechaActual = new Date();
+            const edadMinima = 18; // Edad mínima requerida (opcional)
+            const fechaLimite = new Date(
+                fechaActual.getFullYear() - edadMinima,
+                fechaActual.getMonth(),
+                fechaActual.getDate()
+            );
+    
+            // Verificar que la fecha no sea futura
+            if (fechaIngresada >= fechaActual) {
+                showError(fecha, '*La fecha de nacimiento no puede ser futura*');
+            } 
+            // Verificar que el usuario tenga al menos 18 años
+            else if (fechaIngresada > fechaLimite) {
+                showError(fecha, '*Debe tener al menos 18 años*');
+            } 
+            else {
+                // Si la fecha es válida, mostrar mensaje de éxito
+                showSuccess(fecha);
+                valid = true;
+            }
+        }
+    
+        return valid;
+    };
+    
+
 
 const check_password = () => {
     let valid = false;
@@ -145,27 +256,59 @@ const check_confirm = () => {
     return valid;
 };
 
+const checkbox_confirm = () => {
+    let valid = false;
+
+
+    // Verificar si el checkbox está marcado
+    let checkboxValido = checkbox.checked;
+    if (!checkboxValido) {
+        showError(errorDisplay, '*Debe aceptar los Términos y Condiciones*');
+    } else {
+        showSuccess(errorDisplay);
+        valid = true;
+    }
+
+    return valid;
+};
+
 form.addEventListener('submit', function (e) {
-    // prevent the form from submitting
     e.preventDefault();
 
-    // validate forms
+    // validar el formulario
     let nombreValido = check_nombre(),
-        apellidoValido = check_apellidos(),
-        emailValido = check_email(),
-        passwordValido = check_password(),
-        confirmValido = check_confirm();
+        apellidoPaValido = check_apellidos_pa(),
+         apellidoMaValido = check_apellidos_ma(),
+         emailValido = check_email(),
+         telefonoValido=check_telefono(),
+         generoValido = check_genero(),
+         fechaValida = check_fechaNacimiento(),
+         passwordValido = check_password(),
+         confirmValido = check_confirm(),
+         checkboxValid = checkbox_confirm()
+         ;
 
-    let isFormValid = nombreValido &&
-        apellidoValido &&
-        emailValido &&
-        passwordValido && confirmValido;
+    let isFormValid = nombreValido 
+     &&
+        apellidoPaValido 
+         &&
+         apellidoMaValido 
+         &&
+         emailValido
+         &&
+         telefonoValido &&
+         generoValido &&
+         fechaValida &&
+         passwordValido &&
+        confirmValido &&
+        checkboxValid ; 
 
-    // submit to the server if the form is valid
     if (isFormValid) {
-
+        
     }
 });
+
+
 
 const debounce = (fn, delay = 500) => {
     let timeoutId;
@@ -186,11 +329,23 @@ form.addEventListener('input', debounce(function (e) {
         case 'nombres':
             check_nombre();
             break;
-        case 'apellidos':
-            check_apellidos();
+        case 'apellidospa':
+            check_apellidos_pa();
+            break;
+        case 'apellidosma':
+            check_apellidos_ma();
             break;
         case 'email':
             check_email();
+            break;
+        case 'telefono':
+            check_telefono();
+            break;
+        case 'genero':
+            check_genero();
+            break;
+        case 'fecha':
+            check_fechaNacimiento();
             break;
         case 'password':
             check_password();
@@ -198,5 +353,9 @@ form.addEventListener('input', debounce(function (e) {
         case 'confirm-password':
             check_confirm();
             break;
+        case 'term':
+            checkbox_confirm();
+            break;
     }
 }));
+

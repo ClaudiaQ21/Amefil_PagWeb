@@ -1,25 +1,16 @@
 
 const emailC = document.querySelector('#email');
 const passwordC = document.querySelector('#password');
-const check_box = document.getElementById("term");
 const form = document.querySelector('#signup');
 
 
-function isCheckboxChecked() {
-    return check_box.checked;
-}
 
 
 const Req = value => value.trim() !== '';
 
 
 const email_valido = (email) => {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(gmail\.com|hotmail\.com)$/;
-    return re.test(email);
-};
-
-const email_valido_admin = (email) => {
-    const re = /^[^@]+@amefil\.com$/;
+    const re = /^[^\s@]+@(amefil\.com|gmail\.com|hotmail\.com)$/;
     return re.test(email);
 };
 
@@ -53,9 +44,7 @@ const validateEmail = () => {
 
     if (!Req(email)) {
         showError(emailC, '*Campo obligatorio');
-    } else if (isCheckboxChecked() && !email_valido_admin(email)) {
-        showError(emailC, 'Debe ingresar un correo válido para administrador');
-    } else if (!isCheckboxChecked() && !email_valido(email)) {
+    } else if (email_valido(email)) {
         showError(emailC, 'Debe ingresar un correo válido');
     } else {
         showSuccess(emailC);

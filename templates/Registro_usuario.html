@@ -1,105 +1,126 @@
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
-    <link rel="stylesheet" href="CSS/Registro_usuario.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/estilos.css">
-    
-    <link rel="icon" href="img/img_logo/logoAmefil - solo logo.svg">
-    <link rel="stylesheet" href="css/encabezado_pie.css">
-     
-    
-    <title>Crear cuenta</title>
-</head>
-<body>   
-    <div class="sticky-top" id="header">
+{% extends "maestra.html" %}
+{% block titulo %}
+Registrarse
+{% endblock %}
 
+{% block estilos_adicionales %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/Registro_usuario.css') }}">
+{% endblock %}
+
+{% block contenido %}
+
+
+<main class="container-fluid">
+    <div class="row titulo">
+        <div class="col py-4">
+            <h1>Únete a Amefil</h1>
+        </div>
     </div>
-    
-    <main class="container-fluid">
-        <div class="row titulo">
-            <div class="col py-4">
-                <h1>Únete a Amefil</h1>
-            </div>
+    <div class="row registrar">
+        <div class="col"></div>
+        <div class="col-md-7 col-12 py-4">
+            <p>Regístrate hoy y sé el primero en descubrir nuestras novedades, recibir noticias exclusivas y formar
+                parte del viaje detrás de cada pieza única.</p>
         </div>
-        <div class="row registrar">
-            <div class="col"></div>
-            <div class="col-md-7 col-12 py-4">
-                <p>Regístrate hoy y sé el primero en descubrir nuestras novedades, recibir noticias exclusivas y formar parte del viaje detrás de cada pieza única.</p>
-            </div>
-            <div class="col"></div>
+        <div class="col"></div>
+    </div>
+    <div class="row separador">
+        <div class="col-12">
+            <i class="fa-solid fa-angle-down"></i>
         </div>
-        <div class="row separador">
-            <div class="col-12">
-                <i class="fa-solid fa-angle-down"></i>
-            </div>
-        </div>
+    </div>
 
-        <div class="row justify-content-center align-items-center ">
-            <div class="col-12 col-sm-8 col-md-6 col-lg-5 my-5">
-                <div class="card" id="fondo">
-                    <div class="card-body py-0" id="bloque">
-                        <h3 class="card-title">Registrarse</h3>
-                        <form id="signup" class="form">
-                            <div class="form-group">
-                                <label for="nombres">Nombres</label>
-                                <input type="text" class="form-control" id="nombres" placeholder="Ingrese sus nombres">
-                                <small id="a"></small>
-                            </div>
-                            <div class="form-group">
-                                <label for="apellidos">Apellidos</label>
-                                <input type="text" class="form-control" id="apellidos" placeholder="Ingrese sus apellidos">
-                                <small></small>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Correo electrónico</label>
-                                <input type="email" class="form-control" id="email" placeholder="Ingrese su correo electrónico">
-                                <small></small>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Contraseña</label>
-                                <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña">
-                                <small></small>
-                            </div>
-                            <div class="form-group">
-                                <label for="confirm-password">Confirmar contraseña</label>
-                                <input type="password" class="form-control" id="confirm-password" placeholder="Confirme su contraseña">
-                                <small></small>
-                            </div>
-                            <div class="form-group text-center" id="men">
-                                <span class="small">¿Ya tienes cuenta? <a href="Iniciar_sesion.html">Iniciar Sesión</a></span>
-                            </div>
+    <div class="row justify-content-center align-items-center ">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-5 my-5">
+            <div class="card" id="fondo">
+                <div class="card-body py-0" id="bloque">
+                    <h3 class="card-title">Registrarse</h3>
+                    <form id="signup" class="form">
+                        <div class="form-group">
+                            <label for="nombres">Nombres</label>
+                            <input type="text" class="form-control" id="nombres" placeholder="Ingrese sus nombres">
+                            <small></small>
+                        </div>
+                         <div class="form-group">
+                            <label for="apellidospa">Apellido Paterno</label>
+                            <input type="text" class="form-control" id="apellidospa"
+                                placeholder="Ingrese sus apellido paternos">
+                            <small></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellidosma">Apellido Materno</label>
+                            <input type="text" class="form-control" id="apellidosma"
+                                placeholder="Ingrese sus apellidos maternos">
+                            <small></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="text" class="form-control" id="email"
+                                placeholder="Ingrese su correo electrónico">
+                            <small></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="text" class="form-control" id="telefono" placeholder="Ingrese su teléfono">
+                            <small></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="genero">Género</label>
+                            <select class="form-select" id="genero" aria-label="Default select example">
+                                <option value="seleccionar" selected>--Seleccione su género--</option>
+                                <option value="1">Masculino</option>
+                                <option value="2">Femenino</option>
+                                <option value="3">Otro</option>
+                            </select>
+                            <small id="genero-error"></small>
 
-                            <div class="form-group text-center">
-                                <label for="term" id="lab" ><input type="checkbox" name="term" id="term" style="vertical-align: middle;"><small style="color: black;">Acepto los <a href="">Términos y condiciones</a></small></label>
-                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fecha">Fecha de nacimiento</label>
+                            <input type="date" class="form-control" id="fecha"
+                                placeholder="Ingrese su fecha de nacimiento">
+                            <small></small>
+                        </div>
 
-                            <div class="form-group text-center">
-                                <button type="submit" class="botones" value="signup" id="ing">Ingresar</button>
-                            </div>
-                        </form>
-                    </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input type="password" class="form-control" id="password"
+                                placeholder="Ingrese su contraseña">
+                            <small></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirmar contraseña</label>
+                            <input type="password" class="form-control" id="confirm-password"
+                                placeholder="Confirme su contraseña">
+                            <small></small>
+                        </div>
+                        <div class="form-group text-center" id="men">
+                            <span class="small">¿Ya tienes cuenta? <a href="{{ url_for('iniciar_sesion') }}">Iniciar
+                                    Sesión</a></span>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <label for="term" id="lab">
+                                <input type="checkbox" name="term" id="term" style="vertical-align: middle;">
+                                <span class="small" style="color: black;">Acepto los <a href="">Términos y
+                                        condiciones</a></span></label>
+                            <small id="checkbox-error"></small>
+                        </div> 
+
+                        <div class="form-group text-center">
+                            <button type="submit" class="botones" value="signup" id="ing">Ingresar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-        
-    </main>
-
-    <div id="footer">
-
     </div>
 
-    <script src="JS/header_footer.js"></script>
-    <script src="JS/Registro_usuario.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-    crossorigin="anonymous"></script>
-</body>
-</html>
+</main>
+
+
+
+<script src="{{ url_for('static', filename='js/header_footer.js') }}"></script>
+<script src="{{ url_for('static', filename='js/Registro_usuario.js') }}"></script>
+
+{% endblock %}
