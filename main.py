@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, redirect, flash, jsonify
+from flask import Flask, render_template, request, redirect, flash, jsonify, session
 import controlador_producto
 import controlador_filtros
+import controlador_usuario
 
 app = Flask(__name__)
 
@@ -106,6 +107,27 @@ def carrito_finalizar():
 @app.route("/iniciarsesion")
 def iniciarsesion():
     return render_template("Iniciar_sesion.html")
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        correo = request.form['email']
+        contrasena = request.form['password']
+
+        usuario = controlador_usuario.obtener_usuario_por_correo(correo)
+
+        if usuario and usuario['contrasena'] == contrasena:
+            # Autenticación exitosa, almacenar información en la sesión
+            session['usuario_id'] = usuario['id_usuario']
+            session['nombre'] = usuario['nombre']
+            return redirect("/amefil")  # Redirigir a la página del usuario
+
+        else:
+            # Mostrar mensaje de error en caso de credenciales inválidas
+            error = 'Correo o contraseña incorrectos'
+            return render_template('Iniciar_sesion.html', error=error)
+
+    return render_template('Iniciar_sesion.html')  # Mostrar el formulario de inicio de sesión
 
 @app.route("/registrar")
 def registrar():

@@ -102,6 +102,7 @@
             </div>
 
             <div class="menu-iconos col-lg-3 col-md-6 col-sm-4 col-4 order-3 d-flex justify-content-lg-center justify-content-md-center justify-content-sm-end justify-content-end order-md-2 py-md-3">
+                <!-- BUSCAR -->
                 <div class="d-none d-md-flex">
                     <div class="buscar">
                         <button class="boton-icono" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -112,17 +113,27 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- CARRITO -->
+
                 <a class="btn boton-icono icono-carrito" href="{{url_for('carrito')}}"><i class="fa-solid fa-bag-shopping"></i></a>
+
+                <!-- USUARIO -->
+
                 <div class="buscar">
                     <button class="boton-icono icono-perfil" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa-solid fa-user icono"></i>
                     </button>
-                    <ul class="dropdown-menu">
+                    <div class="dropdown-menu dropdown-perfil">
+                        <li class="ps-3 pt-1" >¡Bienvenid@ usuario!</li>
+                        <hr class="my-2">
                         <li><a class="dropdown-item" href="{{url_for('iniciarsesion')}}">Iniciar sesión</a></li>
                         <li><a class="dropdown-item" href="{{url_for('registrar')}}">Registrarse</a></li>
                         <li><a class="dropdown-item" href="{{url_for('perfil')}}">Perfil</a></li>
                         <li><a class="dropdown-item" href="#">Dashboard</a></li>
-                    </ul>
+                        <hr class="my-2">
+                        <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                    </div>
                 </div>
             </div>
         </div>

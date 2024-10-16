@@ -90,7 +90,7 @@ header .nav-item{
     position: relative;
 }
 
-.buscar li>a{
+.buscar li>a, .buscar li{
     font-size: 0.9rem;
     color: rgb(158, 134, 94);
 }
@@ -102,6 +102,11 @@ header .nav-item{
 
 .dropdown-buscar{
     width: 37%;
+    background-color: rgb(251, 249, 242);
+}
+
+.dropdown-perfil{
+    width: 15%;
     background-color: rgb(251, 249, 242);
 }
 
