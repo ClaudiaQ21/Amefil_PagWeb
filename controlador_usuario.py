@@ -41,6 +41,15 @@ def obtener_usuario_por_id(id):
     conexion.close()
     return producto
 
+def obtener_usuario_por_correo(correo):
+    conexion = obtener_conexion()
+    usuario = None
+    with conexion.cursor() as cursor:
+        cursor.execute(
+            "SELECT id_usuario, nombre, apellido_p, apellido_m, correo, telefono, genero, nacimiento, contrasena FROM usuario WHERE correo = %s", (correo,))
+        usuario = cursor.fetchone()
+    conexion.close()
+    return usuario
 
 def actualizar_usuario(nombre, apellido_p, apellido_m, correo, telefono, genero, nacimiento, contrasena, id_usuario):
     conexion = obtener_conexion()
