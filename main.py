@@ -4,6 +4,7 @@ import controlador_filtros
 import controlador_usuario
 
 app = Flask(__name__)
+app.secret_key = 'alguna_clave_secreta'
 
 @app.route("/")
 @app.route("/amefil")
