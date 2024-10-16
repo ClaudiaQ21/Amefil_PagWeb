@@ -15,7 +15,7 @@ const email_valido = (email) => {
 };
 
 const contraseña_valida = (password) => {
-    const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const re = /^[A-Za-z0-9_:]{1,20}$/;
     return re.test(password);
 };
 
