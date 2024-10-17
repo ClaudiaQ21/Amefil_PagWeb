@@ -62,9 +62,8 @@ def guardar_producto():
     descripcion = request.form["descripcion"]
     id_color = request.form["id_color"]
     id_temporada = request.form["id_temporada"]
-    id_talla = request.form["id_talla"]
     imagen = request.files['imagen'].read() 
-    controlador_producto.insertar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, id_talla, imagen)
+    controlador_producto.insertar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, imagen)
     return redirect("/navegacionproductos")
 
 @app.route("/eliminar_producto", methods=["POST"])
@@ -95,10 +94,6 @@ def actualizar_producto():
     imagen = request.files['imagen'].read() 
     controlador_producto.actualizar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, id_talla, imagen, id_producto)
     return redirect("/navegacionproductos")
-
-@app.route("/agregar_producto")
-def agregar_producto():
-    return render_template("Agregar_producto.html")
 
 @app.route("/colecciones")
 def colecciones():
@@ -270,10 +265,10 @@ def formulario_agregar_rol():
 
 @app.route("/agregar_producto")
 def formulario_agregar_producto():
-    tipos_producto = controlador_tipo_producto.obtener_tipos_producto()
+    tipos_productos = controlador_tipo_producto.obtener_tipo_productos()
     colores = controlador_color.obtener_colores()
     temporadas = controlador_temporada.obtener_temporadas()
-    return render_template("Agregar_Producto.html", tipos_producto=tipos_producto, colores=colores, temporadas=temporadas)
+    return render_template("Agregar_Prod.html", tipos_productos=tipos_productos, colores=colores, temporadas=temporadas)
 
 # Iniciar el servidor
 if __name__ == "__main__":

@@ -11,9 +11,9 @@ def insertar_color(nombre):
 
 def obtener_colores():
     conexion = obtener_conexion()
-    colores = []
+    colores = None
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT * from color")
+        cursor.execute("SELECT id_color, nombre from color")
         colores = cursor.fetchall()            
     conexion.close()
     return colores

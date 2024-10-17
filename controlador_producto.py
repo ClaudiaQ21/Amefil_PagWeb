@@ -2,11 +2,11 @@ from bd import obtener_conexion
 import base64
 
 
-def insertar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, id_talla, imagen):
+def insertar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, imagen):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO producto ( nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, id_talla, imagen) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-                       (nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, id_talla, imagen))
+        cursor.execute("INSERT INTO producto ( nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, imagen) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                       (nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, imagen))
     conexion.commit()
     conexion.close()
 
