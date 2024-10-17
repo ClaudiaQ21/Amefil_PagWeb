@@ -35,7 +35,7 @@ Registrarse
             <div class="card" id="fondo">
                 <div class="card-body py-0" id="bloque">
                     <h3 class="card-title">Registrarse</h3>
-                    <form id="signup" class="form" action="/registro" method="POST">
+                    <form id="signup" class="form" action="{{url_for('registro')}}" method="POST">
                         <div class="form-group">
                             <label for="nombre">Nombres</label>
                             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese sus nombres">
