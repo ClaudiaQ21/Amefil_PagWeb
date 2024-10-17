@@ -41,7 +41,7 @@ def obtener_productos():
 def eliminar_producto(id):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE FROM producto WHERE id_prodcuto = %s", (id,))
+        cursor.execute("DELETE FROM producto WHERE id_prodcuto = %s", (id))
     conexion.commit()
     conexion.close()
 
