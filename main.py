@@ -2,6 +2,9 @@ from flask import Flask, render_template, request, redirect, flash, jsonify, ses
 import controlador_producto
 import controlador_filtros
 import controlador_usuario
+import controlador_color
+import controlador_temporada
+import controlador_tipo_producto
 
 app = Flask(__name__)
 app.secret_key = 'alguna_clave_secreta'
@@ -62,7 +65,36 @@ def guardar_producto():
     id_talla = request.form["id_talla"]
     imagen = request.files['imagen'].read() 
     controlador_producto.insertar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, id_talla, imagen)
-    return redirect("/productoadmin")
+    return redirect("/navegacionproductos")
+
+@app.route("/eliminar_producto", methods=["POST"])
+def eliminar_disco():
+    controlador_producto.eliminar_producto(request.form["id_producto"])
+    return redirect("/navegacionproductos")
+
+
+@app.route("/formulario_editar_producto/<int:id>")
+def editar_producto(id):
+    # Obtener el disco por ID
+    producto = controlador_producto.obtener_producto_por_id(id)
+    return render_template("Editar_Producto.html", producto=producto)
+
+
+@app.route("/actualizar_producto", methods=["POST"])
+def actualizar_producto():
+    id_producto= request.form["id_producto"]
+    nombre = request.form["nombre"]
+    precio = request.form["precio"]
+    id_tipo_producto = request.form["id_tipo_producto"]
+    vigencia = request.form["vigencia"]
+    stock = request.form["stock"]
+    descripcion = request.form["descripcion"]
+    id_color = request.form["id_color"]
+    id_temporada = request.form["id_temporada"]
+    id_talla = request.form["id_talla"]
+    imagen = request.files['imagen'].read() 
+    controlador_producto.actualizar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, id_talla, imagen, id_producto)
+    return redirect("/navegacionproductos")
 
 @app.route("/agregar_producto")
 def agregar_producto():
@@ -240,9 +272,8 @@ def formulario_agregar_rol():
 def formulario_agregar_producto():
     tipos_producto = controlador_tipo_producto.obtener_tipos_producto()
     colores = controlador_color.obtener_colores()
-    tallas = controlador_talla.obtener_tallas()
     temporadas = controlador_temporada.obtener_temporadas()
-    return render_template("Agregar_Producto.html", tipos_producto=tipos_producto, colores=colores, tallas=tallas, temporadas=temporadas)
+    return render_template("Agregar_Producto.html", tipos_producto=tipos_producto, colores=colores, temporadas=temporadas)
 
 # Iniciar el servidor
 if __name__ == "__main__":
