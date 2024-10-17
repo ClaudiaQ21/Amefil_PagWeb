@@ -1,0 +1,51 @@
+.titulo{
+    border-bottom:2px solid rgb(158, 134, 94);
+}
+
+.titulo h1{
+    color: rgb(119, 101, 71);
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+}
+
+.formrol .roldate form{
+    width: 30%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.formrol .roldate label{
+    color: rgb(158, 134, 94);
+    margin-bottom: 12px;
+}
+
+.formrol .roldate input{
+    border: none;
+    background-color: rgb(251, 249, 242);
+}
+
+.formrol .roldate .save, .back{
+    width: 49%;
+}
+
+.formrol .roldate .save{
+    background-color: rgb(158, 134, 94);
+    color: rgb(251, 249, 242);
+}
+
+.formrol .roldate .back{
+    background-color: rgb(251, 249, 242);
+    color: rgb(158, 134, 94);
+    border: 1px solid rgb(158, 134, 94);
+}
+
+.formrol .roldate .save:hover{
+    background-color: rgb(119, 101, 71);
+}
+
+.formrol .roldate .back:hover{
+    background-color: rgb(255, 255, 255);
+}

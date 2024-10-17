@@ -1,0 +1,68 @@
+{% extends "maestra.html" %}
+{% block titulo %}
+Amefil
+{% endblock %}
+{% block estilos_adicionales %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/Dashboard.css') }}">
+{% endblock %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row titulo">
+        <div class="col py-4">
+            <h1>Productos</h1>
+        </div>
+    </div>
+    <div class="col-12 my-2 listproduct">
+        <div class="row">
+            <div class="col-12 p-2">
+                <div class="tableproduct">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Vigencia</th>
+                                <th>Stock</th>
+                                <th>Descripcion</th>
+                                <th>Color</th>
+                                <th>Temporada</th>
+                                <th>Coleccion</th>
+                                <th>Talla</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for producto in productos %}
+                            <tr>
+                                <td>{{producto[1]}}</td>
+                                <td>{{producto[2]}}</td>
+                                <td>{{producto[3]}}</td>
+                                <td>{{producto[4]}}</td>
+                                <td>{{producto[5]}}</td>
+                                <td>{{producto[6]}}</td>
+                                <td>{{producto[7]}}</td>
+                                <td>{{producto[8]}}</td>
+                                <td>{{producto[9]}}</td>
+                                <td>{{producto[10]}}</td>
+                                <td>
+                                    <a href="{{url_for('editar_producto', id=producto[0])}}" class="button">Editar</a>
+                                </td>
+                                <td>
+                                    <form action="{{url_for('eliminar_producto')}}" method="post">
+                                        <input type="hidden" name="id" id="id" value="{{producto[0]}}">
+                                        <button class="button">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -30,6 +30,13 @@ Amefil
             <div class="row">
                 <div class="col-6 col-md-3 p-2">
                     <div class="item p-2">
+                        <a href="{{url_for('productoadmin')}}" class="btn"><i class="fa-solid fa-bag-shopping icon"></i></a>
+                        <p>Productos</p>
+                        <h3>0</h3>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 p-2">
+                    <div class="item p-2">
                         <a href="" class="btn"><i class="fa-solid fa-money-bill-trend-up icon"></i></a>
                         <p>Total Ventas</p>
                         <h3>0.00</h3>
@@ -42,16 +49,9 @@ Amefil
                         <h3>0</h3>
                     </div>
                 </div>
-                <div class="col-6 col-md-3 p-2">
-                    <div class="item p-2">
-                        <a href="" class="btn"><i class="fa-solid fa-bag-shopping icon"></i></a>
-                        <p>Productos</p>
-                        <h3>0</h3>
-                    </div>
-                </div>
                 <div class="col-6 col-md-3 p-2 pe-3">
                     <div class="item p-2">
-                        <a href="" class="btn"><i class="fa-solid fa-user icono icon"></i></a>
+                        <a href="{{url_for('perfil')}}" class="btn"><i class="fa-solid fa-user icono icon"></i></a>
                         <p>Perfil</p>
                         <h3>Name</h3>
                     </div>
@@ -132,10 +132,15 @@ Amefil
                         <p>Producto 04</p>
                     </div>
                 </div>
-                <div class="col-12 p-2 pe-3">
+                <div class="col-6 p-2">
                     <div class="typeproduct p-2">
                         <h3>Colecciones</h3>
-                        <p>Agrega una nueva coleccion</p>
+                        <a href="" class="btn"><i class="fa-solid fa-square-plus icon"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 p-2 pe-3">
+                    <div class="typeproduct p-2">
+                        <h3>Descuentos</h3>
                         <a href="" class="btn"><i class="fa-solid fa-square-plus icon"></i></a>
                     </div>
                 </div>
@@ -154,25 +159,25 @@ Amefil
         </div>
         <div class="col-12 col-md-9 my-2 preview">
             <div class="row">
+                <div class="col-6 col-md-4 p-2 pe-3">
+                    <div class="item p-2">
+                        <a href="" class="btn"><i class="fa-solid fa-user-shield icon"></i></a>
+                        <p>Administradores</p>
+                        <h3>0</h3>
+                    </div>
+                </div>
                 <div class="col-6 col-md-4 p-2">
                     <div class="item p-2">
                         <a href="" class="btn"><i class="fa-solid fa-user-gear icon"></i></a>
-                        <p>Mantenedores</p>
+                        <p>Usuarios</p>
                         <h3>0</h3>
                     </div>
                 </div>
-                <div class="col-6 col-md-4 p-2">
+                <div class="col-12 col-md-4 p-2 pe-3">
                     <div class="item p-2">
-                        <a href="" class="btn"><i class="fa-solid fa-hand-holding-dollar icon"></i></a>
-                        <p>Clientes</p>
-                        <h3>0</h3>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 p-2">
-                    <div class="item p-2">
-                        <a href="" class="btn"><i class="fa-solid fa-user-shield icon"></i></a>
-                        <p>Permisos</p>
-                        <h3>0</h3>
+                        <h3>Rol de Usuario</h3>
+                        <p>Agrega un nuevo rol</p>
+                        <a href="{{url_for('formulario_agregar_rol')}}" class="btn"><i class="fa-solid fa-square-plus icon"></i></a>
                     </div>
                 </div>
             </div>

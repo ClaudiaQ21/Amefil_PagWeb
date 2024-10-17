@@ -1,0 +1,62 @@
+{% extends "maestra.html" %}
+{% block titulo %}
+Amefil
+{% endblock %}
+{% block estilos_adicionales %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/Dashboard.css') }}">
+{% endblock %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row titulo">
+        <div class="col py-4">
+            <h1>Administradores</h1>
+        </div>
+    </div>
+    <div class="col-12 my-2 listuser">
+        <div class="row">
+            <div class="col-12 p-2">
+                <div class="tableuser">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre Completo</th>
+                                <th>Correo</th>
+                                <th>Teléfono</th>
+                                <th>Genero</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Rol</th>
+                                <th>Direccion</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for usuario in usuarios %}
+                            <tr>
+                                <td>{{usuario[1]}}</td>
+                                <td>{{usuario[2]}}</td>
+                                <td>{{usuario[3]}}</td>
+                                <td>{{usuario[4]}}</td>
+                                <td>{{usuario[5]}}</td>
+                                <td>{{usuario[6]}}</td>
+                                <td>{{usuario[7]}}</td>
+                                <td>
+                                    <a href="{{url_for('editar_usuario', id=usuario[0])}}" class="button">Editar</a>
+                                </td>
+                                <td>
+                                    <form action="{{url_for('eliminar_usuario')}}" method="post">
+                                        <input type="hidden" name="id" id="id" value="{{usuario[0]}}">
+                                        <button class="button">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "maestra.html" %}
+{% block titulo %}
+Amefil
+{% endblock %}
+{% block estilos_adicionales %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/Dashboard.css') }}">
+{% endblock %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row titulo">
+        <div class="col py-4">
+            <h1>Ventas</h1>
+        </div>
+    </div>
+    <div class="col-12 my-2 listsale">
+        <div class="row">
+            <div class="col-12 p-2">
+                <div class="listsale">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Cliente</th>
+                                <th>Fecha de Pedido</th>
+                                <th>Cantidad</th>
+                                <th>Monto Total</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for pedido in pedidos %}
+                            <tr>
+                                <td>{{pedido[1]}}</td>
+                                <td>{{pedido[2]}}</td>
+                                <td>{{pedido[3]}}</td>
+                                <td>{{pedido[4]}}</td>
+                                <td>{{pedido[5]}}</td>
+                                <td>
+                                    <a href="{{url_for('editar_pedido', id=pedido[0])}}" class="button">Editar</a>
+                                </td>
+                                <td>
+                                    <form action="{{url_for('eliminar_pedido')}}" method="post">
+                                        <input type="hidden" name="id" id="id" value="{{pedido[0]}}">
+                                        <button class="button">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

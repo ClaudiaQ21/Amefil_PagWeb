@@ -182,3 +182,47 @@
     background-color: rgb(119, 101, 71);
     color: rgb(251, 249, 242);
 }
+
+.listproduct .tableproduct table{
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.listproduct .tableproduct table, th, td {
+    border: 1px solid rgb(119, 101, 71);
+}
+
+.listproduct .tableproduct th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+.listproduct .tableproduct th{
+    background-color: rgb(158, 134, 94);
+    color: rgb(251, 249, 242);
+}
+
+.listuser .tableuser table{
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.listuser .tableuser table, th, td {
+    border: 1px solid rgb(119, 101, 71);
+}
+
+.listuser .tableuser th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+.listuser .tableuser th{
+    background-color: rgb(158, 134, 94);
+    color: rgb(251, 249, 242);
+}
