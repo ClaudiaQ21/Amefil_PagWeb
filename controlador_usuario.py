@@ -33,7 +33,7 @@ def obtener_usuarios():
 def eliminar_usuario(id):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE FROM usuatio WHERE id_usuario = %s", (id,))
+        cursor.execute("DELETE FROM usuario WHERE id_usuario = %s", (id,))
     conexion.commit()
     conexion.close()
 
@@ -43,7 +43,7 @@ def obtener_usuario_por_id(id):
     producto = None
     with conexion.cursor() as cursor:
         cursor.execute(
-            "SELECT id_usuario, nombre, apellido_p, apellido_m, correo, telefono, genero, nacimiento, contrasena FROM usuario WHERE id_usuario = %s", (id,))
+            "SELECT id_usuario, nombre, apellido_p, apellido_m, correo, telefono, genero, nacimiento, contrasena,id_tipo,id_direccion FROM usuario WHERE id_usuario = %s", (id,))
         producto = cursor.fetchone()
     conexion.close()
     return producto
@@ -63,18 +63,37 @@ def obtener_usuarios_por_tipo(id_tipo):
     user_tipo = None
     with conexion.cursor() as cursor:
         cursor.execute(
-            "select CONCAT(us.nombre, ' ', us.apellido_p, ' ', us.apellido_m) as nombrescompletos, us.correo, us.telefono, us.genero, us.nacimiento, dir.detalle from usuario us inner join tipo_usuario tu on us.id_tipo=tu.id_tipo inner join direccion dir on dir.id_direccion = us.id_direccion where tu.id_tipo = %s", 
+            "select  us.id_usuario, CONCAT(us.nombre, ' ', us.apellido_p, ' ', us.apellido_m) as nombrescompletos, us.correo, us.telefono, us.genero, us.nacimiento,tu.nombre, dir.detalle from usuario us inner join tipo_usuario tu on us.id_tipo=tu.id_tipo inner join direccion dir on dir.id_direccion = us.id_direccion where tu.id_tipo = %s", 
             (id_tipo)
         )
         user_tipo = cursor.fetchall()
     conexion.close()
     return user_tipo
 
-def actualizar_usuario(nombre, apellido_p, apellido_m, correo, telefono, genero, nacimiento, contrasena, id_usuario):
+def actualizar_usuario(nombre, apellido_p, apellido_m, correo, telefono, genero, nacimiento, contrasena,id_direccion, id_tipo,id_usuario):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE usuario SET nombre = %s, apellido_p = %s, apellido_m = %s, correo = %s, telefono = %s, genero = %s, nacimiento = %s, contraseña = %s WHERE id_usuario = %s",
-                       ( nombre, apellido_p, apellido_m, correo, telefono, genero, nacimiento, contrasena, id_usuario))
+        cursor.execute("UPDATE usuario SET nombre = %s, apellido_p = %s, apellido_m = %s, correo = %s, telefono = %s, genero = %s, nacimiento = %s, contrasena = %s,id_direccion=%s,id_tipo=%s WHERE id_usuario = %s",
+                       ( nombre, apellido_p, apellido_m, correo, telefono, genero, nacimiento, contrasena, id_direccion, id_tipo,id_usuario))
     conexion.commit()
     conexion.close()
 
+#TIPO
+def obtener_tipo_usuario():
+    conexion = obtener_conexion()
+    usuario = []
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * from tipo_usuario")
+        usuario = cursor.fetchall()
+    conexion.close()
+    return usuario
+
+#DIRECCIONES
+def obtener_direccion():
+    conexion = obtener_conexion()
+    usuario = []
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT * from direccion")
+        usuario = cursor.fetchall()
+    conexion.close()
+    return usuario
