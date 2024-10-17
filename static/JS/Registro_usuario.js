@@ -1,12 +1,12 @@
 //validacion
-const nombresC = document.querySelector('#nombres');
-const apellidospaC = document.querySelector('#apellidospa');
-const apellidosmaC = document.querySelector('#apellidosma');
-const emailC = document.querySelector('#email');
+const nombresC = document.querySelector('#nombre');
+const apellidospaC = document.querySelector('#apellido_p');
+const apellidosmaC = document.querySelector('#apellido_m');
+const emailC = document.querySelector('#correo');
 const telefonoC = document.querySelector('#telefono');
 const errorDisplay2 = document.getElementById('#genero-error'); // Usar el <small> para mostrar el mensaje de error
-const fecha = document.getElementById('fecha');
-const passwordC = document.querySelector('#password');
+const fecha = document.getElementById('nacimiento');
+const passwordC = document.querySelector('#contrasena');
 const confirmC = document.querySelector('#confirm-password');
 const checkbox = document.getElementById('term');
 const errorDisplay = document.getElementById('checkbox-error'); // Usar el id del <small>
@@ -327,16 +327,16 @@ const debounce = (fn, delay = 500) => {
 
 form.addEventListener('input', debounce(function (e) {
     switch (e.target.id) {
-        case 'nombres':
+        case 'nombre':
             check_nombre();
             break;
-        case 'apellidospa':
+        case 'apellido_p':
             check_apellidos_pa();
             break;
-        case 'apellidosma':
+        case 'apellido_m':
             check_apellidos_ma();
             break;
-        case 'email':
+        case 'correo':
             check_email();
             break;
         case 'telefono':
@@ -345,10 +345,10 @@ form.addEventListener('input', debounce(function (e) {
         case 'genero':
             validateGenero();
             break;
-        case 'fecha':
+        case 'nacimiento':
             check_fechaNacimiento();
             break;
-        case 'password':
+        case 'contrasena':
             check_password();
             break;
         case 'confirm-password':

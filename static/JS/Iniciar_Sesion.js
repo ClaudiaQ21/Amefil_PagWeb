@@ -1,13 +1,8 @@
-
 const emailC = document.querySelector('#email');
 const passwordC = document.querySelector('#password');
 const form = document.querySelector('#signup');
 
-
-
-
 const Req = value => value.trim() !== '';
-
 
 const email_valido = (email) => {
     const re = /^[^\s@]+@(amefil\.com|gmail\.com|hotmail\.com)$/;
@@ -18,7 +13,6 @@ const contraseña_valida = (password) => {
     const re = /^[A-Za-z0-9_:]{1,20}$/;
     return re.test(password);
 };
-
 
 const showError = (input, message) => {
     const formField = input.parentElement;
@@ -36,7 +30,6 @@ const showSuccess = (input) => {
     error.textContent = '';
 };
 
-
 const validateEmail = () => {
     let valid = false;
     const email = emailC.value.trim();
@@ -52,7 +45,6 @@ const validateEmail = () => {
 
     return valid;
 };
-
 
 const check_password = () => {
     let valid = false;
@@ -70,9 +62,8 @@ const check_password = () => {
     return valid;
 };
 
-
 form.addEventListener('submit', function (e) {
-    e.preventDefault();
+    e.preventDefault(); // Evita el envío del formulario
 
     let emailValido = validateEmail(),
         passwordValido = check_password();
@@ -80,10 +71,9 @@ form.addEventListener('submit', function (e) {
     let isFormValid = emailValido && passwordValido;
 
     if (isFormValid) {
-        
+        form.submit(); // Enviar el formulario si es válido
     }
 });
-
 
 const debounce = (fn, delay = 500) => {
     let timeoutId;
@@ -96,7 +86,6 @@ const debounce = (fn, delay = 500) => {
         }, delay);
     };
 };
-
 
 form.addEventListener('input', debounce(function (e) {
     switch (e.target.id) {

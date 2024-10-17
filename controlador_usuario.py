@@ -2,14 +2,21 @@ from bd import obtener_conexion
 import base64
 
 
-def insertar_usuario(nombre, apellido_p, apellido_m, correo, telefono, genero, nacimiento, contrasena):
+def insertar_usuario(nombre, apellido_p, apellido_m, correo, contrasena, telefono,genero, nacimiento):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO usuario ( nombre, apellido_p, apellido_m, correo, telefono, genero, nacimiento, contrasena) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
-                       (nombre, apellido_p, apellido_m, correo, telefono, genero, nacimiento, contrasena))
+        cursor.execute("INSERT INTO usuario ( nombre, apellido_p, apellido_m, correo, contrasena, telefono,genero, nacimiento) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+                       (nombre, apellido_p, apellido_m, correo, contrasena, telefono,genero, nacimiento))
     conexion.commit()
     conexion.close()
 
+def insertar_usuario_cliente(nombre, apellido_p, apellido_m, correo, contrasena, telefono,genero, nacimiento):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("INSERT INTO usuario ( nombre, apellido_p, apellido_m, correo, contrasena, telefono,genero, nacimiento, id_tipo) VALUES (%s, %s, %s, %s, %s, %s, %s, %s,1)",
+                       (nombre, apellido_p, apellido_m, correo, contrasena, telefono,genero, nacimiento))
+    conexion.commit()
+    conexion.close()
 
 
 def obtener_usuarios():
@@ -70,3 +77,4 @@ def actualizar_usuario(nombre, apellido_p, apellido_m, correo, telefono, genero,
                        ( nombre, apellido_p, apellido_m, correo, telefono, genero, nacimiento, contrasena, id_usuario))
     conexion.commit()
     conexion.close()
+
