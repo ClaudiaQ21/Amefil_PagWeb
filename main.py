@@ -64,6 +64,10 @@ def guardar_producto():
     controlador_producto.insertar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, id_talla, imagen)
     return redirect("/productos")
 
+@app.route("/agregar_producto")
+def agregar_producto():
+    return render_template("Agregar_producto.html")
+
 @app.route("/colecciones")
 def colecciones():
     return render_template("Colecciones.html")
