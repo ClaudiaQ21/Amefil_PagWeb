@@ -203,6 +203,14 @@ def dashboardmantenedor():
 def productoadmin():
     return render_template("ProductoLME.html")
 
+@app.route("/usuarioadmin")
+def usuarioadmin():
+    return render_template("UsuarioLME.html")
+
+@app.route("/agregar_rol")
+def formulario_agregar_rol():
+    return render_template("Agregar_Rol.html")
+
 # Iniciar el servidor
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000, debug=True)
