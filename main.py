@@ -62,7 +62,7 @@ def guardar_producto():
     id_talla = request.form["id_talla"]
     imagen = request.files['imagen'].read() 
     controlador_producto.insertar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, id_talla, imagen)
-    return redirect("/productos")
+    return redirect("/productoadmin")
 
 @app.route("/agregar_producto")
 def agregar_producto():
@@ -229,11 +229,20 @@ def productoadmin():
 
 @app.route("/usuarioadmin")
 def usuarioadmin():
-    return render_template("UsuarioLME.html")
+    usuarios=controlador_usuario.obtener_usuarios_por_tipo(3)
+    return render_template("UsuarioLME.html",usuarios=usuarios)
 
 @app.route("/agregar_rol")
 def formulario_agregar_rol():
     return render_template("Agregar_Rol.html")
+
+@app.route("/agregar_producto")
+def formulario_agregar_producto():
+    tipos_producto = controlador_tipo_producto.obtener_tipos_producto()
+    colores = controlador_color.obtener_colores()
+    tallas = controlador_talla.obtener_tallas()
+    temporadas = controlador_temporada.obtener_temporadas()
+    return render_template("Agregar_Producto.html", tipos_producto=tipos_producto, colores=colores, tallas=tallas, temporadas=temporadas)
 
 # Iniciar el servidor
 if __name__ == "__main__":
