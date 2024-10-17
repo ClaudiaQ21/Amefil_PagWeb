@@ -2,11 +2,11 @@ from bd import obtener_conexion
 import base64
 
 
-def insertar_producto(nombre, precio, coleccion, temporada, estado, cantidad, img):
+def insertar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, id_talla, imagen):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO producto ( nombre, precio, coleccion, temporada, estado, cantidad, img) VALUES (%s, %s, %s, %s, %s, %s, %s)",
-                       (nombre, precio, coleccion, temporada, estado, cantidad, img))
+        cursor.execute("INSERT INTO producto ( nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, id_talla, imagen) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
+                       (nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, id_talla, imagen))
     conexion.commit()
     conexion.close()
 
@@ -15,7 +15,7 @@ def obtener_productos():
     conexion = obtener_conexion()
     productos = []
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, P.imagen, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre  AS temporada, D.tasa AS tasa_descuento, TA.nombre AS talla FROM producto P LEFT JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto LEFT JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN talla TA ON TA.id_talla = P.id_talla LEFT JOIN descuento D on D.id_descuento = DD.id_descuento LEFT JOIN color C on C.id_color = P.id_color")
+        cursor.execute("SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, P.imagen, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre AS temporada, D.tasa AS tasa_descuento, TA.nombre AS talla FROM producto P LEFT JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto LEFT JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN talla TA ON TA.id_talla = P.id_talla LEFT JOIN descuento D on D.id_descuento = DD.id_descuento LEFT JOIN color C on C.id_color = P.id_color")
         productos = cursor.fetchall()
     productos_con_imagen = []
     for producto in productos:
@@ -46,21 +46,21 @@ def eliminar_producto(id):
     conexion.close()
 
 
-def obtener_producto_por_id(id):
+def obtener_producto_por_id(id_producto):
     conexion = obtener_conexion()
     producto = None
     with conexion.cursor() as cursor:
         cursor.execute(
-            "SELECT id_producto, nombre, precio, coleccion, temporada, estado, cantidad, img FROM discos WHERE id_producto = %s", (id,))
+            "SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, P.imagen, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre AS temporada, D.tasa AS tasa_descuento, TA.nombre AS talla FROM producto P LEFT JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto LEFT JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN talla TA ON TA.id_talla = P.id_talla LEFT JOIN descuento D on D.id_descuento = DD.id_descuento LEFT JOIN color C on C.id_color = P.id_color WHERE P.id_producto = %s", (id_producto))
         producto = cursor.fetchone()
     conexion.close()
     return producto
 
 
-def actualizar_producto(nombre, precio, coleccion, temporada, estado, cantidad, img, id_producto):
+def actualizar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, id_talla, imagen, id_producto):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE discos SET nombre = %s, precio = %s, coleccion = %s, temporada = %s, estado = %s, cantidad = %s, img = %s WHERE id_producto = %s",
-                       ( nombre, precio, coleccion, temporada, estado, cantidad, img, id_producto))
+        cursor.execute("UPDATE producto SET nombre = %s, precio = %s, id_tipo_producto = %s, vigencia = %s, stock = %s, descripcion = %s, id_color = %s, id_temporada = %s, id_talla = %s, imagen = %s where id_producto = %s ",
+                       ( nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, id_talla, imagen, id_producto))
     conexion.commit()
     conexion.close()
