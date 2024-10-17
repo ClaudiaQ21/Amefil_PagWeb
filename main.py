@@ -164,6 +164,30 @@ def login():
 def registrar():
     return render_template("Registro_usuario.html")
 
+@app.route('/registro', methods=['POST'])
+def registro():
+    nombre = request.form['nombre']
+    apellido_p = request.form['apellido_p']
+    apellido_m = request.form['apellido_m']
+    contrasena = request.form['contrasena']
+    correo = request.form['correo']
+    telefono = request.form['telefono']
+    genero = request.form['genero']
+    nacimiento = request.form['nacimiento']
+    
+    
+    controlador_usuario.insertar_usuario_cliente(nombre, apellido_p, apellido_m, correo, contrasena, telefono,genero, nacimiento)
+
+    return redirect('/amefil')
+
+@app.route('/reestablecer')
+def reestablecer_contraseña():
+    return render_template('Reestablecer_contraseña.html')
+@app.route('/reestablecer_2')
+def reestablecer_contraseña_2():
+    return render_template('Reestablecer_contraseña_2.html')
+
+
 ### POLITICAS
 @app.route("/terminosycondiciones")
 def terminosycondiciones():
