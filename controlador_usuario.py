@@ -51,6 +51,18 @@ def obtener_usuario_por_correo(correo):
     conexion.close()
     return usuario
 
+def obtener_usuarios_por_tipo(id_tipo):
+    conexion = obtener_conexion()
+    user_tipo = None
+    with conexion.cursor() as cursor:
+        cursor.execute(
+            "select CONCAT(us.nombre, ' ', us.apellido_p, ' ', us.apellido_m) as nombrescompletos, us.correo, us.telefono, us.genero, us.nacimiento, dir.detalle from usuario us inner join tipo_usuario tu on us.id_tipo=tu.id_tipo inner join direccion dir on dir.id_direccion = us.id_direccion where tu.id_tipo = %s", 
+            (id_tipo)
+        )
+        user_tipo = cursor.fetchall()
+    conexion.close()
+    return user_tipo
+
 def actualizar_usuario(nombre, apellido_p, apellido_m, correo, telefono, genero, nacimiento, contrasena, id_usuario):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:

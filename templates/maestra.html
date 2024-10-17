@@ -130,7 +130,7 @@
                         <li><a class="dropdown-item" href="{{url_for('iniciarsesion')}}">Iniciar sesión</a></li>
                         <li><a class="dropdown-item" href="{{url_for('registrar')}}">Registrarse</a></li>
                         <li><a class="dropdown-item" href="{{url_for('perfil')}}">Perfil</a></li>
-                        <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                        <li><a class="dropdown-item" href="{{url_for('dashboardadmin')}}">Dashboard</a></li>
                         <hr class="my-2">
                         <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
                     </div>
@@ -229,8 +229,8 @@
         </div>
     </footer>
 
-    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
 </body>

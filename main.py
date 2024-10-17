@@ -49,6 +49,25 @@ def navegacionproductos():
 def producto():
     return render_template("Producto.html")
 
+@app.route("/guardar_producto", methods=["POST"])
+def guardar_producto():
+    nombre = request.form["nombre"]
+    precio = request.form["precio"]
+    id_tipo_producto = request.form["id_tipo_producto"]
+    vigencia = request.form["vigencia"]
+    stock = request.form["stock"]
+    descripcion = request.form["descripcion"]
+    id_color = request.form["id_color"]
+    id_temporada = request.form["id_temporada"]
+    id_talla = request.form["id_talla"]
+    imagen = request.files['imagen'].read() 
+    controlador_producto.insertar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, id_talla, imagen)
+    return redirect("/productos")
+
+@app.route("/agregar_producto")
+def agregar_producto():
+    return render_template("Agregar_producto.html")
+
 @app.route("/colecciones")
 def colecciones():
     return render_template("Colecciones.html")
@@ -63,6 +82,17 @@ def perfil():
 @app.route("/editardatos")
 def editardatos():
     return render_template("Perfil_editar.html")
+
+# @app.route("/editardatos/<int:id>")
+# def editardatos(id):
+#     usuario = controlador_usuario.obtener_usuario_por_id(id)
+#     return render_template("Perfil_editar.html", usuario=usuario)
+
+# @app.route("/actualizardatosusuario")
+# def actualizarUsuario():
+#     id = request.form["id"]
+#     nombre = request.form["nombre"]
+#     return redirect("/perfil")
 
 ### >>>> DIRECCIONES
 @app.route("/editardireccion")
@@ -168,6 +198,10 @@ def dashboardadmin():
 @app.route("/dashboardmantenedor")
 def dashboardmantenedor():
     return render_template("DashboardMantenedor.html")
+
+@app.route("/productoadmin")
+def productoadmin():
+    return render_template("ProductoLME.html")
 
 # Iniciar el servidor
 if __name__ == "__main__":

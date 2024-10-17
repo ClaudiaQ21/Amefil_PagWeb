@@ -27,6 +27,10 @@
 
 /*Opción volver al inicio*/
 
+.volver-inicio{
+    width: 100px;
+}
+
 .volver-inicio a{
     text-decoration: none;
 }

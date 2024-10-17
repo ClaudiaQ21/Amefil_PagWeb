@@ -2,7 +2,6 @@
 
 {% block estilosPerfil %}
     <link rel="stylesheet" href="css/Perfil_editar.css">
-    <link rel="stylesheet" href="CSS/Estandar_perfil.css">
 {% endblock %}
 
 {% block contenidoPerfil %}
@@ -10,17 +9,18 @@
         <div class="contenedor py-lg-5 py-md-4 py-4">
             <div class="row justify-content-center bloque-info">
                 <div class="titulo bloque py-lg-4 py-md-4 pt-0 pb-4">
-                    <div class="row mt-0 pt-0 g-4 justify-content-center">
+                    <form action="{{url_for('editardatos')}}" method="post" class="row mt-0 pt-0 g-4 justify-content-center">
+                        
                         <div class="col-lg-12 col-md-12 col-12">
-                            <label class="form-label">Nombre *</label>
-                            <input type="text" class="form-control datos" id="nombres">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" class="form-control datos" id="nombre" name="nombre">
                         </div>
-    
+
                         <div class="col-lg-12 col-md-12 col-12">
-                            <label class="form-label">Apellidos *</label>
+                            <label class="form-label">Apellidos</label>
                             <input type="text" class="form-control datos" id="apellidos">
                         </div>
-    
+
                         <div class="col-lg-12 col-md-12 col-12">
                             <label class="form-label">Departamento</label>
                             <select class="form-select datos" aria-label="Default select example">
@@ -39,11 +39,6 @@
                             <select class="form-select datos" aria-label="Default select example">
                                 <option selected>--Seleccione su distrito--</option>
                             </select>
-                        </div>
-    
-                        <div class="col-lg-12 col-md-12 col-12">
-                            <label class="form-label">DNI</label>
-                            <input type="text" class="form-control datos" class="lab" id="dni">
                         </div>
     
                         <div class="col-lg-12 col-md-12 col-12 d-flex justify-content-between">
@@ -138,7 +133,6 @@
                                 <option selected>--Seleccione su género--</option>
                                 <option value="1">Femenino</option>
                                 <option value="2">Masculino</option>
-                                <option value="3">Prefiero no decirlo</option>
                             </select>
                         </div>
     
@@ -146,12 +140,11 @@
                             <label class="form-label">Celular</label>
                             <input type="text" class="form-control datos" id="celular">
                         </div>
-    
-                    </div>
-            
-                    <div class="col-lg-12 boton-guardar mt-4">
-                        <button class="botones py-1" onclick="location.href='Perfil.html'">Guardar datos</button>
-                    </div>
+
+                        <button class="botones py-2" onclick="location.href='Perfil.html'">Guardar datos</button>
+                        
+                    </form>
+
                 </div>
             </div>
         </div>

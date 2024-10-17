@@ -9,72 +9,176 @@
     text-align: center;
 }
 
-.slogan img{
-    width: 100px;
+.dashboard{
+    background-color: rgb(251, 249, 242);
 }
 
-.slogan p{
-    text-align: center;
-    margin: 0;
+.dashboard .product{
+    color: rgb(251, 249, 242);
 }
 
-.oficina img{
+.dashboard .product .item{
+    background-color: rgb(158, 134, 94);
     border-radius: 20px;
-    max-height: 400px;
-    object-fit: cover;
-    object-position: center;
+    text-align: center;
 }
 
-.direccion{
-    text-align: center;
+.dashboard .product .item p{
     margin: 0;
 }
 
-.direccion b{
+.dashboard .product .item .icon{
+    background-color: rgb(251, 249, 242);
+    color: rgb(158, 134, 94);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 20pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard .product .item .icon:hover{
+    background-color: rgb(119, 101, 71);
+    color: rgb(251, 249, 242);
+}
+
+.dashboard .preview{
     color: rgb(158, 134, 94);
 }
 
-.direccion iframe{
+.dashboard .preview .item{
+    background-color: rgb(255, 255, 255);
     border-radius: 20px;
+    text-align: center;
 }
 
-.redes{
-    background-color: rgb(251, 249, 242);
-    border-radius: 20px;
+.dashboard .preview .item p{
+    margin: 0;
 }
 
-.redes .elemento {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-inline: 60px;
-}
-
-.redes i{
-    color: rgb(251, 249, 242);
-    font-size: xx-large;
+.dashboard .preview .item .icon{
     background-color: rgb(158, 134, 94);
+    color: rgb(251, 249, 242);
     border-radius: 50%;
-    height: 70px;
-    width: 70px;
+    width: 60px;
+    height: 60px;
+    font-size: 20pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard .preview .item .icon:hover{
+    background-color: rgb(119, 101, 71);
+    color: rgb(251, 249, 242);
+}
+
+.dashboard .maping{
+    color: rgb(158, 134, 94);
+}
+
+.dashboard .maping .item{
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.dashboard .maping table{
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.dashboard .maping table, th, td {
+    border: 1px solid rgb(119, 101, 71);
+}
+
+.dashboard .maping th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+.dashboard .maping th{
+    background-color: rgb(158, 134, 94);
+    color: rgb(251, 249, 242);
+}
+
+.dashboard .recent{
+    color: rgb(158, 134, 94);
+}
+
+.dashboard .recent .item{
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.dashboard .recent .item p{
+    margin: 0;
+}
+
+.dashboard .recent .item .icon{
+    background-color: rgb(158, 134, 94);
+    color: rgb(251, 249, 242);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 20pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard .recent .item .icon:hover{
+    background-color: rgb(119, 101, 71);
+    color: rgb(251, 249, 242);
+}
+
+.dashboard .recent .item img{
+    border-radius: 20px;
+    height: 120px;
+    width: 150px;
+}
+
+.dashboard .recent .title{
+    text-align: center;
+}
+
+.dashboard .recent .typeproduct{
+    background-color: rgb(158, 134, 94);
+    border-radius: 20px;
+    color: rgb(251, 249, 242);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 15px;
 }
 
-.redes i:hover{
-    background-color: rgb(119, 101, 71);
+.dashboard .recent .typeproduct a{
+    padding: 0;
 }
 
-.redes h3{
+.dashboard .recent .typeproduct h3, p{
+    margin: 0;
+    margin-right: 20px;
+}
+
+.dashboard .recent .typeproduct .icon{
+    background-color: rgb(251, 249, 242);
     color: rgb(158, 134, 94);
-    text-align: center;
-    margin: 0;
-    margin-bottom: 15px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 20pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.redes p{
-    text-align: center;
-    margin: 0;
+.dashboard .recent .typeproduct .icon:hover{
+    background-color: rgb(119, 101, 71);
+    color: rgb(251, 249, 242);
 }

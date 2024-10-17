@@ -6,18 +6,13 @@ Carrito de Compras
 
 {% block estilos_adicionales %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/Carro de compras.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/encabezado_pie.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/Navegacion_productos.css') }}">
-<link rel="icon" href="{{ url_for('static', filename='img/img_logo/logoAmefil - solo logo.svg') }}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 {% endblock %}
 
 {% block contenido %}
-<div id="header"></div>
 <div class="row nues_produc m-0">
     <div class="col-12">
         <h3 class="text-center py-4">CARRITO DE COMPRAS</h3>
@@ -43,7 +38,7 @@ Carrito de Compras
                 </tbody>
             </table>
         </nav>
-        <section class="col-4">
+        <section class="col-4 compra">
             <div class="container text-start">
                 <div class="row g-4 justify-content-center">
                     <h6 class="text-center">GENERAR COMPRA</h6>
@@ -59,7 +54,6 @@ Carrito de Compras
                         <label class="form-label">Total a pagar:</label>
                         <input type="text" class="form-control" id="total" readonly>
                     </div>
-                    <br>
                     <div class="col-lg-7 col-md-7 col-sm-12">
                         <button onclick="finalizarCompra()" type="button" class="botones agregar-carrito">Finalizar
                             compra</button>
@@ -70,10 +64,5 @@ Carrito de Compras
     </div>
 </main>
 
-<div id="footer"></div>
-
-<script src="{{ url_for('static', filename='js/jquery-3.7.1.slim.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/carrito.js') }}"></script>
-<script src="{{ url_for('static', filename='js/header_footer.js') }}"></script>
 {% endblock %}
