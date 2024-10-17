@@ -52,3 +52,9 @@ main{
     color: var(--error-color);
 
 }
+
+@media (min-width: 768px) and (max-width: 1440px) {
+    #Contenedor {
+        min-width: 450px;
+    }
+}

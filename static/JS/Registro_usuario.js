@@ -279,35 +279,31 @@ form.addEventListener('submit', function (e) {
     // validar el formulario
     let nombreValido = check_nombre(),
         apellidoPaValido = check_apellidos_pa(),
-         apellidoMaValido = check_apellidos_ma(),
-         emailValido = check_email(),
-         telefonoValido=check_telefono(),
-         generoValido = validateGenero(),
-         fechaValida = check_fechaNacimiento(),
-         passwordValido = check_password(),
-         confirmValido = check_confirm(),
-         checkboxValid = checkbox_confirm()
-         ;
+        apellidoMaValido = check_apellidos_ma(),
+        emailValido = check_email(),
+        telefonoValido = check_telefono(),
+        generoValido = validateGenero(),
+        fechaValida = check_fechaNacimiento(),
+        passwordValido = check_password(),
+        confirmValido = check_confirm(),
+        checkboxValid = checkbox_confirm();
 
-    let isFormValid = nombreValido 
-     &&
-        apellidoPaValido 
-         &&
-         apellidoMaValido 
-         &&
-         emailValido
-         &&
-         telefonoValido &&
-         generoValido &&
-         fechaValida &&
-         passwordValido &&
+    let isFormValid = nombreValido &&
+        apellidoPaValido &&
+        apellidoMaValido &&
+        emailValido &&
+        telefonoValido &&
+        generoValido &&
+        fechaValida &&
+        passwordValido &&
         confirmValido &&
-        checkboxValid ; 
+        checkboxValid;
 
     if (isFormValid) {
-        
+        form.submit(); // Envía el formulario si es válido
     }
 });
+
 
 
 
