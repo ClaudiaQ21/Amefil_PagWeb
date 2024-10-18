@@ -17,6 +17,11 @@ app.secret_key = 'alguna_clave_secreta'
 def amefil():
     return render_template("Index.html")
 
+@app.context_processor
+def inject_tipos():
+    tipos = controlador_tipo_producto.obtener_tipo_productos()
+    return dict(tipos=tipos)
+
 ## MENU
 
 @app.route("/novedades")
@@ -104,6 +109,14 @@ def actualizar_producto():
 @app.route("/colecciones")
 def colecciones():
     return render_template("Colecciones.html")
+
+@app.route("/novedades")
+def navegacionproductos():
+    productos_nuevos = controlador_producto.obtener_novedades()
+    color = controlador_filtros.obtener_colores()
+    tipo_pro = controlador_filtros.obtener_tipo_producto()
+    temporada = controlador_filtros.obtener_temporadas()
+    return render_template("Navegacion_productos.html", productos_nuevos = productos_nuevos, color = color, tipo_pro = tipo_pro, temporada=temporada)
 
 
 

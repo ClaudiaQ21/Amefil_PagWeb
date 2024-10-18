@@ -79,10 +79,9 @@
                                     <a class="nav-link" data-bs-toggle="dropdown" aria-expanded="false" href="#">COLECCIONES</a>
                                     <div class="buscar">
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="{{url_for('colecciones')}}">Collares</a></li>
-                                            <li><a class="dropdown-item" href="{{url_for('colecciones')}}">Pulseras</a></li>
-                                            <li><a class="dropdown-item" href="{{url_for('colecciones')}}">Aretes</a></li>
-                                            <li><a class="dropdown-item" href="{{url_for('colecciones')}}">Bolsos</a></li>
+                                            {% for tipo in tipos %}
+                                            <li><a class="dropdown-item" data-value="{{tipo[0]}}" href="{{url_for('colecciones')}}">{{ tipo[1]}}</a></li>
+                                            {% endfor %}
                                         </ul>
                                     </div>
                                 </li>
