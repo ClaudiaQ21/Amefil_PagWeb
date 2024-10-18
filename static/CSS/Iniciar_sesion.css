@@ -27,7 +27,6 @@ main{
 
 #men{
     margin-top: 30px;
-    margin-bottom: 20px;
 
 }
 #men2{
@@ -69,4 +68,9 @@ label#lab {
 
 input[type="checkbox"] {
     margin-right: 8px; /* Añadir un poco de espacio si es necesario */
+}
+
+#men_error{
+    margin-top: 30px;
+    text-align: center;
 }

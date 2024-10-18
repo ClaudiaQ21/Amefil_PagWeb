@@ -28,20 +28,21 @@ Iniciar Sesión
                             <small></small>
                         </div>
                         <div class="form-group text-center" id="men">
-                            <a href="{{ url_for('reestablecer_contraseña') }}" class="small">¿Olvidaste tu contraseña?</a>
+                            <a href="{{ url_for('reestablecer_contraseña') }}" class="small">¿Olvidaste tu
+                                contraseña?</a>
                         </div>
                         <div class="form-group text-center">
-                            <button type="submit" class="botones" id="ing">Ingresar</button>
+                            <button type="submit" class="botones" value="signup" id="ing">Ingresar</button>
                         </div>
                         <div class="form-group text-center" id="men2">
                             <span class="small">¿Todavía no tienes cuenta? <a href="{{ url_for('registrar') }}"
                                     id="regis">Regístrate</a></span>
                         </div>
                         {% if error %}
-                        <div class="alert alert-danger">{{ error }}</div>
+                        <div class="alert alert-danger" id="men_error">{{ error }}</div>
                         {% endif %}
                     </form>
-                    
+
                 </div>
             </div>
         </div>
