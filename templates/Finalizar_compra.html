@@ -45,9 +45,10 @@ Finalizar Compra
                                             <input type="text" id="nombre" class="form-control" required>
                                             <small></small>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
-                                            <input type="date" id="fechaNacimiento" class="form-control" required>
+                                        <div class="col-lg-6 col-md-6 col-sm-12 form-field">
+                                            <label for="nacimiento">Fecha de nacimiento</label>
+                                            <input type="date" class="form-control" id="nacimiento" name="nacimiento"
+                                                placeholder="Ingrese su fecha de nacimiento">
                                             <small></small>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12 form-field">
@@ -192,7 +193,7 @@ Finalizar Compra
             </section>
         </div>
     </form>
-    
+
     <!-- <div id="miModal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeButton">&times;</span>
@@ -205,8 +206,8 @@ Finalizar Compra
             </div>
         </div>
     </div> -->
-    
-    
+
+
 </main>
 <script src="{{ url_for('static', filename='JS/finalizar_comp.js') }}" defer></script>
 {% endblock %}

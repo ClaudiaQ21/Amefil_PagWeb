@@ -1,13 +1,13 @@
 window.onload = function () {
     const totalPagarInput = document.getElementById('totalPagar');
     const precioEnvioInput = document.getElementById('precioEnvio');
-    
+
     function actualizarTotalConEnvio() {
         const total = localStorage.getItem('totalAmount');
         const envioTexto = precioEnvioInput.value;
         const envio = parseFloat(envioTexto.replace('S/. ', '')) || 0;
         const totalCarrito = parseFloat(total) || 0;
-        
+
         if (!isNaN(envio) && !isNaN(totalCarrito)) {
             const totalConEnvio = totalCarrito + envio;
             totalPagarInput.value = `S/. ${totalConEnvio.toFixed(2)}`;
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     const nombreEl = document.querySelector('#nombre');
-    const fechaNacimientoEl = document.querySelector('#fechaNacimiento');
+    const fechaNacimientoEl = document.querySelector('#nacimiento');
     const dniEl = document.querySelector('#dni');
     const telefonoEl = document.querySelector('#telefono');
     const addressEl = document.querySelector('#direccion');
@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const codigoEl = document.querySelector('#codigo');
 
     const isRequired = value => value === '' ? false : true;
+
     const showError = (input, message) => {
         const formField = input.parentElement;
         formField.classList.remove('success');
@@ -96,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const error = formField.querySelector('small');
         error.textContent = message;
     };
+
     const showSuccess = (input) => {
         const formField = input.parentElement;
         formField.classList.remove('error');
@@ -151,22 +153,36 @@ document.addEventListener('DOMContentLoaded', function () {
         return valid;
     };
 
-    const isFechaNacimientoValid = (fecha) => {
-        return fecha !== '';
-    };
-    const checkFechaNacimiento = () => {
+    const check_fechaNacimiento = () => {
         let valid = false;
-        const fechaNacimiento = fechaNacimientoEl.value.trim();
-        if (!isRequired(fechaNacimiento)) {
-            showError(fechaNacimientoEl, 'La fecha de nacimiento no puede estar vacía.');
-        } else if (!isFechaNacimientoValid(fechaNacimiento)) {
-            showError(fechaNacimientoEl, 'La fecha de nacimiento no es válida.');
+        const fechaValue = fechaNacimientoEl.value.trim();
+
+        if (!isRequired(fechaValue)) {
+            showError(fechaNacimientoEl, 'Debe ingresar su fecha de nacimiento');
         } else {
-            showSuccess(fechaNacimientoEl);
-            valid = true;
+            const fechaIngresada = new Date(fechaValue);
+            const fechaActual = new Date();
+            const edadMinima = 18;
+            const fechaLimite = new Date(
+                fechaActual.getFullYear() - edadMinima,
+                fechaActual.getMonth(),
+                fechaActual.getDate()
+            );
+
+            if (isNaN(fechaIngresada.getTime())) {
+                showError(fechaNacimientoEl, 'La fecha ingresada no es válida');
+            } else if (fechaIngresada > fechaActual) {
+                showError(fechaNacimientoEl, 'La fecha de nacimiento no puede ser futura');
+            } else if (fechaIngresada > fechaLimite) {
+                showError(fechaNacimientoEl, 'Debe tener al menos 18 años');
+            } else {
+                showSuccess(fechaNacimientoEl);
+                valid = true;
+            }
         }
         return valid;
     };
+
     const checkDni = () => {
         let valid = false;
         const dni = dniEl.value.trim();
@@ -263,9 +279,7 @@ document.addEventListener('DOMContentLoaded', function () {
         checkName();
     });
 
-    fechaNacimientoEl.addEventListener('input', function () {
-        checkFechaNacimiento();
-    });
+    fechaNacimientoEl.addEventListener('input', check_fechaNacimiento);
 
     dniEl.addEventListener('input', function () {
         checkDni();
@@ -293,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function () {
     codigoEl.addEventListener('input', function () {
         checkCvv();
     });
-    
+
     /*
     const resetValidation = () => {
         const formFields = [
