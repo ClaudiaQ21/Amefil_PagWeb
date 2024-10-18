@@ -73,3 +73,40 @@ def actualizar_producto(nombre, precio, id_tipo, vigencia, stock, descripcion, i
                        ( nombre, precio, id_tipo, vigencia, stock, descripcion, id_color, id_temporada, imagen, id_producto))
     conexion.commit()
     conexion.close()
+
+def obtener_novedades():
+    conexion = obtener_conexion()
+    productos = None
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, P.imagen,DATEDIFF(CURDATE(), P.fecha_registro) AS dias_registro, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre AS temporada, D.tasa AS tasa_descuento FROM producto P LEFT JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto LEFT JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN descuento D on D.id_descuento = DD.id_descuento LEFT JOIN color C on C.id_color = P.id_color")
+        productos = cursor.fetchall()
+    productos_nuevos = []
+    for producto in productos:
+        imagen_base64 = base64.b64encode(producto[6]).decode('utf-8')
+
+        tasa_descuento = producto[10] if producto[10] is not None else 0
+
+        if producto[3] == 0:
+            vigencia = "Vigente"
+        elif producto[3] == 1:
+            vigencia = "No vigente"
+        else:
+            vigencia = "No especificado"
+        
+        if producto[7]|float <= 7:
+            productos_nuevos.append((
+                producto[0],  # id_producto
+                producto[1],  # nombre
+                producto[2],  # precio
+                vigencia,  # vigencia
+                producto[4],  # stock
+                producto[5],  # descripcion
+                imagen_base64,  # imagen convertida a Base64
+                producto[8],  # coleccion
+                producto[9],  # color
+                producto[10],  # temporada
+                tasa_descuento  # descuento
+            ))
+            
+    conexion.close()
+    return productos_nuevos
