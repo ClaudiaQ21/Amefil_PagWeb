@@ -8,232 +8,142 @@ Novedades
 {% endblock %}
 
 {% block contenido %}
-    <main>
-        <div class="row nues_produc m-0">
-            <div class="col-12">
-                <h3 class="text-center py-4">NOVEDADES</h3>
+<main>
+    <div class="row nues_produc m-0">
+        <div class="col-12">
+            <h3 class="text-center py-4">NOVEDADES</h3>
+        </div>
+    </div>
+
+    <div class="row d-flex container-fluid m-0 p-0">
+        <div class="col-lg-12 text-center prom m-0 p-3">
+            <h6 class="m-0">Envío gratis por todo el mes de junio</h6>
+        </div>
+    </div>
+
+    <div class="row container-fluid m-0 p-0">
+        <div class="col-lg-3 col-md-3 p-0 m-0 d-flex text-start justify-content-start d-md-block d-sm-none d-none">
+            <div class="filtros align-items-left text-start">
+                <div class="fil">
+                    <legend>Colecciones</legend>
+                    {% for tipo_pro in tipo_pro %}
+                        <input type="checkbox" name = "colecc" id="colecc" value="{{tipo_pro[1]}}">{{tipo_pro[1]}}<br>
+                    {% endfor %}
+                </div>
+                <div class="fil">
+                    <legend>Temporada</legend>
+                    {% for temporada in temporada %}
+                        <input type="checkbox" name = "temp" id="temp" value="{{temporada[1]}}">{{temporada[1]}}<br>
+                    {% endfor %}
+                </div>
+                <div class="fil">
+                    <legend>Color</legend>
+                    {% for color in color %}
+                            <input type="checkbox" name = "color" id="color" value="{{color[1]}}">{{color[1]}}<br>
+                    {% endfor %}
+                </div>
             </div>
         </div>
 
-        <div class="row d-flex container-fluid m-0 p-0">
-            <div class="col-lg-12 text-center prom m-0 p-3">
-                <h6 class="m-0">Envío gratis por todo el mes de junio</h6>
+        <div class="accordion d-md-none col-sm-12 col-12 mt-4" id="footerAccordion">
+            <div class="accordion-item">
+                <h6 class="accordion-header" id="headingOne">
+                    <button class="botones collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-controls="collapseOne">
+                        Colecciones <img src="img/img_iconos/flechita.png" class="flechita" alt="">
+                    </button>
+                </h6>
+                <div id="collapseOne" class="collapse show" data-bs-parent="#footerAccordion">
+                    <div class="accordion-body">
+                        {% for tipo_pro in tipo_pro %}
+                            <input type="checkbox" name = "colecc" id="colecc" value="{{tipo_pro[1]}}">{{tipo_pro[1]}}<br>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h6 class="accordion-header" id="headingTwo">
+                    <button class="botones collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-controls="collapseTwo">
+                        Temporadas <img src="img/img_iconos/flechita.png" class="flechita" alt="">
+                    </button>
+                </h6>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#footerAccordion">
+                    <div class="accordion-body">
+                        {% for temporada in temporada %}
+                            <input type="checkbox" name = "temp" id="temp" value="{{temporada[1]}}">{{temporada[1]}}<br>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h6 class="accordion-header" id="headingThree">
+                    <button class="botones collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-controls="collapseThree">
+                        Color <img src="img/img_iconos/flechita.png" class="flechita" alt="">
+                    </button>
+                </h6>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                    data-bs-parent="#footerAccordion">
+                    <div class="accordion-body">
+                        {% for color in color %}
+                            <input type="checkbox" name = "color" id="color" value="{{color[1]}}">{{color[1]}}<br>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="row container-fluid m-0 p-0">
-            <div class="col-lg-3 col-md-3 p-0 m-0 d-flex text-start justify-content-start d-md-block d-sm-none d-none">
-                <div class="filtros align-items-left text-start">
-                    <div class="fil">
-                        <legend>Colecciones</legend>
-                        <input type="checkbox" name="colecc" id="colecc" value="pulseras"> Pulseras <br>
-                        <input type="checkbox" name="colecc" id="colecc" value="bolsos"> Bolsos <br>
-                        <input type="checkbox" name="colecc" id="colecc" value="collares"> Collares <br>
-                        <input type="checkbox" name="colecc" id="colecc" value="aretes"> Aretes <br>
-                    </div>
-                    <div class="fil">
-                        <legend>Temporada</legend>
-                        <input type="checkbox" name="temp" id="temp" value="primavera"> Primavera <br>
-                        <input type="checkbox" name="temp" id="temp" value="verano"> Verano <br>
-                        <input type="checkbox" name="temp" id="temp" value="otoño"> Otoño <br>
-                        <input type="checkbox" name="temp" id="temp" value="invierno"> Invierno <br>
-                    </div>
-                    <div class="fil">
-                        <legend>Color</legend>
-                        <input type="checkbox" name="color" id="color" value="negro">Negro<br>
-                        <input type="checkbox" name="color" id="color" value="blanco">Blanco<br>
-                        <input type="checkbox" name="color" id="color" value="plateado">Plateado<br>
-                        <input type="checkbox" name="color" id="color" value="crema">Crema<br>
-                        <input type="checkbox" name="color" id="color" value="rosa">Rosa<br>
-                        <input type="checkbox" name="color" id="color" value="rojo">Rojo<br>
-                        <input type="checkbox" name="color" id="color" value="celeste">Celeste<br>
-                        <input type="checkbox" name="color" id="color" value="lila">Lila<br>
-                        <input type="checkbox" name="color" id="color" value="verde">Verde<br>
-                        <input type="checkbox" name="color" id="color" value="marron">Marrón<br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion d-md-none col-sm-12 col-12 mt-4" id="footerAccordion">
-                <div class="accordion-item">
-                    <h6 class="accordion-header" id="headingOne">
-                        <button class="botones collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseOne" aria-controls="collapseOne">
-                            Colecciones <img src="img/img_iconos/flechita.png" class="flechita" alt="">
-                        </button>
-                    </h6>
-                    <div id="collapseOne" class="collapse show" data-bs-parent="#footerAccordion">
-                        <div class="accordion-body">
-                            <input type="checkbox" name="colecc" id="colecc" value="pulseras"> Pulseras <br>
-                            <input type="checkbox" name="colecc" id="colecc" value="bolsos"> Bolsos <br>
-                            <input type="checkbox" name="colecc" id="colecc" value="collares"> Collares <br>
-                            <input type="checkbox" name="colecc" id="colecc" value="aretes"> Aretes <br>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h6 class="accordion-header" id="headingTwo">
-                        <button class="botones collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo" aria-controls="collapseTwo">
-                            Temporada <img src="img/img_iconos/flechita.png" class="flechita" alt="">
-                        </button>
-                    </h6>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                        data-bs-parent="#footerAccordion">
-                        <div class="accordion-body">
-                            <input type="checkbox" name="temp" id="temp" value="primavera"> Primavera <br>
-                            <input type="checkbox" name="temp" id="temp" value="verano"> Verano <br>
-                            <input type="checkbox" name="temp" id="temp" value="otoño"> Otoño <br>
-                            <input type="checkbox" name="temp" id="temp" value="invierno"> Invierno <br>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h6 class="accordion-header" id="headingThree">
-                        <button class="botones collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseThree" aria-controls="collapseThree">
-                            Color <img src="img/img_iconos/flechita.png" class="flechita" alt="">
-                        </button>
-                    </h6>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                        data-bs-parent="#footerAccordion">
-                        <div class="accordion-body">
-                            <input type="checkbox" name="color" id="color" value="negro">Negro<br>
-                            <input type="checkbox" name="color" id="color" value="blanco">Blanco<br>
-                            <input type="checkbox" name="color" id="color" value="plateado">Plateado<br>
-                            <input type="checkbox" name="color" id="color" value="crema">Crema<br>
-                            <input type="checkbox" name="color" id="color" value="rosa">Rosa<br>
-                            <input type="checkbox" name="color" id="color" value="rojo">Rojo<br>
-                            <input type="checkbox" name="color" id="color" value="celeste">Celeste<br>
-                            <input type="checkbox" name="color" id="color" value="lila">Lila<br>
-                            <input type="checkbox" name="color" id="color" value="verde">Verde<br>
-                            <input type="checkbox" name="color" id="color" value="marron">Marrón<br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-9 col-md-9 col-sm-12 col-12 p-0 m-0">
-                <div id="lista-cursos" class="row container-fluid m-0 p-0 mt-5">
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="32" data-name="Cielo nocturno" data-price="28.00" data-colecc="aretes" data-temp="invierno" data-color="negro">
-                            <img src="img/aretes/aretes-en-aro-negros.jpg" class="card-img-top" alt="Atardecer dorado">
-                            <div class="g-2">
-                                <h6>Cielo nocturno</h6>
-                                <div class="precio">
-                                    <p>S/28.00</p>
+        <div class="col-lg-9 col-md-9 col-sm-12 col-12 p-0 m-0">
+            <div id="lista-cursos" class="row container-fluid m-0 p-0 mt-5">
+                {% for producto in productos_nuevos %}
+                    {% if producto[10] is none %}
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                            <div class="cont_pro" data-id="{{producto[0]}}" data-name="{{producto[1]}}" data-price="{{producto[2]}}" data-colecc="{{producto[7]}}" data-temp="{{producto[9]}}" data-color="{{producto[8]}}">
+                                <img src="data:image/jpeg;base64,{{ producto[6] }}" class="card-img-top" alt="Atardecer dorado">
+                                <div class="g-2">
+                                    <h6>{{producto[1]}}</h6>
+                                    <div class="precio">
+                                        <p>S/{{producto[2]}}</p>
+                                    </div>
+                                    <button class="botones agregar-carrito">Añadir al carrito</button>
                                 </div>
-                                <button class="botones agregar-carrito">Añadir al carrito</button>
                             </div>
                         </div>
-                    </div>
+                    {% else %}
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                            <div class="cont_pro" data-id="{{producto[0]}}" data-name="{{producto[1]}}" data-price="{{producto[2]}}" data-colecc="{{producto[7]}}" data-temp="{{producto[9]}}" data-color="{{producto[8]}}">
+                                <div class="desc">
+                                    <h6>{{ (producto[10]|float * 100)|round(2) }}%</h6>
+                                </div>
+                                <img src="data:image/jpeg;base64,{{ producto[6] }}" class="card-img-top" alt="Atardecer dorado">
+                                
+                                <div class="g-2">
+                                    <h6>{{producto[1]}}</h6>
+                                    <div class="precio">
+                                        <p class="ant">S/{{producto[2]}}</p>
+                                        <p>S/{{(producto[2]-producto[2]*producto[10])|round(2) }}</p>
+                                    </div>
+                                    <button class="botones agregar-carrito">Añadir al carrito</button>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            <div class="d-flex mx-0 p-0 paginacion justify-content-center">
                 
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="33" data-name="Ramo blanco" data-price="23.00" data-colecc="aretes" data-temp="invierno" data-color="blanco">
-                            <img src="img/aretes/aretes-forma-hojas-crema.png" class="card-img-top" alt="...">
-                            <div class="g-2">
-                                <h6>Ramo blanco</h6>
-                                <p>S/23.00</p>
-                                <button class="botones agregar-carrito">Añadir al carrito</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="34" data-name="Arena roja" data-price="26.00" data-colecc="pulseras" data-temp="verano" data-color="rojo">
-                            <img src="img/pulseras/pulsera-roja-dije-arena.webp" class="card-img-top" alt="...">
-                            <div class="g-2">
-                                <h6>Arena roja</h6>
-                                <p>S/26.00</p>
-                                <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="35" data-name="Dije de arena" data-price="24.00" data-colecc="pulseras" data-temp="verano" data-color="crema">
-                            <img src="img/pulseras/pulsera-dije-arena.webp" class="card-img-top" alt="...">
-                            <div class="g-2">
-                                <h6>Dije de arena</h6>
-                                <p>S/24.00</p>
-                                <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="36" data-name="Esfera rosa" data-price="25.00" data-colecc="pulseras" data-temp="primavera" data-color="rosa">
-                            <img src="img/pulseras/pulsera-rosa-bolita-plana.webp" class="card-img-top" alt="...">
-                            <div class="g-2">
-                                <h6>Esfera rosa</h6>
-                                <p>S/25.00</p>
-                                <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="37" data-name="Corazones unidos" data-price="28.00" data-colecc="pulseras" data-temp="primavera" data-color="negro">
-                            <img src="img/pulseras/pulsera-corazones-partidos-negra.webp" class="card-img-top"
-                                alt="...">
-                            <div class="g-2">
-                                <h6>Corazones unidos</h6>
-                                <p>S/28.00</p>
-                                <div class="d-flex align-items-end">
-                                    <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="38" data-name="Bolso pompón" data-price="32.00" data-colecc="bolsos" data-temp="otoño" data-color="crema">
-                            <img src="img/bolsos/bolso-tonos-marrones-pompon.webp" class="card-img-top"
-                                alt="...">
-                            <div class="g-2">
-                                <h6>Bolso pompón</h6>
-                                <p>S/32.00</p>
-                                <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="39" data-name="Bolso flamenco" data-price="22.00" data-colecc="bolsos" data-temp="primavera" data-color="rosa">
-                            <img src="img/bolsos/bolso-aestethic-rosa.webp" class="card-img-top" alt="...">
-                            <div class="g-2">
-                                <h6>Bolso flamenco </h6>
-                                <p>S/22.00</p>
-                                <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="cont_pro" data-id="40" data-name="Lila fragante" data-price="25.00" data-colecc="bolsos" data-temp="verano" data-color="negro">
-                            <img src="img/bolsos/bolso-floreado-negro.webp" class="card-img-top" alt="...">
-                            <div class="g-2">
-                                <h6>Flor oscura</h6>
-                                <p>S/25.00</p>
-                                <button type="button" class="botones agregar-carrito">Añadir al carrito</button>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="d-flex mx-0 p-0 paginacion justify-content-center">
-                    
-                </div>
-
             </div>
-        </div>
 
-    <script src="JS/header_footer.js"></script>
-    <script src="JS/jquery-3.7.1.slim.min.js"></script>
-    <script src="JS/bootstrap.bundle.min.js"></script>
-    <script src="JS/paginacion_filtro.js"></script>
-    <script src="JS/carrito.js"></script>
+        </div>
+    </div>
+</main>
+<script src="{{ url_for('static', filename='JS/jquery-3.7.1.slim.min.js') }}"></script>
+<script src="{{ url_for('static', filename='JS/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url_for('static', filename='JS/paginacion_filtro.js') }}"></script>
+<script src="{{ url_for('static', filename='JS/carrito.js') }}"></script>
 {% endblock %}
