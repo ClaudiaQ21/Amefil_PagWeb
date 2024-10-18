@@ -5,6 +5,8 @@ import controlador_usuario
 import controlador_color
 import controlador_temporada
 import controlador_tipo_producto
+import controlador_descuento
+import controlador_roles
 
 app = Flask(__name__)
 app.secret_key = 'alguna_clave_secreta'
@@ -72,11 +74,14 @@ def eliminar_producto():
     return redirect("/navegacionproductos")
 
 
-@app.route("/formulario_editar_producto/<int:id>")
-def editar_producto(id):
+@app.route("/editar_producto/<int:id>")
+def formulario_editar_producto(id):
     # Obtener el disco por ID
+    color = controlador_filtros.obtener_colores()
+    tipo_pro = controlador_filtros.obtener_tipo_producto()
+    temporada = controlador_filtros.obtener_temporadas()
     producto = controlador_producto.obtener_producto_por_id(id)
-    return render_template("Editar_Producto.html", producto=producto)
+    return render_template("Editar_Producto.html", producto=producto, color = color, tipo_pro = tipo_pro, temporada=temporada)
 
 
 @app.route("/actualizar_producto", methods=["POST"])
@@ -202,6 +207,7 @@ def registro():
     genero = request.form['genero']
     nacimiento = request.form['nacimiento']
     
+    
     controlador_usuario.insertar_usuario_cliente(nombre, apellido_p, apellido_m, correo, contrasena, telefono,genero, nacimiento)
 
     return redirect('/amefil')
@@ -270,26 +276,137 @@ def dashboardadmin():
 def dashboardmantenedor():
     return render_template("DashboardMantenedor.html")
 
+###PRODUCTO DASH
+
 @app.route("/productoadmin")
 def productoadmin():
     productos_con_imagen = controlador_producto.obtener_productos()
     return render_template("ProductoLME.html", productos_con_imagen=productos_con_imagen)
-
-@app.route("/usuarioadmin")
-def usuarioadmin():
-    usuarios=controlador_usuario.obtener_usuarios_por_tipo(3)
-    return render_template("UsuarioLME.html",usuarios=usuarios)
-
-@app.route("/agregar_rol")
-def formulario_agregar_rol():
-    return render_template("Agregar_Rol.html")
 
 @app.route("/agregar_producto")
 def formulario_agregar_producto():
     tipos_productos = controlador_tipo_producto.obtener_tipo_productos()
     colores = controlador_color.obtener_colores()
     temporadas = controlador_temporada.obtener_temporadas()
-    return render_template("Agregar_Prod.html", tipos_productos=tipos_productos, colores=colores, temporadas=temporadas)
+    descuentos = controlador_descuento.obtener_descuentos()
+    return render_template("Agregar_Prod.html", tipos_productos=tipos_productos, colores=colores, temporadas=temporadas, descuentos=descuentos)
+
+
+###USUARIO DASH
+
+@app.route("/usuarioadmin")
+def usuarioadmin():
+    usuarios=controlador_usuario.obtener_usuarios_por_tipo(3)
+    return render_template("UsuarioLME.html",usuarios=usuarios)
+
+###ROLES
+
+@app.route("/roladmin")
+def roladmin():
+    roles = controlador_roles.obtener_tipos_usuario()
+    return render_template("RolLME.html", roles=roles)
+
+@app.route("/agregar_rol")
+def formulario_agregar_tipo_usuario():
+    return render_template("Agregar_Rol.html")
+
+@app.route("/guardar_tipo_usuario", methods=["POST"])
+def guardar_tipo_usuario():
+    nombre = request.form["nombre"]
+    controlador_roles.insertar_tipo_usuario(nombre)
+    return redirect("/roladmin")
+
+@app.route("/eliminar_tipo_usuario", methods=["POST"])
+def eliminar_tipo_usuario():
+    controlador_roles.eliminar_tipo_usuario(request.form["id_tipo"])
+    return redirect("/roladmin")
+
+@app.route("/editar_tipo_usuario/<int:id>")
+def formulario_editar_tipo_usuario(id):
+    rol = controlador_roles.obtener_tipo_usuario_por_id(id)
+    return render_template("Editar_Rol.html", rol=rol)
+
+@app.route("/actualizar_tipo_usuario", methods=["POST"])
+def actualizar_tipo_usuario():
+    id_tipo = request.form["id_tipo"]
+    nombre = request.form["nombre"]
+    controlador_roles.actualizar_tipo_usuario(nombre, id_tipo)
+    return redirect("/roladmin")
+
+
+###DESCUENTO
+@app.route("/descuentoadmin")
+def descuentoadmin():
+    descuentos = controlador_descuento.obtener_descuentos()
+    return render_template ("DescuentoLME.html", descuentos = descuentos)
+
+@app.route("/agregar_descuento")
+def formulario_agregar_descuento():
+    return render_template("Agregar_Descuento.html")
+
+@app.route("/guardar_descuento", methods=["POST"])
+def guardar_descuento():
+    tasa = request.form["tasa"]
+    fecha_inicio = request.form["fecha_inicio"]
+    fecha_fin = request.form["fecha_fin"]
+    vigencia = request.form["vigencia"]
+    controlador_descuento.insertar_descuento(tasa, fecha_inicio, fecha_fin, vigencia)
+    return redirect("/descuentoadmin")
+
+@app.route("/eliminar_descuento", methods=["POST"])
+def eliminar_descuento():
+    controlador_descuento.eliminar_descuento(request.form["id_descuento"])
+    return redirect("/descuentoadmin")
+
+@app.route("/editar_descuento/<int:id>")
+def formulario_editar_descuento(id):
+    descuento = controlador_descuento.obtener_descuento_por_id(id)
+    return render_template("Editar_Descuento.html", descuento=descuento)
+
+@app.route("/actualizar_descuento", methods=["POST"])
+def actualizar_descuento():
+    id_descuento = request.form["id_descuento"]
+    tasa = request.form["tasa"]
+    fecha_inicio = request.form["fecha_inicio"]
+    fecha_fin = request.form["fecha_fin"]
+    vigencia = request.form["vigencia"]
+    controlador_descuento.actualizar_descuento(tasa, fecha_inicio, fecha_fin, vigencia, id_descuento)
+    return redirect("/descuentoadmin")
+
+###COLECCIONES
+
+@app.route("/coleccionadmin")
+def coleccionadmin():
+    tipos = controlador_tipo_producto.obtener_tipo_productos()
+    return render_template("ColeccionLME.html", tipos=tipos)
+
+@app.route("/agregar_tipo_producto")
+def formulario_agregar_tipo_producto():
+    return render_template("Agregar_Coleccion.html")
+
+@app.route("/guardar_tipo_producto", methods=["POST"])
+def guardar_tipo_producto():
+    nombre = request.form["nombre"]
+    controlador_tipo_producto.insertar_tipo_producto(nombre)
+    return redirect("/coleccionadmin")
+
+@app.route("/eliminar_tipo_producto", methods=["POST"])
+def eliminar_tipo_producto():
+    id_tipo = request.form["id_tipo"]
+    controlador_tipo_producto.eliminar_tipo(id_tipo)
+    return redirect("/coleccionadmin")
+
+@app.route("/editar_tipo_producto/<int:id>")
+def formulario_editar_tipo_producto(id):
+    tipo = controlador_tipo_producto.obtener_tipo_por_id(id)
+    return render_template("Editar_Coleccion.html", tipo=tipo)
+
+@app.route("/actualizar_tipo_producto", methods=["POST"])
+def actualizar_tipo_producto():
+    id_tipo = request.form["id_tipo"]
+    nombre = request.form["nombre"]
+    controlador_tipo_producto.actualizar_tipo_producto(nombre, id_tipo)
+    return redirect("/coleccionadmin")
 
 # Iniciar el servidor
 if __name__ == "__main__":

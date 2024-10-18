@@ -1,0 +1,56 @@
+{% extends "maestra.html" %}
+{% block titulo %}
+Amefil
+{% endblock %}
+{% block estilos_adicionales %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/Dashboard.css') }}">
+{% endblock %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row titulo">
+        <div class="col py-4">
+            <h1>Descuentos</h1>
+        </div>
+    </div>
+    <div class="col-12 my-2 listproduct">
+        <div class="row">
+            <div class="col-12 p-2">
+                <div class="tableproduct">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tasa</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Vigencia</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for descuento in descuentos %}
+                            <tr>
+                                <td>{{ descuento[1] }}</td>
+                                <td>{{ descuento[2] }}</td>
+                                <td>{{ descuento[3] }}</td>
+                                <td>{{ 'Vigente' if descuento[4] == 0 else 'No vigente' }}</td>
+                                <td>
+                                    <a href="{{ url_for('formulario_editar_descuento', id=descuento[0]) }}" class="btn"><i class="fa-solid fa-square-pen iconupdate"></i></a>
+                                </td>
+                                <td>
+                                    <form action="{{ url_for('eliminar_descuento') }}" method="post">
+                                        <input type="hidden" name="id_descuento" value="{{ descuento[0] }}">
+                                        <button class="btn"><i class="fa-solid fa-trash icondelete"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

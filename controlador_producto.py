@@ -20,18 +20,28 @@ def obtener_productos():
     productos_con_imagen = []
     for producto in productos:
         imagen_base64 = base64.b64encode(producto[6]).decode('utf-8')
+
+        tasa_descuento = producto[10] if producto[10] is not None else 0
+
+        if producto[3] == 0:
+            vigencia = "Vigente"
+        elif producto[3] == 1:
+            vigencia = "No vigente"
+        else:
+            vigencia = "No especificado"
+        
         productos_con_imagen.append((
             producto[0],  # id_producto
             producto[1],  # nombre
             producto[2],  # precio
-            producto[3],  # vigencia
+            vigencia,  # vigencia
             producto[4],  # stock
             producto[5],  # descripcion
             imagen_base64,  # imagen convertida a Base64
             producto[7],  # coleccion
             producto[8],  # color
             producto[9],  # temporada
-            producto[10]  # descuento
+            tasa_descuento  # descuento
         ))
             
     conexion.close()
@@ -40,7 +50,7 @@ def obtener_productos():
 def eliminar_producto(id):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE FROM producto WHERE id_prodcuto = %s", (id))
+        cursor.execute("DELETE FROM producto WHERE id_producto = %s", (id))
     conexion.commit()
     conexion.close()
 

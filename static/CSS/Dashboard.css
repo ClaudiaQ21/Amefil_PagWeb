@@ -226,3 +226,44 @@
     background-color: rgb(158, 134, 94);
     color: rgb(251, 249, 242);
 }
+
+.listproduct .tableproduct img {
+    border-radius: 20px;
+    height: 100px;
+    width: 150px;
+    object-fit: cover;
+}
+
+.listproduct .tableproduct .iconupdate{
+    background-color: rgb(251, 249, 242);
+    color: rgb(158, 134, 94);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 20pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.listproduct .tableproduct .icondelete{
+    background-color: rgb(158, 134, 94);
+    color: rgb(251, 249, 242);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 20pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.listproduct .tableproduct .iconupdate:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(119, 101, 71);
+    border: 1px solid rgb(119, 101, 71);
+}
+
+.listproduct .tableproduct .icondelete:hover{
+    background-color: rgb(119, 101, 71);
+}

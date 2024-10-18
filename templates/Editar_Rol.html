@@ -1,6 +1,6 @@
 {% extends "maestra.html" %}
 {% block titulo %}
-Amefil - Agregar Rol
+Amefil - Editar Rol
 {% endblock %}
 {% block estilos_adicionales %}
 <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Formulario.css') }}">
@@ -10,17 +10,18 @@ Amefil - Agregar Rol
 <div class="container">
     <div class="row titulo">
         <div class="col py-4">
-            <h1>Agregar Rol</h1>
+            <h1>Editar Rol</h1>
         </div>
     </div>
     <div class="col-12 my-2 formrol">
         <div class="row">
             <div class="col-12 p-2">
                 <div class="roldate">
-                    <form action="{{ url_for('guardar_tipo_usuario') }}" method="post" class="p-2">
+                    <form action="{{ url_for('actualizar_tipo_usuario') }}" method="post" class="p-2">
+                        <input type="hidden" name="id_tipo" value="{{ rol[0] }}">
                         <div class="form-group">
                             <label for="nombre">Nombre:</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese el nombre del rol" required>
+                            <input type="text" class="form-control" id="nombre" name="nombre" value="{{ rol[1] }}" required>
                         </div>
                         <button type="submit" class="btn mt-3 save">Guardar</button>
                         <a href="{{ url_for('roladmin') }}" class="btn mt-3 back">Volver</a>

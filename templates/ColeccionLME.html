@@ -1,0 +1,50 @@
+{% extends "maestra.html" %}
+{% block titulo %}
+Amefil
+{% endblock %}
+{% block estilos_adicionales %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/Dashboard.css') }}">
+{% endblock %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row titulo">
+        <div class="col py-4">
+            <h1>Colecciones</h1>
+        </div>
+    </div>
+    <div class="col-12 my-2 listproduct">
+        <div class="row">
+            <div class="col-12 p-2">
+                <div class="tableproduct">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for tipo in tipos %}
+                            <tr>
+                                <td>{{tipo[1]}}</td>
+                                <td>
+                                    <a href="{{url_for('formulario_editar_tipo_producto', id=tipo[0])}}" class="btn"><i class="fa-solid fa-square-pen iconupdate"></i></a>
+                                </td>
+                                <td>
+                                    <form action="{{url_for('eliminar_tipo_producto')}}" method="post">
+                                        <input type="hidden" name="id_tipo" id="id_tipo" value="{{tipo[0]}}">
+                                        <button class="btn"><i class="fa-solid fa-trash icondelete"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
