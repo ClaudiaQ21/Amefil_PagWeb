@@ -73,7 +73,7 @@
                         <div class="offcanvas-body justify-content-center">
                             <ul class="navbar-nav">
                                 <li class="nav-item mx-3">
-                                    <a class="nav-link" href="{{url_for('novedades')}}">NOVEDADES</a>
+                                    <a class="nav-link" href="{{url_for('navegacionproductosnovedades')}}">NOVEDADES</a>
                                 </li>
                                 <li class="nav-item mx-3">
                                     <a class="nav-link" data-bs-toggle="dropdown" aria-expanded="false" href="#">COLECCIONES</a>
@@ -213,9 +213,74 @@
             </div>
         </div>
     
-        <div class="d-lg-none d-md-block">
-            <!-- Acordeones para móviles -->
-            <!-- Aquí incluirías el contenido similar pero en formato acordeón para pantallas móviles -->
+        <div class="accordion accordion-flush acordeon_general p-0 d-lg-none d-md-block">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed acordeon" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Conócenos
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse fondo_oscuro" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body info p-0 py-2">
+                    <ul class="m-0">
+                        <li class="py-2 ps-4"><a href="Amefil.html" class="info-light">Amefil</a></li>
+                        <li class="py-2 ps-4"><a href="Empresa_contactanos.html" class="info-light">Contactos</a></li>
+                        <li class="py-2 ps-4"><a href="Iniciar_sesion.html" class="info-light">Únete</a></li>
+                        <li class="py-2 ps-4"><a href="#" class="info-light">Términos y condiciones</a></li>
+                        <li class="py-2 ps-4"><a href="#" class="info-light">Política de privacidad</a></li>
+                        <li class="py-2 ps-4"><a href="#" class="info-light">Política de cookies</a></li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+    
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed acordeon" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    Contáctanos
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse fondo_oscuro" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body info p-0 py-2">
+                    <ul class="m-0">
+                        <li class="py-2 ps-4"><a href="mailto:amefilonline@gmail.com" target="_blank">amefilonline@gmail.com</a></li>
+                        <li class="py-2 ps-4"><a href="https://api.whatsapp.com/send/?phone=%2B51987963214&text&type=phone_number&app_absent=0" target="_blank">+51 987 963 214</a></li>
+                    </ul>   
+                </div>
+              </div>
+            </div>
+    
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed acordeon" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    Soporte
+                </button>
+              </h2>
+              <div id="flush-collapseThree" class="accordion-collapse collapse fondo_oscuro" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body info p-0 py-2">
+                    <ul class="m-0">
+                        <li class="py-2 ps-4"><a href="#">Libro de Reclamaciones</a></li>
+                        <li class="py-2 ps-4"><a href="#">Formas de pago</a></li>
+                        <li class="py-2 ps-4"><a href="#">Guía de tallas de collar</a></li>
+                        <li class="py-2 ps-4"><a href="#">Guía de tallas de pulseras</a></li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-lg-4 col-md-12 info mt-md-3 unete">
+                <div class="d-flex py-5">
+                    <div class="col-lg-3 col-md-5 col-4 text-md-center text-center m-">
+                        <img src="{{url_for('static', filename = 'img/icono_oro.svg')}}" id="logofooter">
+                    </div>
+    
+                    <div class="col-lg-9 col-md-7 col-7 p-0">
+                        <h5 class="mb-3">Únetenos</h5>
+                        <input type="text" class="form-control unirse" placeholder="Ingresa tu email aquí">
+                    </div>
+                </div>
+            </div>
+          </div>
         </div>
     
         <div class="row d-flex justify-content-center fechacopy m-0">

@@ -93,7 +93,7 @@ def obtener_novedades():
         else:
             vigencia = "No especificado"
         
-        if producto[7]|float <= 7:
+        if producto[7] <= 7:
             productos_nuevos.append((
                 producto[0],  # id_producto
                 producto[1],  # nombre

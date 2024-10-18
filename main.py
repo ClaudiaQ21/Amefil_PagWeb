@@ -24,10 +24,6 @@ def inject_tipos():
 
 ## MENU
 
-@app.route("/novedades")
-def novedades():
-    return render_template("Menu_novedades.html")
-
 @app.route("/crea")
 def crea():
     return render_template("Menu_crea.html")
