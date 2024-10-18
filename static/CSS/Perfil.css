@@ -5,8 +5,8 @@
 
 /*Contenedor de datos*/
 .bloque{
-    width: 90%;
-    padding-inline: 10%;
+    width: 110%;
+    padding-inline: 5%;
 }
 
 .datos-perfil span{
@@ -14,25 +14,3 @@
 }
 
 /*Tamaño Tableta*/
-@media (min-width:768px) and (max-width:991px){
-    .bloque{
-        width: 90%;
-        padding: 12%;
-    }
-
-    .contenedor{
-        padding-inline: 12%;
-    }
-}
-
-/*Tamaño laptop a más*/
-@media (min-width:992px){
-    .bloque{
-        padding: 8%;
-        width: 60%;
-    }
-
-    .contenedor{
-        padding-inline: 10%;
-    }
-}

@@ -1,14 +1,4 @@
-/*Contenedor general*/
-.contenedor{
-    padding-inline: 8%;
-}
-
 /*Contenedor de datos*/
-.bloque{
-    width: 90%;
-    padding-inline: 0%;
-}
-
 .bloque-direcciones{
     width: 90%;
     margin: auto; 
@@ -45,27 +35,4 @@
 
 #colorcito{
     color: #000;
-}
-
-/*Tamaño Tableta*/
-@media (min-width:768px) and (max-width:991px){
-    .bloque{
-        width: 90%;
-    }
-
-    .contenedor{
-        padding-inline: 12%;
-    }
-}
-
-/*Tamaño laptop a más*/
-@media (min-width:992px){
-    .bloque{
-        padding: 3%;
-        width: 60%;
-    }
-
-    .contenedor{
-        padding-inline: 10%;
-    }
 }
