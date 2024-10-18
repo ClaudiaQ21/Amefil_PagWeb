@@ -1,29 +1,23 @@
 window.onload = function () {
-    const total = localStorage.getItem('totalAmount'); // Cambié esto para asegurarme de que obtengas el total.
+    const total = localStorage.getItem('totalAmount'); 
     const totalPagarInput = document.getElementById('totalPagar');
     const precioEnvioInput = document.getElementById('precioEnvio');
-
     function actualizarTotalConEnvio() {
         const envioTexto = precioEnvioInput.value;
         const envio = parseFloat(envioTexto.replace('S/. ', '')) || 0;
         const totalCarrito = parseFloat(total) || 0;
-
         if (!isNaN(envio) && !isNaN(totalCarrito)) {
             const totalConEnvio = totalCarrito + envio;
-            totalPagarInput.value = `S/. ${totalConEnvio.toFixed(2)}`; // Asegúrate de usar comillas invertidas para el template string
+            totalPagarInput.value = `S/. ${totalConEnvio.toFixed(2)}`; 
         }
     }
-
     if (total !== null) {
-        totalPagarInput.value = `S/. ${parseFloat(total).toFixed(2)}`; // Asegúrate de usar comillas invertidas
+        totalPagarInput.value = `S/. ${parseFloat(total).toFixed(2)}`; 
         actualizarTotalConEnvio();
     } else {
         totalPagarInput.value = 'S/. 0.00';
     }
-
     precioEnvioInput.value = 'S/. 0.00';
-
-    // Añadir eventos de cambio para actualizar el precio de envío
     document.getElementById('departamento').addEventListener('change', actualizarTotalConEnvio);
     document.getElementById('provincia').addEventListener('change', actualizarTotalConEnvio);
     document.getElementById('distrito').addEventListener('change', actualizarTotalConEnvio);
@@ -45,12 +39,10 @@ document.addEventListener('DOMContentLoaded', function () {
             Santiago: 9.50
         }
     };
-
     const departamentoSelect = document.getElementById('departamento');
     const provinciaSelect = document.getElementById('provincia');
     const distritoSelect = document.getElementById('distrito');
     const precioEnvioInput = document.getElementById('precioEnvio');
-
     function actualizarPrecioEnvio() {
         const departamento = departamentoSelect.value;
         const distrito = distritoSelect.value;
@@ -62,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         actualizarTotalConEnvio();
     }
-
     departamentoSelect.addEventListener('change', actualizarPrecioEnvio);
     provinciaSelect.addEventListener('change', actualizarPrecioEnvio);
     distritoSelect.addEventListener('change', actualizarPrecioEnvio);
@@ -71,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
     const nombreEl = document.querySelector('#nombre');
+    const fechaNacimientoEl = document.querySelector('#fechaNacimiento');
     const dniEl = document.querySelector('#dni');
     const telefonoEl = document.querySelector('#telefono');
     const addressEl = document.querySelector('#direccion');
@@ -141,6 +133,23 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         return valid;
     };
+
+    const isFechaNacimientoValid = (fecha) => {
+        return fecha !== '';
+    };
+    const checkFechaNacimiento = () => {
+        let valid = false;
+        const fechaNacimiento = fechaNacimientoEl.value.trim();
+        if (!isRequired(fechaNacimiento)) {
+            showError(fechaNacimientoEl, 'La fecha de nacimiento no puede estar vacía.');
+        } else if (!isFechaNacimientoValid(fechaNacimiento)) {
+            showError(fechaNacimientoEl, 'La fecha de nacimiento no es válida.');
+        } else {
+            showSuccess(fechaNacimientoEl);
+            valid = true;
+        }
+        return valid;
+    };
     const checkDni = () => {
         let valid = false;
         const dni = dniEl.value.trim();
@@ -199,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!isRequired(tarjeta)) {
             showError(tarjetaEl, 'El número de tarjeta no puede estar vacío.');
         } else if (!isCardNumberValid(tarjeta)) {
-            showError(tarjetaEl, 'El número de tarjeta no es válido.');
+            showError(tarjetaEl, 'El número de tarjeta no es válido. Ejm: XXXX-XXXX-XXXX-XXXX');
         } else {
             showSuccess(tarjetaEl);
             valid = true;
@@ -233,42 +242,12 @@ document.addEventListener('DOMContentLoaded', function () {
         return valid;
     };
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const pagarButton = document.getElementById("pagarButton");
-        const modal = document.getElementById("miModal");
-        const closeButton = document.getElementById("closeButton");
-
-        if (pagarButton) {
-            pagarButton.addEventListener("click", function (event) {
-                event.preventDefault();
-                console.log("Botón PAGAR clickeado");
-                if (modal) {
-                    modal.style.display = "block";
-                } else {
-                    console.error("Modal no encontrado");
-                }
-            });
-        } else {
-            console.error("Botón PAGAR no encontrado");
-        }
-
-        if (closeButton) {
-            closeButton.addEventListener("click", function () {
-                modal.style.display = "none";
-            });
-        }
-
-        window.addEventListener("click", function (event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        });
-    });
-
-
-
     nombreEl.addEventListener('input', function () {
         checkName();
+    });
+
+    fechaNacimientoEl.addEventListener('input', function () {
+        checkFechaNacimiento();
     });
 
     dniEl.addEventListener('input', function () {
@@ -297,7 +276,8 @@ document.addEventListener('DOMContentLoaded', function () {
     codigoEl.addEventListener('input', function () {
         checkCvv();
     });
-
+    
+    /*
     const resetValidation = () => {
         const formFields = [
             nombreEl, dniEl, telefonoEl, addressEl, referenceEl, tarjetaEl, titularEl, codigoEl
@@ -310,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function () {
             error.textContent = '';
         });
     };
-
+     
     document.querySelector('#compraModal .btn-primary').addEventListener('click', function () {
         document.querySelector('#miFormulario').reset();
         resetValidation();
@@ -320,4 +300,5 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.removeItem('cartItems');
         document.getElementById('cart').innerHTML = '';
     });
+    */
 });
