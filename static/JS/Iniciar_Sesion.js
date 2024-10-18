@@ -10,7 +10,7 @@ const email_valido = (email) => {
 };
 
 const contraseña_valida = (password) => {
-    const re = /^[A-Za-z0-9_:]{1,20}$/;
+    const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*_:])(?=.{8,})");
     return re.test(password);
 };
 

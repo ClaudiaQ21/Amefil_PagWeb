@@ -49,7 +49,7 @@ const telefono_valido = (telefono) => {
 
 
 const contraseña_valida = (password) => {
-    const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+    const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*_:])(?=.{8,})");
     return re.test(password);
 };
 
@@ -231,7 +231,7 @@ const check_password = () => {
     if (!Req(password)) {
         showError(passwordC, '*Campo obligatorio');
     } else if (!contraseña_valida(password)) {
-        showError(passwordC, 'Debe ingresar una contraseña válida de mínimo: 8 carácteres, 1 mayúscula, 1 minúscula y 1 carácter especial (!@#$%^&*)');
+        showError(passwordC, 'Debe ingresar una contraseña válida de mínimo: 8 carácteres, 1 mayúscula, 1 minúscula y 1 carácter especial (!@#$%^&*_:)');
     } else {
         showSuccess(passwordC);
         valid = true;
