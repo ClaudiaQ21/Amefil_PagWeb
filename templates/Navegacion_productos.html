@@ -27,19 +27,19 @@ Amefil
                 <div class="fil">
                     <legend>Colecciones</legend>
                     {% for tipo_pro in tipo_pro %}
-                        <input type="checkbox" name = "colecc" id="colecc" value="{{tipo_pro[1]}}">{{tipo_pro[1]}}<br>
+                        <input type="checkbox" name = "{{tipo_pro[1]}}" id="{{tipo_pro[1]}}" value="{{tipo_pro[1]}}">{{tipo_pro[1]}}<br>
                     {% endfor %}
                 </div>
                 <div class="fil">
                     <legend>Temporada</legend>
                     {% for temporada in temporada %}
-                        <input type="checkbox" name = "temp" id="temp" value="{{temporada[1]}}">{{temporada[1]}}<br>
+                        <input type="checkbox" name = "{{temporada[1]}}" id="{{temporada[1]}}" value="{{temporada[1]}}">{{temporada[1]}}<br>
                     {% endfor %}
                 </div>
                 <div class="fil">
                     <legend>Color</legend>
                     {% for color in color %}
-                            <input type="checkbox" name = "color" id="color" value="{{color[1]}}">{{color[1]}}<br>
+                            <input type="checkbox" name = "{{color[1]}}" id="{{color[1]}}" value="{{color[1]}}">{{color[1]}}<br>
                     {% endfor %}
                 </div>
             </div>
@@ -56,7 +56,7 @@ Amefil
                 <div id="collapseOne" class="collapse show" data-bs-parent="#footerAccordion">
                     <div class="accordion-body">
                         {% for tipo_pro in tipo_pro %}
-                            <input type="checkbox" name = "colecc" id="colecc" value="{{tipo_pro[1]}}">{{tipo_pro[1]}}<br>
+                            <input type="checkbox" name = "{{tipo_pro[1]}}" id="{{tipo_pro[1]}}" value="{{tipo_pro[1]}}">{{tipo_pro[1]}}<br>
                         {% endfor %}
                     </div>
                 </div>
@@ -73,7 +73,7 @@ Amefil
                     data-bs-parent="#footerAccordion">
                     <div class="accordion-body">
                         {% for temporada in temporada %}
-                            <input type="checkbox" name = "temp" id="temp" value="{{temporada[1]}}">{{temporada[1]}}<br>
+                            <input type="checkbox" name = "{{temporada[1]}}" id="{{temporada[1]}}" value="{{temporada[1]}}">{{temporada[1]}}<br>
                         {% endfor %}
                     </div>
                 </div>
@@ -90,7 +90,7 @@ Amefil
                     data-bs-parent="#footerAccordion">
                     <div class="accordion-body">
                         {% for color in color %}
-                            <input type="checkbox" name = "color" id="color" value="{{color[1]}}">{{color[1]}}<br>
+                            <input type="checkbox" name = "{{color[1]}}" id="{{color[1]}}" value="{{color[1]}}">{{color[1]}}<br>
                         {% endfor %}
                     </div>
                 </div>
@@ -100,7 +100,7 @@ Amefil
         <div class="col-lg-9 col-md-9 col-sm-12 col-12 p-0 m-0">
             <div id="lista-cursos" class="row container-fluid m-0 p-0 mt-5">
                 {% for producto in productos_con_imagen %}
-                    {% if producto[10] is none %}
+                    {% if producto[10] == 0 %}
                         <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                             <div class="cont_pro" data-id="{{producto[0]}}" data-name="{{producto[1]}}" data-price="{{producto[2]}}" data-colecc="{{producto[7]}}" data-temp="{{producto[9]}}" data-color="{{producto[8]}}">
                                 <img src="data:image/jpeg;base64,{{ producto[6] }}" class="card-img-top" alt="Atardecer dorado">
