@@ -111,7 +111,7 @@ def colecciones():
     return render_template("Colecciones.html")
 
 @app.route("/novedades")
-def navegacionproductos():
+def navegacionproductosnovedades():
     productos_nuevos = controlador_producto.obtener_novedades()
     color = controlador_filtros.obtener_colores()
     tipo_pro = controlador_filtros.obtener_tipo_producto()
