@@ -21,7 +21,7 @@ Carrito de Compras
 
 <main class="container mt-5">
     <div class="row">
-        <nav class="col-8">
+        <nav class="col-lg-8 col-md-7 col-sm-12 table-responsive">
             <table class="table">
                 <thead>
                     <tr>
@@ -38,7 +38,7 @@ Carrito de Compras
                 </tbody>
             </table>
         </nav>
-        <section class="col-4 compra">
+        <section class="col-lg-4 col-md-5 col-sm-12 compra">
             <div class="container text-start">
                 <div class="row g-4 justify-content-center">
                     <h6 class="text-center">GENERAR COMPRA</h6>
@@ -65,4 +65,7 @@ Carrito de Compras
 </main>
 
 <script src="{{ url_for('static', filename='js/carrito.js') }}"></script>
+{% endblock %}
+
+{% block scripts_adicionales %}
 {% endblock %}

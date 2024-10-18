@@ -181,13 +181,28 @@ Finalizar Compra
                         </div>
 
                         <div class="col-lg-10 col-md-10 col-sm-12">
-                            <button type="submit" class="botones agregar-carrito">PAGAR</button>
+                            <button type="button" id="pagarButton" class="botones agregar-carrito">PAGAR</button>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
     </form>
+
+    <div id="miModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeButton">&times;</span>
+            <div style="display: flex; align-items: center;">
+                <img src="{{ url_for('static', filename='img/img_logo/logo_amefil.svg') }}" alt="Logo de la empresa" style="width: 50px; height: auto; margin-right: 10px;">
+                <div>
+                    <h2>Pago exitoso</h2>
+                    <p>Tu pago ha sido procesado con éxito.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
 </main>
 <script src="{{ url_for('static', filename='JS/finalizar_comp.js') }}" defer></script>
 {% endblock %}

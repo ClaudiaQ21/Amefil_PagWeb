@@ -1,29 +1,34 @@
 window.onload = function () {
-    const total = localStorage.getItem('totalAmount');
-    const totalInput = document.getElementById('totalInput');
+    const total = localStorage.getItem('totalAmount'); // Cambié esto para asegurarme de que obtengas el total.
+    const totalPagarInput = document.getElementById('totalPagar');
     const precioEnvioInput = document.getElementById('precioEnvio');
 
     function actualizarTotalConEnvio() {
         const envioTexto = precioEnvioInput.value;
-
         const envio = parseFloat(envioTexto.replace('S/. ', '')) || 0;
         const totalCarrito = parseFloat(total) || 0;
 
         if (!isNaN(envio) && !isNaN(totalCarrito)) {
             const totalConEnvio = totalCarrito + envio;
-            totalInput.value = `S/. ${totalConEnvio.toFixed(2)}`;
+            totalPagarInput.value = `S/. ${totalConEnvio.toFixed(2)}`; // Asegúrate de usar comillas invertidas para el template string
         }
     }
 
     if (total !== null) {
-        totalInput.value = `S/. ${parseFloat(total).toFixed(2)}`;
+        totalPagarInput.value = `S/. ${parseFloat(total).toFixed(2)}`; // Asegúrate de usar comillas invertidas
         actualizarTotalConEnvio();
+    } else {
+        totalPagarInput.value = 'S/. 0.00';
     }
 
+    precioEnvioInput.value = 'S/. 0.00';
+
+    // Añadir eventos de cambio para actualizar el precio de envío
     document.getElementById('departamento').addEventListener('change', actualizarTotalConEnvio);
     document.getElementById('provincia').addEventListener('change', actualizarTotalConEnvio);
     document.getElementById('distrito').addEventListener('change', actualizarTotalConEnvio);
 };
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const preciosEnvio = {
@@ -228,22 +233,38 @@ document.addEventListener('DOMContentLoaded', function () {
         return valid;
     };
 
-    document.querySelector('#miFormulario').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const nombreValido = checkName();
-        const dniValido = checkDni();
-        const telefonoValido = checkPhoneNumber();
-        const direccionValida = checkAddress();
-        const referenciaValida = checkReference();
-        const tarjetaValida = checkCardNumber();
-        const titularValido = checkCardHolder();
-        const cvvValido = checkCvv();
+    document.addEventListener("DOMContentLoaded", function () {
+        const pagarButton = document.getElementById("pagarButton");
+        const modal = document.getElementById("miModal");
+        const closeButton = document.getElementById("closeButton");
 
-        if (nombreValido && dniValido && telefonoValido && direccionValida && referenciaValida && tarjetaValida && titularValido && cvvValido) {
-            alert('Formulario válido');
-            document.getElementById('miFormulario').reset();
+        if (pagarButton) {
+            pagarButton.addEventListener("click", function (event) {
+                event.preventDefault();
+                console.log("Botón PAGAR clickeado");
+                if (modal) {
+                    modal.style.display = "block";
+                } else {
+                    console.error("Modal no encontrado");
+                }
+            });
+        } else {
+            console.error("Botón PAGAR no encontrado");
         }
+
+        if (closeButton) {
+            closeButton.addEventListener("click", function () {
+                modal.style.display = "none";
+            });
+        }
+
+        window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
     });
+
 
 
     nombreEl.addEventListener('input', function () {
@@ -293,7 +314,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#compraModal .btn-primary').addEventListener('click', function () {
         document.querySelector('#miFormulario').reset();
         resetValidation();
-        document.getElementById('totalInput').value = 'S/. 0.00';
+        document.getElementById('totalPagar').value = 'S/. 0.00';
         document.getElementById('precioEnvio').value = 'S/. 0.00';
         localStorage.removeItem('totalAmount');
         localStorage.removeItem('cartItems');

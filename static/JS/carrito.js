@@ -39,7 +39,7 @@ function renderCart() {
         const cartItem = document.createElement('tr');
         cartItem.className = 'cart-item';
         cartItem.innerHTML = `
-            <td><img id="peque" src="${product.image}"></td>
+            <td><img id="tam_imagen" src="${product.image}"></td>
             <td>${product.name}</td>
             <td>S/${product.price.toFixed(2)}</td>
             <td>
@@ -106,20 +106,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function finalizarCompra() {
-    let carrito = JSON.parse(localStorage.getItem('cart')) || [];
-
-    fetch("/procesar_carrito", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ carrito: carrito })
-    })
-        .then(response => {
-            if (response.ok) {
-                window.location.href = "/gracias";
-            } else {
-                alert("Error al procesar el carrito");
-            }
-        });
+    window.location.href = "/finalizarCompra";
 }
