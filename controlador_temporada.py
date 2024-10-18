@@ -11,9 +11,9 @@ def insertar_temporada(nombre):
 
 def obtener_temporadas():
     conexion = obtener_conexion()
-    temporadas = []
+    temporadas = None
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT * from temporada")
+        cursor.execute("SELECT id_temporada, nombre from temporada")
         temporadas = cursor.fetchall()            
     conexion.close()
     return temporadas

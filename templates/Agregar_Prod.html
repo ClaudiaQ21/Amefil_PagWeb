@@ -41,8 +41,8 @@ Amefil
                         <div class="form-group">
                             <label for="id_tipo_producto">Tipo de Producto:</label>
                             <select class="form-control" id="id_tipo_producto" name="id_tipo_producto" required>
-                                {% for tipo in tipos_producto %}
-                                <option value="{{ tipo.id }}">{{ tipo.nombre }}</option>
+                                {% for tipo_producto in tipos_productos %}
+                                    <option value="{{ tipo_producto[0] }}">{{ tipo_producto[1] }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -50,15 +50,7 @@ Amefil
                             <label for="id_color">Color:</label>
                             <select class="form-control" id="id_color" name="id_color" required>
                                 {% for color in colores %}
-                                <option value="{{ color.id }}">{{ color.nombre }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="id_talla">Talla:</label>
-                            <select class="form-control" id="id_talla" name="id_talla" required>
-                                {% for talla in tallas %}
-                                <option value="{{ talla.id }}">{{ talla.nombre }}</option>
+                                    <option value="{{ color[0] }}">{{ color[1] }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -66,7 +58,7 @@ Amefil
                             <label for="id_temporada">Temporada:</label>
                             <select class="form-control" id="id_temporada" name="id_temporada" required>
                                 {% for temporada in temporadas %}
-                                <option value="{{ temporada.id }}">{{ temporada.nombre }}</option>
+                                    <option value="{{ temporada[0] }}">{{ temporada[1] }}</option>
                                 {% endfor %}
                             </select>
                         </div>

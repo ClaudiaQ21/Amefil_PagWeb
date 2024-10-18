@@ -11,9 +11,9 @@ def insertar_tipo_producto(nombre):
 
 def obtener_tipo_productos():
     conexion = obtener_conexion()
-    tipos = []
+    tipos = None
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT * from tipo_producto")
+        cursor.execute("SELECT id_tipo, nombre from tipo_producto")
         tipos = cursor.fetchall()            
     conexion.close()
     return tipos

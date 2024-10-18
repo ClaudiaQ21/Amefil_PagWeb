@@ -11,12 +11,12 @@ window.onload = function () {
 
         if (!isNaN(envio) && !isNaN(totalCarrito)) {
             const totalConEnvio = totalCarrito + envio;
-            totalInput.value = `S/. ${totalConEnvio.toFixed(2)}`; 
+            totalInput.value = `S/. ${totalConEnvio.toFixed(2)}`;
         }
     }
 
     if (total !== null) {
-        totalInput.value = `S/. ${parseFloat(total).toFixed(2)}`; 
+        totalInput.value = `S/. ${parseFloat(total).toFixed(2)}`;
         actualizarTotalConEnvio();
     }
 
@@ -230,19 +230,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelector('#miFormulario').addEventListener('submit', function (e) {
         e.preventDefault();
-        const isNameValid = checkName();
-        const isDniValid = checkDni();
-        const isPhoneValid = checkPhoneNumber();
-        const isAddressValid = checkAddress();
-        const isReferenceValid = checkReference();
-        const isCardNumberValid = checkCardNumber();
-        const isCardHolderValid = checkCardHolder();
-        const isCvvValid = checkCvv();
-        if (isNameValid && isDniValid && isPhoneValid && isAddressValid && isReferenceValid && isCardNumberValid && isCardHolderValid && isCvvValid) {
+        const nombreValido = checkName();
+        const dniValido = checkDni();
+        const telefonoValido = checkPhoneNumber();
+        const direccionValida = checkAddress();
+        const referenciaValida = checkReference();
+        const tarjetaValida = checkCardNumber();
+        const titularValido = checkCardHolder();
+        const cvvValido = checkCvv();
+
+        if (nombreValido && dniValido && telefonoValido && direccionValida && referenciaValida && tarjetaValida && titularValido && cvvValido) {
             alert('Formulario válido');
-            formulario.reset();
+            document.getElementById('miFormulario').reset();
         }
     });
+
 
     nombreEl.addEventListener('input', function () {
         checkName();
@@ -294,7 +296,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('totalInput').value = 'S/. 0.00';
         document.getElementById('precioEnvio').value = 'S/. 0.00';
         localStorage.removeItem('totalAmount');
-        localStorage.removeItem('cartItems'); 
-        document.getElementById('cart').innerHTML = ''; 
+        localStorage.removeItem('cartItems');
+        document.getElementById('cart').innerHTML = '';
     });
 });
