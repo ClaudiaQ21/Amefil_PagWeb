@@ -97,7 +97,13 @@ def actualizar_producto():
     descripcion = request.form["descripcion"]
     id_color = request.form["id_color"]
     id_temporada = request.form["id_temporada"]
-    imagen = request.files['imagen'].read() 
+
+    producto = controlador_producto.obtener_producto_por_id(id_producto)
+
+    if request.files['imagen'].filename!='':
+        imagen = request.files['imagen'].read()
+    else:
+        imagen = producto[6]
     controlador_producto.actualizar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, imagen, id_producto)
     return redirect("/navegacionproductos")
 
