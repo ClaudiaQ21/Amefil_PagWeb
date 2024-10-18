@@ -202,10 +202,30 @@ def registro():
     genero = request.form['genero']
     nacimiento = request.form['nacimiento']
     
-    
     controlador_usuario.insertar_usuario_cliente(nombre, apellido_p, apellido_m, correo, contrasena, telefono,genero, nacimiento)
 
     return redirect('/amefil')
+
+@app.route("/actualizar_usuario", methods=["POST"])
+def actualizar_usuario():
+    id_usuario = request.form["id"]
+    nombre = request.form["nombre"]
+    apellido_p = request.form["apellido_p"]
+    apellido_m = request.form["apellido_m"]
+    correo = request.form["correo"]
+    contrasena = request.form["contrasena"]
+    telefono = request.form["telefono"]
+    genero = request.form["genero"]
+    nacimiento = request.form["nacimiento"]
+    id_tipo = request.form["id_tipo"]
+    id_direccion = request.form["id_direccion"]
+    controlador_usuario.actualizar_usuario(nombre, apellido_p, apellido_m, correo, telefono, genero, nacimiento, contrasena, id_direccion, id_tipo,id_usuario)
+    return redirect("/usuarioadmin")
+
+@app.route("/eliminar_usuario", methods=["POST"])
+def eliminar_usuario():
+    controlador_usuario.eliminar_usuario(request.form["id"])
+    return redirect("/usuarioadmin")
 
 @app.route('/reestablecer')
 def reestablecer_contraseña():
