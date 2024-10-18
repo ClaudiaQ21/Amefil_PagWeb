@@ -213,22 +213,6 @@ def registro():
 
     return redirect('/amefil')
 
-@app.route("/actualizar_usuario", methods=["POST"])
-def actualizar_usuario():
-    id_usuario = request.form["id_usuario"]
-    nombre = request.form["nombre"]
-    apellido_p = request.form["apellido_p"]
-    apellido_m = request.form["apellido_m"]
-    correo = request.form["correo"]
-    contrasena = request.form["contrasena"]
-    telefono = request.form["telefono"]
-    genero = request.form["genero"]
-    nacimiento = request.form["nacimiento"]
-    id_tipo = request.form["id_tipo"]
-    id_direccion = request.form["id_direccion"]
-    controlador_usuario.actualizar_usuario(nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_direccion, id_tipo, id_usuario)
-    return redirect("/usuariosdash")
-
 @app.route("/eliminar_usuario", methods=["POST"])
 def eliminar_usuario():
     controlador_usuario.eliminar_usuario(request.form["id_usuario"])
@@ -311,7 +295,7 @@ def formulario_agregar_usuario():
     direcciones = controlador_direccion.obtener_direcciones()
     return render_template("Agregar_Usuario.html", tipo_usuarios=tipo_usuarios, direcciones=direcciones)
 
-@app.route("/guardar_usuario")
+@app.route("/guardar_usuario", methods=["POST"])
 def guardar_usuario():
     nombre = request.form["nombre"]
     apellido_p = request.form["apellido_p"]
@@ -333,6 +317,22 @@ def formulario_editar_usuario(id):
     tipo_usuarios = controlador_roles.obtener_tipos_usuario()
     direcciones = controlador_direccion.obtener_direcciones()
     return render_template("Editar_Usuario.html", usuario=usuario, tipo_usuarios=tipo_usuarios, direcciones=direcciones)
+
+@app.route("/actualizar_usuario", methods=["POST"])
+def actualizar_usuario():
+    id_usuario = request.form["id_usuario"]
+    nombre = request.form["nombre"]
+    apellido_p = request.form["apellido_p"]
+    apellido_m = request.form["apellido_m"]
+    correo = request.form["correo"]
+    contrasena = request.form["contrasena"]
+    telefono = request.form["telefono"]
+    genero = request.form["genero"]
+    nacimiento = request.form["nacimiento"]
+    id_tipo = request.form["id_tipo"]
+    id_direccion = request.form["id_direccion"]
+    controlador_usuario.actualizar_usuario(nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo, id_direccion, id_usuario)
+    return redirect("/usuariosdash")
 
 ###ROLES
 
