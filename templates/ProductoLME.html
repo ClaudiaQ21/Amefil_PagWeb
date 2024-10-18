@@ -20,22 +20,22 @@ Amefil
                     <table>
                         <thead>
                             <tr>
-                                <th>Imagen</th>
                                 <th>Nombre</th>
                                 <th>Precio</th>
                                 <th>Vigencia</th>
                                 <th>Stock</th>
                                 <th>Descripcion</th>
+                                <th>Imagen</th>
+                                <th>Coleccion</th>
                                 <th>Color</th>
                                 <th>Temporada</th>
-                                <th>Coleccion</th>
-                                <th>Talla</th>
+                                <th>Descuento</th>
                                 <th>Editar</th>
                                 <th>Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for producto in productos %}
+                            {% for producto in productos_con_imagen %}
                             <tr>
                                 <td>{{producto[1]}}</td>
                                 <td>{{producto[2]}}</td>

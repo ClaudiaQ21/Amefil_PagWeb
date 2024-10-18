@@ -67,7 +67,7 @@ def guardar_producto():
     return redirect("/navegacionproductos")
 
 @app.route("/eliminar_producto", methods=["POST"])
-def eliminar_disco():
+def eliminar_producto():
     controlador_producto.eliminar_producto(request.form["id_producto"])
     return redirect("/navegacionproductos")
 
@@ -252,7 +252,8 @@ def dashboardmantenedor():
 
 @app.route("/productoadmin")
 def productoadmin():
-    return render_template("ProductoLME.html")
+    productos_con_imagen = controlador_producto.obtener_productos()
+    return render_template("ProductoLME.html", productos_con_imagen=productos_con_imagen)
 
 @app.route("/usuarioadmin")
 def usuarioadmin():
