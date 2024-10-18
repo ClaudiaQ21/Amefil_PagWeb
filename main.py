@@ -8,6 +8,7 @@ import controlador_tipo_producto
 import controlador_descuento
 import controlador_roles
 import controlador_direccion
+import controlador_ubigeo
 
 app = Flask(__name__)
 app.secret_key = 'alguna_clave_secreta'
@@ -100,7 +101,7 @@ def actualizar_producto():
     imagen = request.files['imagen'].read() 
     controlador_producto.actualizar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, imagen, id_producto)
     return redirect("/navegacionproductos")
-
+ 
 @app.route("/colecciones")
 def colecciones():
     return render_template("Colecciones.html")
@@ -111,9 +112,7 @@ def navegacionproductosnovedades():
     color = controlador_filtros.obtener_colores()
     tipo_pro = controlador_filtros.obtener_tipo_producto()
     temporada = controlador_filtros.obtener_temporadas()
-    return render_template("Navegacion_productos.html", productos_nuevos = productos_nuevos, color = color, tipo_pro = tipo_pro, temporada=temporada)
-
-
+    return render_template("Menu_novedades.html", productos_nuevos = productos_nuevos, color = color, tipo_pro = tipo_pro, temporada=temporada)
 
 ### PERFIL
 @app.route("/perfil")
@@ -124,21 +123,11 @@ def perfil():
 def editardatos():
     return render_template("Perfil_editar.html")
 
-# @app.route("/editardatos/<int:id>")
-# def editardatos(id):
-#     usuario = controlador_usuario.obtener_usuario_por_id(id)
-#     return render_template("Perfil_editar.html", usuario=usuario)
-
-# @app.route("/actualizardatosusuario")
-# def actualizarUsuario():
-#     id = request.form["id"]
-#     nombre = request.form["nombre"]
-#     return redirect("/perfil")
-
 ### >>>> DIRECCIONES
 @app.route("/editardireccion")
 def editardireccion():
-    return render_template("Direccion_editar.html")
+    departamentos = controlador_ubigeo.obtener_departamentos()
+    return render_template("Direccion_editar.html", departamentos=departamentos)
 
 @app.route("/agregardireccion")
 def agregardireccion():
@@ -146,7 +135,8 @@ def agregardireccion():
 
 @app.route("/listadirecciones")
 def listadirecciones():
-    return render_template("Direccion_lista.html")
+    direcciones = controlador_direccion.obtener_direccion_completa()
+    return render_template("Direccion_lista.html", direcciones = direcciones)
 
 ### >>>> PEDIDOS
 @app.route("/listapedidos")
