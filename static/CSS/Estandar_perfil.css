@@ -1,14 +1,43 @@
+/*Contenedor general*/
+.contenedor{
+    padding-inline: 8%;
+}
+
+/*Contenedor de datos*/
+.bloque{
+    width: 110%;
+    padding-inline: 5%;
+}
+
 .bloque{
     background-color: rgb(251, 249, 242);
 }
 
-/*Icono bienvenido*/
+/* Navegación */
 
-.nav-perfil{ 
+.navegation{ 
     background-color: rgb(158, 134, 94);
-    border-radius: 9px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-end-start-radius: 0px;
+    border-end-end-radius: 0px;
     padding: 10px 0;
 }
+
+.navegation .menuNav .nav-link {
+    width: 200px;
+}
+
+.navegation .data:hover, .navegation .address:hover, .navegation .orders:hover, .navegation .favourites:hover{
+    font-weight: bold;
+}
+
+.navegation .menuNav .nav-link.active,
+.navegation .menuNav .nav-link:hover {
+    font-weight: bold;
+    color: #ffffff; /* Asegúrate de usar el mismo color que en hover */
+}
+
 
 /*Dropdown menú*/
 .drop-perfil{
@@ -27,21 +56,75 @@
 
 /*Opción volver al inicio*/
 
-.volver-inicio{
+.comeback{
     width: 100px;
 }
 
-.volver-inicio a{
+.comeback a{
     text-decoration: none;
 }
 
-.volver-inicio p:hover{
+.comeback p:hover{
     font-weight: bold;
 }
 
 /*Cuadro con información*/
-
-.titulo{
-    border-top: 2px solid rgb(158, 134, 94);
+.titulo h1{
+    color: rgb(119, 101, 71);
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
 }
 
+/* DATOS DEL USUARIO */
+.block span{
+    font-weight: 600;
+}
+
+/* PERFIL */
+.preview{
+    color: rgb(158, 134, 94);
+}
+
+.preview .section{
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+}
+
+.preview .section p{
+    margin: 0;
+}
+
+.preview .section .icon{
+    background-color: rgb(158, 134, 94);
+    color: rgb(251, 249, 242);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview .listaddress .address h6{
+    font-weight: bold;
+}
+
+.address .listbutton .iconupdate, .address .listbutton .icondelete{
+    background-color: rgb(158, 134, 94);
+    color: rgb(251, 249, 242);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 15pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* PEDIDOS */
+.preview .order .iconview{
+    color: rgb(158, 134, 94);
+    font-size: 15pt;
+}

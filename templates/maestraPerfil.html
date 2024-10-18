@@ -5,35 +5,39 @@ Perfil
 
 {% block estilos_adicionales %}
     <link rel="stylesheet" href="{{url_for('static', filename ='CSS/Estandar_perfil.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename = 'CSS/Perfil.css')}}">
     {%block estilosPerfil %} {% endblock %}
 
 {% endblock %}
 
 {%block contenido %}
-    <div class="contenedor py-lg-5 py-md-4 py-4">
-        <div class="row">
-            <div class="col-lg-4 col-6 d-flex align-items-center justify-content-end">
-                <i class="fa-regular fa-user icono-nav-perfil col-lg-2 col-3"></i>
-                <div class="d-flex align-items-center text-center icono-nav-perfil col-lg-10 col-9">
-                    ¡Bienvenido!
-                </div>
+    <div class="container pb-4">
+        <div class="row titulo">
+            <div class="col py-4">
+                <h1>Perfil</h1>
             </div>
+        </div>
 
-            <div class="col-lg-8 d-lg-block d-md-none d-none nav-perfil">
-                <ul class="nav justify-content-evenly">
+        <div class="row navegation">
+            <div class="col-lg-1 back d-flex justify-content-center align-items-center">
+                <a href="{{url_for('perfil')}}" class="col-lg-1">
+                    <i class="fa-solid fa-arrow-left pe-3 text-light regresar"></i>
+                </a>
+            </div>
+            <div class="col-lg-11 d-lg-block d-md-none d-none pe-5 menuNav">
+                <ul class="nav justify-content-around list">
                     <li class="nav-item">
-                        <a href="{{url_for('perfil')}}" class="nav-link text-light">Datos Personales</a>
+                        <a href="{{url_for('perfil')}}" class="nav-link text-light data {% if request.endpoint == 'perfil' %}active{% endif %}">Datos Personales</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{url_for('listadirecciones')}}" class="nav-link text-light">Direcciones</a>
+                        <a href="{{url_for('listadirecciones')}}" class="nav-link text-light address {% if request.endpoint == 'listadirecciones' or request.endpoint == 'editardireccion' or request.endpoint == 'agregardireccion' %}active{% endif %}">Direcciones</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{url_for('listapedidos')}}" class="nav-link text-light">Pedidos</a>
+                        <a href="{{url_for('listapedidos')}}" class="nav-link text-light orders {% if request.endpoint == 'listapedidos' %}active{% endif %}">Pedidos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{url_for('listafavoritos')}}" class="nav-link text-light">Mis favoritos</a>
+                        <a href="{{url_for('listafavoritos')}}" class="nav-link text-light favourites {% if request.endpoint == 'listafavoritos' %}active{% endif %}">Mis favoritos</a>
                     </li>
+                    
                 </ul>
             </div>
 
@@ -51,14 +55,7 @@ Perfil
             </div>
         </div>
 
-        <div class="row d-flex py-4 volver-inicio">
-            <a href="{{url_for('perfil')}}" class="d-flex align-items-center ">
-                <i class="fa-solid fa-arrow-left pe-3 text-dark regresar"></i>
-                <p class="m-0 text-dark regresar">Regresar</p>
-            </a>
-        </div>
-
-        <div class="row datos-perfil justify-content-center">
+        <div class="row block justify-content-center">
             <div class="titulo bloque py-lg-4 py-3">
                 {% block contenidoPerfil %}
                 {% endblock %}
