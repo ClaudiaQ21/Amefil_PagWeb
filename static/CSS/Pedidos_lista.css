@@ -1,0 +1,34 @@
+.preview{
+    color: rgb(158, 134, 94);
+}
+
+.preview .item{
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.preview .item p{
+    margin: 0;
+}
+
+.preview .item .icon{
+    background-color: rgb(158, 134, 94);
+    color: rgb(251, 249, 242);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 20pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview .item .icon:hover{
+    background-color: rgb(119, 101, 71);
+    color: rgb(251, 249, 242);
+}
+
+.maping{
+    color: rgb(158, 134, 94);
+}
