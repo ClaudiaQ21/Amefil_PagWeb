@@ -54,9 +54,22 @@ def obtener_usuario_por_correo(correo):
     with conexion.cursor() as cursor:
         cursor.execute(
             "SELECT id_usuario, nombre, apellido_p, apellido_m, correo, telefono, genero, nacimiento, contrasena FROM usuario WHERE correo = %s", (correo,))
-        usuario = cursor.fetchone()
+        resultado = cursor.fetchone()
+        if resultado:
+            usuario = {
+                'id_usuario': resultado[0],
+                'nombre': resultado[1],
+                'apellido_p': resultado[2],
+                'apellido_m': resultado[3],
+                'correo': resultado[4],
+                'telefono': resultado[5],
+                'genero': resultado[6],
+                'nacimiento': resultado[7],
+                'contrasena': resultado[8]
+            }
     conexion.close()
     return usuario
+
 
 def obtener_usuarios_por_tipo(id_tipo):
     conexion = obtener_conexion()
