@@ -100,8 +100,10 @@ Novedades
         <div class="col-lg-9 col-md-9 col-sm-12 col-12 p-0 m-0">
             <div id="lista-cursos" class="row container-fluid m-0 p-0 mt-5">
                 {% for producto in productos_nuevos %}
-                    {% if producto[7] <= 7 %}
-                        {% if producto[11] == 0 %}
+                    {% if producto[7] > 7  %}
+                
+                    {% else %}
+                        {% if producto[11]|float == 0 %}
                             <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                                 <div class="cont_pro" data-id="{{producto[0]}}" data-name="{{producto[1]}}" data-price="{{producto[2]}}" data-colecc="{{producto[7]}}" data-temp="{{producto[9]}}" data-color="{{producto[8]}}">
                                     <img src="data:image/jpeg;base64,{{ producto[6] }}" class="card-img-top" alt="Atardecer dorado">
@@ -118,7 +120,7 @@ Novedades
                             <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                                 <div class="cont_pro" data-id="{{producto[0]}} data-name="{{producto[1]}}" data-price="{{producto[2]}}" data-colecc="{{producto[7]}}" data-temp="{{producto[9]}}" data-color="{{producto[8]}}">
                                     <div class="desc">"
-                                        <h6>{{ (producto[10]|float * 100)|round(2) }}%</h6>
+                                        <h6>{{ (producto[11]|float * 100)|round(2) }}%</h6>
                                     </div>
                                     <img src="data:image/jpeg;base64,{{ producto[6] }}" class="card-img-top" alt="Atardecer dorado">
                                     
@@ -126,7 +128,7 @@ Novedades
                                         <h6>{{producto[1]}}</h6>
                                         <div class="precio">
                                             <p class="ant">S/{{producto[2]}}</p>
-                                            <p>S/{{(producto[2]-producto[2]*producto[10])|round(2) }}</p>
+                                            <p>S/{{(producto[2]-producto[2]*producto[11]|float)|round(2) }}</p>
                                         </div>
                                         <button class="botones agregar-carrito">Añadir al carrito</button>
                                     </div>
