@@ -1,28 +1,45 @@
 window.onload = function () {
-    const total = localStorage.getItem('totalAmount'); 
     const totalPagarInput = document.getElementById('totalPagar');
     const precioEnvioInput = document.getElementById('precioEnvio');
+    
     function actualizarTotalConEnvio() {
+        const total = localStorage.getItem('totalAmount');
         const envioTexto = precioEnvioInput.value;
         const envio = parseFloat(envioTexto.replace('S/. ', '')) || 0;
         const totalCarrito = parseFloat(total) || 0;
+        
         if (!isNaN(envio) && !isNaN(totalCarrito)) {
             const totalConEnvio = totalCarrito + envio;
-            totalPagarInput.value = `S/. ${totalConEnvio.toFixed(2)}`; 
+            totalPagarInput.value = `S/. ${totalConEnvio.toFixed(2)}`;
         }
     }
-    if (total !== null) {
-        totalPagarInput.value = `S/. ${parseFloat(total).toFixed(2)}`; 
-        actualizarTotalConEnvio();
+    const totalCarrito = localStorage.getItem('totalAmount');
+    if (totalCarrito !== null) {
+        totalPagarInput.value = `S/. ${parseFloat(totalCarrito).toFixed(2)}`;
     } else {
         totalPagarInput.value = 'S/. 0.00';
     }
     precioEnvioInput.value = 'S/. 0.00';
+    precioEnvioInput.addEventListener('change', actualizarTotalConEnvio);
+
     document.getElementById('departamento').addEventListener('change', actualizarTotalConEnvio);
     document.getElementById('provincia').addEventListener('change', actualizarTotalConEnvio);
     document.getElementById('distrito').addEventListener('change', actualizarTotalConEnvio);
+
+    actualizarTotalConEnvio();
 };
 
+function actualizarPrecioEnvio() {
+    const departamento = document.getElementById('departamento').value;
+    const distrito = document.getElementById('distrito').value;
+    const precioEnvioInput = document.getElementById('precioEnvio');
+    if (preciosEnvio[departamento] && preciosEnvio[departamento][distrito]) {
+        precioEnvioInput.value = `S/. ${preciosEnvio[departamento][distrito].toFixed(2)}`;
+    } else {
+        precioEnvioInput.value = `S/. 0.00`;
+    }
+    actualizarTotalConEnvio();
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     const preciosEnvio = {

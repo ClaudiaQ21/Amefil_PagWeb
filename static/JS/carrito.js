@@ -57,6 +57,7 @@ function renderCart() {
 
     subtotalInput.value = subtotal.toFixed(2);
     totalInput.value = subtotal.toFixed(2);
+    localStorage.setItem('totalAmount', subtotal.toFixed(2));
 
     document.querySelectorAll('.incrementar-cantidad').forEach(button => {
         button.addEventListener('click', () => {
