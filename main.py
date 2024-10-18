@@ -83,12 +83,12 @@ def eliminar_producto():
 @app.route("/editar_producto/<int:id>")
 def formulario_editar_producto(id):
     # Obtener el disco por ID
-    color = controlador_filtros.obtener_colores()
-    tipo_pro = controlador_filtros.obtener_tipo_producto()
-    temporada = controlador_filtros.obtener_temporadas()
+    colores = controlador_filtros.obtener_colores()
+    tipos_productos = controlador_filtros.obtener_tipo_producto()
+    temporadas = controlador_filtros.obtener_temporadas()
+    descuentos = controlador_descuento.obtener_descuentos()
     producto = controlador_producto.obtener_producto_por_id(id)
-    return render_template("Editar_Producto.html", producto=producto, color = color, tipo_pro = tipo_pro, temporada=temporada)
-
+    return render_template("Editar_Producto.html", producto=producto, colores = colores, tipos_productos = tipos_productos, temporadas=temporadas, descuentos = descuentos)
 
 @app.route("/actualizar_producto", methods=["POST"])
 def actualizar_producto():
@@ -101,9 +101,8 @@ def actualizar_producto():
     descripcion = request.form["descripcion"]
     id_color = request.form["id_color"]
     id_temporada = request.form["id_temporada"]
-    id_talla = request.form["id_talla"]
     imagen = request.files['imagen'].read() 
-    controlador_producto.actualizar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, id_talla, imagen, id_producto)
+    controlador_producto.actualizar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, imagen, id_producto)
     return redirect("/navegacionproductos")
 
 @app.route("/colecciones")

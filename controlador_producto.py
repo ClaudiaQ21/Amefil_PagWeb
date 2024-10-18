@@ -60,7 +60,7 @@ def obtener_producto_por_id(id_producto):
     producto = None
     with conexion.cursor() as cursor:
         cursor.execute(
-            "SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, P.imagen, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre AS temporada, D.tasa AS tasa_descuento, TA.nombre AS talla FROM producto P LEFT JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto LEFT JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN talla TA ON TA.id_talla = P.id_talla LEFT JOIN descuento D on D.id_descuento = DD.id_descuento LEFT JOIN color C on C.id_color = P.id_color WHERE P.id_producto = %s", (id_producto))
+            "SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, P.imagen, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre AS temporada, D.tasa AS tasa_descuento FROM producto P LEFT JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto LEFT JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN descuento D on D.id_descuento = DD.id_descuento LEFT JOIN color C on C.id_color = P.id_color WHERE P.id_producto = %s", (id_producto))
         producto = cursor.fetchone()
     conexion.close()
     return producto
