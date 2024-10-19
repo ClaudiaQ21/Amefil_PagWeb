@@ -447,6 +447,11 @@ def actualizar_tipo_producto():
     controlador_tipo_producto.actualizar_tipo_producto(nombre, id_tipo)
     return redirect("/coleccionadmin")
 
+@app.route('/navegacion-productos')
+def navegacion_productos():
+    busqueda = request.args.get('busqueda', None)
+    productos = controlador_producto.obtener_productos(busqueda)
+    return render_template('Navegación productos.html', productos=productos)
 # Iniciar el servidor
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000, debug=True)
