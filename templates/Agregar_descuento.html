@@ -32,7 +32,10 @@ Amefil
                         </div>
                         <div class="form-group">
                             <label for="vigencia">Vigencia:</label>
-                            <input type="number" class="form-control" id="vigencia" name="vigencia" placeholder="Ingrese vigencia (0 = vigente, 1 = no vigente)" required>
+                            <select class="form-select" id="vigencia" name="vigencia" required>
+                                <option value="0">Vigente</option>
+                                <option value="1">No vigente</option>
+                            </select>
                         </div>
                         <button type="submit" class="btn mt-3 save">Guardar</button>
                         <a href="{{ url_for('descuentoadmin') }}" class="btn mt-3 back">Volver</a>

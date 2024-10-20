@@ -4,6 +4,7 @@ Amefil - Roles
 {% endblock %}
 {% block estilos_adicionales %}
 <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Dashboard.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/PopUp.css') }}">
 {% endblock %}
 
 {% block contenido %}
@@ -40,9 +41,11 @@ Amefil - Roles
                                     <a href="{{url_for('formulario_editar_tipo_usuario', id=rol[0])}}" class="btn"><i class="fa-solid fa-square-pen iconupdate"></i></a>
                                 </td>
                                 <td>
-                                    <form action="{{url_for('eliminar_tipo_usuario')}}" method="post">
+                                    <form action="{{url_for('eliminar_tipo_usuario')}}" method="post" id="eliminarUsuarioForm_{{ rol[0] }}">
                                         <input type="hidden" name="id_tipo" value="{{ rol[0] }}">
-                                        <button class="btn"><i class="fa-solid fa-trash icondelete"></i></button>
+                                        <button type="button" class="btn delete-btn" data-form-id="eliminarUsuarioForm_{{ rol[0] }}">
+                                            <i class="fa-solid fa-trash icondelete"></i>
+                                        </button>
                                     </form>
                                 </td>
                             </tr>
@@ -54,4 +57,17 @@ Amefil - Roles
         </div>
     </div>
 </div>
+
+<div id="confirmPopup" class="popup">
+    <div class="popup-content">
+        <h3>Confirmar eliminación</h3>
+        <p>¿Estás seguro de que quieres eliminar este usuario?</p>
+        <button id="confirmBtn" class="btn save">Confirmar</button>
+        <button id="cancelBtn" class="btn back">Cancelar</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts_adicionales %}
+<script src="{{ url_for('static', filename='js/PopUp.js') }}"></script>
 {% endblock %}

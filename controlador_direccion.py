@@ -6,7 +6,7 @@ from bd import obtener_conexion
 def obtener_direcciones():
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT id_direccion, detalle, id_ubigeo FROM direccion")
+        cursor.execute("SELECT id_direccion, detalle FROM direccion")
         direcciones = cursor.fetchall()
     conexion.close()
     return direcciones

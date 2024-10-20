@@ -4,6 +4,7 @@ Amefil
 {% endblock %}
 {% block estilos_adicionales %}
 <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Formulario.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/PopUp.css') }}">
 {% endblock %}
 
 {% block contenido %}
@@ -17,7 +18,7 @@ Amefil
         <div class="row">
             <div class="col-12 p-2">
                 <div class="roldate">
-                    <form action="{{ url_for('actualizar_usuario') }}" method="post" class="p-2">
+                    <form action="{{ url_for('actualizar_usuario') }}" method="post" class="p-2" id="editarProductoForm">
                         <input type="hidden" name="id_usuario" value="{{ usuario[0] }}">
                         
                         <div class="form-group">
@@ -93,4 +94,17 @@ Amefil
         </div>
     </div>
 </div>
+
+<div id="confirmPopup" class="popup">
+    <div class="popup-content">
+        <h3>Confirmar cambios</h3>
+        <p>¿Estás seguro de que quieres guardar los cambios?</p>
+        <button id="confirmBtn" class="btn save">Confirmar</button>
+        <button id="cancelBtn" class="btn back">Cancelar</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts_adicionales %}
+<script src="{{ url_for('static', filename='js/popup.js') }}"></script>
 {% endblock %}
