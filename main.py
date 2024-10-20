@@ -47,11 +47,22 @@ def sobrenosotros():
 
 @app.route("/navegacionproductos")
 def navegacionproductos():
-    productos_con_imagen = controlador_producto.obtener_productos()
+    
+    busqueda = request.args.get('busqueda')
+    productos_con_imagen = controlador_producto.obtener_productos(busqueda)
+    if productos_con_imagen is None:
+        productos_con_imagen = []  # Evita que sea None
+
     color = controlador_filtros.obtener_colores()
     tipo_pro = controlador_filtros.obtener_tipo_producto()
     temporada = controlador_filtros.obtener_temporadas()
-    return render_template("Navegacion_productos.html", productos_con_imagen = productos_con_imagen, color = color, tipo_pro = tipo_pro, temporada=temporada)
+
+    return render_template('Navegacion_productos.html',
+        productos_con_imagen=productos_con_imagen,
+        color=color,
+        tipo_pro=tipo_pro,
+        temporada=temporada
+        )
 
 @app.route("/producto")
 def producto():
@@ -452,6 +463,7 @@ def navegacion_productos():
     busqueda = request.args.get('busqueda', None)
     productos = controlador_producto.obtener_productos(busqueda)
     return render_template('Navegación productos.html', productos=productos)
+
 # Iniciar el servidor
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8000, debug=True)

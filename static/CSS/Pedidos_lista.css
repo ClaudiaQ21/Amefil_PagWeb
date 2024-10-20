@@ -1,36 +1,34 @@
-.preview{
-    color: rgb(158, 134, 94);
-}
-
-.preview .item{
+.preview .item {
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
-    display: block;
     text-align: center;
     justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.preview .order .item p{
+.preview .item p {
     margin: 0;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.preview .item .icon{
+.preview .item .icon {
     background-color: rgb(158, 134, 94);
     color: rgb(251, 249, 242);
     border-radius: 50%;
     width: 60px;
     height: 60px;
     font-size: 20pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.preview .item .icon:hover{
+.preview .item .iconview:hover {
     background-color: rgb(119, 101, 71);
     color: rgb(251, 249, 242);
-}
-
-.maping{
-    color: rgb(158, 134, 94);
 }
