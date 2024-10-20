@@ -71,8 +71,7 @@
                                 <i class="fa-solid fa-magnifying-glass icono"></i>
                             </button>
                             <div class="dropdown-menu dropdown-buscar">
-                                <input class="form-control" id="busqueda" placeholder="Buscar..."
-                                    onkeydown="buscarProducto(event)">
+                                <input class="form-control" id="busqueda-movil" placeholder="Buscar..." onkeydown="buscarProducto(event)">
                             </div>
                         </div>
 
@@ -126,7 +125,7 @@
                             <i class="fa-solid fa-magnifying-glass icono"></i>
                         </button>
                         <div class="dropdown-menu dropdown-buscar">
-                            <input class="form-control" id="busqueda" placeholder="Buscar...">
+                            <input class="form-control" id="busqueda-grande" placeholder="Buscar..." onkeydown="buscarProducto(event)">
                         </div>
                     </div>
                 </div>
@@ -329,11 +328,11 @@
             </div>
         </div>
     </footer>
-
+    <script src="{{ url_for('static', filename='JS/busqueda.js') }}"></script>
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/busqueda.js') }}"></script>
+    
 
 </body>
 
