@@ -1,0 +1,116 @@
+{% extends "maestra.html" %}
+{% block titulo %}
+Amefil
+{% endblock %}
+{% block estilos_adicionales %}
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/ProductoVista.css') }}">
+{% endblock %}
+
+{% block contenido %}
+<div class="container">
+    <div class="row return">
+        <div class="col d-block d-lg-none"></div>
+        <div class="col-11 col-md-10 my-3 p-0">
+            <a class="backlink" href="{{ url_for('navegacionproductos') }}"><i class="fa-solid fa-angle-left"></i> Regresar</a>
+        </div>
+    </div>
+    <div class="row product">
+        <div class="col-12 order-2 col-lg-7 order-md-1">
+            <div class="row imageproduct mb-3 d-none d-lg-block">
+                <div class="col-11 p-0">
+                    <img src="{{ url_for('static', filename='img/bolsos/bolso-formal-rosa.webp') }}" class="img-fluid" alt="Imagen Principal">
+                </div>
+                <div class="col-1"></div>
+            </div>
+        </div>
+        <div class="col-12 order-1 col-md-12 col-lg-5 order-md-2">
+            <div class="row infoproduct">
+                <div class="col p-0"></div>
+                <div class="col-10 col-md-8 p-0">
+                    <div class="row typeproduct">
+                        <div class="col-12">
+                            <p>Bolsos</p>
+                        </div>
+                    </div>
+                    <div class="row nameproduct mb-3">
+                        <h1>Sugar Formal</h1>
+                    </div>
+                    <div class="row priceproduct d-flex align-items-center mb-3">
+                        <div class="col-7 col-md-6 price">
+                            <p>S/ 79.99</p>
+                        </div>
+                        <div class="col-5 col-md-6 signin d-flex justify-content-end">
+                            <a href="" class="">Iniciar sesión</a>
+                        </div>
+                    </div>
+                    <div class="row imageproduct mb-3 d-block d-lg-none">
+                        <div class="col-12 p-0">
+                            <img src="{{ url_for('static', filename='img/bolsos/bolso-formal-rosa.webp') }}" class="img-fluid" alt="Imagen Principal">
+                        </div>
+                    </div>
+                    <div class="row colorproduct mb-3">
+                        <div class="col-12">
+                            <p class="fw-bold">Colores</p>
+                        </div>
+                        <div class="col-12">
+                            <div class="row m-0">
+                                <div class="col-3 p-0 px-1">
+                                    <a href="">
+                                        <img src="{{ url_for('static', filename='img/bolsos/bolso-formal-rosa.webp') }}" class="img-fluid" alt="Imagen Principal">
+                                    </a>
+                                </div>
+                                <div class="col-3 p-0 px-1">
+                                    <a href="">
+                                        <img src="{{ url_for('static', filename='img/bolsos/bolso-formal-rosa.webp') }}" class="img-fluid" alt="Imagen Principal">
+                                    </a>
+                                </div>
+                                <div class="col-3 p-0 px-1">
+                                    <a href="">
+                                        <img src="{{ url_for('static', filename='img/bolsos/bolso-formal-rosa.webp') }}" class="img-fluid" alt="Imagen Principal">
+                                    </a>
+                                </div>
+                                <div class="col-3 p-0 px-1">
+                                    <a href="">
+                                        <img src="{{ url_for('static', filename='img/bolsos/bolso-formal-rosa.webp') }}" class="img-fluid" alt="Imagen Principal">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row detailproduct mb-3">
+                        <div class="col-12">
+                            <p class="fw-bold">Detalles</p>
+                        </div>
+                        <div class="col-12">
+                            <div class="list">
+                                <ul>
+                                    <li>Color: Rosado</li>
+                                    <li>Temporada: Invierno</li>
+                                    <li>Confección: Amefil</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row buttonsproduct mb-3">
+                        <div class="col-8 addproduct">
+                            <a href="" class="">Añadir a la cesta</a>
+                        </div>
+                        <div class="col-4 addfavorite">
+                            <a href="{{url_for('agregar_favorito')}}" class=""><i class="fa-solid fa-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="row descriptproducto mb-3">
+                        <div class="col-12">
+                            <p class="fw-bold">Descripción</p>
+                        </div>
+                        <div class="col-12">
+                            <p class="content">Este bolso de corte formal en color rosado es la combinación perfecta entre elegancia y sofisticación, diseñado para quienes buscan un accesorio que complemente cualquier atuendo con un toque sutil y refinado.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col p-0"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

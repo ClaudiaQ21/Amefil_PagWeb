@@ -71,8 +71,7 @@
                                 <i class="fa-solid fa-magnifying-glass icono"></i>
                             </button>
                             <div class="dropdown-menu dropdown-buscar">
-                                <input class="form-control" id="busqueda" placeholder="Buscar..."
-                                    onkeydown="buscarProducto(event)">
+                                <input class="form-control" id="busqueda-movil" placeholder="Buscar..." onkeydown="buscarProducto(event)">
                             </div>
                         </div>
 
@@ -117,8 +116,7 @@
                 </nav>
             </div>
 
-            <div
-                class="menu-iconos col-lg-3 col-md-6 col-sm-4 col-4 order-3 d-flex justify-content-lg-center justify-content-md-center justify-content-sm-end justify-content-end order-md-2 py-md-3">
+            <div class="menu-iconos col-lg-3 col-md-6 col-sm-4 col-4 order-3 d-flex justify-content-lg-center justify-content-md-center justify-content-sm-end justify-content-end order-md-2 py-md-3">
                 <!-- BUSCAR -->
                 <div class="d-none d-md-flex">
                     <div class="buscar">
@@ -126,7 +124,7 @@
                             <i class="fa-solid fa-magnifying-glass icono"></i>
                         </button>
                         <div class="dropdown-menu dropdown-buscar">
-                            <input class="form-control" id="busqueda" placeholder="Buscar...">
+                            <input class="form-control" id="busqueda-grande" placeholder="Buscar..." onkeydown="buscarProducto(event)">
                         </div>
                     </div>
                 </div>
@@ -329,14 +327,13 @@
             </div>
         </div>
     </footer>
-
-    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/busqueda.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/busqueda.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/jquery-3.7.1.slim.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/index.js') }}"></script>
+    {% block scripts_adicionales %}
+    {% endblock %}
 
 </body>
 
 </html>
-{% block scripts_adicionales %}
-{% endblock %}

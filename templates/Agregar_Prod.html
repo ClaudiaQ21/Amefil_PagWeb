@@ -28,7 +28,7 @@ Amefil
                         </div>
                         <div class="form-group">
                             <label for="vigencia">Vigencia:</label>
-                            <select class="form-control mb-2" id="vigencia" name="vigencia" required>
+                            <select class="form-select" id="vigencia" name="vigencia" required>
                                 <option value="0">Vigente</option>
                                 <option value="1">No vigente</option>
                             </select>
@@ -43,7 +43,7 @@ Amefil
                         </div>
                         <div class="form-group">
                             <label for="id_tipo_producto">Tipo de Producto:</label>
-                            <select class="form-control mb-2" id="id_tipo_producto" name="id_tipo_producto" required>
+                            <select class="form-select" id="id_tipo_producto" name="id_tipo_producto" required>
                                 {% for tipo_producto in tipos_productos %}
                                     <option value="{{ tipo_producto[0] }}">{{ tipo_producto[1] }}</option>
                                 {% endfor %}
@@ -51,7 +51,7 @@ Amefil
                         </div>
                         <div class="form-group">
                             <label for="id_color">Color:</label>
-                            <select class="form-control mb-2" id="id_color" name="id_color" required>
+                            <select class="form-select" id="id_color" name="id_color" required>
                                 {% for color in colores %}
                                     <option value="{{ color[0] }}">{{ color[1] }}</option>
                                 {% endfor %}
@@ -59,7 +59,7 @@ Amefil
                         </div>
                         <div class="form-group">
                             <label for="id_temporada">Temporada:</label>
-                            <select class="form-control mb-2" id="id_temporada" name="id_temporada" required>
+                            <select class="form-select" id="id_temporada" name="id_temporada" required>
                                 {% for temporada in temporadas %}
                                     <option value="{{ temporada[0] }}">{{ temporada[1] }}</option>
                                 {% endfor %}

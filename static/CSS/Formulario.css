@@ -50,3 +50,20 @@
 .formrol .roldate .back:hover{
     background-color: rgb(255, 255, 255);
 }
+
+.formrol .roldate textarea{
+    margin-bottom: 12px;
+    background-color: rgb(251, 249, 242);
+    border: none;
+}
+
+.formrol .roldate select{
+    margin-bottom: 12px;
+    background-color: rgb(251, 249, 242);
+    border: none;
+}
+
+input.form-control:focus, select.form-select:focus, textarea.form-control:focus {
+    outline: none;
+    box-shadow: none;
+}

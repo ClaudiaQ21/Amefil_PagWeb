@@ -111,3 +111,10 @@ def obtener_direccion():
         direcciones = cursor.fetchall()
     conexion.close()
     return direcciones
+
+def dar_baja_usuario(id_usuario):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE usuario SET estado = 0 WHERE id_usuario = %s", (id_usuario))
+    conexion.commit()
+    conexion.close()

@@ -110,14 +110,14 @@ header .nav-item{
     background-color: rgb(251, 249, 242);
 }
 
-#busqueda{
+#busqueda-movil, #busqueda-grande{
     width: 95%;
     margin: 0 auto;
     font-size: 0.9rem;
     border-color: rgb(158, 134, 94);
 }
 
-#busqueda:focus{
+#busqueda-movil, #busqueda-grande:focus{
     box-shadow: 0 0 0 1px rgb(158, 134, 94); 
 }
 

@@ -4,6 +4,7 @@ Amefil
 {% endblock %}
 {% block estilos_adicionales %}
 <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Formulario.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/PopUp.css') }}">
 {% endblock %}
 
 {% block contenido %}
@@ -17,7 +18,7 @@ Amefil
         <div class="row">
             <div class="col-12 p-2">
                 <div class="roldate">
-                    <form action="{{ url_for('actualizar_usuario') }}" method="post" class="p-2">
+                    <form action="{{ url_for('actualizar_usuario') }}" method="post" class="p-2" id="editarProductoForm">
                         <input type="hidden" name="id_usuario" value="{{ usuario[0] }}">
                         
                         <div class="form-group">
@@ -52,7 +53,7 @@ Amefil
 
                         <div class="form-group">
                             <label for="genero">Género:</label>
-                            <select class="form-control" id="genero" name="genero" required>
+                            <select class="form-select" id="genero" name="genero" required>
                                 <option value="0" {% if usuario[7] == 0 %}selected{% endif %}>Femenino</option>
                                 <option value="1" {% if usuario[7] == 1 %}selected{% endif %}>Masculino</option>
                             </select>
@@ -65,7 +66,7 @@ Amefil
 
                         <div class="form-group">
                             <label for="id_tipo">Tipo de Usuario:</label>
-                            <select class="form-control" id="id_tipo" name="id_tipo" required>
+                            <select class="form-select" id="id_tipo" name="id_tipo" required>
                                 {% for tipo_usuario in tipo_usuarios %}
                                     <option value="{{ tipo_usuario[0] }}" {% if usuario[9] == tipo_usuario[0] %}selected{% endif %}>
                                         {{ tipo_usuario[1] }}
@@ -76,7 +77,7 @@ Amefil
 
                         <div class="form-group">
                             <label for="id_direccion">Dirección:</label>
-                            <select class="form-control" id="id_direccion" name="id_direccion" required>
+                            <select class="form-select" id="id_direccion" name="id_direccion" required>
                                 {% for direccion in direcciones %}
                                     <option value="{{ direccion[0] }}" {% if usuario[10] == direccion[0] %}selected{% endif %}>
                                         {{ direccion[1] }}
@@ -93,4 +94,17 @@ Amefil
         </div>
     </div>
 </div>
+
+<div id="confirmPopup" class="popup">
+    <div class="popup-content">
+        <h3>Confirmar cambios</h3>
+        <p>¿Estás seguro de que quieres guardar los cambios?</p>
+        <button id="confirmBtn" class="btn save">Confirmar</button>
+        <button id="cancelBtn" class="btn back">Cancelar</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts_adicionales %}
+<script src="{{ url_for('static', filename='js/popup.js') }}"></script>
 {% endblock %}

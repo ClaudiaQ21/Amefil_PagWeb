@@ -1,0 +1,85 @@
+.return .backlink{
+    text-decoration: none;
+    color: rgb(158, 134, 94);
+}
+
+.return .backlink:hover{
+    color: rgb(119, 101, 71);
+    font-weight: 500;
+}
+
+.imageproduct img{
+    border-radius: 20px;
+}
+
+.typeproduct p{
+    color: rgb(119, 101, 71);
+    margin-bottom: 0;
+}
+
+.nameproduct h1{
+    color: rgb(119, 101, 71);
+    font-weight: 600;
+    font-size: 48pt;
+    margin-bottom: 5px;
+}
+
+.descriptproducto .content{
+    margin-bottom: 0;
+}
+
+.descriptproducto .fw-bold{
+    color: rgb(158, 134, 94);
+}
+
+.priceproduct p{
+    font-size: 16pt;
+    margin: 0;
+}
+
+.signin a{
+    text-decoration: none;
+    background-color: rgb(158, 134, 94);
+    color: rgb(251, 249, 242);
+    border-radius: 10px;
+    height: 32px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.colorproduct p{
+    color: rgb(158, 134, 94);
+}
+
+.colorproduct img{
+    border-radius: 20px;
+}
+
+.addproduct a{
+    text-decoration: none;
+    background-color: rgb(158, 134, 94);
+    color: rgb(251, 249, 242);
+    border-radius: 10px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addfavorite a{
+    text-decoration: none;
+    background-color: rgb(251, 249, 242);
+    color: rgb(158, 134, 94);
+    border: 1px solid rgb(158, 134, 94);
+    border-radius: 10px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detailproduct p{
+    color: rgb(158, 134, 94);
+}
