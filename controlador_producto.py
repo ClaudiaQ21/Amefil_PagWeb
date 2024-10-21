@@ -69,6 +69,9 @@ def obtener_productos(busqueda=None):
             tasa_descuento  # descuento
         ))
 
+    conexion.close()
+    return productos_con_imagen
+
 def eliminar_producto(id):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
