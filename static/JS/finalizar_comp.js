@@ -1,82 +1,38 @@
-window.onload = function () {
-    const totalPagarInput = document.getElementById('totalPagar');
-    const precioEnvioInput = document.getElementById('precioEnvio');
+document.getElementById('paymentForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Evita que el formulario se envíe por defecto
 
-    function actualizarTotalConEnvio() {
-        const total = localStorage.getItem('totalAmount');
-        const envioTexto = precioEnvioInput.value;
-        const envio = parseFloat(envioTexto.replace('S/. ', '')) || 0;
-        const totalCarrito = parseFloat(total) || 0;
-
-        if (!isNaN(envio) && !isNaN(totalCarrito)) {
-            const totalConEnvio = totalCarrito + envio;
-            totalPagarInput.value = `S/. ${totalConEnvio.toFixed(2)}`;
-        }
-    }
-    const totalCarrito = localStorage.getItem('totalAmount');
-    if (totalCarrito !== null) {
-        totalPagarInput.value = `S/. ${parseFloat(totalCarrito).toFixed(2)}`;
-    } else {
-        totalPagarInput.value = 'S/. 0.00';
-    }
-    precioEnvioInput.value = 'S/. 0.00';
-    precioEnvioInput.addEventListener('change', actualizarTotalConEnvio);
-
-    document.getElementById('departamento').addEventListener('change', actualizarTotalConEnvio);
-    document.getElementById('provincia').addEventListener('change', actualizarTotalConEnvio);
-    document.getElementById('distrito').addEventListener('change', actualizarTotalConEnvio);
-
-    actualizarTotalConEnvio();
-};
-
-function actualizarPrecioEnvio() {
+    // Obtener los datos de la dirección
+    const direccion = document.getElementById('direccion').value;
+    const referencia = document.getElementById('referencia').value;
     const departamento = document.getElementById('departamento').value;
-    const distrito = document.getElementById('distrito').value;
-    const precioEnvioInput = document.getElementById('precioEnvio');
-    if (preciosEnvio[departamento] && preciosEnvio[departamento][distrito]) {
-        precioEnvioInput.value = `S/. ${preciosEnvio[departamento][distrito].toFixed(2)}`;
-    } else {
-        precioEnvioInput.value = `S/. 0.00`;
-    }
-    actualizarTotalConEnvio();
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    const preciosEnvio = {
-        Lima: {
-            Lima: 5.00,
-            Miraflores: 7.00
+    
+    // Realizar la solicitud de pago y modificación de dirección usando Fetch API
+    fetch('/procesar_pago', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
         },
-        Arequipa: {
-            Arequipa: 10.00,
-            Yanahuara: 12.00
-        },
-        Cusco: {
-            Cusco: 8.00,
-            Santiago: 9.50
-        }
-    };
-    const departamentoSelect = document.getElementById('departamento');
-    const provinciaSelect = document.getElementById('provincia');
-    const distritoSelect = document.getElementById('distrito');
-    const precioEnvioInput = document.getElementById('precioEnvio');
-    function actualizarPrecioEnvio() {
-        const departamento = departamentoSelect.value;
-        const distrito = distritoSelect.value;
-
-        if (preciosEnvio[departamento] && preciosEnvio[departamento][distrito]) {
-            precioEnvioInput.value = `S/. ${preciosEnvio[departamento][distrito].toFixed(2)}`;
+        body: JSON.stringify({
+            direccion: direccion,
+            referencia: referencia,
+            departamento: departamento,
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Compra realizada con éxito!');
         } else {
-            precioEnvioInput.value = `S/. 0.00`;
+            alert('Hubo un error en la compra: ' + data.error);
         }
-        actualizarTotalConEnvio();
-    }
-    departamentoSelect.addEventListener('change', actualizarPrecioEnvio);
-    provinciaSelect.addEventListener('change', actualizarPrecioEnvio);
-    distritoSelect.addEventListener('change', actualizarPrecioEnvio);
+    })
+    .catch(error => console.error('Error en la compra:', error));
 });
 
 
+
+
+// VALIDACIONES
 document.addEventListener('DOMContentLoaded', function () {
     const nombreEl = document.querySelector('#nombre');
     const fechaNacimientoEl = document.querySelector('#nacimiento');
@@ -307,29 +263,4 @@ document.addEventListener('DOMContentLoaded', function () {
     codigoEl.addEventListener('input', function () {
         checkCvv();
     });
-
-    /*
-    const resetValidation = () => {
-        const formFields = [
-            nombreEl, dniEl, telefonoEl, addressEl, referenceEl, tarjetaEl, titularEl, codigoEl
-        ];
-
-        formFields.forEach(field => {
-            const formField = field.parentElement;
-            formField.classList.remove('success', 'error');
-            const error = formField.querySelector('small');
-            error.textContent = '';
-        });
-    };
-     
-    document.querySelector('#compraModal .btn-primary').addEventListener('click', function () {
-        document.querySelector('#miFormulario').reset();
-        resetValidation();
-        document.getElementById('totalPagar').value = 'S/. 0.00';
-        document.getElementById('precioEnvio').value = 'S/. 0.00';
-        localStorage.removeItem('totalAmount');
-        localStorage.removeItem('cartItems');
-        document.getElementById('cart').innerHTML = '';
-    });
-    */
 });

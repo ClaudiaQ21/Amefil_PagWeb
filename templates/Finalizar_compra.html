@@ -177,7 +177,7 @@ Finalizar Compra
                     <div class="row g-4 justify-content-center">
                         <div class="col-lg-10 col-md-10 col-sm-12">
                             <label class="form-label">Precio envío:</label>
-                            <input id="precioEnvio" class="form-control" type="text" readonly>
+                            <input style="text-align: center;" id="precioEnvio" class="form-control" type="text" value="ENVÍO GRATIS" readonly>
                         </div>
 
                         <div class="col-lg-10 col-md-10 col-sm-12">
@@ -186,28 +186,13 @@ Finalizar Compra
                         </div>
 
                         <div class="col-lg-10 col-md-10 col-sm-12">
-                            <button type="button" id="pagarButton" class="botones">PAGAR</button>
+                            <button type="submit" id="pagarButton" class="botones">PAGAR</button>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
     </form>
-
-    <!-- <div id="miModal" class="modal">
-        <div class="modal-content">
-            <span class="close" id="closeButton">&times;</span>
-            <div style="display: flex; align-items: center;">
-                <img src="{{ url_for('static', filename='img/img_logo/logo_amefil.svg') }}" alt="Logo de la empresa" style="width: 50px; height: auto; margin-right: 10px;">
-                <div>
-                    <h2>Pago exitoso</h2>
-                    <p>Tu pago ha sido procesado con éxito.</p>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-
 </main>
 <script src="{{ url_for('static', filename='JS/finalizar_comp.js') }}" defer></script>
 {% endblock %}

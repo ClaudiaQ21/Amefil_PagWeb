@@ -1,18 +1,235 @@
 from bd import obtener_conexion
+from flask import Flask, render_template, request, redirect, flash, jsonify, session, url_for
+from datetime import datetime
+import base64
 
-def insertar_pedido(usuario_id):
+def insertar_pedido_cesta(id_usuario, monto_total=0):
     conexion = obtener_conexion()
+    fecha_actual = datetime.now().date()  
+    hora_actual = datetime.now().time() 
+    estado = True 
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO pedido_cesta (usuario_id) VALUES (%s) RETURNING id", (usuario_id,))
-        pedido_id = cursor.fetchone()[0]  
+        cursor.execute("""
+            INSERT INTO pedido_cesta (estado, monto_total, fecha_registro, hora_registro, id_direccion, id_usuario) 
+            VALUES (%s, %s, %s, %s, NULL, %s)
+        """, (estado, monto_total, fecha_actual, hora_actual, id_usuario))
+        id_pedido = cursor.lastrowid 
     conexion.commit()
     conexion.close()
-    return pedido_id
+    return id_pedido
 
-def insertar_detalle_pedido(cantidad, id_producto, id_pedido):
+def obtener_pedidoCliente(id_usuario):
     conexion = obtener_conexion()
+    try:
+        with conexion.cursor() as cursor:
+            cursor.execute("""
+                SELECT p.id_producto, p.nombre, p.precio, dc.cantidad, pc.monto_total, pc.id_pedido, p.imagen
+                FROM pedido_cesta pc
+                INNER JOIN detalle_cesta dc ON dc.id_pedido = pc.id_pedido
+                INNER JOIN producto p ON p.id_producto = dc.id_producto
+                WHERE pc.id_usuario = %s AND pc.estado = TRUE
+            """, (id_usuario,))
+            resultados = cursor.fetchall()
+        
+        detpedidos = []
+        for resultado in resultados:
+            imagen_base64 = base64.b64encode(resultado[6]).decode('utf-8') if resultado[6] else None
+            detpedidos.append((
+                resultado[0], 
+                resultado[1], 
+                resultado[2],  
+                resultado[3],  
+                resultado[2] * resultado[3], 
+                resultado[5],  
+                imagen_base64
+            ))
+        return detpedidos
+    except Exception as e:
+        print(f"Error al obtener pedido del cliente: {e}")
+        return []
+    finally:
+        conexion.close()
+
+def obtener_Montopedido(id_usuario):
+    conexion = obtener_conexion()
+    try:
+        with conexion.cursor() as cursor:
+            cursor.execute("""
+                SELECT SUM(dc.cantidad * dc.precio) AS monto_total
+                FROM detalle_cesta dc
+                INNER JOIN pedido_cesta pc ON dc.id_pedido = pc.id_pedido
+                WHERE pc.id_usuario = %s AND pc.estado = TRUE
+            """, (id_usuario,))
+            resultado = cursor.fetchone()
+        return resultado[0] if resultado else 0
+    except Exception as e:
+        print(f"Error al obtener monto del pedido: {e}")
+        return 0
+    finally:
+        conexion.close()
+
+def eliminar_productoPedido(id_producto, id_pedido):
+    conexion = obtener_conexion()
+    try:
+        with conexion.cursor() as cursor:
+            cursor.execute("DELETE FROM detalle_cesta WHERE id_producto = %s AND id_pedido = %s", (id_producto, id_pedido))
+            
+            cursor.execute("""
+                SELECT SUM(cantidad * (precio - descuento)) 
+                FROM detalle_cesta 
+                WHERE id_pedido = %s
+            """, (id_pedido,))
+            nuevo_total = cursor.fetchone()[0] or 0  
+            cursor.execute("""
+                UPDATE pedido_cesta 
+                SET monto_total = %s 
+                WHERE id_pedido = %s
+            """, (nuevo_total, id_pedido))
+            
+            conexion.commit()
+            print(f"Producto {id_producto} del pedido {id_pedido} eliminado exitosamente. Monto total actualizado a {nuevo_total}.")
+    except Exception as e:
+        print(f"Error al eliminar producto del pedido: {e}")
+        raise e
+    finally:
+        conexion.close()
+
+
+def buscar_pedidoCliente(id_usuario): 
+    conexion = obtener_conexion()
+    pedido_cesta = []
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO detalle_cesta (cantidad, id_producto, id_pedido) VALUES (%s, %s, %s)",
-                       (cantidad, id_producto, id_pedido))
+        cursor.execute("SELECT id_pedido FROM pedido_cesta WHERE estado = True and id_usuario=%s",(id_usuario))
+        pedido_cesta = cursor.fetchone()  
+    conexion.close()
+    return pedido_cesta
+
+def insertar_detalleCesta(id_producto, id_usuario, cantidad=1, descuento=0):
+    print("Iniciando la inserción de detalle cesta...")
+    conexion = obtener_conexion()
+    pedido = buscar_pedidoCliente(id_usuario)
+
+    if pedido:
+        id_pedido = pedido[0]
+    else:
+        print("No se encontró pedido existente, insertando nuevo pedido...")
+        id_pedido = insertar_pedido_cesta(id_usuario)
+
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT precio FROM producto WHERE id_producto = %s", (id_producto,))
+        resultado_precio = cursor.fetchone()
+
+        if resultado_precio:
+            precio = resultado_precio[0]  
+            print(f"Precio obtenido de la base de datos: {precio}")
+        else:
+            print("No se encontró el producto en la base de datos.")
+            return False
+
+        cursor.execute("SELECT * FROM detalle_cesta WHERE id_pedido = %s AND id_producto = %s", (id_pedido, id_producto))
+        detalle_existente = cursor.fetchone()
+        
+        if not detalle_existente:
+            cursor.execute("""
+                INSERT INTO detalle_cesta (id_producto, id_pedido, cantidad, precio, descuento) 
+                VALUES (%s, %s, %s, %s, %s)
+            """, (id_producto, id_pedido, cantidad, precio, descuento))
+            print(f"Producto añadido al carrito con precio {precio}.")
+        else:
+            print("El producto ya existe en el carrito, puedes incrementar la cantidad aquí si es necesario.")
+        
+        cursor.execute("""
+            UPDATE pedido_cesta 
+            SET monto_total = (
+                SELECT SUM(dc.cantidad * dc.precio) 
+                FROM detalle_cesta dc 
+                WHERE dc.id_pedido = %s
+            ) 
+            WHERE id_pedido = %s
+        """, (id_pedido, id_pedido))
+        
     conexion.commit()
     conexion.close()
+    return True
+
+
+def actualizar_detalle_pedido(id_producto, nueva_cantidad, id_usuario):
+    conexion = obtener_conexion()
+    try:
+        with conexion.cursor() as cursor:
+            cursor.execute("""
+                UPDATE detalle_cesta
+                SET cantidad = %s
+                WHERE id_producto = %s AND id_pedido = (
+                    SELECT id_pedido FROM pedido_cesta 
+                    WHERE id_usuario = %s 
+                    AND estado = TRUE
+                    ORDER BY fecha_registro DESC 
+                    LIMIT 1
+                );
+            """, (nueva_cantidad, id_producto, id_usuario))
+
+            cursor.execute("""
+                UPDATE pedido_cesta
+                SET monto_total = (
+                    SELECT SUM(cantidad * precio) FROM detalle_cesta
+                    WHERE id_pedido = (
+                        SELECT id_pedido FROM pedido_cesta 
+                        WHERE id_usuario = %s 
+                        AND estado = TRUE
+                        ORDER BY fecha_registro DESC 
+                        LIMIT 1
+                    )
+                )
+                WHERE id_usuario = %s 
+                AND estado = TRUE
+                ORDER BY fecha_registro DESC 
+                LIMIT 1;
+            """, (id_usuario, id_usuario))
+
+            print(f"Actualizando producto {id_producto} con cantidad {nueva_cantidad} para usuario {id_usuario}")
+        
+        conexion.commit()
+    except Exception as e:
+        print(f"Error al actualizar detalle_pedido: {str(e)}")
+    finally:
+        conexion.close()
+
+def verificar_o_insertar_direccion(cursor, direccion, detalle, departamento):
+    cursor.execute("""
+        SELECT id_direccion FROM Direccion
+        WHERE nombre = %s AND detalle = %s AND id_departamento = %s
+    """, (direccion, detalle, departamento))
+    direccion_existente = cursor.fetchone()
+    if direccion_existente:
+        return direccion_existente[0]
+    else:
+        cursor.execute("""
+            INSERT INTO Direccion (nombre, detalle, estado, id_departamento)
+            VALUES (%s, %s, TRUE, %s)
+        """, (direccion, detalle, departamento))
+        return cursor.lastrowid  
+
+def verificar_o_insertar_direccion_usuario(cursor, id_direccion, id_usuario):
+    cursor.execute("""
+        SELECT * FROM Direccion_Usuario
+        WHERE id_direccion = %s AND id_usuario = %s
+    """, (id_direccion, id_usuario))
+    relacion_existente = cursor.fetchone()
+
+    if not relacion_existente:
+        cursor.execute("""
+            INSERT INTO Direccion_Usuario (id_direccion, id_usuario)
+            VALUES (%s, %s)
+        """, (id_direccion, id_usuario))
+
+def actualizar_pedido_con_direccion_y_estado(cursor, id_pedido, id_usuario, id_direccion):
+    cursor.execute("""
+        UPDATE pedido_cesta
+        SET id_direccion = %s, estado = FALSE
+        WHERE id_carrito = %s AND id_usuario = %s
+    """, (id_direccion, id_pedido, id_usuario))
+
+
+
+
