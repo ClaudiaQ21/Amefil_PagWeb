@@ -161,17 +161,13 @@ def guardar_direccion():
     distrito = request.form["id_distrito"]
     nombre = request.form["nombre"]
     referencia = request.form["referencia"]
-
     controlador_direccion.guardar_direccion(nombre, referencia, distrito)
-
     return redirect("/listadirecciones")
-
 
 @app.route('/get_provincias/<int:departamento_id>')
 def get_provincias(departamento_id):
     provincias = controlador_direccion.obtener_provincia_por_departamento(departamento_id)
     return jsonify(provincias)
-
 
 @app.route('/get_distritos/<int:provincia_id>')
 def get_distritos(provincia_id):
@@ -180,16 +176,22 @@ def get_distritos(provincia_id):
 
 
 
-
-
-
-@app.route("/editardireccion/<int:id_direccion>")
-def editardireccion():
+@app.route("/form_editar_direccion/<int:id>")
+def form_editar_direccion(id):
     direccion = controlador_direccion.obtener_direccion_por_id(id)
     departamentos = controlador_direccion.obtener_departamentos()
-    return render_template("Direccion_editar.html", direccion = direccion, departamentos = departamentos)
+    return render_template("Direccion_editar.html", direccion=direccion, departamentos=departamentos)
 
+@app.route("/editar_direccion", methods=["POST"])
+def editar_direccion():
+    nombre = request.form["nombre"]
+    referencia = request.form["referencia"]
+    id_distrito = request.form["id_distrito"]
+    id_direccion = request.form["id_direccion"]
 
+    controlador_direccion.editar_direccion(nombre, referencia, id_distrito, id_direccion)
+
+    return redirect("/listadirecciones")
 
 
 
