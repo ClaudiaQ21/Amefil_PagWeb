@@ -11,7 +11,7 @@ Amefil
 <div class="container">
     <div class="row titulo">
         <div class="col py-4">
-            <h1>Usuarios</h1>
+            <h1>Administradores</h1>
         </div>
     </div>
     <div class="row return">
@@ -52,7 +52,7 @@ Amefil
                                 </td>
                                 <td>
                                     <form action="{{url_for('eliminar_usuario')}}" method="post" id="eliminarUsuarioForm_{{ usuario[0] }}">
-                                        <input type="hidden" name="id_tipo" value="{{ usuario[0] }}">
+                                        <input type="hidden" name="id_usuario" value="{{ usuario[0] }}">
                                         <button type="button" class="btn delete-btn" data-form-id="eliminarUsuarioForm_{{ usuario[0] }}">
                                             <i class="fa-solid fa-trash icondelete"></i>
                                         </button>
