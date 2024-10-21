@@ -44,7 +44,6 @@ def obtener_productos(busqueda=None):
             """)
         productos = cursor.fetchall()
 
-    # Asegúrate de que productos no sea None
     if not productos:
         productos = []
 
