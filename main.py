@@ -8,6 +8,7 @@ import controlador_tipo_producto
 import controlador_descuento
 import controlador_roles
 import controlador_direccion
+import controlador_finalizar_compra
 
 app = Flask(__name__)
 app.secret_key = 'alguna_clave_secreta'
@@ -215,9 +216,53 @@ def listafavoritos():
 
 
 ### CARRITO
-@app.route("/carrito")
+@app.route('/carrito')
 def carrito():
-    return render_template("carrito.html")
+    id_usuario = 13 
+    detpedidos = controlador_finalizar_compra.obtener_pedidoCliente(id_usuario)
+    monto_total = controlador_finalizar_compra.obtener_Montopedido(id_usuario)
+    return render_template('carrito.html', detpedidos=detpedidos, monto_total=monto_total)
+@app.route('/eliminarProductoCarrito', methods=['POST'])
+
+def eliminarProductoCarrito():
+    data = request.get_json()
+    id_producto = data.get('id')
+    id_pedido = data.get('idV')
+    if not id_producto or not id_pedido:
+        flash("Error: Producto o pedido no válido", "danger")
+        return jsonify({'error': 'Datos inválidos'}), 400
+
+    try:
+        controlador_finalizar_compra.eliminar_productoPedido(id_producto, id_pedido)
+        return jsonify({'success': True}), 200
+    except Exception as e:
+        print(f"Error al eliminar el producto: {e}")
+        return jsonify({'error': 'Error al eliminar el producto'}), 500
+
+@app.route("/carritoInsertar", methods=["POST"])
+def carritoInsertar():
+    try:
+        print("Solicitud recibida para agregar al carrito")
+        id_producto = request.form["id"]
+        id_usuario = 13  
+        controlador_finalizar_compra.insertar_detalleCesta(id_producto, id_usuario)
+        return jsonify({"success": True})
+
+    except Exception as e:
+        print("Error al insertar en el carrito:", e)
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route('/actualizar_cantidad', methods=['POST'])
+def actualizar_cantidad():
+    data = request.json
+    id_producto = data['id_producto']
+    nueva_cantidad = data['cantidad']
+    id_usuario = 13 
+    try:
+        controlador_finalizar_compra.actualizar_detalle_pedido(id_producto, nueva_cantidad, id_usuario)
+        return jsonify({"mensaje": "Cantidad actualizada exitosamente"}), 200
+    except Exception as e:
+        return jsonify({"mensaje": "Error al actualizar la cantidad", "error": str(e)}), 500
 
 @app.route("/finalizarCompra")
 def carrito_finalizar():
