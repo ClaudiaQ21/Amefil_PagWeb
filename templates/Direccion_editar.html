@@ -8,11 +8,12 @@
 <div class="contenedor">
     <div id="con" class="row d-flex justify-content-center">
         <nav class="col-lg-8 col-md-12 col-sm-12 titulo bloque">
-            <form action="{{ url_for('guardar_direccion') }}" method="post" class="row">
+            <form action="{{ url_for('editar_direccion') }}" method="post" class="row">
+                <input type="hidden" id="id_direccion" name="id_direccion" value="{{ direccion[0] }}">
                 <div class="col-lg-6 col-md-6 col-sm-12 dataAddress">
                     <label class="form-label">Departamento:</label>
                     <select class="form-select" id="id_departamento" name="id_departamento" aria-label="Default select example" onchange="loadProvincias()">
-                        <option selected>--Seleccione su departamento--</option>
+                        <option>--Seleccione su departamento--</option>
                         {% for departamento in departamentos %}
                         <option value="{{departamento[0]}}" {% if direccion[7] == departamento[0] %}selected{% endif %} >{{departamento[1]}}</option>
                         {% endfor %}
@@ -23,7 +24,7 @@
                     <label class="form-label">Provincia:</label>
                     <select class="form-select" id="id_provincia" name="id_provincia" aria-label="Default select example" onchange="loadDistritos()">
                         <option>--Seleccione su provincia--</option>
-                        <option value="{{direccion[5]}}" selected>{{direccion[6]}}</option>
+                        <option value="{{ direccion[5] }}" selected>{{direccion[6]}}</option>
                     </select>
                 </div>
 
@@ -37,16 +38,16 @@
 
                 <div class="col-lg-6 col-md-6 col-sm-12 dataAddress">
                     <label class="form-label">Dirección:</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su dirección" required value="direccion[1]">
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su dirección" required value="{{ direccion[1] }}">
                 </div>
 
                 <div class="col-lg-6 col-md-6 col-sm-12 dataAddress">
                     <label class="form-label">Referencia:</label>
-                    <input type="text" class="form-control" id="referencia" name="referencia" placeholder="Ingrese una referencia" required value="[2]">
+                    <input type="text" class="form-control" id="referencia" name="referencia" placeholder="Ingrese una referencia" required value="{{ direccion[2] }}">
                 </div>
                 
                 <div class="col-lg-12">
-                    <button class="botones" id="buttonBlock" type="submit">Añadir dirección</button>
+                    <button class="botones" id="buttonBlock" type="submit">Editar dirección</button>
                 </div>
             </form>
         </nav>
