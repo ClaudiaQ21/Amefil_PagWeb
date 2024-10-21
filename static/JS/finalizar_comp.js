@@ -1,39 +1,117 @@
-document.getElementById('paymentForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Evita que el formulario se envíe por defecto
 
-    // Obtener los datos de la dirección
-    const direccion = document.getElementById('direccion').value;
-    const referencia = document.getElementById('referencia').value;
-    const departamento = document.getElementById('departamento').value;
-    
-    // Realizar la solicitud de pago y modificación de dirección usando Fetch API
-    fetch('/procesar_pago', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            direccion: direccion,
-            referencia: referencia,
-            departamento: departamento,
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Compra realizada con éxito!');
-        } else {
-            alert('Hubo un error en la compra: ' + data.error);
-        }
-    })
-    .catch(error => console.error('Error en la compra:', error));
-});
-
-
-
-
-// VALIDACIONES
 document.addEventListener('DOMContentLoaded', function () {
+    const departamentoSelect = document.getElementById('departamento');
+    const provinciaSelect = document.getElementById('provincia');
+    const distritoSelect = document.getElementById('distrito');
+    const form = document.getElementById('miFormulario');
+
+    // Recuperar el total del localStorage y mostrarlo
+    const totalAPagar = localStorage.getItem('totalAPagar');
+    if (totalAPagar) {
+        document.getElementById('totalPagar').value = 'S/' + totalAPagar;
+    }
+    // Cargar provincias cuando se selecciona un departamento
+    departamentoSelect.addEventListener('change', function () {
+        const departamentoId = this.value;
+        cargarProvincias(departamentoId);
+    });
+
+    // Cargar distritos cuando se selecciona una provincia
+    provinciaSelect.addEventListener('change', function () {
+        const provinciaId = this.value;
+        cargarDistritos(provinciaId);
+    });
+
+    // Función para cargar provincias
+    function cargarProvincias(departamentoId) {
+        console.log('Cargando provincias para departamento:', departamentoId);
+        fetch(`/provincias/${departamentoId}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log('Provincias recibidas:', data);
+                provinciaSelect.innerHTML = '<option value="">Seleccionar</option>';
+                data.forEach(provincia => {
+                    const option = document.createElement('option');
+                    option.value = provincia.id_provincia;
+                    option.textContent = provincia.nombre;
+                    provinciaSelect.appendChild(option);
+                });
+            });
+    }
+    
+    function cargarDistritos(provinciaId) {
+        console.log('Cargando distritos para provincia:', provinciaId);
+        fetch(`/distritos/${provinciaId}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log('Distritos recibidos:', data);
+                distritoSelect.innerHTML = '<option value="">Seleccionar</option>';
+                data.forEach(distrito => {
+                    const option = document.createElement('option');
+                    option.value = distrito.id_distrito;
+                    option.textContent = distrito.nombre;
+                    distritoSelect.appendChild(option);
+                });
+            });
+    }
+    
+
+    // Manejar el envío del formulario
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (validateForm()) {
+            const formData = {
+                nombre: document.getElementById('nombre').value,
+                dni: document.getElementById('dni').value,
+                telefono: document.getElementById('telefono').value,
+                direccion: document.getElementById('direccion').value,
+                referencia: document.getElementById('referencia').value,
+                distrito: distritoSelect.value,
+                tarjeta: document.getElementById('tarjeta').value,
+                titular: document.getElementById('titular').value,
+                codigo: document.getElementById('codigo').value
+            };
+
+            fetch('/procesar_pago', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Compra realizada con éxito!');
+                        // Redirigir o actualizar la página según sea necesario
+                    } else {
+                        alert('Error en la compra: ' + data.error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Ocurrió un error al procesar la compra.');
+                });
+        }
+    });
+
+    // Funciones de validación
+    function validateForm() {
+        const validName = checkName();
+        const validFechaNacimiento = check_fechaNacimiento();
+        const validDni = checkDni();
+        const validPhoneNumber = checkPhoneNumber();
+        const validAddress = checkAddress();
+        const validReference = checkReference();
+        const validCardNumber = checkCardNumber();
+        const validCardHolder = checkCardHolder();
+        const validCvv = checkCvv();
+        // Retorna true solo si todos los campos son válidos
+        return validName && validFechaNacimiento && validDni && validPhoneNumber &&
+            validAddress && validReference && validCardNumber && validCardHolder && validCvv;
+    }
+
+    // Validaciones
     const nombreEl = document.querySelector('#nombre');
     const fechaNacimientoEl = document.querySelector('#nacimiento');
     const dniEl = document.querySelector('#dni');

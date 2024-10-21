@@ -218,7 +218,7 @@ def listafavoritos():
 ### CARRITO
 @app.route('/carrito')
 def carrito():
-    id_usuario = 13 
+    id_usuario = 1
     detpedidos = controlador_finalizar_compra.obtener_pedidoCliente(id_usuario)
     monto_total = controlador_finalizar_compra.obtener_Montopedido(id_usuario)
     return render_template('carrito.html', detpedidos=detpedidos, monto_total=monto_total)
@@ -244,7 +244,7 @@ def carritoInsertar():
     try:
         print("Solicitud recibida para agregar al carrito")
         id_producto = request.form["id"]
-        id_usuario = 13  
+        id_usuario = 1
         controlador_finalizar_compra.insertar_detalleCesta(id_producto, id_usuario)
         return jsonify({"success": True})
 
@@ -257,7 +257,7 @@ def actualizar_cantidad():
     data = request.json
     id_producto = data['id_producto']
     nueva_cantidad = data['cantidad']
-    id_usuario = 13 
+    id_usuario = 1
     try:
         controlador_finalizar_compra.actualizar_detalle_pedido(id_producto, nueva_cantidad, id_usuario)
         return jsonify({"mensaje": "Cantidad actualizada exitosamente"}), 200
@@ -266,7 +266,35 @@ def actualizar_cantidad():
 
 @app.route("/finalizarCompra")
 def carrito_finalizar():
-    return render_template("Finalizar_compra.html")
+    departamentos = controlador_direccion.obtener_departamentos()
+    return render_template("Finalizar_compra.html", departamentos=departamentos)
+
+@app.route('/provincias/<int:id_departamento>', methods=['GET'])
+def provincias(id_departamento):
+    provincias = controlador_direccion.obtener_provincia_por_departamento(id_departamento)
+    return jsonify(provincias)
+
+@app.route('/distritos/<int:id_provincia>', methods=['GET'])
+def distritos(id_provincia):
+    distritos = controlador_direccion.obtener_distritos_por_provincia(id_provincia)
+    return jsonify(distritos)
+
+@app.route('/procesar_pago', methods=['POST'])
+def procesar_pago():
+    datos = request.json
+    try:
+        id_direccion = controlador_direccion.guardar_direccion(
+            datos['direccion'],
+            datos['referencia'],
+            datos['distrito']
+        )
+        if controlador_finalizar_compra.finalizar_pedido(1, id_direccion):
+            return jsonify({"success": True, "message": "Compra realizada con éxito"})
+        else:
+            return jsonify({"success": False, "error": "No se encontró un pedido activo"}), 400
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 400
+
 
 
 

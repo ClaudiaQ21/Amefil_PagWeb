@@ -195,40 +195,33 @@ def actualizar_detalle_pedido(id_producto, nueva_cantidad, id_usuario):
     finally:
         conexion.close()
 
-def verificar_o_insertar_direccion(cursor, direccion, detalle, departamento):
-    cursor.execute("""
-        SELECT id_direccion FROM Direccion
-        WHERE nombre = %s AND detalle = %s AND id_departamento = %s
-    """, (direccion, detalle, departamento))
-    direccion_existente = cursor.fetchone()
-    if direccion_existente:
-        return direccion_existente[0]
-    else:
-        cursor.execute("""
-            INSERT INTO Direccion (nombre, detalle, estado, id_departamento)
-            VALUES (%s, %s, TRUE, %s)
-        """, (direccion, detalle, departamento))
-        return cursor.lastrowid  
-
-def verificar_o_insertar_direccion_usuario(cursor, id_direccion, id_usuario):
-    cursor.execute("""
-        SELECT * FROM Direccion_Usuario
-        WHERE id_direccion = %s AND id_usuario = %s
-    """, (id_direccion, id_usuario))
-    relacion_existente = cursor.fetchone()
-
-    if not relacion_existente:
-        cursor.execute("""
-            INSERT INTO Direccion_Usuario (id_direccion, id_usuario)
-            VALUES (%s, %s)
-        """, (id_direccion, id_usuario))
-
-def actualizar_pedido_con_direccion_y_estado(cursor, id_pedido, id_usuario, id_direccion):
-    cursor.execute("""
-        UPDATE pedido_cesta
-        SET id_direccion = %s, estado = FALSE
-        WHERE id_carrito = %s AND id_usuario = %s
-    """, (id_direccion, id_pedido, id_usuario))
+def finalizar_pedido(id_usuario, id_direccion):
+    conexion = obtener_conexion()
+    try:
+        with conexion.cursor() as cursor:
+            cursor.execute("""
+                SELECT id_pedido 
+                FROM pedido_cesta 
+                WHERE id_usuario = %s AND estado = True
+            """, (id_usuario,))
+            resultado = cursor.fetchone()
+            
+            if resultado:
+                id_pedido = resultado[0]
+                cursor.execute("""
+                    UPDATE pedido_cesta 
+                    SET estado = False, id_direccion = %s 
+                    WHERE id_pedido = %s
+                """, (id_direccion, id_pedido))
+                conexion.commit()
+                return True
+            else:
+                return False
+    except Exception as e:
+        conexion.rollback()
+        raise e
+    finally:
+        conexion.close()
 
 
 

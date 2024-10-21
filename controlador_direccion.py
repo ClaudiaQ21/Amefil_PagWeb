@@ -72,4 +72,19 @@ def darbaja_direccion(id_direccion):
     conexion.commit()
     conexion.close()
 
+def obtener_provincias_por_departamento(id_departamento):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT id_provincia, nombre FROM provincia WHERE id_departamento = %s", (id_departamento,))
+        provincias = cursor.fetchall()
+    conexion.close()
+    return provincias
+
+def obtener_distritos_por_provincia(id_provincia):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT id_distrito, nombre FROM distrito WHERE id_provincia = %s", (id_provincia,))
+        distritos = cursor.fetchall()
+    conexion.close()
+    return distritos
 

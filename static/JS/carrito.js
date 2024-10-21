@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const botonesAgregarCarrito = document.querySelectorAll('.agregar-carrito');
-    
+
     botonesAgregarCarrito.forEach(boton => {
         boton.addEventListener('click', function () {
             const idProducto = this.getAttribute('data-id');
@@ -30,30 +30,33 @@ document.addEventListener('DOMContentLoaded', function () {
                     },
                     body: new URLSearchParams({ 'id': idProducto })
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert(`${nombreProducto} ha sido añadido al carrito.`);
-                        calcularTotales();
-                    } else {
-                        alert('Error al añadir el producto al carrito: ' + (data.error || 'Error desconocido'));
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Error al añadir el producto al carrito. Verifica la consola para más detalles.');
-                });
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert(`${nombreProducto} ha sido añadido al carrito.`);
+                            calcularTotales();
+                        } else {
+                            alert('Error al añadir el producto al carrito: ' + (data.error || 'Error desconocido'));
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Error al añadir el producto al carrito. Verifica la consola para más detalles.');
+                    });
             }
         });
     });
 
     const botonesCantidad = document.querySelectorAll('.btn-quantity');
-    
+
     botonesCantidad.forEach(boton => {
         boton.addEventListener('click', function () {
             const idProducto = this.getAttribute('data-id');
             const cantidadElemento = document.getElementById(`cantidad-${idProducto}`);
+            const totalElemento = document.getElementById(`total-${idProducto}`); // Añadido para acceder al total
             let cantidad = parseInt(cantidadElemento.textContent);
+
+            const precioPorUnidad = parseFloat(totalElemento.textContent.replace('S/', '')) / (cantidad || 1); // Obtener el precio por unidad
 
             if (this.classList.contains('mas')) {
                 cantidad += 1;
@@ -61,6 +64,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 cantidad -= 1;
             }
             cantidadElemento.textContent = cantidad;
+
+            // Actualizar el total en la fila
+            totalElemento.textContent = 'S/' + (precioPorUnidad * cantidad).toFixed(2); // Actualizar el total por producto
 
             // Actualizar en localStorage
             const carrito = JSON.parse(localStorage.getItem('carrito'));
@@ -80,21 +86,22 @@ document.addEventListener('DOMContentLoaded', function () {
                     cantidad: cantidad
                 })
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Error al actualizar la cantidad');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log(data.mensaje);
-                calcularTotales();
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al actualizar la cantidad');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data.mensaje);
+                    calcularTotales();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
         });
     });
+
 
     document.querySelectorAll('.eliminar-producto').forEach(button => {
         button.addEventListener('click', function () {
@@ -112,23 +119,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRFToken': '{{ csrf_token() }}' 
+                    'X-CSRFToken': '{{ csrf_token() }}'
                 },
                 body: JSON.stringify({
                     id: idProducto
                 })
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    const row = document.querySelector(`[data-id="${idProducto}"]`).closest('tr');
-                    row.remove();
-                    calcularTotales();
-                } else {
-                    alert('Error al eliminar el producto');
-                }
-            })
-            .catch(error => console.error('Error:', error));
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const row = document.querySelector(`[data-id="${idProducto}"]`).closest('tr');
+                        row.remove();
+                        calcularTotales();
+                    } else {
+                        alert('Error al eliminar el producto');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
         });
     });
 
@@ -139,16 +146,20 @@ document.addEventListener('DOMContentLoaded', function () {
         cartItems.forEach(item => {
             const precioElement = item.querySelector('td:nth-child(3)');
             const cantidadElement = item.querySelector('.cantidad');
-            if (precioElement && cantidadElement) {
+            const totalElement = item.querySelector('.total'); // Asegúrate de que el selector es correcto
+
+            if (precioElement && cantidadElement && totalElement) {
                 const precio = parseFloat(precioElement.innerText.replace('S/', ''));
                 const cantidad = parseInt(cantidadElement.innerText);
+                const totalPorProducto = parseFloat(totalElement.innerText.replace('S/', ''));
+
                 if (!isNaN(precio) && !isNaN(cantidad)) {
-                    subtotal += precio * cantidad;
+                    subtotal += totalPorProducto; // Usa el total por producto
                 }
             }
         });
 
-        const descuento = 0; 
+        const descuento = 0;
         const totalAPagar = subtotal - descuento;
 
         const inputSubtotal = document.getElementById('subtotal');
@@ -168,5 +179,15 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Total a pagar:', totalAPagar);
     }
 
+
     calcularTotales();
 });
+
+function finalizarCompra() {
+    const carrito = JSON.parse(localStorage.getItem('carrito'));
+    if (carrito && Object.keys(carrito).length > 0) {
+        window.location.href = '/finalizarCompra';
+    } else {
+        alert('Debes agregar un producto al carrito antes de finalizar la compra.');
+    }
+}
