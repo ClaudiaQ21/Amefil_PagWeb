@@ -8,7 +8,6 @@ import controlador_tipo_producto
 import controlador_descuento
 import controlador_roles
 import controlador_direccion
-import controlador_ubigeo
 
 app = Flask(__name__)
 app.secret_key = 'alguna_clave_secreta'
@@ -131,6 +130,10 @@ def navegacionproductosnovedades():
     temporada = controlador_filtros.obtener_temporadas()
     return render_template("Menu_novedades.html", productos_nuevos = productos_nuevos, color = color, tipo_pro = tipo_pro, temporada=temporada)
 
+
+
+
+
 ### PERFIL
 @app.route("/perfil")
 def perfil():
@@ -141,19 +144,57 @@ def editardatos():
     return render_template("Perfil_editar.html")
 
 ### >>>> DIRECCIONES
-@app.route("/editardireccion")
-def editardireccion():
-    departamentos = controlador_ubigeo.obtener_departamentos()
-    return render_template("Direccion_editar.html", departamentos=departamentos)
-
-@app.route("/agregardireccion")
-def agregardireccion():
-    return render_template("Direccion_nueva.html")
-
 @app.route("/listadirecciones")
 def listadirecciones():
     direcciones = controlador_direccion.obtener_direccion_completa()
     return render_template("Direccion_lista.html", direcciones = direcciones)
+
+
+@app.route("/agregardireccion")
+def agregardireccion():
+    departamentos = controlador_direccion.obtener_departamentos()
+    return render_template("Direccion_nueva.html", departamentos = departamentos)
+
+
+@app.route("/guardar_direccion", methods=["POST"])
+def guardar_direccion():
+    distrito = request.form["id_distrito"]
+    nombre = request.form["nombre"]
+    referencia = request.form["referencia"]
+
+    controlador_direccion.guardar_direccion(nombre, referencia, distrito)
+
+    return redirect("/listadirecciones")
+
+
+@app.route('/get_provincias/<int:departamento_id>')
+def get_provincias(departamento_id):
+    provincias = controlador_direccion.obtener_provincia_por_departamento(departamento_id)
+    return jsonify(provincias)
+
+
+@app.route('/get_distritos/<int:provincia_id>')
+def get_distritos(provincia_id):
+    distritos = controlador_direccion.obtener_distritos_por_provincia(provincia_id)
+    return jsonify(distritos)
+
+
+
+
+
+
+@app.route("/editardireccion/<int:id_direccion>")
+def editardireccion():
+    direccion = controlador_direccion.obtener_direccion_por_id(id)
+    departamentos = controlador_direccion.obtener_departamentos()
+    return render_template("Direccion_editar.html", direccion = direccion, departamentos = departamentos)
+
+
+
+
+
+
+
 
 ### >>>> PEDIDOS
 @app.route("/listapedidos")
@@ -457,6 +498,12 @@ def actualizar_tipo_producto():
     nombre = request.form["nombre"]
     controlador_tipo_producto.actualizar_tipo_producto(nombre, id_tipo)
     return redirect("/coleccionadmin")
+
+#Producto click
+@app.route('/productovista')
+def productovista():
+    return render_template('ProductoVista.html')
+
 
 @app.route('/navegacion-productos')
 def navegacion_productos():

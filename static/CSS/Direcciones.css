@@ -1,0 +1,17 @@
+.form-select, .form-control{
+    margin-block: 5px;
+    height: 45px;
+    font-family: 'Monserrat';
+    background-color: #ffffff;
+    color: black;
+}
+
+.dataAddress{
+    margin-block: 10px;
+}
+
+#buttonBlock{
+    height: 45px;
+    margin-block: 15px;
+}
+

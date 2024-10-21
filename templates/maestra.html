@@ -332,10 +332,9 @@
     <script src="{{ url_for('static', filename='JS/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/jquery-3.7.1.slim.min.js') }}"></script>
     <script src="{{ url_for('static', filename='JS/index.js') }}"></script>
-    
+    {% block scripts_adicionales %}
+    {% endblock %}
 
 </body>
 
 </html>
-{% block scripts_adicionales %}
-{% endblock %}
