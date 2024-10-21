@@ -78,6 +78,13 @@ def eliminar_producto(id):
     conexion.commit()
     conexion.close()
 
+def dar_baja_producto(id_producto):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE producto SET vigencia = 1 WHERE id_producto = %s", (id))
+    conexion.commit()
+    conexion.close()
+
 
 def obtener_producto_por_id(id_producto):
     conexion = obtener_conexion()

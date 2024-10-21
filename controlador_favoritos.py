@@ -61,6 +61,23 @@ def obtener_favoritos():
 def eliminar_favorito(id_producto):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE FROM favoritos WHERE id_producto = %s, id_usuario = 13", (id_producto))
+        cursor.execute("DELETE FROM favoritos WHERE id_producto = %s, id_usuario = ", (id_producto))
+    conexion.commit()
+    conexion.close()
+
+def alternar_favorito(id_producto):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        # Verifica si el producto ya está en los favoritos
+        cursor.execute("SELECT * FROM favoritos WHERE id_usuario = 13 AND id_producto = %s", (id_producto,))
+        favorito = cursor.fetchone()
+
+        if favorito:
+            # Eliminar si ya está en favoritos
+            cursor.execute("DELETE FROM favoritos WHERE id_usuario = 13 AND id_producto = %s", (id_producto,))
+        else:
+            # Insertar si no está en favoritos
+            cursor.execute("INSERT INTO favoritos (id_usuario, id_producto) VALUES (13, %s)", (id_producto,))
+
     conexion.commit()
     conexion.close()
