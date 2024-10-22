@@ -236,6 +236,31 @@ def carrito():
     monto_total = controlador_finalizar_compra.obtener_Montopedido(id_usuario)
     return render_template('carrito.html', detpedidos=detpedidos, monto_total=monto_total)
 
+@app.route("/carritoInsertar", methods=["POST"])
+def carritoInsertar():
+    try:
+        print("Solicitud recibida para agregar al carrito")
+        id_producto = request.form["id"]
+        id_usuario = 1
+        controlador_finalizar_compra.insertar_detalleCesta(id_producto, id_usuario)
+        return jsonify({"success": True})
+
+    except Exception as e:
+        print("Error al insertar en el carrito:", e)
+        return jsonify({"success": False, "error": str(e)}), 500
+    
+@app.route('/actualizar_cantidad', methods=['POST'])
+def actualizar_cantidad():
+    data = request.json
+    id_producto = data['id_producto']
+    nueva_cantidad = data['cantidad']
+    id_usuario = 1
+    try:
+        controlador_finalizar_compra.actualizar_detalle_pedido(id_producto, nueva_cantidad, id_usuario)
+        return jsonify({"mensaje": "Cantidad actualizada exitosamente"}), 200
+    except Exception as e:
+        return jsonify({"mensaje": "Error al actualizar la cantidad", "error": str(e)}), 500
+
 @app.route('/eliminarProductoCarrito', methods=['POST'])
 def eliminarProductoCarrito():
     data = request.get_json()
@@ -253,53 +278,12 @@ def eliminarProductoCarrito():
         print(f"Error al eliminar el producto: {e}")
         return jsonify({'error': str(e)}), 500
 
-
-@app.route("/carritoInsertar", methods=["POST"])
-def carritoInsertar():
-    try:
-        print("Solicitud recibida para agregar al carrito")
-        id_producto = request.form["id"]
-        id_usuario = 1
-        controlador_finalizar_compra.insertar_detalleCesta(id_producto, id_usuario)
-        return jsonify({"success": True})
-
-    except Exception as e:
-        print("Error al insertar en el carrito:", e)
-        return jsonify({"success": False, "error": str(e)}), 500
-
-@app.route('/actualizar_cantidad', methods=['POST'])
-def actualizar_cantidad():
-    data = request.json
-    id_producto = data['id_producto']
-    nueva_cantidad = data['cantidad']
-    id_usuario = 1
-    try:
-        controlador_finalizar_compra.actualizar_detalle_pedido(id_producto, nueva_cantidad, id_usuario)
-        return jsonify({"mensaje": "Cantidad actualizada exitosamente"}), 200
-    except Exception as e:
-        return jsonify({"mensaje": "Error al actualizar la cantidad", "error": str(e)}), 500
-
 @app.route("/finalizarCompra")
 def carrito_finalizar():
     departamentos = controlador_direccion.obtener_departamentos()
     usuario = controlador_usuario.obtener_usuario_por_id(1)
-    return render_template("Finalizar_compra.html", departamentos=departamentos, usuario = usuario)
-
-@app.route('/departamentos', methods=['GET'])
-def departamentos():
-    departamentos = controlador_direccion.obtener_departamentos()
-    return jsonify(departamentos)
-
-@app.route('/provincias/<int:id_departamento>', methods=['GET'])
-def provincias(id_departamento):
-    provincias = controlador_direccion.obtener_provincia_por_departamento(id_departamento)
-    print(provincias)  # Verifica qué datos estás obteniendo
-    return jsonify(provincias)
-
-@app.route('/distritos/<int:id_provincia>', methods=['GET'])
-def distritos(id_provincia):
-    distritos = controlador_direccion.obtener_distritos_por_provincia(id_provincia)
-    return jsonify(distritos)
+    carrito = controlador_finalizar_compra.obtener_monto_total(1)
+    return render_template("Finalizar_compra.html", departamentos=departamentos, usuario = usuario, carrito = carrito)
 
 @app.route('/procesar_pago', methods=['POST'])
 def procesar_pago():

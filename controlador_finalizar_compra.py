@@ -68,6 +68,14 @@ def obtener_Montopedido(id_usuario):
     finally:
         conexion.close()
 
+def obtener_monto_total(id_usuario):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("select monto_total from pedido_cesta where id_usuario = %s and estado = 0", (id_usuario))
+        monto = cursor.fetchone()
+    conexion.close()
+    return monto
+
 def eliminar_productoPedido(id_producto, id_pedido, id_usuario):
     conexion = obtener_conexion()
     try:

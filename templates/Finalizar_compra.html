@@ -42,23 +42,18 @@ Finalizar Compra
                                         <!-- Campos de datos personales -->
                                         <div class="col-lg-6 col-md-6 col-sm-12 form-field">
                                             <label for="nombre" class="form-label">Nombre completo:</label>
-                                            <input type="text" id="nombre" class="form-control" required value="{{usuario[1]}} {{usuario[2]}} {{usuario[3]}}" >
+                                            <input type="text" id="nombre" class="form-control" required value="{{usuario[1]}}" >
                                             <small></small>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12 form-field">
                                             <label for="nacimiento">Fecha de nacimiento</label>
                                             <input type="date" class="form-control" id="nacimiento" name="nacimiento"
-                                                placeholder="Ingrese su fecha de nacimiento">
-                                            <small></small>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 form-field">
-                                            <label for="dni" class="form-label">Documento de identidad:</label>
-                                            <input type="text" id="dni" class="form-control" required>
+                                                placeholder="Ingrese su fecha de nacimiento" value="{{ usuario[6].strftime('%Y-%m-%d') }}">
                                             <small></small>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12 form-field">
                                             <label for="telefono" class="form-label">Teléfono/móvil:</label>
-                                            <input type="tel" id="telefono" class="form-control" required>
+                                            <input type="tel" id="telefono" class="form-control" required value="{{usuario[4]}}">
                                             <small></small>
                                         </div>
                                     </div>
@@ -177,7 +172,7 @@ Finalizar Compra
 
                         <div class="col-lg-10 col-md-10 col-sm-12">
                             <label class="form-label">Total a pagar:</label>
-                            <input id="totalPagar" class="form-control" type="text" readonly>
+                            <input id="totalPagar" class="form-control" type="text" readonly value="{{carrito[0]}}" >
                         </div>
 
                         <div class="col-lg-10 col-md-10 col-sm-12">
