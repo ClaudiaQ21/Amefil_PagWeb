@@ -408,7 +408,9 @@ def tallaspulseras():
 ###ADMIN
 @app.route("/dashboardadmin")
 def dashboardadmin():
-    return render_template("DashboardAdmin.html")
+    contador=controlador_descuento.contardescuento()
+    contadort=controlador_tipo_producto.contartipo()
+    return render_template("DashboardAdmin.html", contador = contador, contadort=contadort)
 
 @app.route("/dashboardmantenedor")
 def dashboardmantenedor():
