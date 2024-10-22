@@ -115,10 +115,14 @@
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.dashboard .recent .item p{
+.dashboard .recent .item h3, p{
     margin: 0;
+    margin-right: 20px;
 }
 
 .dashboard .recent .item .icon{
@@ -138,32 +142,15 @@
     color: rgb(251, 249, 242);
 }
 
-.dashboard .recent .item img{
-    border-radius: 20px;
-    height: 120px;
-    width: 150px;
-}
-
-.dashboard .recent .title{
-    text-align: center;
-}
-
 .dashboard .recent .typeproduct{
     background-color: rgb(158, 134, 94);
     border-radius: 20px;
     color: rgb(251, 249, 242);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
-.dashboard .recent .typeproduct a{
-    padding: 0;
-}
-
-.dashboard .recent .typeproduct h3, p{
+.dashboard .recent .typeproduct p{
     margin: 0;
-    margin-right: 20px;
 }
 
 .dashboard .recent .typeproduct .icon{
