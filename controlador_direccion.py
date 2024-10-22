@@ -68,7 +68,7 @@ def editar_direccion(nombre, referencia, id_distrito, id_direccion):
 def darbaja_direccion(id_direccion):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("update direccion set estado = 0 where id_direccion = %s", (id_direccion))
+        cursor.execute("update direccion set estado = 1 where id_direccion = %s", (id_direccion))
     conexion.commit()
     conexion.close()
 

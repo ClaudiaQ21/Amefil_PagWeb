@@ -2,12 +2,12 @@ from bd import obtener_conexion
 import base64
 
 
-def insertar_usuario(nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo, id_direccion):
+def insertar_usuario(nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
         cursor.execute(
-            "INSERT INTO usuario (nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo, id_direccion) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",
-            (nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo, id_direccion)
+            "INSERT INTO usuario (nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)",
+            (nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo)
         )
     conexion.commit()
     conexion.close()
@@ -15,7 +15,7 @@ def insertar_usuario(nombre, apellido_p, apellido_m, correo, contrasena, telefon
 def insertar_usuario_cliente(nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO usuario ( nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo) VALUES (%s, %s, %s, %s, %s, %s, %s, %s,1)",
+        cursor.execute("INSERT INTO usuario ( nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo,estado) VALUES (%s, %s, %s, %s, %s, %s, %s, %s,1,0)",
                        (nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento))
     conexion.commit()
     conexion.close()
@@ -25,7 +25,7 @@ def obtener_usuarios():
     usuarios = None
     with conexion.cursor() as cursor:
         cursor.execute(
-            "select us.id_usuario, CONCAT(us.nombre, ' ', us.apellido_p, ' ', us.apellido_m) as nombrescompletos, us.correo, us.telefono, us.genero, us.nacimiento,tu.nombre, COALESCE(dir.detalle, 'Desconocida') AS direccion from usuario us inner join tipo_usuario tu on us.id_tipo=tu.id_tipo left join direccion dir on dir.id_direccion = us.id_direccion")
+            "select us.id_usuario, CONCAT(us.nombre, ' ', us.apellido_p, ' ', us.apellido_m) as nombrescompletos, us.correo, us.telefono, us.genero, us.nacimiento,tu.nombre, COALESCE(dir.detalle, 'Desconocida') AS direccion from usuario us inner join tipo_usuario tu on us.id_tipo=tu.id_tipo inner join direccion_usuario du on us.id_usuario=du.id_usuario inner join direccion dir on du.id_direccion=dir.id_direccion")
         usuarios = cursor.fetchall()            
     conexion.close()
     return usuarios
@@ -42,7 +42,7 @@ def obtener_usuario_por_id(id_usuario):
     producto = None
     with conexion.cursor() as cursor:
         cursor.execute(
-            "SELECT id_usuario, nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo, id_direccion FROM usuario WHERE id_usuario = %s", (id_usuario))
+            "SELECT us.id_usuario, us.nombre, us.apellido_p, us.apellido_m, us.correo, us.contrasena, us.telefono, us.genero, us.nacimiento, us.id_tipo, dir.id_direccion, dir.detalle FROM usuario us inner join direccion_usuario du on du.id_usuario=us.id_usuario inner join direccion dir on du.id_direccion=dir.id_direccion WHERE id_usuario = %s", (id_usuario))
         producto = cursor.fetchone()
     conexion.close()
     return producto
@@ -75,7 +75,7 @@ def obtener_usuarios_por_tipo(id_tipo):
     user_tipo = None
     with conexion.cursor() as cursor:
         cursor.execute(
-            "select  us.id_usuario, CONCAT(us.nombre, ' ', us.apellido_p, ' ', us.apellido_m) as nombrescompletos, us.correo, us.telefono, us.genero, us.nacimiento,tu.nombre, dir.detalle from usuario us inner join tipo_usuario tu on us.id_tipo=tu.id_tipo inner join direccion dir on dir.id_direccion = us.id_direccion where tu.id_tipo = %s", 
+            "select  us.id_usuario, CONCAT(us.nombre, ' ', us.apellido_p, ' ', us.apellido_m) as nombrescompletos, us.correo, us.telefono, us.genero, us.nacimiento,tu.nombre, dir.detalle from usuario us inner join tipo_usuario tu on us.id_tipo=tu.id_tipo inner join direccion_usuario du on du.id_usuario=us.id_usuario inner join direccion dir on du.id_direccion=dir.id_direccion where tu.id_tipo = %s", 
             (id_tipo)
         )
         user_tipo = cursor.fetchall()
@@ -86,8 +86,8 @@ def actualizar_usuario(nombre, apellido_p, apellido_m, correo, contrasena, telef
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
         cursor.execute(
-            "UPDATE usuario SET nombre = %s, apellido_p = %s, apellido_m = %s, correo = %s, contrasena=%s, telefono = %s, genero = %s, nacimiento = %s, id_tipo = %s, id_direccion = %s WHERE id_usuario = %s",
-            (nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo, id_direccion, id_usuario)
+            "UPDATE usuario SET nombre = %s, apellido_p = %s, apellido_m = %s, correo = %s, contrasena=%s, telefono = %s, genero = %s, nacimiento = %s, id_tipo = %s WHERE id_usuario = %s",
+            (nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo, id_usuario)
         )
     conexion.commit()
     conexion.close()
@@ -115,6 +115,6 @@ def obtener_direccion():
 def dar_baja_usuario(id_usuario):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE usuario SET estado = 0 WHERE id_usuario = %s", (id_usuario))
+        cursor.execute("UPDATE usuario SET estado = 1 WHERE id_usuario = %s", (id_usuario))
     conexion.commit()
     conexion.close()
