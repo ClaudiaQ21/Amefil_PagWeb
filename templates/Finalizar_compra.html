@@ -83,13 +83,13 @@ Finalizar Compra
                                         <!-- Campos de dirección -->
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <label for="departamento" class="form-label">Departamento:</label>
-                                            <select id="departamento">
-                                                <option value="">Seleccionar departamento</option>
+                                            <select id="departamento" class="form-control" required>
+                                                <option value="">Seleccionar</option>
                                                 {% for departamento in departamentos %}
                                                     <option value="{{ departamento.id_departamento }}">{{ departamento.nombre }}</option>
                                                 {% endfor %}
-                                            </select>                                            
-                                        </div>
+                                            </select>
+                                        </div>                                        
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <label for="provincia" class="form-label">Provincia:</label>
                                             <select id="provincia" class="form-control" required>

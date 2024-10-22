@@ -4,31 +4,42 @@ document.addEventListener('DOMContentLoaded', function () {
     const provinciaSelect = document.getElementById('provincia');
     const distritoSelect = document.getElementById('distrito');
     const form = document.getElementById('miFormulario');
+    const totalElement = document.getElementById('totalAPagarElement'); // Asegúrate de tener este elemento
 
-    // Recuperar el total del localStorage y mostrarlo
+    cargarDepartamentos(); // Cargar los departamentos al cargar la página
+
     const totalAPagar = localStorage.getItem('totalAPagar');
-    if (totalAPagar) {
-        document.getElementById('totalPagar').value = 'S/' + totalAPagar;
+    if (totalAPagar && totalElement) {
+        totalElement.value = `S/ ${parseFloat(totalAPagar).toFixed(2)}`;
     }
-    // Cargar provincias cuando se selecciona un departamento
+
+    function limpiarCarrito() {
+        localStorage.removeItem('carrito');
+        localStorage.removeItem('totalAPagar');
+    }
+
+    function limpiarFormulario() {
+        form.reset();
+        provinciaSelect.innerHTML = '<option value="">Seleccionar</option>';
+        distritoSelect.innerHTML = '<option value="">Seleccionar</option>';
+    }
+
     departamentoSelect.addEventListener('change', function () {
         const departamentoId = this.value;
+        console.log('ID Departamento seleccionado:', departamentoId);
         cargarProvincias(departamentoId);
     });
 
-    // Cargar distritos cuando se selecciona una provincia
     provinciaSelect.addEventListener('change', function () {
         const provinciaId = this.value;
         cargarDistritos(provinciaId);
     });
 
-    // Función para cargar provincias
+    
     function cargarProvincias(departamentoId) {
-        console.log('Cargando provincias para departamento:', departamentoId);
         fetch(`/provincias/${departamentoId}`)
             .then(response => response.json())
             .then(data => {
-                console.log('Provincias recibidas:', data);
                 provinciaSelect.innerHTML = '<option value="">Seleccionar</option>';
                 data.forEach(provincia => {
                     const option = document.createElement('option');
@@ -54,9 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             });
     }
-    
 
-    // Manejar el envío del formulario
     form.addEventListener('submit', function (event) {
         event.preventDefault();
         if (validateForm()) {
@@ -82,8 +91,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
+                        limpiarCarrito();
+                        limpiarFormulario();
                         alert('Compra realizada con éxito!');
-                        // Redirigir o actualizar la página según sea necesario
                     } else {
                         alert('Error en la compra: ' + data.error);
                     }

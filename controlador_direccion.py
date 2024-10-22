@@ -38,7 +38,7 @@ def obtener_departamentos():
 def obtener_provincia_por_departamento(id_departamento):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("select pro.id_provincia, pro.nombre from departamento depa inner join provincia pro on pro.id_departamento = depa.id_departamento where depa.id_departamento = %s", (id_departamento))
+        cursor.execute("SELECT pro.id_provincia, pro.nombre FROM departamento depa INNER JOIN provincia pro ON pro.id_departamento = depa.id_departamento WHERE depa.id_departamento = %s", (id_departamento,))
         provincia = cursor.fetchall()
     conexion.close()
     return provincia

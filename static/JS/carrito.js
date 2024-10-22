@@ -185,9 +185,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function finalizarCompra() {
     const carrito = JSON.parse(localStorage.getItem('carrito'));
-    if (carrito && Object.keys(carrito).length > 0) {
+    
+    if (carrito && carrito.length > 0) {
         window.location.href = '/finalizarCompra';
     } else {
         alert('Debes agregar un producto al carrito antes de finalizar la compra.');
     }
 }
+
