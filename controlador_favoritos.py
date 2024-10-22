@@ -6,7 +6,7 @@ import base64
 def insertar_favorito(id_producto):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO favoritos (id_usuario,id_producto) VALUES (13, %s)",
+        cursor.execute("INSERT INTO favoritos (id_usuario,id_producto) VALUES (1, %s)",
                        (id_producto))
     conexion.commit()
     conexion.close()
@@ -26,7 +26,7 @@ def obtener_favoritos():
             LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto 
             LEFT JOIN temporada TE ON TE.id_temporada = P.id_temporada 
             LEFT JOIN descuento D ON D.id_descuento = DD.id_descuento 
-            LEFT JOIN color C ON C.id_color = P.id_color where id_usuario = 13
+            LEFT JOIN color C ON C.id_color = P.id_color where id_usuario = 1
         """)
     favoritos = cursor.fetchall()
 
@@ -61,23 +61,19 @@ def obtener_favoritos():
 def eliminar_favorito(id_producto):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("DELETE FROM favoritos WHERE id_producto = %s, id_usuario = ", (id_producto))
+        cursor.execute("DELETE FROM favoritos WHERE id_producto = %s and id_usuario = 1", (id_producto))
     conexion.commit()
     conexion.close()
 
-def alternar_favorito(id_producto):
+def verificar_favorito(id_producto):
     conexion = obtener_conexion()
-    with conexion.cursor() as cursor:
-        # Verifica si el producto ya está en los favoritos
-        cursor.execute("SELECT * FROM favoritos WHERE id_usuario = 13 AND id_producto = %s", (id_producto,))
-        favorito = cursor.fetchone()
-
+    with conexion.cursor() as cursor:        
+        cursor.execute("SELECT * FROM favoritos WHERE id_usuario = 1 AND id_producto = %s", (id_producto,))
+        favorito = cursor.fetchone() 
         if favorito:
-            # Eliminar si ya está en favoritos
-            cursor.execute("DELETE FROM favoritos WHERE id_usuario = 13 AND id_producto = %s", (id_producto,))
+            return 0
         else:
-            # Insertar si no está en favoritos
-            cursor.execute("INSERT INTO favoritos (id_usuario, id_producto) VALUES (13, %s)", (id_producto,))
-
+            return 1
     conexion.commit()
     conexion.close()
+    

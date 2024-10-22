@@ -96,7 +96,10 @@ Amefil
                             <a href="" class="">Añadir a la cesta</a>
                         </div>
                         <div class="col-4 addfavorite">
-                            <a href="{{url_for('agregar_favorito')}}" class=""><i class="fa-solid fa-heart"></i></a>
+                            <form action="{{url_for('agregar_eliminar_favorito')}}" method="post">
+                                <input type="hidden" name="data-id" data-id= 1>
+                                <button type="submit" id="favorito" class="btn btn-link p-0"><i class="fa-solid fa-heart" id="corazon"></i></button>
+                            </form>
                         </div>
                     </div>
                     <div class="row descriptproducto mb-3">
