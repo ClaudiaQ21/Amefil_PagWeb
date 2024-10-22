@@ -9,6 +9,7 @@ import controlador_descuento
 import controlador_roles
 import controlador_direccion
 import controlador_finalizar_compra
+import controlador_favoritos
 
 app = Flask(__name__)
 app.secret_key = 'alguna_clave_secreta'
@@ -213,7 +214,15 @@ def detallepedidos():
 def listafavoritos():
     return render_template("Favoritos_lista.html")
 
-    
+@app.route("/agregar_eliminar_favorito", methods=["POST"])
+def alternar_producto():
+    id_producto = request.form["id_producto"]
+    verificacion = controlador_favoritos.verificar_favorito(id_producto)
+    if verificacion == 0:
+        controlador_favoritos.insertar_favorito(id_producto)
+    elif verificacion == 1:
+        controlador_favoritos.eliminar_favorito(id_producto)
+    return render_template("ProductoVista.html")
 
 
 
