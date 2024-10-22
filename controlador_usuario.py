@@ -42,7 +42,7 @@ def obtener_usuario_por_id(id_usuario):
     producto = None
     with conexion.cursor() as cursor:
         cursor.execute(
-            "SELECT us.id_usuario, CONCAT(us.nombre, ' ', us.apellido_p, ' ', us.apellido_m) as nombrescompleto, us.correo, us.contrasena, us.telefono, us.genero, us.nacimiento, us.id_tipo, dir.id_direccion, dir.detalle FROM usuario us inner join direccion_usuario du on du.id_usuario=us.id_usuario inner join direccion dir on du.id_direccion=dir.id_direccion WHERE id_usuario = %s", (id_usuario))
+            "SELECT us.id_usuario, CONCAT(us.nombre, ' ', us.apellido_p, ' ', us.apellido_m) as nombrescompleto, us.correo, us.contrasena, us.telefono, us.genero, us.nacimiento, us.id_tipo WHERE id_usuario = %s", (id_usuario))
         producto = cursor.fetchone()
     conexion.close()
     return producto
