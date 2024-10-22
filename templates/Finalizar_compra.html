@@ -22,7 +22,7 @@ Finalizar Compra
 </div>
 
 <main class="container">
-    <form id="miFormulario">
+    <form id="miFormulario" action="{{ url_for('procesar_pago') }}" method="post" >
         <div id="con" class="row g-10">
             <nav id="central" class="col-lg-8 col-md-12 col-sm-12">
                 <div class="accordion" id="accordionExample">
@@ -83,23 +83,23 @@ Finalizar Compra
                                         <!-- Campos de dirección -->
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <label for="departamento" class="form-label">Departamento:</label>
-                                            <select id="departamento" class="form-control" required>
-                                                <option value="">Seleccionar</option>
+                                            <select id="id_departamento" class="form-control" onchange="loadProvincias()" required>
+                                                <option selected>--Seleccionar su departamento--</option>
                                                 {% for departamento in departamentos %}
-                                                    <option value="{{ departamento.id_departamento }}">{{ departamento.nombre }}</option>
+                                                <option value="{{departamento[0]}}">{{departamento[1]}}</option>
                                                 {% endfor %}
                                             </select>
-                                        </div>                                        
+                                        </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <label for="provincia" class="form-label">Provincia:</label>
-                                            <select id="provincia" class="form-control" required>
-                                                <option value="">Seleccionar</option>
+                                            <select id="id_provincia" class="form-control" onchange="loadDistritos()" required>
+                                                <option value="">Seleccionar su provincia</option>
                                             </select>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12">
                                             <label for="distrito" class="form-label">Distrito:</label>
-                                            <select id="distrito" class="form-control" required>
-                                                <option value="">Seleccionar</option>
+                                            <select id="id_distrito" class="form-control" required>
+                                                <option value="">Seleccionar su distrito</option>
                                             </select>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12 form-field">
@@ -171,7 +171,8 @@ Finalizar Compra
                     <div class="row g-4 justify-content-center">
                         <div class="col-lg-10 col-md-10 col-sm-12">
                             <label class="form-label">Precio envío:</label>
-                            <input style="text-align: center;" id="precioEnvio" class="form-control" type="text" value="ENVÍO GRATIS" readonly>
+                            <input style="text-align: center;" id="precioEnvio" class="form-control" type="text"
+                                value="ENVÍO GRATIS" readonly>
                         </div>
 
                         <div class="col-lg-10 col-md-10 col-sm-12">
@@ -180,7 +181,7 @@ Finalizar Compra
                         </div>
 
                         <div class="col-lg-10 col-md-10 col-sm-12">
-                            <button type="submit" id="pagarButton" class="botones">PAGAR</button>
+                            <button type="button" id="pagarButton" class="botones">PAGAR</button>
                         </div>
                     </div>
                 </div>
@@ -189,6 +190,8 @@ Finalizar Compra
     </form>
 </main>
 <script src="{{ url_for('static', filename='JS/finalizar_comp.js') }}" defer></script>
+<script src="{{url_for('static', filename = 'JS/Select_direccion.js')}}"></script>
+
 {% endblock %}
 
 {% block scripts_adicionales %}

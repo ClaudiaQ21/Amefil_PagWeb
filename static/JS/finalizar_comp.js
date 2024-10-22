@@ -1,12 +1,6 @@
-
 document.addEventListener('DOMContentLoaded', function () {
-    const departamentoSelect = document.getElementById('departamento');
-    const provinciaSelect = document.getElementById('provincia');
-    const distritoSelect = document.getElementById('distrito');
     const form = document.getElementById('miFormulario');
-    const totalElement = document.getElementById('totalAPagarElement'); // Asegúrate de tener este elemento
-
-    cargarDepartamentos(); // Cargar los departamentos al cargar la página
+    const totalElement = document.getElementById('totalAPagarElement');
 
     const totalAPagar = localStorage.getItem('totalAPagar');
     if (totalAPagar && totalElement) {
@@ -24,63 +18,15 @@ document.addEventListener('DOMContentLoaded', function () {
         distritoSelect.innerHTML = '<option value="">Seleccionar</option>';
     }
 
-    departamentoSelect.addEventListener('change', function () {
-        const departamentoId = this.value;
-        console.log('ID Departamento seleccionado:', departamentoId);
-        cargarProvincias(departamentoId);
-    });
-
-    provinciaSelect.addEventListener('change', function () {
-        const provinciaId = this.value;
-        cargarDistritos(provinciaId);
-    });
-
-    
-    function cargarProvincias(departamentoId) {
-        fetch(`/provincias/${departamentoId}`)
-            .then(response => response.json())
-            .then(data => {
-                provinciaSelect.innerHTML = '<option value="">Seleccionar</option>';
-                data.forEach(provincia => {
-                    const option = document.createElement('option');
-                    option.value = provincia.id_provincia;
-                    option.textContent = provincia.nombre;
-                    provinciaSelect.appendChild(option);
-                });
-            });
-    }
-    
-    function cargarDistritos(provinciaId) {
-        console.log('Cargando distritos para provincia:', provinciaId);
-        fetch(`/distritos/${provinciaId}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log('Distritos recibidos:', data);
-                distritoSelect.innerHTML = '<option value="">Seleccionar</option>';
-                data.forEach(distrito => {
-                    const option = document.createElement('option');
-                    option.value = distrito.id_distrito;
-                    option.textContent = distrito.nombre;
-                    distritoSelect.appendChild(option);
-                });
-            });
-    }
-
     form.addEventListener('submit', function (event) {
         event.preventDefault();
         if (validateForm()) {
             const formData = {
                 nombre: document.getElementById('nombre').value,
                 dni: document.getElementById('dni').value,
-                telefono: document.getElementById('telefono').value,
-                direccion: document.getElementById('direccion').value,
-                referencia: document.getElementById('referencia').value,
-                distrito: distritoSelect.value,
-                tarjeta: document.getElementById('tarjeta').value,
-                titular: document.getElementById('titular').value,
-                codigo: document.getElementById('codigo').value
+                direccion: document.getElementById('id_direccion').value,
             };
-
+    
             fetch('/procesar_pago', {
                 method: 'POST',
                 headers: {
@@ -88,24 +34,44 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 body: JSON.stringify(formData)
             })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        limpiarCarrito();
-                        limpiarFormulario();
-                        alert('Compra realizada con éxito!');
-                    } else {
-                        alert('Error en la compra: ' + data.error);
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Ocurrió un error al procesar la compra.');
-                });
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    limpiarCarrito();
+                    limpiarFormulario();
+                    alert('Compra realizada con éxito!');
+                } else {
+                    alert('Error en la compra: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Ocurrió un error al procesar la compra: ' + error.message);
+            });
+            
         }
     });
+    
 
     // Funciones de validación
+    function checkDistrito() {
+        const distrito = document.getElementById('id_distrito'); // Cambia 'distrito' por el ID real de tu input
+        return distrito.value.trim() !== '';
+    }
+    function checkProvincia() {
+        const provincia = document.getElementById('id_provincia'); // Cambia 'provincia' por el ID real de tu input
+        return provincia.value.trim() !== '';
+    }
+
+    function checkDepartamento() {
+        const departamento = document.getElementById('id_departamento'); // Cambia 'departamento' por el ID real de tu input
+        return departamento.value.trim() !== '';
+    }
     function validateForm() {
         const validName = checkName();
         const validFechaNacimiento = check_fechaNacimiento();
@@ -116,9 +82,19 @@ document.addEventListener('DOMContentLoaded', function () {
         const validCardNumber = checkCardNumber();
         const validCardHolder = checkCardHolder();
         const validCvv = checkCvv();
+        const validDistrito = checkDistrito();
+        const validProvincia = checkProvincia();
+        const validDepartamento = checkDepartamento();
         // Retorna true solo si todos los campos son válidos
-        return validName && validFechaNacimiento && validDni && validPhoneNumber &&
-            validAddress && validReference && validCardNumber && validCardHolder && validCvv;
+        // Verifica si todos los campos son válidos
+        if (!validName || !validFechaNacimiento || !validDni || !validPhoneNumber ||
+            !validAddress || !validReference || !validCardNumber || !validCardHolder ||
+            !validCvv || !validDistrito || !validProvincia || !validDepartamento) {
+            alert('Por favor, completa todos los campos correctamente.');
+            return false;
+        }
+        // Retorna true solo si todos los campos son válidos
+        return true;
     }
 
     // Validaciones
@@ -126,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const fechaNacimientoEl = document.querySelector('#nacimiento');
     const dniEl = document.querySelector('#dni');
     const telefonoEl = document.querySelector('#telefono');
-    const addressEl = document.querySelector('#direccion');
+    const addressEl = document.querySelector('#id_direccion');
     const referenceEl = document.querySelector('#referencia');
     const tarjetaEl = document.querySelector('#tarjeta');
     const titularEl = document.querySelector('#titular');

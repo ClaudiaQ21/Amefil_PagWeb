@@ -66,16 +66,15 @@ document.addEventListener('DOMContentLoaded', function () {
             cantidadElemento.textContent = cantidad;
 
             // Actualizar el total en la fila
-            totalElemento.textContent = 'S/' + (precioPorUnidad * cantidad).toFixed(1); // Actualizar el total por producto
+            totalElemento.textContent = 'S/' + (precioPorUnidad * cantidad).toFixed(2); // Actualizar el total por producto
 
             // Actualizar en localStorage
             const carrito = JSON.parse(localStorage.getItem('carrito'));
             if (carrito && carrito[idProducto]) {
-                carrito[idProducto].cantidad = cantidad; // Actualizar cantidad
+                carrito[idProducto].cantidad = cantidad; 
                 localStorage.setItem('carrito', JSON.stringify(carrito));
             }
 
-            // Enviar los datos al servidor (BD)
             fetch('/actualizar_cantidad', {
                 method: 'POST',
                 headers: {
@@ -107,14 +106,11 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             const idProducto = this.getAttribute('data-id');
 
-            // Eliminar del localStorage
             const carrito = JSON.parse(localStorage.getItem('carrito'));
             if (carrito && carrito[idProducto]) {
-                delete carrito[idProducto]; // Eliminar producto
+                delete carrito[idProducto]; 
                 localStorage.setItem('carrito', JSON.stringify(carrito));
             }
-
-            // Enviar los datos al servidor (BD)
             fetch('/eliminarProductoCarrito', {
                 method: 'POST',
                 headers: {
@@ -185,11 +181,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function finalizarCompra() {
     const carrito = JSON.parse(localStorage.getItem('carrito'));
-    
-    if (carrito && carrito.length > 0) {
+    console.log('Contenido del carrito:', carrito); // Verifica qué hay en el carrito
+
+    // Verifica si el carrito es un objeto y tiene al menos un producto
+    if (carrito && Object.keys(carrito).length > 0) {
         window.location.href = '/finalizarCompra';
     } else {
         alert('Debes agregar un producto al carrito antes de finalizar la compra.');
     }
 }
+
+
 

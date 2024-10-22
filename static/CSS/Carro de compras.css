@@ -8,10 +8,7 @@
     border-style: none;
     border-radius: 5px;
 } 
-.cantidad {
-    text-align: center;
-    width: 30px;
-}
+
 .table td, .table th {
     vertical-align: middle;
 }
