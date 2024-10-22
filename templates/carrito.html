@@ -22,6 +22,7 @@ Carrito de Compras
 <main class="container mt-5">
     <div class="row">
         <nav class="col-lg-8 col-md-7 col-sm-12 table-responsive">
+            {% if detpedidos %}
             <table class="table">
                 <thead>
                     <tr>
@@ -55,6 +56,9 @@ Carrito de Compras
 
                 </tbody>
             </table>
+            {% else %}
+            <p>No hay productos en el carrito</p>
+            {% endif %}
         </nav>
         <section class="col-lg-4 col-md-5 col-sm-12 compra">
             <div class="container text-start">

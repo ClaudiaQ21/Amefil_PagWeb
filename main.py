@@ -230,7 +230,6 @@ def agregar_eliminar_favorito():
 
 ### CARRITO
 @app.route('/carrito')
-@app.route('/carrito')
 def carrito():
     id_usuario = 1
     detpedidos = controlador_finalizar_compra.obtener_pedidoCliente(id_usuario)
@@ -283,7 +282,8 @@ def actualizar_cantidad():
 @app.route("/finalizarCompra")
 def carrito_finalizar():
     departamentos = controlador_direccion.obtener_departamentos()
-    return render_template("Finalizar_compra.html", departamentos=departamentos)
+    usuario = controlador_usuario.obtener_usuario_por_id(1)
+    return render_template("Finalizar_compra.html", departamentos=departamentos, usuario = usuario)
 
 @app.route('/departamentos', methods=['GET'])
 def departamentos():
@@ -410,7 +410,8 @@ def tallaspulseras():
 def dashboardadmin():
     contador=controlador_descuento.contardescuento()
     contadort=controlador_tipo_producto.contartipo()
-    return render_template("DashboardAdmin.html", contador = contador, contadort=contadort)
+    contadorc=controlador_usuario.contarclientes()
+    return render_template("DashboardAdmin.html", contador = contador, contadort=contadort, contadorc=contadorc)
 
 @app.route("/dashboardmantenedor")
 def dashboardmantenedor():
@@ -447,8 +448,7 @@ def usuariosdash():
 @app.route("/agregar_usuario")
 def formulario_agregar_usuario():
     tipo_usuarios = controlador_roles.obtener_tipos_usuario()
-    direcciones = controlador_direccion.obtener_direcciones()
-    return render_template("Agregar_Usuario.html", tipo_usuarios=tipo_usuarios, direcciones=direcciones)
+    return render_template("Agregar_Usuario.html", tipo_usuarios=tipo_usuarios)
 
 @app.route("/guardar_usuario", methods=["POST"])
 def guardar_usuario():
@@ -461,9 +461,7 @@ def guardar_usuario():
     genero = request.form["genero"]
     nacimiento = request.form["nacimiento"]
     id_tipo = request.form["id_tipo"]
-    id_direccion = request.form["id_direccion"]
-
-    controlador_usuario.insertar_usuario(nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo, id_direccion)
+    controlador_usuario.insertar_usuario(nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo)
     return redirect("/usuariosdash")
 
 @app.route("/editar_usuario/<int:id>")
