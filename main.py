@@ -217,6 +217,7 @@ def listafavoritos():
 
 ### CARRITO
 @app.route('/carrito')
+@app.route('/carrito')
 def carrito():
     id_usuario = 1
     detpedidos = controlador_finalizar_compra.obtener_pedidoCliente(id_usuario)
@@ -269,9 +270,15 @@ def carrito_finalizar():
     departamentos = controlador_direccion.obtener_departamentos()
     return render_template("Finalizar_compra.html", departamentos=departamentos)
 
+@app.route('/departamentos', methods=['GET'])
+def departamentos():
+    departamentos = controlador_direccion.obtener_departamentos()
+    return jsonify(departamentos)
+
 @app.route('/provincias/<int:id_departamento>', methods=['GET'])
 def provincias(id_departamento):
     provincias = controlador_direccion.obtener_provincia_por_departamento(id_departamento)
+    print(provincias)  # Verifica qué datos estás obteniendo
     return jsonify(provincias)
 
 @app.route('/distritos/<int:id_provincia>', methods=['GET'])
@@ -293,7 +300,7 @@ def procesar_pago():
         else:
             return jsonify({"success": False, "error": "No se encontró un pedido activo"}), 400
     except Exception as e:
-        return jsonify({"success": False, "error": str(e)}), 400
+        return jsonify({"success": False, "error": str(e)}),400
 
 
 
