@@ -213,6 +213,8 @@ def detallepedidos():
 def listafavoritos():
     return render_template("Favoritos_lista.html")
 
+    
+
 
 
 ### CARRITO
@@ -505,6 +507,11 @@ def actualizar_tipo_usuario():
     nombre = request.form["nombre"]
     controlador_roles.actualizar_tipo_usuario(nombre, id_tipo)
     return redirect("/roladmin")
+
+@app.route("/usuariocliente")
+def usuariocliente():
+    usuariosc=controlador_usuario.obtener_usuarios_por_tipo(1)
+    return render_template("ClienteLME.html", usuarios=usuariosc)
 
 
 ###DESCUENTO
