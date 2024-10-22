@@ -215,14 +215,14 @@ def listafavoritos():
     return render_template("Favoritos_lista.html")
 
 @app.route("/agregar_eliminar_favorito", methods=["POST"])
-def alternar_producto():
-    id_producto = request.form["id_producto"]
+def agregar_eliminar_favorito():
+    id_producto = request.form["data-id"]
     verificacion = controlador_favoritos.verificar_favorito(id_producto)
     if verificacion == 0:
         controlador_favoritos.insertar_favorito(id_producto)
     elif verificacion == 1:
         controlador_favoritos.eliminar_favorito(id_producto)
-    return render_template("ProductoVista.html")
+    return redirect("/productovista")
 
 
 
@@ -234,22 +234,24 @@ def carrito():
     detpedidos = controlador_finalizar_compra.obtener_pedidoCliente(id_usuario)
     monto_total = controlador_finalizar_compra.obtener_Montopedido(id_usuario)
     return render_template('carrito.html', detpedidos=detpedidos, monto_total=monto_total)
-@app.route('/eliminarProductoCarrito', methods=['POST'])
 
+@app.route('/eliminarProductoCarrito', methods=['POST'])
 def eliminarProductoCarrito():
     data = request.get_json()
-    id_producto = data.get('id')
-    id_pedido = data.get('idV')
+    id_producto = data.get('idProducto')
+    id_pedido = data.get('idPedido')
+    id_usuario = 1 
+
     if not id_producto or not id_pedido:
-        flash("Error: Producto o pedido no válido", "danger")
         return jsonify({'error': 'Datos inválidos'}), 400
 
     try:
-        controlador_finalizar_compra.eliminar_productoPedido(id_producto, id_pedido)
+        controlador_finalizar_compra.eliminar_productoPedido(id_producto, id_pedido, id_usuario)
         return jsonify({'success': True}), 200
     except Exception as e:
         print(f"Error al eliminar el producto: {e}")
-        return jsonify({'error': 'Error al eliminar el producto'}), 500
+        return jsonify({'error': str(e)}), 500
+
 
 @app.route("/carritoInsertar", methods=["POST"])
 def carritoInsertar():

@@ -104,36 +104,44 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelectorAll('.eliminar-producto').forEach(button => {
         button.addEventListener('click', function () {
-            const idProducto = this.getAttribute('data-id');
-
+            const idProducto = this.getAttribute('data-idProducto');
+            const idPedido = this.getAttribute('data-idPedido');
+    
+            // Eliminar del localStorage
             const carrito = JSON.parse(localStorage.getItem('carrito'));
             if (carrito && carrito[idProducto]) {
-                delete carrito[idProducto]; 
+                delete carrito[idProducto];
                 localStorage.setItem('carrito', JSON.stringify(carrito));
             }
+    
+            // Enviar solicitud al servidor
             fetch('/eliminarProductoCarrito', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRFToken': '{{ csrf_token() }}'
+                    // Asegúrate de configurar correctamente el token CSRF si es necesario
+                    // 'X-CSRFToken': '{{ csrf_token() }}'
                 },
                 body: JSON.stringify({
-                    id: idProducto
+                    idProducto: idProducto,
+                    idPedido: idPedido
                 })
             })
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        const row = document.querySelector(`[data-id="${idProducto}"]`).closest('tr');
+                        // Remover la fila de la tabla
+                        const row = this.closest('tr');
                         row.remove();
                         calcularTotales();
                     } else {
-                        alert('Error al eliminar el producto');
+                        alert('Error al eliminar el producto: ' + (data.error || 'Error desconocido'));
                     }
                 })
                 .catch(error => console.error('Error:', error));
         });
     });
+    
 
     function calcularTotales() {
         const cartItems = document.querySelectorAll('#cart tr');

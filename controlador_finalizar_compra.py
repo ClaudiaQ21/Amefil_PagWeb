@@ -68,31 +68,20 @@ def obtener_Montopedido(id_usuario):
     finally:
         conexion.close()
 
-def eliminar_productoPedido(id_producto, id_pedido):
+def eliminar_productoPedido(id_producto, id_pedido, id_usuario):
     conexion = obtener_conexion()
     try:
         with conexion.cursor() as cursor:
-            cursor.execute("DELETE FROM detalle_cesta WHERE id_producto = %s AND id_pedido = %s", (id_producto, id_pedido))
-            
-            cursor.execute("""
-                SELECT SUM(cantidad * (precio - descuento)) 
-                FROM detalle_cesta 
-                WHERE id_pedido = %s
-            """, (id_pedido,))
-            nuevo_total = cursor.fetchone()[0] or 0  
-            cursor.execute("""
-                UPDATE pedido_cesta 
-                SET monto_total = %s 
-                WHERE id_pedido = %s
-            """, (nuevo_total, id_pedido))
-            
+            cursor.callproc('EliminarDetalleCesta', (id_producto, id_pedido, id_usuario))
+
             conexion.commit()
-            print(f"Producto {id_producto} del pedido {id_pedido} eliminado exitosamente. Monto total actualizado a {nuevo_total}.")
+            print(f"Producto {id_producto} del pedido {id_pedido} eliminado exitosamente.")
     except Exception as e:
         print(f"Error al eliminar producto del pedido: {e}")
         raise e
     finally:
         conexion.close()
+
 
 
 def buscar_pedidoCliente(id_usuario): 

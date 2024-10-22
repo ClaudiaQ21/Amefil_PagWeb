@@ -128,3 +128,55 @@ CREATE TABLE favoritos (
     FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
     FOREIGN KEY (id_producto) REFERENCES producto(id_producto)
 );
+
+
+
+
+
+-- PROCEDIMIENTOS ALMACENADOS
+
+CREATE PROCEDURE EliminarDetalleCesta (
+    IN p_idProducto INT, 
+    IN p_idPedido INT, 
+    IN p_idUsuario INT
+)   
+BEGIN
+    DECLARE v_estado tinyint(1);
+    DECLARE v_total float;
+
+    -- Iniciar la transacción
+    START TRANSACTION;
+
+    -- Verificar que el carrito pertenece al usuario y está en estado 'P'
+    SELECT estado INTO v_estado
+    FROM pedido_cesta
+    WHERE id_pedido = p_idPedido AND id_usuario = p_idUsuario AND estado = 0;
+
+    IF v_estado = 0 THEN
+        -- Eliminar el detalle de venta basado en la clave compuesta
+        DELETE FROM detalle_cesta
+        WHERE id_pedido = p_idPedido AND id_producto = p_idProducto;
+
+        -- Recalcular el subtotal del carrito
+        SELECT SUM(cantidad * precio) INTO v_total
+        FROM detalle_cesta
+        WHERE id_pedido = p_idPedido;
+
+        -- Si no hay detalles restantes, el subtotal será 0
+        IF v_total IS NULL THEN
+            SET v_total = 0;
+        END IF;
+
+        -- Actualizar el subtotal en el carrito
+        UPDATE pedido_cesta
+        SET monto_total = v_total
+        WHERE id_pedido = p_idPedido;
+
+        -- Confirmar la transacción
+        COMMIT;
+    ELSE
+        -- Si el carrito no está en estado 'P', deshacer la transacción
+        ROLLBACK;
+    END IF;
+
+END$$
