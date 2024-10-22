@@ -46,7 +46,7 @@ Carrito de Compras
                             <span class="cantidad" id="cantidad-{{ item[0] }}" style="font-size: 1.2rem; padding: 0 10px;">{{ item[3] }}</span> 
                             <button class="btn-quantity mas botones_increde" data-id="{{ item[0] }}">+</button>
                         </td>                        
-                        <td>S/<span class="total" id="total-{{ item[0] }}">{{ item[4] }}</span></td> 
+                        <td>S/<span class="total" id="total-{{ item[0] }}">{{ "%.2f" | format(item[4]) }}</span></td> 
                         <td>
                             <button class="eliminar-producto botones_increde" data-id="{{ item[0] }}"
                                 data-idV="{{ item[5] }}">X</button>

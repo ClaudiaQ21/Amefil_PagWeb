@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
             cantidadElemento.textContent = cantidad;
 
             // Actualizar el total en la fila
-            totalElemento.textContent = 'S/' + (precioPorUnidad * cantidad).toFixed(2); // Actualizar el total por producto
+            totalElemento.textContent = 'S/' + (precioPorUnidad * cantidad).toFixed(1); // Actualizar el total por producto
 
             // Actualizar en localStorage
             const carrito = JSON.parse(localStorage.getItem('carrito'));
