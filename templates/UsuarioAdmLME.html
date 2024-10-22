@@ -32,7 +32,6 @@ Amefil
                                 <th>Genero</th>
                                 <th>Fecha de Nacimiento</th>
                                 <th>Rol</th>
-                                <th>Direccion</th>
                                 <th>Editar</th>
                                 <th>Eliminar</th>
                             </tr>
@@ -46,7 +45,6 @@ Amefil
                                 <td>{{'Masculino' if usuario[4] == 1 else 'Femenino'}}</td>
                                 <td>{{usuario[5]}}</td>
                                 <td>{{usuario[6]}}</td>
-                                <td>{{usuario[7]}}</td>
                                 <td>
                                     <a href="{{url_for('formulario_editar_usuario', id=usuario[0])}}" class="btn"><i class="fa-solid fa-square-pen iconupdate"></i></a>
                                 </td>

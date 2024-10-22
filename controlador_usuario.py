@@ -25,7 +25,7 @@ def obtener_usuarios():
     usuarios = None
     with conexion.cursor() as cursor:
         cursor.execute(
-            "select us.id_usuario, CONCAT(us.nombre, ' ', us.apellido_p, ' ', us.apellido_m) as nombrescompletos, us.correo, us.telefono, us.genero, us.nacimiento,tu.nombre, COALESCE(dir.detalle, 'Desconocida') AS direccion from usuario us inner join tipo_usuario tu on us.id_tipo=tu.id_tipo inner join direccion_usuario du on us.id_usuario=du.id_usuario inner join direccion dir on du.id_direccion=dir.id_direccion")
+            "select us.id_usuario, CONCAT(us.nombre, ' ', us.apellido_p, ' ', us.apellido_m) as nombrescompletos, us.correo, us.telefono, us.genero, us.nacimiento,tu.nombre from usuario us inner join tipo_usuario tu on us.id_tipo=tu.id_tipo")
         usuarios = cursor.fetchall()            
     conexion.close()
     return usuarios
@@ -42,7 +42,7 @@ def obtener_usuario_por_id(id_usuario):
     producto = None
     with conexion.cursor() as cursor:
         cursor.execute(
-            "SELECT us.id_usuario, us.nombre, us.apellido_p, us.apellido_m, us.correo, us.contrasena, us.telefono, us.genero, us.nacimiento, us.id_tipo, dir.id_direccion, dir.detalle FROM usuario us inner join direccion_usuario du on du.id_usuario=us.id_usuario inner join direccion dir on du.id_direccion=dir.id_direccion WHERE id_usuario = %s", (id_usuario))
+            "SELECT us.id_usuario, CONCAT(us.nombre, ' ', us.apellido_p, ' ', us.apellido_m) as nombrescompleto, us.correo, us.contrasena, us.telefono, us.genero, us.nacimiento, us.id_tipo, dir.id_direccion, dir.detalle FROM usuario us inner join direccion_usuario du on du.id_usuario=us.id_usuario inner join direccion dir on du.id_direccion=dir.id_direccion WHERE id_usuario = %s", (id_usuario))
         producto = cursor.fetchone()
     conexion.close()
     return producto
@@ -75,7 +75,7 @@ def obtener_usuarios_por_tipo(id_tipo):
     user_tipo = None
     with conexion.cursor() as cursor:
         cursor.execute(
-            "select  us.id_usuario, CONCAT(us.nombre, ' ', us.apellido_p, ' ', us.apellido_m) as nombrescompletos, us.correo, us.telefono, us.genero, us.nacimiento,tu.nombre, dir.detalle from usuario us inner join tipo_usuario tu on us.id_tipo=tu.id_tipo inner join direccion_usuario du on du.id_usuario=us.id_usuario inner join direccion dir on du.id_direccion=dir.id_direccion where tu.id_tipo = %s", 
+            "select  us.id_usuario, CONCAT(us.nombre, ' ', us.apellido_p, ' ', us.apellido_m) as nombrescompletos, us.correo, us.telefono, us.genero, us.nacimiento,tu.nombre from usuario us inner join tipo_usuario tu on us.id_tipo=tu.id_tipo where tu.id_tipo = %s", 
             (id_tipo)
         )
         user_tipo = cursor.fetchall()
@@ -118,3 +118,12 @@ def dar_baja_usuario(id_usuario):
         cursor.execute("UPDATE usuario SET estado = 1 WHERE id_usuario = %s", (id_usuario))
     conexion.commit()
     conexion.close()
+
+def contarclientes():
+    conexion = obtener_conexion()
+    contadorc = None
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT COUNT(id_usuario) FROM usuario where id_tipo=1")
+        contadorc = cursor.fetchone()
+    conexion.close()
+    return contadorc

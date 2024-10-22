@@ -38,3 +38,12 @@ def actualizar_tipo_producto(nombre, id_tipo):
         cursor.execute("UPDATE tipo_producto SET nombre = %s WHERE id_tipo = %s", (nombre, id_tipo))
     conexion.commit()
     conexion.close()
+
+def contartipo():
+    conexion = obtener_conexion()
+    contadort = None
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT COUNT(id_tipo) from tipo_producto")
+        contadort = cursor.fetchone()            
+    conexion.close()
+    return contadort

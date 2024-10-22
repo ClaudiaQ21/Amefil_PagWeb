@@ -44,3 +44,12 @@ def actualizar_descuento(tasa, fecha_inicio, fecha_fin, vigencia, id_descuento):
                        (tasa, fecha_inicio, fecha_fin, vigencia, id_descuento))
     conexion.commit()
     conexion.close()
+
+def contardescuento():
+    conexion = obtener_conexion()
+    contador = None
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT COUNT(id_descuento) FROM descuento")
+        contador = cursor.fetchone()
+    conexion.close()
+    return contador
