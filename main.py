@@ -216,11 +216,13 @@ def listafavoritos():
 
 @app.route("/agregar_eliminar_favorito", methods=["POST"])
 def agregar_eliminar_favorito():
-    id_producto = request.form["data-id"]
+    id_producto = request.form.get("data-id")
+    
     verificacion = controlador_favoritos.verificar_favorito(id_producto)
-    if verificacion == 0:
+    
+    if verificacion == 1:
         controlador_favoritos.insertar_favorito(id_producto)
-    elif verificacion == 1:
+    elif verificacion == 0:
         controlador_favoritos.eliminar_favorito(id_producto)
     return redirect("/productovista")
 
@@ -240,7 +242,7 @@ def eliminarProductoCarrito():
     data = request.get_json()
     id_producto = data.get('idProducto')
     id_pedido = data.get('idPedido')
-    id_usuario = 1 
+    id_usuario = 1
 
     if not id_producto or not id_pedido:
         return jsonify({'error': 'Datos inválidos'}), 400

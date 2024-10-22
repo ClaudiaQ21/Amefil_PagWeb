@@ -7,7 +7,7 @@ def insertar_pedido_cesta(id_usuario, monto_total=0):
     conexion = obtener_conexion()
     fecha_actual = datetime.now().date()  
     hora_actual = datetime.now().time() 
-    estado = True 
+    estado = 0 
     with conexion.cursor() as cursor:
         cursor.execute("""
             INSERT INTO pedido_cesta (estado, monto_total, fecha_registro, hora_registro, id_direccion, id_usuario) 
@@ -27,7 +27,7 @@ def obtener_pedidoCliente(id_usuario):
                 FROM pedido_cesta pc
                 INNER JOIN detalle_cesta dc ON dc.id_pedido = pc.id_pedido
                 INNER JOIN producto p ON p.id_producto = dc.id_producto
-                WHERE pc.id_usuario = %s AND pc.estado = TRUE
+                WHERE pc.id_usuario = %s AND pc.estado = 0
             """, (id_usuario,))
             resultados = cursor.fetchall()
         
@@ -58,7 +58,7 @@ def obtener_Montopedido(id_usuario):
                 SELECT SUM(dc.cantidad * dc.precio) AS monto_total
                 FROM detalle_cesta dc
                 INNER JOIN pedido_cesta pc ON dc.id_pedido = pc.id_pedido
-                WHERE pc.id_usuario = %s AND pc.estado = TRUE
+                WHERE pc.id_usuario = %s AND pc.estado = 0
             """, (id_usuario,))
             resultado = cursor.fetchone()
         return resultado[0] if resultado else 0
@@ -72,8 +72,7 @@ def eliminar_productoPedido(id_producto, id_pedido, id_usuario):
     conexion = obtener_conexion()
     try:
         with conexion.cursor() as cursor:
-            cursor.callproc('EliminarDetalleCesta', (id_producto, id_pedido, id_usuario))
-
+            cursor.execute("call eliminardetallecesta(%s, %s, %s)", (id_producto, id_pedido, id_usuario))
             conexion.commit()
             print(f"Producto {id_producto} del pedido {id_pedido} eliminado exitosamente.")
     except Exception as e:
@@ -88,7 +87,7 @@ def buscar_pedidoCliente(id_usuario):
     conexion = obtener_conexion()
     pedido_cesta = []
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT id_pedido FROM pedido_cesta WHERE estado = True and id_usuario=%s",(id_usuario))
+        cursor.execute("SELECT id_pedido FROM pedido_cesta WHERE estado = 0 and id_usuario=%s",(id_usuario))
         pedido_cesta = cursor.fetchone()  
     conexion.close()
     return pedido_cesta
@@ -152,7 +151,7 @@ def actualizar_detalle_pedido(id_producto, nueva_cantidad, id_usuario):
                 WHERE id_producto = %s AND id_pedido = (
                     SELECT id_pedido FROM pedido_cesta 
                     WHERE id_usuario = %s 
-                    AND estado = TRUE
+                    AND estado = 0
                     ORDER BY fecha_registro DESC 
                     LIMIT 1
                 );
@@ -165,13 +164,13 @@ def actualizar_detalle_pedido(id_producto, nueva_cantidad, id_usuario):
                     WHERE id_pedido = (
                         SELECT id_pedido FROM pedido_cesta 
                         WHERE id_usuario = %s 
-                        AND estado = TRUE
+                        AND estado = 0
                         ORDER BY fecha_registro DESC 
                         LIMIT 1
                     )
                 )
                 WHERE id_usuario = %s 
-                AND estado = TRUE
+                AND estado = 0
                 ORDER BY fecha_registro DESC 
                 LIMIT 1;
             """, (id_usuario, id_usuario))
@@ -191,7 +190,7 @@ def finalizar_pedido(id_usuario, id_direccion):
             cursor.execute("""
                 SELECT id_pedido 
                 FROM pedido_cesta 
-                WHERE id_usuario = %s AND estado = True
+                WHERE id_usuario = %s AND estado = 0
             """, (id_usuario,))
             resultado = cursor.fetchone()
             

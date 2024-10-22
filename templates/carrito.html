@@ -48,8 +48,7 @@ Carrito de Compras
                         </td>                        
                         <td>S/<span class="total" id="total-{{ item[0] }}">{{ "%.2f" | format(item[4]) }}</span></td> 
                         <td>
-                            <button class="eliminar-producto botones_increde" data-idProducto="{{ item[0] }}"
-                                data-idPedido="{{ item[5] }}">X</button>
+                            <button class="eliminar-producto botones_increde" data-idProducto="{{ item[0] }}"data-idPedido="{{ item[5] }}">X</button>
                         </td>
                     </tr>
                     {% endfor %}

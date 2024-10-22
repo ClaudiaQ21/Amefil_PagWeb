@@ -106,39 +106,44 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             const idProducto = this.getAttribute('data-idProducto');
             const idPedido = this.getAttribute('data-idPedido');
-    
-            // Eliminar del localStorage
-            const carrito = JSON.parse(localStorage.getItem('carrito'));
-            if (carrito && carrito[idProducto]) {
-                delete carrito[idProducto];
-                localStorage.setItem('carrito', JSON.stringify(carrito));
+
+            if (!idProducto || !idPedido) {
+                alert('Error: Producto o pedido no válido');
+                return;
             }
-    
-            // Enviar solicitud al servidor
+
+            // Confirmación antes de eliminar
+            const confirmacion = confirm('¿Estás seguro que quieres eliminar este producto?');
+            if (!confirmacion) {
+                return;
+            }
+
+            // Hacer la solicitud `POST` al servidor
             fetch('/eliminarProductoCarrito', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    // Asegúrate de configurar correctamente el token CSRF si es necesario
-                    // 'X-CSRFToken': '{{ csrf_token() }}'
+                    'X-CSRFToken': '{{ csrf_token() }}' // Si usas CSRF
                 },
                 body: JSON.stringify({
                     idProducto: idProducto,
                     idPedido: idPedido
                 })
             })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        // Remover la fila de la tabla
-                        const row = this.closest('tr');
-                        row.remove();
-                        calcularTotales();
-                    } else {
-                        alert('Error al eliminar el producto: ' + (data.error || 'Error desconocido'));
-                    }
-                })
-                .catch(error => console.error('Error:', error));
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Eliminar la fila de la tabla visualmente
+                    this.closest('tr').remove();
+                    alert('Producto eliminado con éxito');
+                } else {
+                    alert('Error al eliminar el producto: ' + (data.error || 'Error desconocido'));
+                }
+            })
+            .catch(error => {
+                console.error('Error al eliminar el producto:', error);
+                alert('Ha ocurrido un error al eliminar el producto');
+            });
         });
     });
     
