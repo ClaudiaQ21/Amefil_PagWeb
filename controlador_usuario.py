@@ -149,7 +149,7 @@ def contarusuarios():
 def obtener_datosUsuario(id_usuario):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("select id_usuario, nombre, concat(apellido_p, " ", apellido_m) as apellidos, genero, nacimiento, correo, telefono from usuario where id_usuario = %s", (id_usuario))
+        cursor.execute("select id_usuario, nombre, concat(apellido_p, ' ', apellido_m) as apellidos, genero, nacimiento, correo, telefono from usuario where id_usuario = %s", (id_usuario))
         datos = cursor.fetchone()
     conexion.close()
     return datos    

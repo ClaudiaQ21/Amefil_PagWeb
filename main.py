@@ -144,7 +144,7 @@ def navegacionproductosnovedades():
 @app.route("/perfil")
 def perfil():
     datos = controlador_usuario.obtener_datosUsuario(usuarioID)
-    return render_template("Perfil.html")
+    return render_template("Perfil.html", datos = datos)
 
 @app.route("/editardatos")
 def editardatos():
@@ -682,9 +682,16 @@ def actualizar_tipo_producto():
     id_tipo = request.form["id_tipo"]
     nombre = request.form["nombre"]
     estado = request.form["vigencia"]
-    controlador_tipo_producto.actualizar_tipo_producto(nombre, estado, id_tipo)
-    flash("Tipo de producto actualizado correctamente.", "success")
-    return redirect("/coleccionadmin")
+    try:
+        controlador_tipo_producto.actualizar_tipo_producto(nombre, estado, id_tipo)
+        flash("Tipo de producto actualizado correctamente.", "success")
+        return redirect("/coleccionadmin")
+    except IntegrityError as e:
+        if "1062" in str(e):
+            flash("Error: El nombre del tipo de producto ya existe.", "error")
+        else:
+            flash("Error al actualizar el tipo de producto.", "error")
+        return redirect("/coleccionadmin")
 
 #Producto click
 @app.route("/vista_producto/<int:id>")
