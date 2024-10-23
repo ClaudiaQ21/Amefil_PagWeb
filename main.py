@@ -90,7 +90,7 @@ def guardar_producto():
 
 @app.route("/eliminar_producto", methods=["POST"])
 def eliminar_producto():
-    controlador_producto.eliminar_producto(request.form["id_producto"])
+    controlador_producto.dar_baja_producto(request.form["id_producto"])
     return redirect("/navegacionproductos")
 
 
