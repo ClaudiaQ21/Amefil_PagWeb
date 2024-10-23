@@ -262,3 +262,17 @@ BEGIN
     END IF;
 
 END;
+
+
+CREATE PROCEDURE registrarDireccion(
+    IN p_nombre VARCHAR(100), 
+    IN p_referencia VARCHAR(250), 
+    IN p_idDistrito INT,
+    OUT p_idDireccion INT  
+)
+BEGIN
+    INSERT INTO direccion (nombre, referencia, id_distrito) 
+    VALUES (p_nombre, p_referencia, p_idDistrito);
+
+    SET p_idDireccion = LAST_INSERT_ID();
+END$$
