@@ -68,7 +68,7 @@
     justify-content: center;
 }
 
-.addfavorite a{
+.addfavorite #favorito{
     text-decoration: none;
     background-color: rgb(251, 249, 242);
     color: rgb(158, 134, 94);
