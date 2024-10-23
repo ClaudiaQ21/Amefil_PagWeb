@@ -109,8 +109,7 @@ Amefil
                                     <div class="desc">
                                         <h6>{{ (producto[10]|float * 100)|round(2) }}%</h6>
                                     </div>
-                                    <img src="data:image/jpeg;base64,{{ producto[6] }}" class="card-img-top" alt="Atardecer dorado">
-                                    
+                                    <a href="{{url_for('productovista', id=producto[0])}}"><img src="data:image/jpeg;base64,{{ producto[6] }}" class="card-img-top" alt="{{producto[1]}}"></a>
                                     <div class="g-2">
                                         <h6>{{producto[1]}}</h6>
                                         <div class="precio">

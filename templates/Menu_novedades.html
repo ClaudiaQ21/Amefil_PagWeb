@@ -106,7 +106,7 @@ Novedades
                         {% if producto[11]|float == 0 %}
                             <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                                 <div class="cont_pro" data-id="{{producto[0]}}" data-name="{{producto[1]}}" data-price="{{producto[2]}}" data-colecc="{{producto[8]}}" data-temp="{{producto[10]}}" data-color="{{producto[9]}}">
-                                    <img src="data:image/jpeg;base64,{{ producto[6] }}" class="card-img-top" alt="Atardecer dorado">
+                                    <a href="{{url_for('productovista', id=producto[0])}}"><img src="data:image/jpeg;base64,{{ producto[6] }}" class="card-img-top" alt="{{producto[1]}}"></a>
                                     <div class="g-2">
                                         <h6>{{producto[1]}}</h6>
                                         <div class="precio">
@@ -122,8 +122,7 @@ Novedades
                                     <div class="desc">"
                                         <h6>{{ (producto[11]|float * 100)|round(2) }}%</h6>
                                     </div>
-                                    <img src="data:image/jpeg;base64,{{ producto[6] }}" class="card-img-top" alt="Atardecer dorado">
-                                    
+                                    <a href="{{url_for('productovista', id=producto[0])}}"><img src="data:image/jpeg;base64,{{ producto[6] }}" class="card-img-top" alt="{{producto[1]}}"></a>
                                     <div class="g-2">
                                         <h6>{{producto[1]}}</h6>
                                         <div class="precio">

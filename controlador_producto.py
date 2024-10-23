@@ -78,6 +78,39 @@ def contar_productos():
     conexion.close
     return cantidad
 
+def obtener_producto_segun_tipo(id_tipo):
+    conexion = obtener_conexion()
+    productos = None
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, P.imagen, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre AS temporada, D.tasa AS tasa_descuento, P.id_tipo FROM producto P INNER JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto INNER JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN descuento D on D.id_descuento = DD.id_descuento INNER JOIN color C on C.id_color = P.id_color WHERE P.id_tipo = %s", (id_tipo))
+    productos = cursor.fetchall()
+
+    if not productos:
+        productos = []
+
+    productos_tipo_imagen = []
+    for producto in productos:
+        imagen_base64 = base64.b64encode(producto[6]).decode('utf-8')
+        tasa_descuento = producto[10] if producto[10] is not None else 0
+
+        vigencia = "Vigente" if producto[3] == 0 else "No vigente" if producto[3] == 1 else "No especificado"
+
+        productos_tipo_imagen.append((
+            producto[0],  # id_producto
+            producto[1],  # nombre
+            producto[2],  # precio
+            vigencia,     # vigencia
+            producto[4],  # stock
+            producto[5],  # descripcion
+            imagen_base64, # imagen convertida a Base64
+            producto[7],  # coleccion
+            producto[8],  # color
+            producto[9],  # temporada
+            tasa_descuento,  # descuento
+            producto[11] #id_tipo_producto
+        ))
+    conexion.close()
+    return productos_tipo_imagen
 
 def eliminar_producto(id):
     conexion = obtener_conexion()
@@ -169,3 +202,25 @@ def obtener_novedades():
             
     conexion.close()
     return productos_nuevos
+
+def obtener_limit():
+    conexion = obtener_conexion()
+    producto = None
+    with conexion.cursor() as cursor:
+        cursor.execute(
+            "SELECT LIMIT 8 id_producto, imagen, vigencia FROM producto")
+        producto = cursor.fetchone()
+    producto_limit = []
+    imagen_base64 = base64.b64encode(producto[1]).decode('utf-8')
+
+    vigencia = "Vigente" if producto[2] == 0 else "No vigente" if producto[2] == 1 else "No especificado"
+
+    producto_limit.append((
+        producto[0],  # id_producto
+        imagen_base64,  # imagen
+        vigencia,     # vigencia
+        
+    ))
+
+    conexion.close()
+    return producto_limit
