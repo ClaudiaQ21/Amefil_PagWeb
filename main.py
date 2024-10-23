@@ -13,7 +13,7 @@ import controlador_finalizar_compra
 import controlador_favoritos
 import controlador_pedido
 
-usuarioID = 3
+usuarioID = 5
 
 app = Flask(__name__)
 app.secret_key = 'alguna_clave_secreta'
@@ -22,7 +22,8 @@ app.secret_key = 'alguna_clave_secreta'
 @app.route("/amefil")
 def amefil():
     productos = controlador_producto.obtener_limit()
-    return render_template("Index.html", productos = productos)
+    tipos = controlador_filtros.obtener_tipo_producto()
+    return render_template("Index.html", productos = productos, tipos = tipos)
  
 @app.context_processor
 def inject_tipos():

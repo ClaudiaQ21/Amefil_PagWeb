@@ -62,42 +62,20 @@ Amefil
     <!-- COLECCIONES -->
     <div class="row m-0 p-0">
         <div class="row m-0 p-0">
+            {% for tipo in tipos %}
             <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                <a href="{{ url_for('colecciones') }}">
+                <a href="{{url_for('coleccionesheader', id=tipo[0])}}">
                     <div class="coleccion-texto">
-                        <img src="{{ url_for('static', filename='img/collar.jpg') }}" alt="coleccionCollares" class="img-fluid imagen-sombreada">
-                        <div class="texto-colecciones">COLLARES</div>
+                        <img src="{{ url_for('static', filename='img/'+tipo[1]+'.jpg') }}" alt="coleccionCollares" class="img-fluid imagen-sombreada">
+                        <div class="texto-colecciones">{{tipo[1]}}</div>
                     </div>
                 </a>
             </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                <a href="{{ url_for('colecciones') }}">
-                    <div class="coleccion-texto">
-                        <img src="{{ url_for('static', filename='img/pulsera.jpg') }}" alt="coleccionpulseras" class="img-fluid imagen-sombreada">
-                        <div class="texto-colecciones">PULSERAS</div>
-                    </div>
-                </a>
-            </div>
+            {% endfor %}
+
         </div>
 
-        <div class="row m-0 p-0">
-            <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                <a href="{{ url_for('colecciones') }}">
-                    <div class="coleccion-texto">
-                        <img src="{{ url_for('static', filename='img/bolso.jpg') }}" alt="coleccionBolsos" class="img-fluid imagen-sombreada">
-                        <div class="texto-colecciones">BOLSOS</div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 text-center m-0 p-0">
-                <a href="{{ url_for('colecciones') }}">
-                    <div class="coleccion-texto">
-                        <img src="{{ url_for('static', filename='img/arete.jpg') }}" alt="coleccionesAretes" class="img-fluid imagen-sombreada">
-                        <div class="texto-colecciones">ARETES</div>
-                    </div>
-                </a>
-            </div>
-        </div>
+
     </div>
 
     <div class="frase-chevere row d-flex justify-content-center text-center py-4">
