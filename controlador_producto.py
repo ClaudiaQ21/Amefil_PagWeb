@@ -67,9 +67,17 @@ def obtener_productos(busqueda=None):
             producto[9],  # temporada
             tasa_descuento  # descuento
         ))
-
     conexion.close()
     return productos_con_imagen
+
+def contar_productos():
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT COUNT(id_producto) from producto")
+        cantidad = cursor.fetchone()
+    conexion.close
+    return cantidad
+
 
 def eliminar_producto(id):
     conexion = obtener_conexion()
