@@ -630,18 +630,26 @@ def guardar_descuento():
     fecha_inicio = request.form["fecha_inicio"]
     fecha_fin = request.form["fecha_fin"]
     vigencia = request.form["vigencia"]
-    controlador_descuento.insertar_descuento(tasa, fecha_inicio, fecha_fin, vigencia)
-    return redirect("/descuentoadmin")
+    try:
+        controlador_descuento.insertar_descuento(tasa, fecha_inicio, fecha_fin, vigencia)
+        flash("Descuento agregado correctamente.", "success")
+        return redirect("/descuentoadmin")
+    except:
+        flash("Error al agregar el Descuento.", "error")
+        return redirect("/dashboardadmin")
+
 
 @app.route("/eliminar_descuento", methods=["POST"])
 def eliminar_descuento():
     controlador_descuento.eliminar_descuento(request.form["id_descuento"])
+    flash("Descuento eliminado correctamente.", "success")
     return redirect("/descuentoadmin")
 
 @app.route("/editar_descuento/<int:id>")
 def formulario_editar_descuento(id):
     descuento = controlador_descuento.obtener_descuento_por_id(id)
     return render_template("Editar_Descuento.html", descuento=descuento)
+
 
 @app.route("/actualizar_descuento", methods=["POST"])
 def actualizar_descuento():
@@ -650,8 +658,13 @@ def actualizar_descuento():
     fecha_inicio = request.form["fecha_inicio"]
     fecha_fin = request.form["fecha_fin"]
     vigencia = request.form["vigencia"]
-    controlador_descuento.actualizar_descuento(tasa, fecha_inicio, fecha_fin, vigencia, id_descuento)
-    return redirect("/descuentoadmin")
+    try:
+        controlador_descuento.actualizar_descuento(tasa, fecha_inicio, fecha_fin, vigencia, id_descuento)
+        flash("Descuento actualizado correctamente.", "success")
+        return redirect("/descuentoadmin")
+    except:
+        flash("Error al actualizar el Descuento.", "error")
+        return redirect("/descuentoadmin")
 
 @app.route("/asignardescuento/<int:id>")
 def formulario_asignar_descuento(id):
@@ -659,12 +672,18 @@ def formulario_asignar_descuento(id):
     descuentos = controlador_descuento.obtener_descuentos_vigentes()
     return render_template("Agregar_AsigDcto.html", producto = producto, descuentos=descuentos)
 
+
 @app.route("/guardarasignardcto", methods=["POST"])
 def guardarasignardcto():
     id_producto = request.form["id_producto"]
     id_descuento = request.form["id_descuento"]
-    controlador_descuento.asignardescuento(id_producto, id_descuento)
-    return redirect("/descuentoadmin")
+    try:
+        controlador_descuento.asignardescuento(id_producto, id_descuento)
+        flash("Asignación de descuento agregada correctamente.", "success")
+        return redirect("/descuentoadmin")
+    except:
+        flash("Error al agregar la Asignación de descuento.", "error")
+        return redirect("/dashboardadmin")
 
 @app.route("/editarasignardescuento/<int:id>")
 def formulario_editar_asignar_descuento(id):
@@ -676,12 +695,18 @@ def formulario_editar_asignar_descuento(id):
 def editarasignardcto():
     id_producto = request.form["id_producto"]
     id_descuento = request.form["id_descuento"]
-    controlador_descuento.editarasignar(id_producto, id_descuento)
-    return redirect("/descuentoadmin")
+    try:
+        controlador_descuento.editarasignar(id_producto, id_descuento)
+        flash("Asignación de descuento actualizado correctamente.", "success")
+        return redirect("/descuentoadmin")
+    except:
+        flash("Error al actualizar el descuento.", "error")
+        return redirect("/descuentoadmin")
 
 @app.route("/eliminarasignardcto", methods=["POST"])
 def eliminarasignardcto():
     controlador_descuento.eliminarasignar(request.form["id_producto"])
+    flash("Asignación de descuento eliminada correctamente.", "success")
     return redirect("/descuentoadmin")
 
 ###COLECCIONES
