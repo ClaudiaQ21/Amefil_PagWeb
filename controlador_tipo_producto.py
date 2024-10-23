@@ -16,6 +16,15 @@ def obtener_tipo_productos():
     conexion.close()
     return tipos
 
+def obtener_tipo_productos_vigentes(): ### CBOX
+    conexion = obtener_conexion()
+    tipos = None
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT id_tipo, nombre from tipo_producto where estado=0")
+        tipos = cursor.fetchall()            
+    conexion.close()
+    return tipos
+
 def eliminar_tipo(id_tipo):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:

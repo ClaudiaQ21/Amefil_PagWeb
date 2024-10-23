@@ -19,6 +19,16 @@ def obtener_descuentos():
     return descuentos
 
 
+def obtener_descuentos_vigentes(): ### CBOX
+    conexion = obtener_conexion()
+    descuentos = None
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT id_descuento, tasa FROM descuento where vigencia=0")
+        descuentos = cursor.fetchall()
+    conexion.close()
+    return descuentos
+
+
 def eliminar_descuento(id_descuento):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
