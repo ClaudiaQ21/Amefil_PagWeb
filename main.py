@@ -21,6 +21,7 @@ app.secret_key = 'alguna_clave_secreta'
 @app.route("/")
 @app.route("/amefil")
 def amefil():
+
     return render_template("Index.html")
  
 @app.context_processor
@@ -450,8 +451,9 @@ def dashboardadmin():
     contadorc=controlador_usuario.contarclientes()
     contadora=controlador_usuario.contaradmins()
     contadoru=controlador_usuario.contarusuarios()
+    contadorp=controlador_producto.contar_productos()
     totalventas=controlador_pedido.obtener_suma_total()
-    return render_template("DashboardAdmin.html", contador = contador, contadort=contadort, contadorc=contadorc, contadora=contadora, contadoru=contadoru, totalventas=totalventas)
+    return render_template("DashboardAdmin.html", contador = contador, contadort=contadort, contadorc=contadorc, contadora=contadora, contadoru=contadoru, contadorp=contadorp, totalventas=totalventas)
 
 @app.route("/dashboardmantenedor")
 def dashboardmantenedor():
