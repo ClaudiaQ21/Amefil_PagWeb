@@ -47,6 +47,16 @@ def obtener_usuario_por_id(id_usuario):
     conexion.close()
     return producto
 
+def obtener_usuario_por_id_dashboard(id_usuario):
+    conexion = obtener_conexion()
+    usuario = None
+    with conexion.cursor() as cursor:
+        cursor.execute(
+            "SELECT us.id_usuario, us.nombre, us.apellido_p, us.apellido_m, us.correo, us.contrasena, us.telefono, us.genero, us.nacimiento, us.id_tipo from usuario us inner join tipo_usuario tu on us.id_tipo=tu.id_tipo WHERE id_usuario = %s", (id_usuario))
+        usuario = cursor.fetchone()
+    conexion.close()
+    return usuario
+
 def obtener_usuario_por_correo(correo):
     conexion = obtener_conexion()
     usuario = None

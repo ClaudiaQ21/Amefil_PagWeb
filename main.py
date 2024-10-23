@@ -517,7 +517,7 @@ def guardar_usuario():
 
 @app.route("/editar_usuario/<int:id>")
 def formulario_editar_usuario(id):
-    usuario = controlador_usuario.obtener_usuario_por_id(id)
+    usuario = controlador_usuario.obtener_usuario_por_id_dashboard(id)
     tipo_usuarios = controlador_roles.obtener_tipos_usuario()
     direcciones = controlador_direccion.obtener_direcciones()
     return render_template("Editar_Usuario.html", usuario=usuario, tipo_usuarios=tipo_usuarios, direcciones=direcciones)
