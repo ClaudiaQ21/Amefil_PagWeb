@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, flash, jsonify, session
+from pymysql.err import IntegrityError
 import controlador_producto
 import controlador_filtros
 import controlador_usuario
@@ -149,7 +150,7 @@ def editardatos():
 ### >>>> DIRECCIONES
 @app.route("/listadirecciones")
 def listadirecciones():
-    direcciones = controlador_direccion.obtener_direccion_completa()
+    direcciones = controlador_direccion.obtener_direccion_por_idUsuario(1)
     return render_template("Direccion_lista.html", direcciones = direcciones)
 
 
@@ -649,9 +650,16 @@ def formulario_agregar_tipo_producto():
 @app.route("/guardar_tipo_producto", methods=["POST"])
 def guardar_tipo_producto():
     nombre = request.form["nombre"]
-    controlador_tipo_producto.insertar_tipo_producto(nombre)
-    flash("Tipo de producto agregado correctamente.", "success")
-    return redirect("/coleccionadmin")
+    try:
+        controlador_tipo_producto.insertar_tipo_producto(nombre)
+        flash("Tipo de producto agregado correctamente.", "success")
+        return redirect("/coleccionadmin")
+    except IntegrityError as e:
+        if "1062" in str(e):
+            flash("Error: El nombre del tipo de producto ya existe.", "error")
+        else:
+            flash("Error al agregar el tipo de producto.", "error")
+        return redirect("/dashboardadmin")
 
 @app.route("/eliminar_tipo_producto", methods=["POST"])
 def eliminar_tipo_producto():

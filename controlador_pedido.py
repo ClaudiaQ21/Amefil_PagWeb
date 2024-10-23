@@ -68,3 +68,19 @@ def obtener_detalle_pedido(id_usuario, id_pedido):
 
     conexion.close()
     return detalles_con_imagen
+
+def obtener_suma_total():
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("select sum(monto_total) from pedido_cesta")
+        total = cursor.fetchone()
+    conexion.close()
+    return total
+
+def obtener_pedidos_totales():
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("select CONCAT(us.nombre, " ", us.apellido_p, " ", us.apellido_m) as cliente, pc.monto_total, pc.fecha_registro from pedido_cesta pc inner join usuario us on pc.id_usuario=us.id_usuario")
+        totalpedidos = cursor.fetchall()
+    conexion.close()
+    return totalpedidos    

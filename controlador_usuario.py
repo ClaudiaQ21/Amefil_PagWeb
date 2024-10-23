@@ -19,7 +19,7 @@ def insertar_usuario_cliente(nombre, apellido_p, apellido_m, correo, contrasena,
                        (nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento))
     conexion.commit()
     conexion.close()
-
+ 
 def obtener_usuarios():
     conexion = obtener_conexion()
     usuarios = None
