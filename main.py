@@ -568,25 +568,44 @@ def formulario_agregar_tipo_usuario():
 @app.route("/guardar_tipo_usuario", methods=["POST"])
 def guardar_tipo_usuario():
     nombre = request.form["nombre"]
-    controlador_roles.insertar_tipo_usuario(nombre)
-    return redirect("/roladmin")
+    try:
+        controlador_roles.insertar_tipo_usuario(nombre)
+        flash("Tipo de usuario agregado correctamente.", "success")
+        return redirect("/roladmin")
+    except IntegrityError as e:
+        if "1062" in str(e):
+            flash("Error: El nombre del tipo de usuario ya existe.", "error")
+        else:
+            flash("Error al agregar el tipo de usuario.", "error")
+        return redirect("/dashboardadmin")
 
 @app.route("/eliminar_tipo_usuario", methods=["POST"])
 def eliminar_tipo_usuario():
     controlador_roles.eliminar_tipo_usuario(request.form["id_tipo"])
+    flash("Tipo de usuario eliminado correctamente.", "success")
     return redirect("/roladmin")
+
 
 @app.route("/editar_tipo_usuario/<int:id>")
 def formulario_editar_tipo_usuario(id):
     rol = controlador_roles.obtener_tipo_usuario_por_id(id)
     return render_template("Editar_Rol.html", rol=rol)
+    
 
 @app.route("/actualizar_tipo_usuario", methods=["POST"])
 def actualizar_tipo_usuario():
     id_tipo = request.form["id_tipo"]
     nombre = request.form["nombre"]
-    controlador_roles.actualizar_tipo_usuario(nombre, id_tipo)
-    return redirect("/roladmin")
+    try:
+        controlador_roles.actualizar_tipo_usuario(nombre, id_tipo)
+        flash("Tipo de usuario actualizado correctamente.", "success")
+        return redirect("/roladmin")
+    except IntegrityError as e:
+        if "1062" in str(e):
+            flash("Error: El nombre del tipo de usuario ya existe.", "error")
+        else:
+            flash("Error al actualizar el tipo de usuario.", "error")
+        return redirect("/roladmin")
 
 @app.route("/usuariocliente")
 def usuariocliente():
