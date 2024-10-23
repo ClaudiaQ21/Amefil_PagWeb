@@ -43,18 +43,21 @@ Finalizar Compra
                                         <!-- Campos de datos personales -->
                                         <div class="col-lg-6 col-md-6 col-sm-12 form-field">
                                             <label for="nombre" class="form-label">Nombre completo:</label>
-                                            <input type="text" id="nombre" class="form-control" required value="{{usuario[1]}}" >
+                                            <input type="text" id="nombre" class="form-control" required
+                                                value="{{usuario[1]}}">
                                             <small></small>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12 form-field">
                                             <label for="nacimiento">Fecha de nacimiento</label>
                                             <input type="date" class="form-control" id="nacimiento" name="nacimiento"
-                                                placeholder="Ingrese su fecha de nacimiento" value="{{ usuario[6].strftime('%Y-%m-%d') }}">
+                                                placeholder="Ingrese su fecha de nacimiento"
+                                                value="{{ usuario[6].strftime('%Y-%m-%d') }}">
                                             <small></small>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-12 form-field">
                                             <label for="telefono" class="form-label">Teléfono/móvil:</label>
-                                            <input type="tel" id="telefono" class="form-control" required value="{{usuario[4]}}">
+                                            <input type="tel" id="telefono" class="form-control" required
+                                                value="{{usuario[4]}}">
                                             <small></small>
                                         </div>
                                     </div>
@@ -76,33 +79,38 @@ Finalizar Compra
                             <div class="accordion-body">
                                 <div id="dats" class="container text-start">
                                     <div class="row g-3">
-                                        
+
                                         <!-- Checkboxes para seleccionar tipo de dirección -->
                                         <div class="col-lg-12 col-md-12 col-sm-12">
-                                            <input type="radio" id="existing_address" name="selectAddress" value="existente" onchange="toggleAddressType()" checked>
+                                            <input type="radio" id="existing_address" name="selectAddress"
+                                                value="existente" onchange="toggleAddressType()" checked>
                                             <label for="existing_address">Seleccionar direcciones existentes</label>
                                             <br>
-                                            <input type="radio" id="new_address" name="selectAddress" value="nueva" onchange="toggleAddressType()">
+                                            <input type="radio" id="new_address" name="selectAddress" value="nueva"
+                                                onchange="toggleAddressType()">
                                             <label for="new_address">Nueva dirección</label>
-                                        </div> 
-                    
+                                        </div>
+
                                         <!-- Sección de direcciones existentes -->
                                         <div class="col-lg-12 col-md-12 col-sm-12" id="existing_addresses_section">
-                                            <label for="direccion_existente" class="form-label">Direcciones existentes:</label>
-                                            <select id="direccion_existente" name="id_direccion" class="form-control" required>
+                                            <label for="direccion_existente" class="form-label">Direcciones
+                                                existentes:</label>
+                                            <select id="direccion_existente" name="id_direccion" class="form-control"
+                                                required>
                                                 <option selected>--Seleccionar una dirección--</option>
                                                 {% for direccion in direcciones %}
                                                 <option value="{{direccion[0]}}">{{direccion[1]}}</option>
                                                 {% endfor %}
                                             </select>
                                         </div>
-                    
+
                                         <!-- Sección de nueva dirección -->
                                         <div id="new_address_section" style="display:none;">
                                             <div class="row g-3">
                                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                                     <label for="departamento" class="form-label">Departamento:</label>
-                                                    <select id="id_departamento" name="id_departamento" class="form-control" onchange="loadProvincias()">
+                                                    <select id="id_departamento" name="id_departamento"
+                                                        class="form-control" onchange="loadProvincias()">
                                                         <option selected>--Seleccionar su departamento--</option>
                                                         {% for departamento in departamentos %}
                                                         <option value="{{departamento[0]}}">{{departamento[1]}}</option>
@@ -111,7 +119,8 @@ Finalizar Compra
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                                     <label for="provincia" class="form-label">Provincia:</label>
-                                                    <select id="id_provincia" name="id_provincia" class="form-control" onchange="loadDistritos()">
+                                                    <select id="id_provincia" name="id_provincia" class="form-control"
+                                                        onchange="loadDistritos()">
                                                         <option value="">Seleccionar su provincia</option>
                                                     </select>
                                                 </div>
@@ -123,18 +132,21 @@ Finalizar Compra
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 form-field">
                                                     <label for="direccion" class="form-label">Dirección:</label>
-                                                    <input type="text" id="direccion" name="direccion" class="form-control">
+                                                    <input type="text" id="direccion" name="direccion"
+                                                        class="form-control">
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-12 form-field">
                                                     <label for="referencia" class="form-label">Referencia:</label>
-                                                    <input type="text" id="referencia" name="referencia" class="form-control">
+                                                    <input type="text" id="referencia" name="referencia"
+                                                        class="form-control">
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <!-- Checkbox para guardar dirección -->
                                         <div class="col-lg-12 col-md-12 col-sm-12">
-                                            <input type="checkbox" id="guardardireccion" name="guardardireccion" value="guardar">
+                                            <input type="checkbox" id="guardardireccion" name="guardardireccion"
+                                                value="guardar">
                                             <label for="guardar_direccion">Guardar dirección</label>
                                         </div>
                                     </div>
@@ -202,11 +214,11 @@ Finalizar Compra
 
                         <div class="col-lg-10 col-md-10 col-sm-12">
                             <label class="form-label">Total a pagar:</label>
-                            <input id="totalPagar" class="form-control" type="text" readonly value="{{carrito[0]}}" >
+                            <input id="totalPagar" class="form-control" type="text" readonly value="{{carrito[0]}}">
                         </div>
 
                         <div class="col-lg-10 col-md-10 col-sm-12">
-                            <button type="submit" id="pagarButton" class="botones">PAGAR</button>
+                            <button type="submit" id="pagarButton" class="botones" onclick="confirmarPago()">PAGAR</button>
                         </div>
                     </div>
                 </div>
@@ -225,12 +237,12 @@ Finalizar Compra
         const existingAddressSelect = document.getElementById('direccion_existente');
         const newAddressSection = document.getElementById('new_address_section');
         const existingAddressSection = document.getElementById('existing_addresses_section');
-        
+
         const departamentoSelect = document.getElementById('id_departamento');
         const provinciaSelect = document.getElementById('id_provincia');
         const distritoSelect = document.getElementById('id_distrito');
         const direccionInput = document.getElementById('direccion');
-        
+
         if (document.getElementById('existing_address').checked) {
             // Hacer que "direcciones existentes" sea requerido y ocultar nueva dirección
             existingAddressSelect.setAttribute('required', 'true');
@@ -253,5 +265,13 @@ Finalizar Compra
             existingAddressSelect.removeAttribute('required');
         }
     }
+    function confirmarPago() {
+    if (validateForm()) { // Llama a validateForm antes de mostrar el confirm
+        const confirmar = confirm("¿Está seguro que desea realizar la compra?");
+        if (confirmar) {
+            document.getElementById("miFormulario").submit();
+        }
+    }
+}
 </script>
 {% endblock %}
