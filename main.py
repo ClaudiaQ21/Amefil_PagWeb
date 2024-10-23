@@ -129,6 +129,13 @@ def actualizar_producto():
 def colecciones():
     return render_template("Colecciones.html")
 
+@app.route("/coleccionesheader/<int:id>")
+def coleccionesheader(id):
+    producto_tipo_imagen = controlador_producto.obtener_producto_segun_tipo(id)
+    color = controlador_filtros.obtener_colores()
+    temporada = controlador_filtros.obtener_temporadas()
+    return render_template("Colecciones.html", producto_tipo_imagen = producto_tipo_imagen, color = color, temporada = temporada)
+
 @app.route("/novedades")
 def navegacionproductosnovedades():
     productos_nuevos = controlador_producto.obtener_novedades()
