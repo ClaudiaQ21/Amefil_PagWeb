@@ -27,6 +27,7 @@ Amefil
                         <thead>
                             <tr>
                                 <th>Nombre</th>
+                                <th>Estado</th>
                                 <th>Editar</th>
                                 <th>Eliminar</th>
                             </tr>
@@ -35,6 +36,7 @@ Amefil
                             {% for tipo in tipos %}
                             <tr>
                                 <td>{{tipo[1]}}</td>
+                                <td>{{'Vigente' if tipo[2] == 0 else 'No Vigente'}}</td>
                                 <td>
                                     <a href="{{url_for('formulario_editar_tipo_producto', id=tipo[0])}}" class="btn"><i class="fa-solid fa-square-pen iconupdate"></i></a>
                                 </td>
@@ -64,6 +66,16 @@ Amefil
         <button id="cancelBtn" class="btn back">Cancelar</button>
     </div>
 </div>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div id="flash-message" class="response {{ messages[0][0] }}">
+      <span>{{ messages[0][1] }}</span>
+      <button class="close-response" onclick="closeResponse()">×</button>
+    </div>
+  {% endif %}
+{% endwith %}
+
 {% endblock %}
 
 {% block scripts_adicionales %}

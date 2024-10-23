@@ -46,3 +46,23 @@ document.addEventListener('DOMContentLoaded', function() {
         formToSubmit = null;
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const flashMessage = document.getElementById('flash-message');
+    if (flashMessage) {
+        flashMessage.style.display = 'block';
+        setTimeout(() => {
+            flashMessage.style.display = 'none';
+        }, 3000); // Oculta el popup después de 3 segundos
+    }
+});
+
+function closeResponse() {
+    var responseElement = document.getElementById("flash-message");
+    responseElement.style.display = "none";
+}
+
+function showResponse() {
+    var responseElement = document.getElementById("flash-message");
+    responseElement.style.display = "block";
+}

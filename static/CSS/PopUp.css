@@ -48,3 +48,35 @@
     color: rgb(158, 134, 94);
     border: 1px solid rgb(158, 134, 94);
 }
+
+.response {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgb(158, 134, 94);
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgb(119, 101, 71, 0.2);
+    z-index: 1000;
+    display: none;
+}
+
+.response.success {
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(40, 34, 24);
+}
+
+.response.error {
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(158, 134, 94);
+}
+
+.close-response {
+    background: none;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    float: right;
+    cursor: pointer;
+}
