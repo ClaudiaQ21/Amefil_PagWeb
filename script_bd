@@ -183,7 +183,7 @@ END
 
 
 
-CREATE DEFINER=root@localhost PROCEDURE finalizarCompra (
+CREATE PROCEDURE finalizarCompra (
     IN p_idPedido INT, 
     IN p_idDireccion INT, 
     IN p_idUsuario INT
