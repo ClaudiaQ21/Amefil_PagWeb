@@ -302,34 +302,32 @@ def carrito_finalizar():
 @app.route("/procesar_pago", methods=['POST'])
 def procesar_pago():
     id_pedido = request.form.get("id_pedido")
-    id_usuario = 1  # Cambia esto por el ID del usuario en sesión real
-    select = request.form.get("selectAddress")  # Dirección existente o nueva
+    id_usuario = 1 
+    select = request.form.get("selectAddress")  
 
     try:
         if select == "existente":
             id_direccion = request.form.get("id_direccion")
-            if not id_direccion:  # Validar si se seleccionó una dirección existente
+            if not id_direccion:  
                 flash("Debe seleccionar una dirección válida", "error")
                 return redirect("/finalizarCompra")
-        else:  # Se elige una nueva dirección
+        else:  
             direccion = request.form.get("direccion")
             referencia = request.form.get("referencia")
             id_distrito = request.form.get("id_distrito")
             guardardireccion = request.form.get("guardardireccion")
             
             if guardardireccion == "guardar":
-                estado = "V"  # Vigente
+                estado = 0  
             else:
-                estado = "N"  # No vigente
+                estado = 1  
 
-            # Llamamos a la función para registrar la nueva dirección y obtener su ID
             id_direccion = controlador_direccion.registrar_direccion_retornable(direccion, referencia, id_distrito, id_usuario, estado)
 
             if not id_direccion:
                 flash("No se pudo registrar la dirección", "error")
                 return redirect("/listadirecciones")
 
-        # Si todo va bien, finalizamos el pedido
         controlador_finalizar_compra.finalizar_pedido(id_pedido, id_direccion, id_usuario)
         flash("Compra realizada con éxito!", "success")
         return redirect("/amefil")

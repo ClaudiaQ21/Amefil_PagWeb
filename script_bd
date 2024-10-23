@@ -269,7 +269,7 @@ CREATE PROCEDURE registrarDireccion(
     IN p_referencia VARCHAR(250), 
     IN p_idDistrito INT,
     IN p_idUsuario INT,
-    IN p_estado char(1), 
+    IN p_estado tinyint(1), 
     OUT p_idDireccion INT  
 )
 BEGIN
