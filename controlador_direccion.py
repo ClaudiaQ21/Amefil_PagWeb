@@ -99,17 +99,13 @@ def registrar_direccion_retornable(nombre, referencia, id_distrito, id_usuario, 
     conexion = obtener_conexion()
     try:
         with conexion.cursor() as cursor:
-            # Creamos una lista con los parámetros de entrada y salida
-            parametros = [nombre, referencia, id_distrito, id_usuario, estado, 0]  # El último es el parámetro de salida
+            parametros = [nombre, referencia, id_distrito, id_usuario, estado, 0]  
 
-            # Llamamos al procedimiento almacenado
             cursor.callproc('registrarDireccion', parametros)
             
-            # Recuperar el valor del parámetro de salida (último parámetro)
-            cursor.execute("SELECT @_registrarDireccion_5")  # Aquí "_5" porque es el sexto parámetro (el parámetro de salida)
+            cursor.execute("SELECT @_registrarDireccion_5")  
             id_direccion = cursor.fetchone()[0]
 
-            # Confirmar los cambios en la base de datos
             conexion.commit()
 
             print(f"ID Dirección retornado: {id_direccion}")
