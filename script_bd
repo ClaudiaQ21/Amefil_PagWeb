@@ -288,7 +288,7 @@ END$$
 
 
 
-CREATE PROCEDURE registrarDireccion(
+CREATE PROCEDURE registrarDireccionSinRetornar(
     IN p_nombre VARCHAR(100), 
     IN p_referencia VARCHAR(250), 
     IN p_idDistrito INT,
