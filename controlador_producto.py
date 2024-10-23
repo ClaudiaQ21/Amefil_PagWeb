@@ -93,9 +93,28 @@ def obtener_producto_por_id(id_producto):
         cursor.execute(
             "SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, P.imagen, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre AS temporada, D.tasa AS tasa_descuento FROM producto P INNER JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto INNER JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN descuento D on D.id_descuento = DD.id_descuento INNER JOIN color C on C.id_color = P.id_color WHERE P.id_producto = %s", (id_producto))
         producto = cursor.fetchone()
-            
+    producto_imagen = []
+    imagen_base64 = base64.b64encode(producto[6]).decode('utf-8')
+    tasa_descuento = producto[10] if producto[10] is not None else 0
+
+    vigencia = "Vigente" if producto[3] == 0 else "No vigente" if producto[3] == 1 else "No especificado"
+
+    producto_imagen.append((
+        producto[0],  # id_producto
+        producto[1],  # nombre
+        producto[2],  # precio
+        vigencia,     # vigencia
+        producto[4],  # stock
+        producto[5],  # descripcion
+        imagen_base64, # imagen convertida a Base64
+        producto[7],  # coleccion
+        producto[8],  # color
+        producto[9],  # temporada
+        tasa_descuento  # descuento
+    ))
+
     conexion.close()
-    return producto
+    return producto_imagen
 
 
 def actualizar_producto(nombre, precio, id_tipo, vigencia, stock, descripcion, id_color, id_temporada, imagen, id_producto):
