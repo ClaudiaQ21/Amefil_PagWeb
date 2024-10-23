@@ -229,3 +229,13 @@ def obtener_limit():
 
     conexion.close()
     return producto_limit
+
+def obtener_producto_por_id_dashboard(id_producto):
+    conexion = obtener_conexion()
+    producto = None
+    with conexion.cursor() as cursor:
+        cursor.execute(
+            "SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre AS temporada, D.tasa AS tasa_descuento FROM producto P INNER JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto INNER JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN descuento D on D.id_descuento = DD.id_descuento INNER JOIN color C on C.id_color = P.id_color WHERE P.id_producto = %s", (id_producto))
+        producto = cursor.fetchone()
+    conexion.close()
+    return producto
