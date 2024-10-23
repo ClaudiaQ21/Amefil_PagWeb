@@ -127,3 +127,21 @@ def contarclientes():
         contadorc = cursor.fetchone()
     conexion.close()
     return contadorc
+
+def contaradmins():
+    conexion = obtener_conexion()
+    contadora = None
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT COUNT(id_usuario) FROM usuario where id_tipo=3")
+        contadora = cursor.fetchone()
+    conexion.close()
+    return contadora
+
+def contarusuarios():
+    conexion = obtener_conexion()
+    contadoru = None
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT COUNT(id_usuario) FROM usuario")
+        contadoru = cursor.fetchone()
+    conexion.close()
+    return contadoru

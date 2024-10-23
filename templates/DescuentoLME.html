@@ -37,7 +37,7 @@ Amefil
                         <tbody>
                             {% for descuento in descuentos %}
                             <tr>
-                                <td>{{ descuento[1] }}</td>
+                                <td>{{ descuento[1] }}%</td>
                                 <td>{{ descuento[2] }}</td>
                                 <td>{{ descuento[3] }}</td>
                                 <td>{{ 'Vigente' if descuento[4] == 0 else 'No vigente' }}</td>
@@ -60,12 +60,75 @@ Amefil
             </div>
         </div>
     </div>
+    <div class="row titulo">
+        <div class="col py-4">
+            <h1>Asignaciones</h1>
+        </div>
+    </div>
+    <div class="col-12 my-2 listproduct">
+        <div class="row">
+            <div class="col-12 p-2">
+                <div class="tableproduct">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Descripción</th>
+                                <th>Descuento</th>
+                                <th>Precio con Dcto.</th>
+                                <th>Asignar</th>
+                                <th>Editar</th>
+                                <th>Denegar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for producto in productos_con_imagen %}
+                            <tr>
+                                <td><img src="data:image/jpeg;base64,{{ producto[6]}}" class="img-fluid" alt="Atardecer dorado"></td>
+                                <td>{{ producto[1] }}</td>
+                                <td>{{ producto[2] }}</td>
+                                <td>{{ producto[3] }}</td>
+                                <td>{{ producto[10] }}%</td>
+                                <td>{{ (producto[2] - (producto[2] * producto[10] / 100)) | round(2) }}</td>
+                                <td>
+                                    <a href="{{url_for('formulario_asignar_descuento', id=producto[0])}}" class="btn"><i class="fa-solid fa-square-plus iconupdate"></i></a>
+                                </td>
+                                <td>
+                                    {% if producto[10] != 0 %}
+                                    <a href="{{ url_for('formulario_editar_asignar_descuento', id=producto[0]) }}" class="btn">
+                                        <i class="fa-solid fa-square-pen iconupdate"></i>
+                                    </a>
+                                    {% else %}
+                                    <a class="btn" style="pointer-events: none;">
+                                        <i class="fa-solid fa-square-pen iconupdate"></i>
+                                    </a>
+                                    {% endif %}
+                                </td>
+                                
+                                <td>
+                                    <form action="{{url_for('eliminarasignardcto')}}" method="post" id="eliminarUsuarioForm_{{ producto[0] }}">
+                                        <input type="hidden" name="id_producto" value="{{ producto[0] }}">
+                                        <button type="button" class="btn delete-btn" data-form-id="eliminarUsuarioForm_{{ producto[0] }}" {% if producto[10] == 0 %}disabled{% endif %}>
+                                            <i class="fa-solid fa-trash icondelete"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="confirmPopup" class="popup">
     <div class="popup-content">
         <h3>Confirmar eliminación</h3>
-        <p>¿Estás seguro de que quieres eliminar este tipo de producto?</p>
+        <p>¿Estás seguro de que quieres eliminar este descuento?</p>
         <button id="confirmBtn" class="btn save">Confirmar</button>
         <button id="cancelBtn" class="btn back">Cancelar</button>
     </div>

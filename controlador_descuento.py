@@ -63,3 +63,24 @@ def contardescuento():
         contador = cursor.fetchone()
     conexion.close()
     return contador
+
+def asignardescuento(id_producto,id_descuento):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("INSERT INTO detalle_descuento (id_producto, id_descuento) VALUES (%s, %s)", (id_producto, id_descuento))
+    conexion.commit()
+    conexion.close()
+
+def editarasignar(id_producto, id_descuento):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("UPDATE detalle_descuento SET id_descuento=%s WHERE id_producto=%s", (id_descuento, id_producto))
+    conexion.commit()
+    conexion.close()
+
+def eliminarasignar(id_producto):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("DELETE FROM detalle_descuento WHERE id_producto=%s", (id_producto))
+    conexion.commit()
+    conexion.close()

@@ -264,3 +264,7 @@
     color: rgb(119, 101, 71);
     font-weight: 500;
 }
+
+.delete-btn:disabled{
+    border: 0;
+}
