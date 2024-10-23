@@ -124,19 +124,17 @@ Amefil
                         data-price="{{producto[2]}}" data-colecc="{{producto[7]}}" data-temp="{{producto[9]}}"
                         data-color="{{producto[8]}}">
                         <div class="desc">
-                            <h6>{{ (producto[10]|float * 100)|round(2) }}%</h6>
+                            <h6>{{producto[10]}}%</h6>
                         </div>
                         <a href="{{url_for('productovista', id=producto[0])}}"><img src="data:image/jpeg;base64,{{ producto[6] }}" class="card-img-top" alt="{{producto[1]}}"></a>
-
                         <div class="g-2">
                             <h6>{{producto[1]}}</h6>
                             <div class="precio">
                                 <p class="ant">S/{{producto[2]}}</p>
-                                <p>S/{{(producto[2]-producto[2]*producto[10])|round(2) }}</p>
+                                <p>S/{{(producto[2]-producto[2]*(producto[10]*0.01)|round(2))|round(2) }}</p>
                             </div>
                             <button class="botones agregar-carrito" data-id="{{producto[0]}}"
                                 data-name="{{producto[1]}}" data-price="{{producto[2]}}">Añadir al carrito</button>
-
                         </div>
                     </div>
                 </div>
