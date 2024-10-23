@@ -203,24 +203,33 @@ def obtener_novedades():
     conexion.close()
     return productos_nuevos
 
+
 def obtener_limit():
     conexion = obtener_conexion()
-    producto = None
+    productos = None
     with conexion.cursor() as cursor:
         cursor.execute(
             "SELECT id_producto, imagen, vigencia FROM producto LIMIT 8")
-        producto = cursor.fetchall()
+        productos = cursor.fetchall()  # Lista de productos (tuplas)
+    
     producto_limit = []
-    imagen_base64 = base64.b64encode(producto[1]).decode('utf-8')
+    
+    for producto in productos:
+        # Verificamos si la imagen (LONGBLOB) no es None o vacía
+        if producto[1]:
+            imagen_base64 = base64.b64encode(producto[1]).decode('utf-8')
+        else:
+            imagen_base64 = None  # Si no hay imagen, se asigna None
 
-    vigencia = "Vigente" if producto[2] == 0 else "No vigente" if producto[2] == 1 else "No especificado"
+        # Manejamos la vigencia según el valor de producto[2]
+        vigencia = "Vigente" if producto[2] == 0 else "No vigente" if producto[2] == 1 else "No especificado"
 
-    producto_limit.append((
-        producto[0],  # id_producto
-        imagen_base64,  # imagen
-        vigencia,     # vigencia
-        
-    ))
+        # Añadimos los detalles del producto a la lista
+        producto_limit.append((
+            producto[0],  # id_producto
+            imagen_base64,  # imagen codificada en base64
+            vigencia,      # vigencia
+        ))
 
     conexion.close()
     return producto_limit
