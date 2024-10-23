@@ -50,6 +50,14 @@ def obtener_pedidoCliente(id_usuario):
     finally:
         conexion.close()
 
+def obtener_id_pedido_pago(id_usuario):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT p.id_producto, p.nombre, p.precio, dc.cantidad, pc.monto_total, pc.id_pedido, p.imagen FROM pedido_cesta pc INNER JOIN detalle_cesta dc ON dc.id_pedido = pc.id_pedido INNER JOIN producto p ON p.id_producto = dc.id_producto WHERE pc.id_usuario = %s AND pc.estado = 0 limit 1", (id_usuario))
+        fila_pedido = cursor.fetchone()
+    conexion.close()
+    return fila_pedido
+
 def obtener_Montopedido(id_usuario):
     conexion = obtener_conexion()
     try:
@@ -191,33 +199,18 @@ def actualizar_detalle_pedido(id_producto, nueva_cantidad, id_usuario):
     finally:
         conexion.close()
 
-def finalizar_pedido(id_usuario, id_direccion):
+def finalizar_pedido(id_pedido, id_direccion, id_usuario):
     conexion = obtener_conexion()
     try:
         with conexion.cursor() as cursor:
-            cursor.execute("""
-                SELECT id_pedido 
-                FROM pedido_cesta 
-                WHERE id_usuario = %s AND estado = 0
-            """, (id_usuario,))
-            resultado = cursor.fetchone()
-            
-            if resultado:
-                id_pedido = resultado[0]
-                cursor.execute("""
-                    UPDATE pedido_cesta 
-                    SET estado = False, id_direccion = %s 
-                    WHERE id_pedido = %s
-                """, (id_direccion, id_pedido))
-                conexion.commit()
-                return True
-            else:
-                return False
+            cursor.execute("call finalizarCompra(%s, %s, %s)", (id_pedido, id_direccion, id_usuario))
+            cursor.commit()
+            print(f"Pedido {id_pedido} del usuario {id_usuario} con direccion {id_direccion} registrado exitosamente.")
     except Exception as e:
-        conexion.rollback()
-        raise e
+        print(f"Error al eliminar producto del pedido: {e}")
     finally:
-        conexion.close()
+        conexion.close()        
+
 
 
 

@@ -179,3 +179,86 @@ BEGIN
     END IF;
 
 END
+
+
+
+
+CREATE DEFINER=root@localhost PROCEDURE finalizarCompra (
+    IN p_idPedido INT, 
+    IN p_idDireccion INT, 
+    IN p_idUsuario INT
+)
+BEGIN
+    -- Declaración de variables
+    DECLARE v_fecha DATE;
+    DECLARE v_hora TIME;
+    DECLARE v_montoTotal FLOAT;
+    DECLARE v_idProducto INT;
+    DECLARE v_cantidad INT;
+    DECLARE done INT DEFAULT 0;
+
+    -- Cursor para los detalles de la cesta
+    DECLARE cur_detalles CURSOR FOR 
+        SELECT id_producto, cantidad FROM Detalle_cesta WHERE id_pedido = p_idPedido;
+
+    -- Handler para cerrar el cursor
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+    -- Iniciar la transacción
+    START TRANSACTION;
+
+    -- Verificar si el pedido (cesta) pertenece al usuario dado
+    IF EXISTS (SELECT 1 FROM pedido_cesta WHERE id_pedido = p_idPedido AND id_usuario = p_idUsuario) THEN
+        
+        -- Obtener la fecha y la hora actuales
+        SET v_fecha = CURDATE();
+        SET v_hora = CURTIME();
+
+        -- Calcular el monto total del pedido
+        SELECT monto_total INTO v_montoTotal
+        FROM pedido_cesta
+        WHERE id_pedido = p_idPedido;
+
+        -- Cambiar el estado del pedido (por ejemplo, de '1' a '2', indicando completado)
+        UPDATE pedido_cesta
+        SET estado = 1, fecha_registro = v_fecha, hora_registro=v_hora  -- Supongo que 2 es el estado de completado
+        WHERE id_pedido = p_idPedido;
+
+        -- Iterar sobre los detalles del pedido
+        OPEN cur_detalles;
+
+        read_loop: LOOP
+            FETCH cur_detalles INTO v_idProducto, v_cantidad;
+
+            -- Si no hay más filas, salir del loop
+            IF done = 1 THEN 
+                LEAVE read_loop; 
+            END IF;
+
+            -- Descontar el stock del producto
+            UPDATE Producto
+            SET stock = stock - v_cantidad
+            WHERE id_producto = v_idProducto;
+
+            -- Verificar que el stock no haya quedado negativo
+            IF (SELECT stock FROM Producto WHERE id_producto = v_idProducto) < 0 THEN
+                -- Si el stock es negativo, revertir la transacción
+                ROLLBACK;
+                SIGNAL SQLSTATE '45000'
+                SET MESSAGE_TEXT = 'Stock insuficiente para el producto.';
+                LEAVE read_loop;
+            END IF;
+
+        END LOOP;
+
+        CLOSE cur_detalles;
+
+        COMMIT;
+
+    ELSE
+        ROLLBACK;
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'El pedido no pertenece al usuario especificado.';
+    END IF;
+
+END;

@@ -88,3 +88,10 @@ def obtener_distritos_por_provincia(id_provincia):
     conexion.close()
     return distritos
 
+def obtener_direccion_usuario(id_usuario):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("select dir.id_direccion, dir.nombre from direccion_usuario du inner join direccion dir on du.id_direccion=dir.id_direccion inner join usuario us on us.id_usuario=du.id_usuario where du.estado=0 and us.id_usuario = %s", (id_usuario))
+        direcciones_usuario = cursor.fetchall()
+    conexion.close()
+    return direcciones_usuario

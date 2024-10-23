@@ -22,7 +22,8 @@ Finalizar Compra
 </div>
 
 <main class="container">
-    <form id="miFormulario" action="{{ url_for('procesar_pago') }}" method="post" >
+    <form id="miFormulario" action="{{ url_for('procesar_pago') }}" method="post">
+        <input type="hidden" name="id_pedido" value="{{pedido[5]}}">
         <div id="con" class="row g-10">
             <nav id="central" class="col-lg-8 col-md-12 col-sm-12">
                 <div class="accordion" id="accordionExample">
@@ -75,37 +76,66 @@ Finalizar Compra
                             <div class="accordion-body">
                                 <div id="dats" class="container text-start">
                                     <div class="row g-3">
-                                        <!-- Campos de dirección -->
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="departamento" class="form-label">Departamento:</label>
-                                            <select id="id_departamento" class="form-control" onchange="loadProvincias()" required>
-                                                <option selected>--Seleccionar su departamento--</option>
-                                                {% for departamento in departamentos %}
-                                                <option value="{{departamento[0]}}">{{departamento[1]}}</option>
+                                        
+                                        <!-- Checkboxes para seleccionar tipo de dirección -->
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                            <input type="radio" id="existing_address" name="address_type" onchange="toggleAddressType()" checked>
+                                            <label for="existing_address">Seleccionar direcciones existentes</label>
+                                            <br>
+                                            <input type="radio" id="new_address" name="address_type" onchange="toggleAddressType()">
+                                            <label for="new_address">Nueva dirección</label>
+                                        </div>
+                    
+                                        <div class="col-lg-12 col-md-12 col-sm-12" id="existing_addresses_section">
+                                            <label for="direccion_existente" class="form-label">Direcciones existentes:</label>
+                                            <select id="direccion_existente" class="form-control">
+                                                <option selected>--Seleccionar una dirección--</option>
+                                                {% for direccion in direcciones %}
+                                                <option value="{{direccion[0]}}">{{direccion[1]}}</option>
                                                 {% endfor %}
                                             </select>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="provincia" class="form-label">Provincia:</label>
-                                            <select id="id_provincia" class="form-control" onchange="loadDistritos()" required>
-                                                <option value="">Seleccionar su provincia</option>
-                                            </select>
+                    
+                                        <div id="new_address_section" style="display:none;">
+                                            <div class="row g-3">
+                                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                                    <label for="departamento" class="form-label">Departamento:</label>
+                                                    <select id="id_departamento" class="form-control" onchange="loadProvincias()" required>
+                                                        <option selected>--Seleccionar su departamento--</option>
+                                                        {% for departamento in departamentos %}
+                                                        <option value="{{departamento[0]}}">{{departamento[1]}}</option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                                    <label for="provincia" class="form-label">Provincia:</label>
+                                                    <select id="id_provincia" class="form-control" onchange="loadDistritos()" required>
+                                                        <option value="">Seleccionar su provincia</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                                    <label for="distrito" class="form-label">Distrito:</label>
+                                                    <select id="id_distrito" class="form-control" required>
+                                                        <option value="">Seleccionar su distrito</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-12 form-field">
+                                                    <label for="direccion" class="form-label">Dirección:</label>
+                                                    <input type="text" id="direccion" class="form-control" required>
+                                                    <small></small>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-12 form-field">
+                                                    <label for="referencia" class="form-label">Referencia:</label>
+                                                    <input type="text" id="referencia" class="form-control">
+                                                    <small></small>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <label for="distrito" class="form-label">Distrito:</label>
-                                            <select id="id_distrito" class="form-control" required>
-                                                <option value="">Seleccionar su distrito</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 form-field">
-                                            <label for="direccion" class="form-label">Dirección:</label>
-                                            <input type="text" id="direccion" class="form-control" required>
-                                            <small></small>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 form-field">
-                                            <label for="referencia" class="form-label">Referencia:</label>
-                                            <input type="text" id="referencia" class="form-control">
-                                            <small></small>
+                    
+                                        <!-- Checkbox para guardar dirección -->
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                            <input type="checkbox" id="guardar_direccion" name="guardar_direccion">
+                                            <label for="guardar_direccion">Guardar dirección</label>
                                         </div>
                                     </div>
                                 </div>
@@ -176,7 +206,7 @@ Finalizar Compra
                         </div>
 
                         <div class="col-lg-10 col-md-10 col-sm-12">
-                            <button type="button" id="pagarButton" class="botones">PAGAR</button>
+                            <button type="submit" id="pagarButton" class="botones">PAGAR</button>
                         </div>
                     </div>
                 </div>
@@ -190,4 +220,25 @@ Finalizar Compra
 {% endblock %}
 
 {% block scripts_adicionales %}
+<script>
+    function toggleAddressType() {
+        const existingAddressSection = document.getElementById('existing_addresses_section');
+        const newAddressSection = document.getElementById('new_address_section');
+
+        if (document.getElementById('existing_address').checked) {
+            // Mostrar sección de direcciones existentes
+            existingAddressSection.style.display = 'block';
+            newAddressSection.style.display = 'none';
+        } else if (document.getElementById('new_address').checked) {
+            // Mostrar nueva dirección y vaciar los campos
+            existingAddressSection.style.display = 'none';
+            newAddressSection.style.display = 'block';
+            document.getElementById('id_departamento').selectedIndex = 0;
+            document.getElementById('id_provincia').selectedIndex = 0;
+            document.getElementById('id_distrito').selectedIndex = 0;
+            document.getElementById('direccion').value = '';
+            document.getElementById('referencia').value = '';
+        }
+    }
+</script>
 {% endblock %}

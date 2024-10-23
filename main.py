@@ -18,7 +18,7 @@ app.secret_key = 'alguna_clave_secreta'
 @app.route("/amefil")
 def amefil():
     return render_template("Index.html")
-
+ 
 @app.context_processor
 def inject_tipos():
     tipos = controlador_tipo_producto.obtener_tipo_productos()
@@ -280,26 +280,31 @@ def eliminarProductoCarrito():
 
 @app.route("/finalizarCompra")
 def carrito_finalizar():
+    direcciones = controlador_direccion.obtener_direccion_usuario(1)
     departamentos = controlador_direccion.obtener_departamentos()
     usuario = controlador_usuario.obtener_usuario_por_id(1)
     carrito = controlador_finalizar_compra.obtener_monto_total(1)
-    return render_template("Finalizar_compra.html", departamentos=departamentos, usuario = usuario, carrito = carrito)
+    pedido = controlador_finalizar_compra.obtener_id_pedido_pago(1)
+    return render_template("Finalizar_compra.html", departamentos = departamentos, direcciones = direcciones, usuario = usuario, carrito = carrito, pedido = pedido)
 
 @app.route('/procesar_pago', methods=['POST'])
 def procesar_pago():
-    datos = request.json
-    try:
-        id_direccion = controlador_direccion.guardar_direccion(
-            datos['direccion'],
-            datos['referencia'],
-            datos['distrito']
-        )
-        if controlador_finalizar_compra.finalizar_pedido(1, id_direccion):
-            return jsonify({"success": True, "message": "Compra realizada con éxito"})
-        else:
-            return jsonify({"success": False, "error": "No se encontró un pedido activo"}), 400
-    except Exception as e:
-        return jsonify({"success": False, "error": str(e)}),400
+    # Obtener los datos enviados por el formulario (POST)
+    id_pedido = request.form.get("id_pedido")
+    id_usuario = 1  # Aquí debes usar el ID real del usuario en sesión
+
+    if not id_pedido or not id_usuario:
+        flash("Error: Datos inválidos o sesión expirada.", "error")
+        return redirect("/finalizarCompra")  # Redirigir si hay error
+
+    # Intentar finalizar el pedido
+    controlador_finalizar_compra.finalizar_pedido(id_pedido, 1, id_usuario)
+
+    flash("Compra realizada con éxito!", "success")
+    return redirect("/amefil")  # Redirigir a la página principal
+
+
+
 
 
 
