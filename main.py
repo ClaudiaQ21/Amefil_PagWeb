@@ -116,7 +116,7 @@ def actualizar_producto():
     id_color = request.form["id_color"]
     id_temporada = request.form["id_temporada"]
 
-    producto = controlador_producto.obtener_producto_por_id(id_producto)
+    producto = controlador_producto.obtener_producto_por_id_dashboard(id_producto)
 
     if request.files['imagen'].filename!='':
         imagen = request.files['imagen'].read()
