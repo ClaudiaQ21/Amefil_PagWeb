@@ -285,3 +285,27 @@ BEGIN
     VALUES (p_idDireccion, p_idUsuario, p_estado);
 
 END$$
+
+
+
+CREATE PROCEDURE registrarDireccion(
+    IN p_nombre VARCHAR(100), 
+    IN p_referencia VARCHAR(250), 
+    IN p_idDistrito INT,
+    IN p_idUsuario INT,
+)
+BEGIN
+    DECLARE v_idDireccion INT;
+
+    -- Inserta la nueva dirección
+    INSERT INTO direccion (nombre, referencia, id_distrito) 
+    VALUES (p_nombre, p_referencia, p_idDistrito);
+
+    -- Almacena el ID de la dirección recién insertada
+    SET v_idDireccion = LAST_INSERT_ID();
+
+    -- Inserta en direccion_usuario usando el ID de la dirección
+    INSERT INTO direccion_usuario (id_direccion, id_usuario) 
+    VALUES (v_idDireccion, p_idUsuario);
+
+END

@@ -13,7 +13,7 @@ import controlador_finalizar_compra
 import controlador_favoritos
 import controlador_pedido
 
-usuarioID = 5
+usuarioID = 1
 
 app = Flask(__name__)
 app.secret_key = 'alguna_clave_secreta'
@@ -160,7 +160,7 @@ def form_editar_datos(id):
     datos = controlador_usuario.obtener_usuario_por_id_dashboard(id)
     return render_template("Perfil_editar.html", datos = datos)
 
-@app.route("/editar_direccion", methods=["POST"])
+@app.route("/editar_perfil", methods=["POST"])
 def editar_datos():
     nombre = request.form["nombre"]
     apellidoP = request.form["apellidoP"]
@@ -192,7 +192,7 @@ def guardar_direccion():
     distrito = request.form["id_distrito"]
     nombre = request.form["nombre"]
     referencia = request.form["referencia"]
-    controlador_direccion.guardar_direccion(nombre, referencia, distrito)
+    controlador_direccion.pa_guardar_direccion(nombre, referencia, distrito, usuarioID)
     return redirect("/listadirecciones")
 
 @app.route('/get_provincias/<int:departamento_id>')
@@ -262,8 +262,11 @@ def agregar_eliminar_favorito():
     
     if verificacion == 1:
         controlador_favoritos.insertar_favorito(id_producto)
+        flash("Producto añadido a favoritos.", "success")
     elif verificacion == 0:
         controlador_favoritos.eliminar_favorito(id_producto)
+        flash("Producto eliminado de favoritos.", "info")
+    
     return redirect("/productovista")
 
 

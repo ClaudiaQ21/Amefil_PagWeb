@@ -1,7 +1,6 @@
 {% extends "maestraPerfil.html" %}
 
-{% block estilos_adicionales %}
-<link rel="stylesheet" href="{{ url_for('static', filename='CSS/PopUp.css') }}">
+{% block estilosPerfil %}
 {% endblock %}
 
 {% block contenidoPerfil %}
@@ -64,18 +63,8 @@
             Editar
         </a>
     </div>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-      <div id="flash-message" class="response {{ messages[0][0] }}">
-        <span>{{ messages[0][1] }}</span>
-        <button class="close-response" onclick="closeResponse()">×</button>
-      </div>
-    {% endif %}
-  {% endwith %}
-  
-  {% endblock %}
-  
-  {% block scripts_adicionales %}
-  <script src="{{ url_for('static', filename='js/PopUp.js') }}"></script>
-  {% endblock %}
+{% endblock %}
+
+{% block scripts_adicionales %}
+{% endblock %}
 

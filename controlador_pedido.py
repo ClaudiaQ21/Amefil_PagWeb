@@ -83,4 +83,12 @@ def obtener_pedidos_totales():
         cursor.execute("select CONCAT(us.nombre, " ", us.apellido_p, " ", us.apellido_m) as cliente, pc.monto_total, pc.fecha_registro from pedido_cesta pc inner join usuario us on pc.id_usuario=us.id_usuario")
         totalpedidos = cursor.fetchall()
     conexion.close()
-    return totalpedidos    
+    return totalpedidos   
+
+def ranking_pedido_distritos():
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("SELECT dis.nombre AS distrito, COUNT(*) AS cantidad_pedidos, SUM(ped.monto_total) AS monto_total FROM pedido_cesta ped INNER JOIN direccion_usuario dus ON ped.id_usuario = dus.id_usuario AND dus.id_direccion = ped.id_direccion INNER JOIN direccion dir ON dir.id_direccion = dus.id_direccion INNER JOIN distrito dis ON dis.id_distrito = dir.id_distrito GROUP BY dis.nombre ORDER BY monto_total DESC;")
+        ranking = cursor.fetchall()
+    conexion.close()
+    return ranking 
