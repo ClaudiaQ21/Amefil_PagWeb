@@ -620,7 +620,7 @@ def actualizar_descuento():
 
 @app.route("/asignardescuento/<int:id>")
 def formulario_asignar_descuento(id):
-    producto = controlador_producto.obtener_producto_por_id(id)
+    producto = controlador_producto.obtener_producto_por_id_dashboard(id)
     descuentos = controlador_descuento.obtener_descuentos_vigentes()
     return render_template("Agregar_AsigDcto.html", producto = producto, descuentos=descuentos)
 
@@ -633,7 +633,7 @@ def guardarasignardcto():
 
 @app.route("/editarasignardescuento/<int:id>")
 def formulario_editar_asignar_descuento(id):
-    producto = controlador_producto.obtener_producto_por_id(id)
+    producto = controlador_producto.obtener_producto_por_id_dashboard(id)
     descuentos = controlador_descuento.obtener_descuentos_vigentes()
     return render_template("Editar_AsigDcto.html", producto = producto, descuentos=descuentos)
 
