@@ -48,10 +48,12 @@ Amefil
         <div class="contenedor_producto d-flex">
 
             <div class="producto">
-                <div class="card p-0" style="width: 18rem;">
-                    <img src="{{ url_for('static', filename='img/collares/descarga (5).webp') }}" class="rounded" alt="...">
-                    <a class="btn botones btn-oculto" href="{{url_for('productovista', id=2)}}">Ver producto</a>
+                {% for producto in productos %}
+                <div class="card p-0" style="width: 18rem; border: 0;">
+                    <img src="data:image/jpeg;base64,{{ producto[1] }}" class="rounded">
+                    <a class="btn botones btn-oculto" href="{{url_for('productovista', id=producto[0])}}">Ver producto</a>
                 </div>
+                {% endfor %}
             </div>
 
         </div>

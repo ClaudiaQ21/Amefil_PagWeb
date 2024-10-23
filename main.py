@@ -13,7 +13,7 @@ import controlador_finalizar_compra
 import controlador_favoritos
 import controlador_pedido
 
-usuarioID = 1
+usuarioID = 5
 
 app = Flask(__name__)
 app.secret_key = 'alguna_clave_secreta'
@@ -21,8 +21,8 @@ app.secret_key = 'alguna_clave_secreta'
 @app.route("/")
 @app.route("/amefil")
 def amefil():
-
-    return render_template("Index.html")
+    productos = controlador_producto.obtener_limit()
+    return render_template("Index.html", productos = productos)
  
 @app.context_processor
 def inject_tipos():
@@ -154,7 +154,7 @@ def editardatos():
 ### >>>> DIRECCIONES
 @app.route("/listadirecciones")
 def listadirecciones():
-    direcciones = controlador_direccion.obtener_direccion_por_idUsuario(1)
+    direcciones = controlador_direccion.obtener_direccion_por_idUsuario(usuarioID)
     return render_template("Direccion_lista.html", direcciones = direcciones)
 
 

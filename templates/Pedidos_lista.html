@@ -7,22 +7,26 @@
 {% block contenidoPerfil %}
 <div class="col-12 my-2 preview">
     <div class="row">
+        {% if pedidos %}
         {% for i in range(pedidos|length) %}
-            <div class="col-6 col-md-3 p-2 order">
-                <div class="item p-2">
-                    <p>
-                        {% if imagenes[i] %}
-                            <img src="data:image/jpeg;base64,{{ imagenes[i] }}" style="width: 100px;">
-                        {% else %}
-                            <img src="{{ url_for('static', filename='img/default.png') }}" style="width: 50px;">
-                        {% endif %}
-                    </p>
-                    <p class="mt-2">PD000 - 000{{pedidos[i][0]}}</p>
-                    <p>{{pedidos[i][3]}}</p>
-                    <a href="{{url_for('detallepedidos', id=pedidos[i][0])}}"><i class="fa-solid fa-angle-right iconview my-2"></i></a>
-                </div>
+        <div class="col-6 col-md-3 p-2 order">
+            <div class="item p-2">
+                <p>
+                    {% if imagenes[i] %}
+                        <img src="data:image/jpeg;base64,{{ imagenes[i] }}" style="width: 100px;">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='img/default.png') }}" style="width: 50px;">
+                    {% endif %}
+                </p>
+                <p class="mt-2">PD000 - 000{{pedidos[i][0]}}</p>
+                <p>{{pedidos[i][3]}}</p>
+                <a href="{{url_for('detallepedidos', id=pedidos[i][0])}}"><i class="fa-solid fa-angle-right iconview my-2"></i></a>
             </div>
+        </div>
         {% endfor %}
+        {% else %}
+        <b><p class="mt-3 d-flex justify-content-center">No hay pedidos</p></b>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
