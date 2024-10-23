@@ -54,7 +54,7 @@ const isCardNumberValid = (tarjeta) => {
     return re.test(tarjeta);
 };
 const isCardHolderValid = (titular) => {
-    const re = /^[a-zA-Z\s]+$/;
+    const re = /^[a-zA-ZñÑ\s]+$/;
     return re.test(titular);
 };
 const isCvvValid = (codigo) => {
