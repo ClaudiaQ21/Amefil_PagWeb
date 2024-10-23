@@ -10,6 +10,7 @@ import controlador_roles
 import controlador_direccion
 import controlador_finalizar_compra
 import controlador_favoritos
+import controlador_pedido
 
 app = Flask(__name__)
 app.secret_key = 'alguna_clave_secreta'
@@ -203,7 +204,8 @@ def editar_direccion():
 ### >>>> PEDIDOS
 @app.route("/listapedidos")
 def listapedidos():
-    return render_template("Pedidos_lista.html")
+    pedidos = controlador_pedido.listar_pedido_por_idUsuario(1)
+    return render_template("Pedidos_lista.html", pedidos=pedidos)
 
 @app.route("/detallepedidos")
 def detallepedidos():
@@ -287,21 +289,39 @@ def carrito_finalizar():
     pedido = controlador_finalizar_compra.obtener_id_pedido_pago(1)
     return render_template("Finalizar_compra.html", departamentos = departamentos, direcciones = direcciones, usuario = usuario, carrito = carrito, pedido = pedido)
 
-@app.route('/procesar_pago', methods=['POST'])
+@app.route("/procesar_pago", methods=['POST'])
 def procesar_pago():
-    # Obtener los datos enviados por el formulario (POST)
     id_pedido = request.form.get("id_pedido")
-    id_usuario = 1  # Aquí debes usar el ID real del usuario en sesión
+    id_usuario = 1  # Cambia esto por el ID del usuario en sesión real
+    select = request.form.get("selectAddress")  # Dirección existente o nueva
 
-    if not id_pedido or not id_usuario:
-        flash("Error: Datos inválidos o sesión expirada.", "error")
-        return redirect("/finalizarCompra")  # Redirigir si hay error
+    if not id_pedido:
+        flash("Pedido no encontrado", "error")
+        return redirect("/productovista")
+    
+    if select == "existente":
+        id_direccion = request.form.get("id_direccion")
+        
+        if not id_direccion:
+            flash("Debe seleccionar una dirección existente.", "error")
+            return redirect("/finalizarCompra")
+        
+        try:
+            controlador_finalizar_compra.finalizar_pedido(id_pedido, id_direccion, id_usuario)
+            flash("Compra realizada con éxito!", "success")
+        except Exception as e:
+            flash(f"Error al finalizar el pedido: {e}", "error")
+            return redirect("/navegacionproductos")
 
-    # Intentar finalizar el pedido
-    controlador_finalizar_compra.finalizar_pedido(id_pedido, 1, id_usuario)
+    
+    else:
+        flash("Debe seleccionar una opción de dirección válida.", "error")
+        return redirect("/finalizarCompra")
 
-    flash("Compra realizada con éxito!", "success")
-    return redirect("/amefil")  # Redirigir a la página principal
+    return redirect("/amefil")
+
+
+
 
 
 
@@ -400,7 +420,9 @@ def dashboardadmin():
     contador=controlador_descuento.contardescuento()
     contadort=controlador_tipo_producto.contartipo()
     contadorc=controlador_usuario.contarclientes()
-    return render_template("DashboardAdmin.html", contador = contador, contadort=contadort, contadorc=contadorc)
+    contadora=controlador_usuario.contaradmins()
+    contadoru=controlador_usuario.contarusuarios()
+    return render_template("DashboardAdmin.html", contador = contador, contadort=contadort, contadorc=contadorc, contadora=contadora, contadoru=contadoru)
 
 @app.route("/dashboardmantenedor")
 def dashboardmantenedor():

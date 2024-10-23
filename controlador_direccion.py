@@ -72,22 +72,6 @@ def darbaja_direccion(id_direccion):
     conexion.commit()
     conexion.close()
 
-def obtener_provincias_por_departamento(id_departamento):
-    conexion = obtener_conexion()
-    with conexion.cursor() as cursor:
-        cursor.execute("SELECT id_provincia, nombre FROM provincia WHERE id_departamento = %s", (id_departamento,))
-        provincias = cursor.fetchall()
-    conexion.close()
-    return provincias
-
-def obtener_distritos_por_provincia(id_provincia):
-    conexion = obtener_conexion()
-    with conexion.cursor() as cursor:
-        cursor.execute("SELECT id_distrito, nombre FROM distrito WHERE id_provincia = %s", (id_provincia,))
-        distritos = cursor.fetchall()
-    conexion.close()
-    return distritos
-
 def obtener_direccion_usuario(id_usuario):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
@@ -95,3 +79,29 @@ def obtener_direccion_usuario(id_usuario):
         direcciones_usuario = cursor.fetchall()
     conexion.close()
     return direcciones_usuario
+
+def registrar_direccion_retornable(nombre, referencia, id_distrito):
+    conexion = obtener_conexion()
+    id_direccion = None  # Inicializamos la variable
+
+    try:
+        with conexion.cursor() as cursor:
+            # Llamamos al procedimiento almacenado
+            args = [nombre, referencia, id_distrito, 0]
+            cursor.callproc('registrarDireccion', args)
+            
+            # Ejecutamos una consulta para obtener el valor del OUT parameter
+            cursor.execute("SELECT @p_idDireccion")
+            id_direccion = cursor.fetchone()[0]  # Obtenemos el valor del OUT
+
+            print(f"ID Dirección retornado: {id_direccion}")  # Depuración
+            
+        conexion.commit()
+    except Exception as e:
+        print(f"Error al registrar dirección: {e}")  # Depuración
+        id_direccion = None
+    finally:
+        conexion.close()
+
+    return int(id_direccion) if id_direccion else None  # Aseguramos que retorne None si no hay ID
+

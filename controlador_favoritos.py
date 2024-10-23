@@ -71,9 +71,9 @@ def verificar_favorito(id_producto):
         cursor.execute("SELECT * FROM favoritos WHERE id_usuario = 1 AND id_producto = %s", (id_producto,))
         favorito = cursor.fetchone() 
         if favorito:
-            return 0
+            validacion = 0
         else:
-            return 1
-    conexion.commit()
+            validacion = 1
     conexion.close()
+    return validacion
     
