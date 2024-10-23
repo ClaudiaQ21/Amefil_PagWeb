@@ -13,7 +13,7 @@ import controlador_finalizar_compra
 import controlador_favoritos
 import controlador_pedido
 
-usuarioID = 5
+usuarioID = 3
 
 app = Flask(__name__)
 app.secret_key = 'alguna_clave_secreta'
@@ -154,9 +154,24 @@ def perfil():
     datos = controlador_usuario.obtener_datosUsuario(usuarioID)
     return render_template("Perfil.html", datos = datos)
 
-@app.route("/editardatos")
-def editardatos():
-    return render_template("Perfil_editar.html")
+@app.route("/form_editar_datos/<int:id>")
+def form_editar_datos(id):
+    datos = controlador_usuario.obtener_usuario_por_id_dashboard(id)
+    return render_template("Perfil_editar.html", datos = datos)
+
+@app.route("/editar_direccion", methods=["POST"])
+def editar_datos():
+    nombre = request.form["nombre"]
+    apellidoP = request.form["apellidoP"]
+    apellidoM = request.form["apellidoM"]
+    telefono = request.form["telefono"]
+    genero = request.form["genero"]
+    nacimiento = request.form["nacimiento"]
+    id_usuario = request.form["idUsuario"]
+
+    controlador_usuario.actualizar_cliente(nombre, apellidoP, apellidoM, telefono, genero, nacimiento, id_usuario)
+
+    return redirect("/perfil")
 
 ### >>>> DIRECCIONES
 @app.route("/listadirecciones")

@@ -102,6 +102,16 @@ def actualizar_usuario(nombre, apellido_p, apellido_m, correo, contrasena, telef
     conexion.commit()
     conexion.close()
 
+def actualizar_cliente(nombre, apellido_p, apellido_m, telefono, genero, nacimiento, id_usuario):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute(
+            "UPDATE usuario SET nombre = %s, apellido_p = %s, apellido_m = %s, telefono = %s, genero = %s, nacimiento = %s, id_tipo = 1 WHERE id_usuario = %s",
+            (nombre, apellido_p, apellido_m, telefono, genero, nacimiento, id_usuario)
+        )
+    conexion.commit()
+    conexion.close()
+
 #TIPO
 def obtener_tipo_usuario():
     conexion = obtener_conexion()
