@@ -208,8 +208,8 @@ def obtener_limit():
     producto = None
     with conexion.cursor() as cursor:
         cursor.execute(
-            "SELECT LIMIT 8 id_producto, imagen, vigencia FROM producto")
-        producto = cursor.fetchone()
+            "SELECT id_producto, imagen, vigencia FROM producto LIMIT 8")
+        producto = cursor.fetchall()
     producto_limit = []
     imagen_base64 = base64.b64encode(producto[1]).decode('utf-8')
 
