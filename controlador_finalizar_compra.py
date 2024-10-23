@@ -10,9 +10,9 @@ def insertar_pedido_cesta(id_usuario, monto_total=0):
     estado = 0 
     with conexion.cursor() as cursor:
         cursor.execute("""
-            INSERT INTO pedido_cesta (estado, monto_total, fecha_registro, hora_registro, id_direccion, id_usuario) 
-            VALUES (%s, %s, %s, %s, NULL, %s)
-        """, (estado, monto_total, fecha_actual, hora_actual, id_usuario))
+            INSERT INTO pedido_cesta (estado, monto_total, id_direccion, id_usuario) 
+            VALUES (%s, %s, NULL, %s)
+        """, (estado, monto_total, id_usuario))
         id_pedido = cursor.lastrowid 
     conexion.commit()
     conexion.close()

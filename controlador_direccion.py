@@ -80,28 +80,32 @@ def obtener_direccion_usuario(id_usuario):
     conexion.close()
     return direcciones_usuario
 
-def registrar_direccion_retornable(nombre, referencia, id_distrito):
+def registrar_direccion_retornable(nombre, referencia, id_distrito, id_usuario, estado):
     conexion = obtener_conexion()
-    id_direccion = None  # Inicializamos la variable
-
     try:
         with conexion.cursor() as cursor:
-            # Llamamos al procedimiento almacenado
-            args = [nombre, referencia, id_distrito, 0]
-            cursor.callproc('registrarDireccion', args)
-            
-            # Ejecutamos una consulta para obtener el valor del OUT parameter
-            cursor.execute("SELECT @p_idDireccion")
-            id_direccion = cursor.fetchone()[0]  # Obtenemos el valor del OUT
+            # Creamos una lista con los parámetros de entrada y salida
+            parametros = [nombre, referencia, id_distrito, id_usuario, estado, 0]  # El último es el parámetro de salida
 
-            print(f"ID Dirección retornado: {id_direccion}")  # Depuración
+            # Llamamos al procedimiento almacenado
+            cursor.callproc('registrarDireccion', parametros)
             
-        conexion.commit()
+            # Recuperar el valor del parámetro de salida (último parámetro)
+            cursor.execute("SELECT @_registrarDireccion_5")  # Aquí "_5" porque es el sexto parámetro (el parámetro de salida)
+            id_direccion = cursor.fetchone()[0]
+
+            # Confirmar los cambios en la base de datos
+            conexion.commit()
+
+            print(f"ID Dirección retornado: {id_direccion}")
+        
     except Exception as e:
-        print(f"Error al registrar dirección: {e}")  # Depuración
+        print(f"Error al registrar dirección: {e}")
         id_direccion = None
     finally:
-        conexion.close()
+        conexion.close()  # Cerrar la conexión
 
-    return int(id_direccion) if id_direccion else None  # Aseguramos que retorne None si no hay ID
+    return id_direccion
 
+ 
+ 
