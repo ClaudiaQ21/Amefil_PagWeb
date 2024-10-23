@@ -311,17 +311,17 @@ def procesar_pago():
     
     if select == "existente":
         id_direccion = request.form["id_direccion"]
+        print("HOLAAA", id_direccion)
         
         if not id_direccion:
             flash("Debe seleccionar una dirección existente.", "error")
             return redirect("/finalizarCompra")
-        
-        try:
-            controlador_finalizar_compra.finalizar_pedido(id_pedido, id_direccion, id_usuario)
-        except Exception as e:
-            flash(f"Error al finalizar el pedido: {e}", "error")
-            return redirect("/navegacionproductos")
-
+        else:
+            try:
+                controlador_finalizar_compra.finalizar_pedido(id_pedido, 1, id_usuario)
+            except Exception as e:
+                flash(f"Error al finalizar el pedido: {e}", "error")
+                return redirect("/navegacionproductos")
     
     else:
         flash("Debe seleccionar una opción de dirección válida.", "error")
@@ -641,12 +641,14 @@ def formulario_agregar_tipo_producto():
 def guardar_tipo_producto():
     nombre = request.form["nombre"]
     controlador_tipo_producto.insertar_tipo_producto(nombre)
+    flash("Tipo de producto agregado correctamente.", "success")
     return redirect("/coleccionadmin")
 
 @app.route("/eliminar_tipo_producto", methods=["POST"])
 def eliminar_tipo_producto():
     id_tipo = request.form["id_tipo"]
     controlador_tipo_producto.eliminar_tipo(id_tipo)
+    flash("Tipo de producto eliminado correctamente.", "success")
     return redirect("/coleccionadmin")
 
 @app.route("/editar_tipo_producto/<int:id>")
@@ -658,13 +660,16 @@ def formulario_editar_tipo_producto(id):
 def actualizar_tipo_producto():
     id_tipo = request.form["id_tipo"]
     nombre = request.form["nombre"]
-    controlador_tipo_producto.actualizar_tipo_producto(nombre, id_tipo)
+    estado = request.form["vigencia"]
+    controlador_tipo_producto.actualizar_tipo_producto(nombre, estado, id_tipo)
+    flash("Tipo de producto actualizado correctamente.", "success")
     return redirect("/coleccionadmin")
 
 #Producto click
-@app.route('/productovista')
-def productovista():
-    return render_template('ProductoVista.html')
+@app.route("/vista_producto/<int:id>")
+def productovista(id):
+    producto_imagen = controlador_producto.obtener_producto_por_id(id)
+    return render_template("ProductoVista.html", producto_imagen=producto_imagen)
 
 
 @app.route('/navegacion-productos')

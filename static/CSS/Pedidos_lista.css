@@ -22,9 +22,10 @@
 
 .cardProduct{
     background-color: white;
-    padding: 3%;
+    padding: 7%;
     border-radius: 10px;
     margin-inline: 15px;
+    margin-bottom: 15px;
 }
 
 .cardProduct .imgProduct{

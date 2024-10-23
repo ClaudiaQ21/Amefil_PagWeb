@@ -5,27 +5,30 @@
 {% endblock %}
 
 {% block contenidoPerfil %}
-<div class="col-lg-9 col-md-9 col-sm-12 col-12 p-0 m-0">
-    <div>
-        <h6>Total: </h6>
-    </div>
-    <div id="lista-cursos" class="row container-fluid m-0 p-0 mt-1">
-        {% for detalle in detalles_con_imagen %}
-                <div class="col-lg-3 col-md-4 col-sm-6 col-6 cardProduct">
+<div class="row">
+    <h6>Total: </h6>
+</div>
+<div class="row d-flex justify-content-center">
+    <!-- Contenedor de productos -->
+    <div class="container">
+        <div class="row">
+            {% for detalle in detalles_con_imagen %}
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4"> <!-- 4 columnas por fila en pantallas grandes -->
+                    <div class="cardProduct">
                         <img src="data:image/jpeg;base64,{{ detalle[5] }}" class="card-img-top imgProduct">
                         <div class="g-2">
                             <h6 class="mt-2">{{detalle[8]}}</h6>
                             <div class="precio">
-                                <p class="mb-0" >S/{{detalle[7]}}</p>
+                                <p class="mb-0">S/{{detalle[7]}}</p>
                             </div>
                             <div class="d-flex justify-content-end"> 
                                 <b><p class="mb-0 mt-2">SubTotal</p></b>
                             </div>
                         </div>
+                    </div>
                 </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}
-
-
