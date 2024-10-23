@@ -72,7 +72,7 @@ def obtener_detalle_pedido(id_usuario, id_pedido):
 def obtener_suma_total():
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("select sum(monto_total) from pedido_cesta")
+        cursor.execute("select sum(monto_total) from pedido_cesta where estado = 1")
         total = cursor.fetchone()
     conexion.close()
     return total

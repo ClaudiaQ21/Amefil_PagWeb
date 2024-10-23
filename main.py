@@ -13,6 +13,8 @@ import controlador_finalizar_compra
 import controlador_favoritos
 import controlador_pedido
 
+usuarioID = 1
+
 app = Flask(__name__)
 app.secret_key = 'alguna_clave_secreta'
 
@@ -141,6 +143,7 @@ def navegacionproductosnovedades():
 ### PERFIL
 @app.route("/perfil")
 def perfil():
+    datos = controlador_usuario.obtener_datosUsuario(usuarioID)
     return render_template("Perfil.html")
 
 @app.route("/editardatos")
@@ -205,11 +208,11 @@ def editar_direccion():
 ### >>>> PEDIDOS
 @app.route("/listapedidos")
 def listapedidos():
-    pedidos = controlador_pedido.listar_pedido_por_idUsuario(1)
+    pedidos = controlador_pedido.listar_pedido_por_idUsuario(usuarioID)
 
     imagenes = []
     for pedido in pedidos:
-        imagen = controlador_pedido.obtener_imagen_pedido(1, pedido[0])
+        imagen = controlador_pedido.obtener_imagen_pedido(usuarioID, pedido[0])
         imagenes.append(imagen)
 
     return render_template("Pedidos_lista.html", pedidos=pedidos, imagenes=imagenes)
@@ -244,7 +247,7 @@ def agregar_eliminar_favorito():
 ### CARRITO
 @app.route('/carrito')
 def carrito():
-    id_usuario = 1
+    id_usuario = usuarioID
     detpedidos = controlador_finalizar_compra.obtener_pedidoCliente(id_usuario)
     monto_total = controlador_finalizar_compra.obtener_Montopedido(id_usuario)
     return render_template('carrito.html', detpedidos=detpedidos, monto_total=monto_total)
@@ -254,7 +257,7 @@ def carritoInsertar():
     try:
         print("Solicitud recibida para agregar al carrito")
         id_producto = request.form["id"]
-        id_usuario = 1
+        id_usuario = usuarioID
         controlador_finalizar_compra.insertar_detalleCesta(id_producto, id_usuario)
         return jsonify({"success": True})
 
@@ -267,7 +270,7 @@ def actualizar_cantidad():
     data = request.json
     id_producto = data['id_producto']
     nueva_cantidad = data['cantidad']
-    id_usuario = 1
+    id_usuario = usuarioID
     try:
         controlador_finalizar_compra.actualizar_detalle_pedido(id_producto, nueva_cantidad, id_usuario)
         return jsonify({"mensaje": "Cantidad actualizada exitosamente"}), 200
@@ -279,7 +282,7 @@ def eliminarProductoCarrito():
     data = request.get_json()
     id_producto = data.get('idProducto')
     id_pedido = data.get('idPedido')
-    id_usuario = 1
+    id_usuario = usuarioID
 
     if not id_producto or not id_pedido:
         return jsonify({'error': 'Datos inválidos'}), 400
@@ -293,17 +296,17 @@ def eliminarProductoCarrito():
 
 @app.route("/finalizarCompra")
 def carrito_finalizar():
-    direcciones = controlador_direccion.obtener_direccion_usuario(1)
+    direcciones = controlador_direccion.obtener_direccion_usuario(usuarioID)
     departamentos = controlador_direccion.obtener_departamentos()
-    usuario = controlador_usuario.obtener_usuario_por_id(1)
-    carrito = controlador_finalizar_compra.obtener_monto_total(1)
-    pedido = controlador_finalizar_compra.obtener_id_pedido_pago(1)
+    usuario = controlador_usuario.obtener_usuario_por_id(usuarioID)
+    carrito = controlador_finalizar_compra.obtener_monto_total(usuarioID)
+    pedido = controlador_finalizar_compra.obtener_id_pedido_pago(usuarioID)
     return render_template("Finalizar_compra.html", departamentos = departamentos, direcciones = direcciones, usuario = usuario, carrito = carrito, pedido = pedido)
 
 @app.route("/procesar_pago", methods=['POST'])
 def procesar_pago():
     id_pedido = request.form.get("id_pedido")
-    id_usuario = 1 
+    id_usuario = usuarioID
     select = request.form.get("selectAddress")  
 
     try:
@@ -447,7 +450,8 @@ def dashboardadmin():
     contadorc=controlador_usuario.contarclientes()
     contadora=controlador_usuario.contaradmins()
     contadoru=controlador_usuario.contarusuarios()
-    return render_template("DashboardAdmin.html", contador = contador, contadort=contadort, contadorc=contadorc, contadora=contadora, contadoru=contadoru)
+    totalventas=controlador_pedido.obtener_suma_total()
+    return render_template("DashboardAdmin.html", contador = contador, contadort=contadort, contadorc=contadorc, contadora=contadora, contadoru=contadoru, totalventas=totalventas)
 
 @app.route("/dashboardmantenedor")
 def dashboardmantenedor():
