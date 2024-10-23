@@ -7,17 +7,22 @@
 {% block contenidoPerfil %}
 <div class="col-12 my-2 preview">
     <div class="row">
-        {% for pedido in pedidos %}
+        {% for i in range(pedidos|length) %}
             <div class="col-6 col-md-3 p-2 order">
                 <div class="item p-2">
-                    <p><i class="fa-solid fa-bag-shopping icon"></i></p>
-                    <p class="mt-2">PD000 - {{}}</p>
-                    <p>16/10/2024</p>
-                    <a href="{{url_for('detallepedidos')}}"><i class="fa-solid fa-angle-right iconview my-2"></i></a>
+                    <p>
+                        {% if imagenes[i] %}
+                            <img src="data:image/jpeg;base64,{{ imagenes[i] }}" style="width: 100px;">
+                        {% else %}
+                            <img src="{{ url_for('static', filename='img/default.png') }}" style="width: 50px;">
+                        {% endif %}
+                    </p>
+                    <p class="mt-2">PD000 - 000{{pedidos[i][0]}}</p>
+                    <p>{{pedidos[i][3]}}</p>
+                    <a href="{{url_for('detallepedidos', id=pedidos[i][0])}}"><i class="fa-solid fa-angle-right iconview my-2"></i></a>
                 </div>
             </div>
         {% endfor %}
     </div>
 </div>
-
 {% endblock %}

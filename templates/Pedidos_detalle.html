@@ -1,26 +1,29 @@
 {% extends "maestraPerfil.html" %}
 
 {% block estilosPerfil %}
+<link rel="stylesheet" href="{{url_for('static', filename = 'CSS/Pedidos_lista.css')}}">
 {% endblock %}
 
 {% block contenidoPerfil %}
 <div class="col-lg-9 col-md-9 col-sm-12 col-12 p-0 m-0">
-    <div id="lista-cursos" class="row container-fluid m-0 p-0 mt-5">
-        {% for producto in productos_con_imagen %}
-                <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                    <div class="cont_pro" data-id="{{producto[0]}}" data-name="{{producto[1]}}" data-price="{{producto[2]}}" data-colecc="{{producto[7]}}" data-temp="{{producto[9]}}" data-color="{{producto[8]}}">
-                        <img src="data:image/jpeg;base64,{{ producto[6] }}" class="card-img-top" alt="Atardecer dorado">
+    <div>
+        <h6>Total: </h6>
+    </div>
+    <div id="lista-cursos" class="row container-fluid m-0 p-0 mt-1">
+        {% for detalle in detalles_con_imagen %}
+                <div class="col-lg-3 col-md-4 col-sm-6 col-6 cardProduct">
+                        <img src="data:image/jpeg;base64,{{ detalle[5] }}" class="card-img-top imgProduct">
                         <div class="g-2">
-                            <h6>{{producto[1]}}</h6>
+                            <h6 class="mt-2">{{detalle[8]}}</h6>
                             <div class="precio">
-                                <p>S/{{producto[2]}}</p>
+                                <p class="mb-0" >S/{{detalle[7]}}</p>
                             </div>
-                            <button class="botones agregar-carrito">Añadir al carrito</button>
+                            <div class="d-flex justify-content-end"> 
+                                <b><p class="mb-0 mt-2">SubTotal</p></b>
+                            </div>
                         </div>
-                    </div>
                 </div>
         {% endfor %}
-
     </div>
 </div>
 {% endblock %}

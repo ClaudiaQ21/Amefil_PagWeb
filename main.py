@@ -205,11 +205,21 @@ def editar_direccion():
 @app.route("/listapedidos")
 def listapedidos():
     pedidos = controlador_pedido.listar_pedido_por_idUsuario(1)
-    return render_template("Pedidos_lista.html", pedidos=pedidos)
 
-@app.route("/detallepedidos")
-def detallepedidos():
-    return render_template("Pedidos_detalle.html")
+    imagenes = []
+    for pedido in pedidos:
+        imagen = controlador_pedido.obtener_imagen_pedido(1, pedido[0])
+        imagenes.append(imagen)
+
+    return render_template("Pedidos_lista.html", pedidos=pedidos, imagenes=imagenes)
+
+@app.route("/detallepedidos/<int:id>")
+def detallepedidos(id):
+    detalles_con_imagen = controlador_pedido.obtener_detalle_pedido(1, id)
+    return render_template("Pedidos_detalle.html", detalles_con_imagen = detalles_con_imagen)
+
+
+
 
 ### >>>> FAVORITOS
 @app.route("/listafavoritos")
@@ -542,7 +552,8 @@ def usuariocliente():
 @app.route("/descuentoadmin")
 def descuentoadmin():
     descuentos = controlador_descuento.obtener_descuentos()
-    return render_template ("DescuentoLME.html", descuentos = descuentos)
+    productos_con_imagen = controlador_producto.obtener_productos()
+    return render_template ("DescuentoLME.html", descuentos = descuentos, productos_con_imagen=productos_con_imagen)
 
 @app.route("/agregar_descuento")
 def formulario_agregar_descuento():

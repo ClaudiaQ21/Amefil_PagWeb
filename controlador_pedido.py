@@ -10,3 +10,61 @@ def listar_pedido_por_idUsuario(id_usuario):
         pedidos = cursor.fetchall()
     conexion.close()
     return pedidos
+
+def obtener_imagen_pedido(id_usuario, id_pedido):
+    conexion = obtener_conexion()
+    try:
+        with conexion.cursor() as cursor:
+            # Ajustamos la consulta para asegurarnos de que obtenemos la imagen
+            cursor.execute("""
+                SELECT p.imagen 
+                FROM pedido_cesta pc 
+                INNER JOIN detalle_cesta dc ON dc.id_pedido = pc.id_pedido 
+                INNER JOIN producto p ON p.id_producto = dc.id_producto 
+                WHERE pc.id_usuario = %s and pc.id_pedido = %s LIMIT 1
+            """, (id_usuario, id_pedido,))
+            resultado = cursor.fetchone()
+
+            # Verificamos si realmente se obtuvo algo
+            if resultado and resultado[0]:
+                imagen = base64.b64encode(resultado[0]).decode('utf-8')
+                print(f"Imagen encontrada para el pedido {id_pedido}")  # Depuración
+            else:
+                imagen = None
+                print(f"No se encontró imagen para el pedido {id_pedido}")  # Depuración
+
+            return imagen
+    except Exception as e:
+        print(f"Error al obtener la imagen del pedido: {e}")
+        return None
+    finally:
+        conexion.close()
+
+
+def obtener_detalle_pedido(id_usuario, id_pedido):
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute("select pc.*, dc.*, p.nombre, p.imagen from pedido_cesta pc inner join detalle_cesta dc on pc.id_pedido = dc.id_pedido INNER JOIN producto p ON p.id_producto = dc.id_producto where pc.id_usuario=%s and pc.id_pedido=%s", (id_usuario, id_pedido))
+        detalles = cursor.fetchall()
+    
+    if not detalles:
+        detalles = []
+
+    detalles_con_imagen = []
+    for detalle in detalles:
+        imagen_base64 = base64.b64encode(detalle[13]).decode('utf-8')
+
+        detalles_con_imagen.append((
+            detalle[0],  # id_pedido
+            detalle[2],  # monto_total
+            detalle[3],  # fecha
+            detalle[4],  # hora
+            detalle[7],  # id_producto
+            imagen_base64, # imagen convertida a Base64
+            detalle[9],  # cantidad
+            detalle[10],  # precio unitario
+            detalle[12]  # nombre
+        ))
+
+    conexion.close()
+    return detalles_con_imagen
