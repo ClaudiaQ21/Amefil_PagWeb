@@ -82,12 +82,8 @@ def obtener_producto_segun_tipo(id_tipo):
     conexion = obtener_conexion()
     productos = None
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, P.imagen, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre AS temporada, D.tasa AS tasa_descuento, P.id_tipo FROM producto P INNER JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto INNER JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN descuento D on D.id_descuento = DD.id_descuento INNER JOIN color C on C.id_color = P.id_color WHERE P.id_tipo = %s", (id_tipo))
-    productos = cursor.fetchall()
-
-    if not productos:
-        productos = []
-
+        cursor.execute("SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, P.imagen, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre AS temporada, D.tasa AS tasa_descuento, P.id_tipo FROM producto P INNER JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto INNER JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN descuento D on D.id_descuento = DD.id_descuento INNER JOIN color C on C.id_color = P.id_color WHERE P.id_tipo = %s", (id_tipo,))
+        productos = cursor.fetchall()
     productos_tipo_imagen = []
     for producto in productos:
         imagen_base64 = base64.b64encode(producto[6]).decode('utf-8')
@@ -122,7 +118,7 @@ def eliminar_producto(id):
 def dar_baja_producto(id_producto):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("UPDATE producto SET vigencia = 1 WHERE id_producto = %s", (id))
+        cursor.execute("UPDATE producto SET vigencia = 1 WHERE id_producto = %s", (id_producto))
     conexion.commit()
     conexion.close()
 
