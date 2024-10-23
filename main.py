@@ -101,7 +101,7 @@ def formulario_editar_producto(id):
     tipos_productos = controlador_filtros.obtener_tipo_producto()
     temporadas = controlador_filtros.obtener_temporadas()
     descuentos = controlador_descuento.obtener_descuentos()
-    producto = controlador_producto.obtener_producto_por_id(id)
+    producto = controlador_producto.obtener_producto_por_id_dashboard(id)
     return render_template("Editar_Producto.html", producto=producto, colores = colores, tipos_productos = tipos_productos, temporadas=temporadas, descuentos = descuentos)
 
 @app.route("/actualizar_producto", methods=["POST"])
