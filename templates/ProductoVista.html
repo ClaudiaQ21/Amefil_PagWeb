@@ -4,6 +4,7 @@ Amefil
 {% endblock %}
 {% block estilos_adicionales %}
 <link rel="stylesheet" href="{{ url_for('static', filename='CSS/ProductoVista.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/PopUp.css') }}">
 {% endblock %}
 
 {% block contenido %}
@@ -126,4 +127,5 @@ Amefil
     </div>
   {% endif %}
 {% endwith %}
+<script src="{{url_for('static', filename='JS/PopUp.js')}}"></script>
 {% endblock %}
