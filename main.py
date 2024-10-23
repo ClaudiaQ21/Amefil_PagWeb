@@ -301,16 +301,16 @@ def carrito_finalizar():
 
 @app.route("/procesar_pago", methods=['POST'])
 def procesar_pago():
-    id_pedido = request.form.get("id_pedido")
-    id_usuario = 1  # Cambia esto por el ID del usuario en sesión real
-    select = request.form.get("selectAddress")  # Dirección existente o nueva
+    id_pedido = request.form["id_pedido"]
+    id_usuario = 1  
+    select = request.form["selectAddress"]
 
     if not id_pedido:
         flash("Pedido no encontrado", "error")
         return redirect("/productovista")
     
     if select == "existente":
-        id_direccion = request.form.get("id_direccion")
+        id_direccion = request.form["id_direccion"]
         
         if not id_direccion:
             flash("Debe seleccionar una dirección existente.", "error")
@@ -318,7 +318,6 @@ def procesar_pago():
         
         try:
             controlador_finalizar_compra.finalizar_pedido(id_pedido, id_direccion, id_usuario)
-            flash("Compra realizada con éxito!", "success")
         except Exception as e:
             flash(f"Error al finalizar el pedido: {e}", "error")
             return redirect("/navegacionproductos")
@@ -398,6 +397,9 @@ def reestablecer_contraseña_2():
     return render_template('Reestablecer_contraseña_2.html')
 
 
+
+
+
 ### POLITICAS
 @app.route("/terminosycondiciones")
 def terminosycondiciones():
@@ -422,6 +424,9 @@ def formasdepago():
 @app.route("/tallaspulseras")
 def tallaspulseras():
     return render_template("TallaPulseras.html")
+
+
+
 
 
 ###ADMIN
@@ -452,6 +457,8 @@ def formulario_agregar_producto():
     temporadas = controlador_temporada.obtener_temporadas()
     descuentos = controlador_descuento.obtener_descuentos()
     return render_template("Agregar_Prod.html", tipos_productos=tipos_productos, colores=colores, temporadas=temporadas, descuentos=descuentos)
+
+
 
 
 ###USUARIO DASH
@@ -586,6 +593,37 @@ def actualizar_descuento():
     fecha_fin = request.form["fecha_fin"]
     vigencia = request.form["vigencia"]
     controlador_descuento.actualizar_descuento(tasa, fecha_inicio, fecha_fin, vigencia, id_descuento)
+    return redirect("/descuentoadmin")
+
+@app.route("/asignardescuento/<int:id>")
+def formulario_asignar_descuento(id):
+    producto = controlador_producto.obtener_producto_por_id(id)
+    descuentos = controlador_descuento.obtener_descuentos_vigentes()
+    return render_template("Agregar_AsigDcto.html", producto = producto, descuentos=descuentos)
+
+@app.route("/guardarasignardcto", methods=["POST"])
+def guardarasignardcto():
+    id_producto = request.form["id_producto"]
+    id_descuento = request.form["id_descuento"]
+    controlador_descuento.asignardescuento(id_producto, id_descuento)
+    return redirect("/descuentoadmin")
+
+@app.route("/editarasignardescuento/<int:id>")
+def formulario_editar_asignar_descuento(id):
+    producto = controlador_producto.obtener_producto_por_id(id)
+    descuentos = controlador_descuento.obtener_descuentos_vigentes()
+    return render_template("Editar_AsigDcto.html", producto = producto, descuentos=descuentos)
+
+@app.route("/editarasignardcto", methods=["POST"])
+def editarasignardcto():
+    id_producto = request.form["id_producto"]
+    id_descuento = request.form["id_descuento"]
+    controlador_descuento.editarasignar(id_producto, id_descuento)
+    return redirect("/descuentoadmin")
+
+@app.route("/eliminarasignardcto", methods=["POST"])
+def eliminarasignardcto():
+    controlador_descuento.eliminarasignar(request.form["id_producto"])
     return redirect("/descuentoadmin")
 
 ###COLECCIONES
