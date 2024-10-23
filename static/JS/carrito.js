@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const confirmacion = confirm(`¿Seguro que quieres añadir ${nombreProducto} por S/${precioProducto} al carrito?`);
             if (confirmacion) {
-                // Guardar en el localStorage
                 const carrito = JSON.parse(localStorage.getItem('carrito')) || {};
                 if (carrito[idProducto]) {
                     carrito[idProducto].cantidad += 1; // Incrementar cantidad si ya existe
@@ -53,22 +52,26 @@ document.addEventListener('DOMContentLoaded', function () {
         boton.addEventListener('click', function () {
             const idProducto = this.getAttribute('data-id');
             const cantidadElemento = document.getElementById(`cantidad-${idProducto}`);
-            const totalElemento = document.getElementById(`total-${idProducto}`); // Añadido para acceder al total
+            const totalElemento = document.getElementById(`total-${idProducto}`); 
+            const stockElemento = document.querySelector(`[data-id="${idProducto}"]`); 
+            const stockDisponible = parseInt(stockElemento.getAttribute('data-stock'));
             let cantidad = parseInt(cantidadElemento.textContent);
 
-            const precioPorUnidad = parseFloat(totalElemento.textContent.replace('S/', '')) / (cantidad || 1); // Obtener el precio por unidad
+            const precioPorUnidad = parseFloat(totalElemento.textContent.replace('S/', '')) / (cantidad || 1); 
 
             if (this.classList.contains('mas')) {
-                cantidad += 1;
-            } else if (this.classList.contains('menos') && cantidad > 0) {
+                if (cantidad < stockDisponible) { 
+                    cantidad += 1;
+                } else {
+                    alert("No hay más de esa cantidad disponible");
+                }
+            } else if (this.classList.contains('menos') && cantidad > 1) {
                 cantidad -= 1;
             }
             cantidadElemento.textContent = cantidad;
 
-            // Actualizar el total en la fila
-            totalElemento.textContent = (precioPorUnidad * cantidad).toFixed(2); // Actualizar el total por producto
+            totalElemento.textContent = (precioPorUnidad * cantidad).toFixed(2); 
 
-            // Actualizar en localStorage
             const carrito = JSON.parse(localStorage.getItem('carrito'));
             if (carrito && carrito[idProducto]) {
                 carrito[idProducto].cantidad = cantidad; 
@@ -111,19 +114,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 alert('Error: Producto o pedido no válido');
                 return;
             }
-
-            // Confirmación antes de eliminar
             const confirmacion = confirm('¿Estás seguro que quieres eliminar este producto?');
             if (!confirmacion) {
                 return;
             }
 
-            // Hacer la solicitud `POST` al servidor
             fetch('/eliminarProductoCarrito', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRFToken': '{{ csrf_token() }}' // Si usas CSRF
+                    'X-CSRFToken': '{{ csrf_token() }}' 
                 },
                 body: JSON.stringify({
                     idProducto: idProducto,
@@ -133,8 +133,8 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    // Eliminar la fila de la tabla visualmente
                     this.closest('tr').remove();
+                    calcularTotales();
                     alert('Producto eliminado con éxito');
                 } else {
                     alert('Error al eliminar el producto: ' + (data.error || 'Error desconocido'));

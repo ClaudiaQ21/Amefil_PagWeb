@@ -23,7 +23,7 @@ def obtener_pedidoCliente(id_usuario):
     try:
         with conexion.cursor() as cursor:
             cursor.execute("""
-                SELECT p.id_producto, p.nombre, p.precio, dc.cantidad, pc.monto_total, pc.id_pedido, p.imagen
+                SELECT p.id_producto, p.nombre, p.precio, dc.cantidad, pc.monto_total, pc.id_pedido, p.imagen, p.stock
                 FROM pedido_cesta pc
                 INNER JOIN detalle_cesta dc ON dc.id_pedido = pc.id_pedido
                 INNER JOIN producto p ON p.id_producto = dc.id_producto
@@ -41,7 +41,8 @@ def obtener_pedidoCliente(id_usuario):
                 resultado[3],  
                 resultado[2] * resultado[3], 
                 resultado[5],  
-                imagen_base64
+                imagen_base64,
+                resultado[7]
             ))
         return detpedidos
     except Exception as e:

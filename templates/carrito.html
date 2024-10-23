@@ -44,9 +44,9 @@ Carrito de Compras
                         <td>S/{{ item[2] }}</td> 
                         <td>
                             <div class="cantidad-container">
-                                <button class="btn-quantity menos botones_increde" data-id="{{ item[0] }}">-</button>
+                                <button class="btn-quantity menos botones_increde" data-id="{{ item[0] }}" data-stock="{{ item[7] }}">-</button>
                                 <p class="cantidad" id="cantidad-{{ item[0] }}">{{ item[3] }}</p>
-                                <button class="btn-quantity mas botones_increde" data-id="{{ item[0] }}">+</button>
+                                <button class="btn-quantity mas botones_increde" data-id="{{ item[0] }}"data-stock="{{ item[7] }}">+</button>
                             </div>
                         </td>                       
                         <td>S/<span class="total" id="total-{{ item[0] }}">{{ "%.2f" | format(item[4]) }}</span></td> 
