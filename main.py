@@ -13,7 +13,7 @@ import controlador_finalizar_compra
 import controlador_favoritos
 import controlador_pedido
 
-usuarioID = 1
+usuarioID = 4
 
 app = Flask(__name__)
 app.secret_key = 'alguna_clave_secreta'
@@ -38,7 +38,17 @@ def crea():
 
 @app.route("/descuentos")
 def descuentos():
-    return render_template("Menu_descuentos.html")
+    busqueda = request.args.get('busqueda')
+    productos_con_imagen = controlador_producto.obtener_productos(busqueda)
+    if productos_con_imagen is None:
+        productos_con_imagen = []  # Evita que sea None
+
+    color = controlador_filtros.obtener_colores()
+    tipo_pro = controlador_filtros.obtener_tipo_producto()
+    temporada = controlador_filtros.obtener_temporadas()
+
+    return render_template('Menu_descuentos.html', productos_con_imagen=productos_con_imagen, color=color, tipo_pro=tipo_pro, temporada=temporada)
+
 
 ### AMEFIL
 
