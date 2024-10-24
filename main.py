@@ -96,8 +96,14 @@ def guardar_producto():
     id_color = request.form["id_color"]
     id_temporada = request.form["id_temporada"]
     imagen = request.files['imagen'].read() 
-    controlador_producto.insertar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, imagen)
-    return redirect("/navegacionproductos")
+    
+    try:
+        controlador_producto.insertar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, imagen)
+        flash("Producto agregado correctamente.", "success")
+        return redirect("/productoadmin")
+    except:
+        flash("Error al agregar el producto.", "error")
+        return redirect("/dashboardadmin")
 
 @app.route("/eliminar_producto", methods=["POST"])
 def eliminar_producto():
@@ -141,12 +147,17 @@ def actualizar_producto():
 
     producto = controlador_producto.obtener_producto_por_id_dashboard(id_producto)
 
-    if request.files['imagen'].filename!='':
-        imagen = request.files['imagen'].read()
-    else:
-        imagen = producto[6]
-    controlador_producto.actualizar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, imagen, id_producto)
-    return redirect("/navegacionproductos")
+    try:
+        if request.files['imagen'].filename!='':
+            imagen = request.files['imagen'].read()
+        else:
+            imagen = producto[6]
+        controlador_producto.actualizar_producto(nombre, precio, id_tipo_producto, vigencia, stock, descripcion, id_color, id_temporada, imagen, id_producto)
+        flash("Producto actualizado correctamente", "success")
+        return redirect("/productoadmin")
+    except:
+        flash("Error al actualizar el producto.", "error")
+        return redirect("/dashboardadmin")
  
 @app.route("/colecciones")
 def colecciones():
@@ -265,7 +276,7 @@ def listapedidos():
 
 @app.route("/detallepedidos/<int:id>")
 def detallepedidos(id):
-    detalles_con_imagen = controlador_pedido.obtener_detalle_pedido(1, id)
+    detalles_con_imagen = controlador_pedido.obtener_detalle_pedido(usuarioID, id)
     return render_template("Pedidos_detalle.html", detalles_con_imagen = detalles_con_imagen)
 
 
@@ -449,6 +460,7 @@ def registro():
 @app.route("/eliminar_usuario", methods=["POST"])
 def eliminar_usuario():
     controlador_usuario.eliminar_usuario(request.form["id_usuario"])
+    flash("Usuario eliminado correctamente.", "success")
     return redirect("/usuariosdash")
 
 @app.route('/reestablecer')
@@ -553,8 +565,14 @@ def guardar_usuario():
     genero = request.form["genero"]
     nacimiento = request.form["nacimiento"]
     id_tipo = request.form["id_tipo"]
-    controlador_usuario.insertar_usuario(nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo)
-    return redirect("/usuariosdash")
+    
+    try:
+        controlador_usuario.insertar_usuario(nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo)
+        flash("Usuario agregado correctamente.", "success")
+        return redirect("/usuariosdash")
+    except:
+        flash("Error al agregar el usuario.", "error")
+        return redirect("/dashboardadmin")
 
 @app.route("/editar_usuario/<int:id>")
 def formulario_editar_usuario(id):
@@ -576,8 +594,14 @@ def actualizar_usuario():
     nacimiento = request.form["nacimiento"]
     id_tipo = request.form["id_tipo"]
     id_direccion = request.form["id_direccion"]
-    controlador_usuario.actualizar_usuario(nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo, id_direccion, id_usuario)
-    return redirect("/usuariosdash")
+    
+    try:
+        controlador_usuario.actualizar_usuario(nombre, apellido_p, apellido_m, correo, contrasena, telefono, genero, nacimiento, id_tipo, id_direccion, id_usuario)
+        flash("Usuario actualizado correctamente.", "success")
+        return redirect("/usuariosdash")
+    except:
+        flash("Error al actualizar el usuario.", "error")
+        return redirect("/dashboardadmin")
 
 ###ROLES
 
