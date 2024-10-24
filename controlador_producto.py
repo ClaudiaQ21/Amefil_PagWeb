@@ -27,7 +27,7 @@ def obtener_productos(busqueda=None):
                 INNER JOIN temporada TE ON TE.id_temporada = P.id_temporada 
                 LEFT JOIN descuento D ON D.id_descuento = DD.id_descuento 
                 INNER JOIN color C ON C.id_color = P.id_color 
-                WHERE P.nombre LIKE %s
+                WHERE P.nombre LIKE %s and P.vigencia = 0
             """, ('%' + busqueda + '%',))
         else:
             cursor.execute("""
@@ -40,7 +40,7 @@ def obtener_productos(busqueda=None):
                 LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto 
                 INNER JOIN temporada TE ON TE.id_temporada = P.id_temporada 
                 LEFT JOIN descuento D ON D.id_descuento = DD.id_descuento 
-                INNER JOIN color C ON C.id_color = P.id_color
+                INNER JOIN color C ON C.id_color = P.id_color WHERE P.vigencia = 0
             """)
         productos = cursor.fetchall()
 
@@ -82,7 +82,7 @@ def obtener_producto_segun_tipo(id_tipo):
     conexion = obtener_conexion()
     productos = None
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, P.imagen, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre AS temporada, D.tasa AS tasa_descuento, P.id_tipo FROM producto P INNER JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto INNER JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN descuento D on D.id_descuento = DD.id_descuento INNER JOIN color C on C.id_color = P.id_color WHERE P.id_tipo = %s", (id_tipo,))
+        cursor.execute("SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, P.imagen, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre AS temporada, D.tasa AS tasa_descuento, P.id_tipo FROM producto P INNER JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto INNER JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN descuento D on D.id_descuento = DD.id_descuento INNER JOIN color C on C.id_color = P.id_color WHERE P.id_tipo = %s and P.vigencia = 0", (id_tipo,))
         productos = cursor.fetchall()
     productos_tipo_imagen = []
     for producto in productos:
@@ -148,7 +148,7 @@ def obtener_producto_por_id(id_producto):
     producto = None
     with conexion.cursor() as cursor:
         cursor.execute(
-            "SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, P.imagen, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre AS temporada, D.tasa AS tasa_descuento FROM producto P INNER JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto INNER JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN descuento D on D.id_descuento = DD.id_descuento INNER JOIN color C on C.id_color = P.id_color WHERE P.id_producto = %s", (id_producto))
+            "SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, P.imagen, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre AS temporada, D.tasa AS tasa_descuento FROM producto P INNER JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto INNER JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN descuento D on D.id_descuento = DD.id_descuento INNER JOIN color C on C.id_color = P.id_color WHERE P.id_producto = %s ", (id_producto))
         producto = cursor.fetchone()
     producto_imagen = []
     imagen_base64 = base64.b64encode(producto[6]).decode('utf-8')
@@ -186,7 +186,7 @@ def obtener_novedades():
     conexion = obtener_conexion()
     productos = None
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, P.imagen,DATEDIFF(CURDATE(), P.fecha_registro) AS dias_registro, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre AS temporada, D.tasa AS tasa_descuento FROM producto P INNER JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto INNER JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN descuento D on D.id_descuento = DD.id_descuento INNER JOIN color C on C.id_color = P.id_color")
+        cursor.execute("SELECT P.id_producto, P.nombre, P.precio, P.vigencia, P.stock, P.descripcion, P.imagen,DATEDIFF(CURDATE(), P.fecha_registro) AS dias_registro, TP.nombre AS tipo_producto, C.nombre as color,TE.nombre AS temporada, D.tasa AS tasa_descuento FROM producto P INNER JOIN tipo_producto TP ON TP.id_tipo = P.id_tipo LEFT JOIN detalle_descuento DD ON DD.id_producto = P.id_producto INNER JOIN temporada TE ON TE.id_temporada = P.id_temporada LEFT JOIN descuento D on D.id_descuento = DD.id_descuento INNER JOIN color C on C.id_color = P.id_color WHERE P.vigencia = 0")
         productos = cursor.fetchall()
     productos_nuevos = []
     for producto in productos:
