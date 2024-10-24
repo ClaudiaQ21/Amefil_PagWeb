@@ -115,12 +115,32 @@ def eliminar_producto(id):
     conexion.commit()
     conexion.close()
 
-def dar_baja_producto(id_producto):
+def dar_baja_producto_retornable(id_producto):
     conexion = obtener_conexion()
-    with conexion.cursor() as cursor:
-        cursor.execute("UPDATE producto SET vigencia = 1 WHERE id_producto = %s", (id_producto))
-    conexion.commit()
-    conexion.close()
+    try:
+        with conexion.cursor() as cursor:
+            # Configuramos los parámetros, el último es el OUT que almacenará el resultado
+            parametros = [id_producto, 0]  # El segundo parámetro será el valor retornado (out)
+
+            # Llamada al procedimiento almacenado
+            cursor.callproc('dar_baja_producto', parametros)
+            
+            # Recuperar el valor de retorno desde la variable OUT
+            cursor.execute("SELECT @_dar_baja_producto_1")  
+            resultado = cursor.fetchone()[0]
+
+            # Confirmar la transacción si es necesario
+            conexion.commit()
+
+            print(f"Resultado del procedimiento: {resultado}")
+        
+    except Exception as e:
+        print(f"Error al dar de baja el producto: {e}")
+        resultado = None
+    finally:
+        conexion.close()  # Cerrar la conexión
+
+    return resultado
 
 
 def obtener_producto_por_id(id_producto):

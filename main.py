@@ -91,8 +91,20 @@ def guardar_producto():
 
 @app.route("/eliminar_producto", methods=["POST"])
 def eliminar_producto():
-    controlador_producto.dar_baja_producto(request.form["id_producto"])
-    return redirect("/navegacionproductos")
+    id_producto = request.form["id_producto"]
+
+    # Llamar a la función dar_baja_producto_retornable y obtener el resultado (1 o 0)
+    resultado = controlador_producto.dar_baja_producto_retornable(id_producto)
+
+    # Verificar si el resultado fue exitoso o no y mostrar el mensaje adecuado
+    if resultado == 1:
+        flash("El producto fue dado de baja exitosamente.", 'success')
+    elif resultado == 0:
+        flash("El producto no se puede dar de baja porque está en una cesta.", 'error')
+    else:
+        flash("Ocurrió un error al intentar dar de baja el producto.", 'error')
+
+    return redirect("/productoadmin")
 
 
 @app.route("/editar_producto/<int:id>")

@@ -309,3 +309,27 @@ BEGIN
     VALUES (v_idDireccion, p_idUsuario);
 
 END
+
+
+
+
+CREATE PROCEDURE dar_baja_producto(IN p_id_producto INT, OUT mensaje VARCHAR(255))
+BEGIN
+    DECLARE existe_detalle_cesta INT DEFAULT 0;
+
+    -- Verificar si el producto está en detalle_cesta
+    SELECT COUNT(*) INTO existe_detalle_cesta
+    FROM detalle_cesta
+    WHERE id_producto = p_id_producto;
+
+    -- Si existe en detalle_cesta, no permitir dar de baja
+    IF existe_detalle_cesta > 0 THEN
+        SET mensaje = 'El producto está en una cesta y no puede darse de baja.';
+    ELSE
+        -- Si no existe en detalle_cesta, permitir dar de baja
+        UPDATE producto
+        SET vigencia = 1
+        WHERE id_producto = p_id_producto;
+        SET mensaje = 'El producto fue dado de baja exitosamente.';
+    END IF;
+END
