@@ -57,7 +57,7 @@ Amefil
                                 <td>
                                     <form action="{{url_for('eliminar_producto')}}" method="post" id="eliminarUsuarioForm_{{ producto[0] }}">
                                         <input type="hidden" name="id_producto" value="{{ producto[0] }}">
-                                        <button type="button" class="btn delete-btn" data-form-id="eliminarUsuarioForm_{{ producto[0] }}">
+                                        <button type="button" class="btn delete-btn" data-form-id="eliminarUsuarioForm_{{ producto[0] }}" {% if producto[3] == 'No vigente' %}disabled{% endif %}>
                                             <i class="fa-solid fa-trash icondelete"></i>
                                         </button>
                                     </form>

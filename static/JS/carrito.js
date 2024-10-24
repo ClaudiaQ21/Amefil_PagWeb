@@ -193,16 +193,19 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function finalizarCompra() {
-    const carrito = JSON.parse(localStorage.getItem('carrito'));
-    console.log('Contenido del carrito:', carrito); // Verifica qué hay en el carrito
-
-    // Verifica si el carrito es un objeto y tiene al menos un producto
-    if (carrito && Object.keys(carrito).length > 0) {
-        window.location.href = '/finalizarCompra';
+    const mensajeVacio = document.getElementById('mensaje-vacio');
+    const cart = document.getElementById('cart');
+    const cartItems = cart ? cart.querySelectorAll('tr') : [];
+    
+    if (mensajeVacio || cartItems.length === 0) {
+        alert('No puedes finalizar la compra si no hay productos en el carrito.');
     } else {
-        alert('Debes agregar un producto al carrito antes de finalizar la compra.');
+      
+        window.location.href = "/finalizarCompra";  
     }
 }
+
+
 
 
 
