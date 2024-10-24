@@ -285,6 +285,18 @@ function toggleAddressType() {
         guardarDireccionCheckbox.removeAttribute('disabled');
     }
 }
+function confirmarPago() {
+    if (validateForm()) { 
+        document.getElementById("confirmPopup").style.display = "block";
+        document.getElementById("confirmBtn").onclick = function() {
+            document.getElementById("miFormulario").submit();
+        };
+        document.getElementById("cancelBtn").onclick = function() {
+            document.getElementById("confirmPopup").style.display = "none";
+        };
+    }
+}
+
 
 
 </script>
