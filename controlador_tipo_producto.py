@@ -34,12 +34,12 @@ def eliminar_tipo(id_tipo):
 
 def obtener_tipo_por_id(id_tipo):
     conexion = obtener_conexion()
-    tipo = None
+    tipo_pro = None
     with conexion.cursor() as cursor:
         cursor.execute("SELECT id_tipo, nombre from tipo_producto WHERE id_tipo = %s", (id_tipo))
-        tipo = cursor.fetchone()
+        tipo_pro = cursor.fetchone()
     conexion.close()
-    return tipo
+    return tipo_pro
 
 def actualizar_tipo_producto(nombre, estado, id_tipo):
     conexion = obtener_conexion()
