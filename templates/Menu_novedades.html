@@ -100,7 +100,7 @@ Novedades
         <div class="col-lg-9 col-md-9 col-sm-12 col-12 p-0 m-0">
             <div id="lista-cursos" class="row container-fluid m-0 p-0 mt-5">
                 {% for producto in productos_nuevos %}
-                    {% if producto[7] > 7  %}
+                    {% if producto[7]|int > 7  %}
                 
                     {% else %}
                         {% if producto[11]|float == 0 %}

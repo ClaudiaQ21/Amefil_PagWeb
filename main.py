@@ -279,7 +279,7 @@ def agregar_eliminar_favorito():
         controlador_favoritos.eliminar_favorito(id_producto)
         flash("Producto eliminado de favoritos.", "info")
     
-    return redirect("/productovista")
+    return redirect(request.referrer)
 
 
 

@@ -4,6 +4,7 @@ Amefil
 {% endblock %}
 {% block estilos_adicionales %}
 <link rel="stylesheet" href="{{ url_for('static', filename='CSS/ProductoVista.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='CSS/PopUp.css') }}">
 {% endblock %}
 
 {% block contenido %}
@@ -99,7 +100,7 @@ Amefil
                             <div class="col-4 addfavorite">
                                 <form action="{{url_for('agregar_eliminar_favorito')}}" method="post">
                                     <input type="hidden" name="data-id" value = "{{producto_imagen[0]}}">
-                                    <button type="submit" id="favorito" class="btn btn-link p-0"><i class="fa-ligth fa-heart" id="corazon"></i></button>
+                                    <button type="submit" id="favorito" class="btn btn-link p-0"><i class="fa-solid fa-heart" id="corazon"></i></button>
                                 </form>
                             </div>
                         </div>
@@ -118,4 +119,13 @@ Amefil
         {% endfor %}
     </div>
 </div>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div id="flash-message" class="response {{ messages[0][0] }}">
+      <span>{{ messages[0][1] }}</span>
+      <button class="close-response" onclick="closeResponse()">×</button>
+    </div>
+  {% endif %}
+{% endwith %}
+<script src="{{url_for('static', filename='JS/PopUp.js')}}"></script>
 {% endblock %}
