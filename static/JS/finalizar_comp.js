@@ -119,9 +119,19 @@ const checkPhoneNumber = () => {
     }
     return valid;
 };
+const formatCardNumber = (input) => {
+    const tarjeta = input.replace(/\D/g, '');  
+    const truncatedTarjeta = tarjeta.slice(0, 16);  
+    const formattedTarjeta = truncatedTarjeta.replace(/(\d{4})(?=\d)/g, '$1-');  
+    return formattedTarjeta;
+};
+
 const checkCardNumber = () => {
     let valid = false;
-    const tarjeta = tarjetaEl.value.trim();
+    let tarjeta = tarjetaEl.value.trim();
+    tarjeta = formatCardNumber(tarjeta);  
+    tarjetaEl.value = tarjeta;  
+
     if (!isRequired(tarjeta)) {
         showError(tarjetaEl, 'El número de tarjeta no puede estar vacío.');
     } else if (!isCardNumberValid(tarjeta)) {
@@ -148,16 +158,31 @@ const checkCardHolder = () => {
 const checkCvv = () => {
     let valid = false;
     const codigo = codigoEl.value.trim();
+
     if (!isRequired(codigo)) {
         showError(codigoEl, 'El código de seguridad no puede estar vacío.');
     } else if (!isCvvValid(codigo)) {
-        showError(codigoEl, 'El código de seguridad debe tener 3.');
+        showError(codigoEl, 'El código de seguridad debe tener 3 dígitos.');
     } else {
         showSuccess(codigoEl);
         valid = true;
     }
     return valid;
 };
+
+tarjetaEl.addEventListener('input', function () {
+    let tarjeta = tarjetaEl.value.trim();
+    tarjeta = formatCardNumber(tarjeta);  
+    tarjetaEl.value = tarjeta;
+    checkCardNumber();  
+});
+
+
+codigoEl.addEventListener('input', function () {
+    codigoEl.value = codigoEl.value.replace(/\D/g, '').slice(0, 3);  
+    checkCvv();  
+});
+
 
 nombreEl.addEventListener('input', function () {
     checkName();
@@ -177,7 +202,4 @@ titularEl.addEventListener('input', function () {
     checkCardHolder();
 });
 
-codigoEl.addEventListener('input', function () {
-    checkCvv();
-});
 
