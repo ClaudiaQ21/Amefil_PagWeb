@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect, flash, jsonify, session
+from flask import Flask, render_template, request, redirect, flash, jsonify, session, url_for
 from pymysql.err import IntegrityError
+from functools import wraps
 import controlador_producto
 import controlador_filtros
 import controlador_usuario
@@ -17,6 +18,43 @@ usuarioID = 4
 
 app = Flask(__name__)
 app.secret_key = 'alguna_clave_secreta'
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        correo = request.form['email']
+        contrasena = request.form['password']
+
+        usuario = controlador_usuario.obtener_usuario_por_correo(correo)
+
+        if usuario and usuario['contrasena'] == contrasena:
+            # Autenticación exitosa, almacenar información en la sesión
+            session['usuario_id'] = usuario['id_usuario']
+            session['nombre'] = usuario['nombre']
+            session['id_tipo']=usuario['id_tipo']
+            return redirect("/amefil")  # Redirigir a la página del usuario
+
+        else:
+            # Mostrar mensaje de error en caso de credenciales inválidas
+            error = 'Correo o contraseña incorrectos'
+            return render_template('Iniciar_sesion.html', error=error)
+
+    return render_template('Iniciar_sesion.html')  # Mostrar el formulario de inicio de sesión
+
+@app.route("/logout")
+def logout():
+    session.pop('usuario_id', None)
+    return redirect(url_for('login'))
+
+
+def require_user(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'usuario_id' not in session:
+            return redirect(url_for('login'))  # Redirige al login si no hay usuario
+        kwargs['usuario_id'] = session['usuario_id']  # Pasa el usuario_id a la función
+        return f(*args, **kwargs)
+    return decorated_function
 
 @app.route("/")
 @app.route("/amefil")
@@ -184,8 +222,9 @@ def navegacionproductosnovedades():
 
 ### PERFIL
 @app.route("/perfil")
-def perfil():
-    datos = controlador_usuario.obtener_datosUsuario(usuarioID)
+@require_user
+def perfil(usuario_id):
+    datos = controlador_usuario.obtener_datosUsuario(usuario_id)
     return render_template("Perfil.html", datos = datos)
 
 @app.route("/form_editar_datos/<int:id>")
@@ -209,8 +248,9 @@ def editar_datos():
 
 ### >>>> DIRECCIONES
 @app.route("/listadirecciones")
-def listadirecciones():
-    direcciones = controlador_direccion.obtener_direccion_por_idUsuario(usuarioID)
+@require_user
+def listadirecciones(usuario_id):
+    direcciones = controlador_direccion.obtener_direccion_por_idUsuario(usuario_id)
     return render_template("Direccion_lista.html", direcciones = direcciones)
 
 
@@ -221,11 +261,12 @@ def agregardireccion():
 
 
 @app.route("/guardar_direccion", methods=["POST"])
-def guardar_direccion():
+@require_user
+def guardar_direccion(usuario_id):
     distrito = request.form["id_distrito"]
     nombre = request.form["nombre"]
     referencia = request.form["referencia"]
-    controlador_direccion.pa_guardar_direccion(nombre, referencia, distrito, usuarioID)
+    controlador_direccion.pa_guardar_direccion(nombre, referencia, distrito, usuario_id)
     return redirect("/listadirecciones")
 
 @app.route('/get_provincias/<int:departamento_id>')
@@ -264,20 +305,23 @@ def editar_direccion():
 
 ### >>>> PEDIDOS
 @app.route("/listapedidos")
-def listapedidos():
-    pedidos = controlador_pedido.listar_pedido_por_idUsuario(usuarioID)
+@require_user
+def listapedidos(usuario_id):
+    pedidos = controlador_pedido.listar_pedido_por_idUsuario(usuario_id)
 
     imagenes = []
     for pedido in pedidos:
-        imagen = controlador_pedido.obtener_imagen_pedido(usuarioID, pedido[0])
+        imagen = controlador_pedido.obtener_imagen_pedido(usuario_id, pedido[0])
         imagenes.append(imagen)
 
     return render_template("Pedidos_lista.html", pedidos=pedidos, imagenes=imagenes)
 
 @app.route("/detallepedidos/<int:id>")
-def detallepedidos(id):
-    detalles_con_imagen = controlador_pedido.obtener_detalle_pedido(usuarioID, id)
-    return render_template("Pedidos_detalle.html", detalles_con_imagen = detalles_con_imagen)
+@require_user
+def detallepedidos(usuario_id, id):
+    detalles_con_imagen = controlador_pedido.obtener_detalle_pedido(usuario_id, id)
+    return render_template("Pedidos_detalle.html", detalles_con_imagen=detalles_con_imagen)
+
 
 
 
@@ -306,19 +350,19 @@ def agregar_eliminar_favorito():
 
 ### CARRITO
 @app.route('/carrito')
-def carrito():
-    id_usuario = usuarioID
-    detpedidos = controlador_finalizar_compra.obtener_pedidoCliente(id_usuario)
-    monto_total = controlador_finalizar_compra.obtener_Montopedido(id_usuario)
+@require_user
+def carrito(usuario_id):
+    detpedidos = controlador_finalizar_compra.obtener_pedidoCliente(usuario_id)
+    monto_total = controlador_finalizar_compra.obtener_Montopedido(usuario_id)
     return render_template('carrito.html', detpedidos=detpedidos, monto_total=monto_total)
 
 @app.route("/carritoInsertar", methods=["POST"])
-def carritoInsertar():
+@require_user
+def carritoInsertar(usuario_id):
     try:
         print("Solicitud recibida para agregar al carrito")
         id_producto = request.form["id"]
-        id_usuario = usuarioID
-        controlador_finalizar_compra.insertar_detalleCesta(id_producto, id_usuario)
+        controlador_finalizar_compra.insertar_detalleCesta(id_producto, usuario_id)
         return jsonify({"success": True})
 
     except Exception as e:
@@ -326,47 +370,48 @@ def carritoInsertar():
         return jsonify({"success": False, "error": str(e)}), 500
     
 @app.route('/actualizar_cantidad', methods=['POST'])
-def actualizar_cantidad():
+@require_user
+def actualizar_cantidad(usuario_id):
     data = request.json
     id_producto = data['id_producto']
     nueva_cantidad = data['cantidad']
-    id_usuario = usuarioID
     try:
-        controlador_finalizar_compra.actualizar_detalle_pedido(id_producto, nueva_cantidad, id_usuario)
+        controlador_finalizar_compra.actualizar_detalle_pedido(id_producto, nueva_cantidad, usuario_id)
         return jsonify({"mensaje": "Cantidad actualizada exitosamente"}), 200
     except Exception as e:
         return jsonify({"mensaje": "Error al actualizar la cantidad", "error": str(e)}), 500
 
 @app.route('/eliminarProductoCarrito', methods=['POST'])
-def eliminarProductoCarrito():
+@require_user
+def eliminarProductoCarrito(usuario_id):
     data = request.get_json()
     id_producto = data.get('idProducto')
     id_pedido = data.get('idPedido')
-    id_usuario = usuarioID
 
     if not id_producto or not id_pedido:
         return jsonify({'error': 'Datos inválidos'}), 400
 
     try:
-        controlador_finalizar_compra.eliminar_productoPedido(id_producto, id_pedido, id_usuario)
+        controlador_finalizar_compra.eliminar_productoPedido(id_producto, id_pedido, usuario_id)
         return jsonify({'success': True}), 200
     except Exception as e:
         print(f"Error al eliminar el producto: {e}")
         return jsonify({'error': str(e)}), 500
 
 @app.route("/finalizarCompra")
-def carrito_finalizar():
-    direcciones = controlador_direccion.obtener_direccion_usuario(usuarioID)
+@require_user
+def carrito_finalizar(usuario_id):
+    direcciones = controlador_direccion.obtener_direccion_usuario(usuario_id)
     departamentos = controlador_direccion.obtener_departamentos()
-    usuario = controlador_usuario.obtener_usuario_por_id(usuarioID)
-    carrito = controlador_finalizar_compra.obtener_monto_total(usuarioID)
-    pedido = controlador_finalizar_compra.obtener_id_pedido_pago(usuarioID)
+    usuario = controlador_usuario.obtener_usuario_por_id(usuario_id)
+    carrito = controlador_finalizar_compra.obtener_monto_total(usuario_id)
+    pedido = controlador_finalizar_compra.obtener_id_pedido_pago(usuario_id)
     return render_template("Finalizar_compra.html", departamentos = departamentos, direcciones = direcciones, usuario = usuario, carrito = carrito, pedido = pedido)
 
 @app.route("/procesar_pago", methods=['POST'])
-def procesar_pago():
+@require_user
+def procesar_pago(usuario_id):
     id_pedido = request.form.get("id_pedido")
-    id_usuario = usuarioID
     select = request.form.get("selectAddress")  
 
     try:
@@ -392,7 +437,7 @@ def procesar_pago():
                 flash("No se pudo registrar la dirección", "error")
                 return redirect("/listadirecciones")
 
-        controlador_finalizar_compra.finalizar_pedido(id_pedido, id_direccion, id_usuario)
+        controlador_finalizar_compra.finalizar_pedido(id_pedido, id_direccion, usuario_id)
         flash("Compra realizada con éxito!", "success")
         return redirect("/amefil")
     
@@ -416,26 +461,7 @@ def procesar_pago():
 def iniciarsesion():
     return render_template("Iniciar_sesion.html")
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        correo = request.form['email']
-        contrasena = request.form['password']
 
-        usuario = controlador_usuario.obtener_usuario_por_correo(correo)
-
-        if usuario and usuario['contrasena'] == contrasena:
-            # Autenticación exitosa, almacenar información en la sesión
-            session['usuario_id'] = usuario['id_usuario']
-            session['nombre'] = usuario['nombre']
-            return redirect("/amefil")  # Redirigir a la página del usuario
-
-        else:
-            # Mostrar mensaje de error en caso de credenciales inválidas
-            error = 'Correo o contraseña incorrectos'
-            return render_template('Iniciar_sesion.html', error=error)
-
-    return render_template('Iniciar_sesion.html')  # Mostrar el formulario de inicio de sesión
 
 @app.route("/registrar")
 def registrar():

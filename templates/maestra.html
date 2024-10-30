@@ -147,9 +147,11 @@
                         <li><a class="dropdown-item" href="{{url_for('iniciarsesion')}}">Iniciar sesión</a></li>
                         <li><a class="dropdown-item" href="{{url_for('registrar')}}">Registrarse</a></li>
                         <li><a class="dropdown-item" href="{{url_for('perfil')}}">Perfil</a></li>
-                        <li><a class="dropdown-item" href="{{url_for('dashboardadmin')}}">Dashboard</a></li>
+                        {% if session.usuario_id and session.id_tipo == 3 %}
+                        <li><a class="dropdown-item" href="{{ url_for('dashboardadmin') }}">Dashboard</a></li>
+                        {% endif %}
                         <hr class="my-2">
-                        <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('logout') }}">Cerrar sesión</a></li>
                     </div>
                 </div>
             </div>
