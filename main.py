@@ -431,7 +431,7 @@ def procesar_pago(usuario_id):
             else:
                 estado = 1  
 
-            id_direccion = controlador_direccion.registrar_direccion_retornable(direccion, referencia, id_distrito, id_usuario, estado)
+            id_direccion = controlador_direccion.registrar_direccion_retornable(direccion, referencia, id_distrito, usuario_id, estado)
 
             if not id_direccion:
                 flash("No se pudo registrar la dirección", "error")
