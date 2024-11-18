@@ -3,7 +3,7 @@ from bd import obtener_conexion
 def insertar_color(nombre):
     conexion = obtener_conexion()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO color ( nombre) VALUES (%s)",
+        cursor.execute("INSERT INTO color (nombre) VALUES (%s)",
                        (nombre))
     conexion.commit()
     conexion.close()
